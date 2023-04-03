@@ -1,0 +1,520 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bugfish PHP-Functions Library</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish PHP-Functions Library"> <!------------------------------------>
+    <meta name="author" content="Bugfish">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
+	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/functions/x_library.html" />
+	<meta property="og:title" content="Bugfish PHP-Functions Framework" />
+	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/functions/x_library.html" />
+	<style>
+		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
+		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
+		header {  background: #242424; padding: 15px;   color:#FFFFFF; }
+
+		ul.main-menu { margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: left;list-style: none;}
+		ul.main-menu li a {margin-right:20px;font-size:2.0rem; border-bottom: solid transparent 3px; color:#cfd2da;}
+		ul.main-menu li a:hover {color:#FFFFFF;}
+		ul.main-menu li a.active { color:#FFFFFF; border-bottom-color:#ff5707;}
+
+		a { font-weight: normal; text-decoration: none;  color:#ff5707;}
+		a:hover {color: white !important;}
+		a:focus {outline: thin dotted;}
+
+		h1 {  margin-top: 0;margin-bottom: 2rem;font-weight: 300;text-rendering: optimizeLegibility;line-height: 1;font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; color:#ff5707; }
+		h2 { font-size: 18px; padding-bottom: 0px; color:#ffffff; }
+
+		.inner { padding: 15px; }
+		#headertitle { text-align: center; width: 100; font-weight: bold; }
+		.inner_section table { width: 100%;}
+		.inner_section hr { border-color: #242424;  }
+		.inner_section th { background: #454545;  }
+		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
+		.inner_section tr:hover { background:#343434; color: white;  }
+		iframe{ width: 100%; margin-bottom: -5px; }
+		footer{ background: #242424; bottom: 0px; width: 100%; max-width: 800px; padding: 15px;box-sizing: border-box; text-align: center; color:#FFFFFF;}
+	</style>
+  </head>
+  <body>
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">
+    <header id="header">
+	  
+      <h1>Bugfish PHP-Functions Library</h1> <!------------------------------------>
+      
+      <ul class="main-menu">
+        <li><a href="../../" >Home</a><a href="../">Back</a></li>
+        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
+        <li><a href="https://bugfish-fs.000webhostapp.com/impressum" target="_blank">Impressum</a></li>
+        <li><a href="https://bugfish-fs.000webhostapp.com/privacy" target="_blank">Privacy</a></li>
+      </ul>                 
+    </header>
+   
+    <div>
+             <div class="inner" style="text-align: center;"> Welcome to the bugfish framework github site!<br /> <!------------------------------------>
+			  Here some links of interests! Check out the music below if you like!</div>
+				<div class="inner inner_section" style="text-align: center;">
+
+<h1 id="function-framework">Function Framework</h1>
+<pre><code>This is <span class="hljs-keyword">a</span> <span class="hljs-built_in">set</span> <span class="hljs-keyword">of</span> functions <span class="hljs-built_in">to</span> use when building <span class="hljs-keyword">a</span> webpage.
+</code></pre><h2 id="x_library-mastered-">x_library [Mastered]</h2>
+<pre><code>This <span class="hljs-keyword">is</span> a <span class="hljs-keyword">set</span> <span class="hljs-keyword">of</span> usefull functions <span class="hljs-keyword">for</span> different purposes.
+</code></pre><table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_firstimagetext($text, $all = false)</td>
+<td>Get first Image URL from Text</td>
+</tr>
+<tr>
+<td>x_thumbnail($url, $filename, $width = 600, $height = true)</td>
+<td>Create Thumbnail from URL to Local JPG</td>
+</tr>
+<tr>
+<td>x_thumbnail_save($url,  $save_path = null, $width, $height)</td>
+<td>Create Thumbnail from URL to Local JPG without returning Object</td>
+</tr>
+<tr>
+<td>x_connection_check($host, $port, $timeout = 1)</td>
+<td>Check a Connection with fsockopeny</td>
+</tr>
+<tr>
+<td>x_inCLI()</td>
+<td>True if current script runs in CLI</td>
+</tr>
+<tr>
+<td>x_rmdir($dir)</td>
+<td>Recursive Delete Directory</td>
+</tr>
+<tr>
+<td>x_html_redirect($url, $seconds = 0)</td>
+<td>HTML Redirect</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Parameter Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_isset($val)</td>
+<td>equal to !empty</td>
+</tr>
+<tr>
+<td>x_imgValid($url)</td>
+<td>Is a valid image URL = True</td>
+</tr>
+<tr>
+<td>x_contains_cyrillic($val)</td>
+<td>(True if Cyrillic in String)</td>
+</tr>
+<tr>
+<td>x_contains_bad_word($val)</td>
+<td>(Simple Bad word Filter)</td>
+</tr>
+<tr>
+<td>x_contains_url($val)</td>
+<td>(Check if String Contains URL)</td>
+</tr>
+<tr>
+<td>x_getint($val)</td>
+<td>Get Parameter Get if Int</td>
+</tr>
+<tr>
+<td>x_postint($val)</td>
+<td>Same for Post</td>
+</tr>
+<tr>
+<td>x_get($val)</td>
+<td>Get GET Param</td>
+</tr>
+<tr>
+<td>x_post($val)</td>
+<td>Get Post Param</td>
+</tr>
+<tr>
+<td>x_hsc($string)</td>
+<td>htmlspecialchars alias</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Button Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_executionButton($db, $name, $url, $query, $get, $msgerr = &quot;Fehler!&quot;, $msgok = &quot;Erfolgreich!&quot;, $break = false, $style = &quot;&quot;)</td>
+<td>Button with Execution</td>
+</tr>
+<tr>
+<td>x_button($name, $url, $break = false, $style = &quot;&quot;, $reacttourl = true)</td>
+<td>Button Without Execution</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>EventBox Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_eventBoxPrep($text, $type = &quot;x&quot;, $precookie = &quot;&quot;, $morecss = &quot;&quot;, $buttontext = &quot;X&quot;, $imgok = false, $imgfail = false, $imgwarn = false, $imgelse = false)</td>
+<td>Prepare EventBox / Only one is Possible with this Function - text = the message   - type = error/warning/ok/[undefined] for different styles   - precookie = prestring for cookie   - morecss = tags direct inside style element of html element  -$buttontext = Text of the button to Close</td>
+</tr>
+<tr>
+<td>x_eventBoxShow($precookie = &quot;&quot;)</td>
+<td>Include at End or Start of the Page to display Eventbox Content</td>
+</tr>
+<tr>
+<td>x_eventBoxSet()</td>
+<td>True if Event Box is Prepared, False if not (Set)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>CookieBanner Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_cookieBanner($precookie = &quot;&quot;, $method = &#39;post&#39;, $text = false)</td>
+<td>Cookie Banner Post Load Banner or Get depend on Post option!</td>
+</tr>
+<tr>
+<td>x_cookieBanner_Pre($precookie = &quot;&quot;, $redirect = true)</td>
+<td>Redirect should be in Header, you can post this in Header for Redirect if someone clicks Ok Button, is optional only for post!</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>RSS Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_rss_list($urltemp, $defaultcover, $limit = 25)</td>
+<td>Get RSS As List printed with following CSS Classes - x_rss_item x_rss_title x_rss_date x_rss_image</td>
+</tr>
+<tr>
+<td>x_rss_array($urltemp)</td>
+<td>GenerateArray from RSS with items - title - link - date - img</td>
+</tr>
+</tbody>
+</table>
+<h2 id="x_captcha-mastered-">x_captcha [Mastered]</h2>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Captcha Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_captcha($preecookie = &quot;&quot;, $width = 550, $height = 250, $square_count = 5, $eclipse_count = 5, $color_ar = false, $font = &quot;&quot;, $code = &quot;&quot;)</td>
+<td>Generate Captcha Image</td>
+</tr>
+<tr>
+<td>x_captcha_key($preecookie = &quot;&quot;)</td>
+<td>Get the last Captured Captcha Key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="x_search-mastered-">x_search [Mastered]</h2>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Search Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_search($mysql (x_mysql), $table (to search), $search_fields = array(), $get_fields = array(), $search_string, $uniqueref = &quot;id&quot;)</td>
+<td>Do a Database Search with Metascore!<br />Search Fields Array Key 0 = Fieldname Array Key 1 = Hit score <br /> Get Fields will be available in Output Array <br /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="x_json_data-mastered-">x_json_data [Mastered]</h2>
+<pre><code>This <span class="hljs-keyword">is</span> a <span class="hljs-keyword">set</span> <span class="hljs-keyword">of</span> usefull functions <span class="hljs-keyword">for</span> different purposes.
+</code></pre><table>
+<thead>
+<tr>
+<th>Struct Data Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_structdata_article($publisher_name, $publisher_logo, $publisher_website, $image, $url, $title, $published_date, $modified_date)</td>
+<td>Struct Data for Article</td>
+</tr>
+<tr>
+<td>x_structdata_websoftware($publisher_name, $publisher_logo, $publisher_website, $image, $url, $title, $published_date, $modified_date)</td>
+<td>Struct Data for Websoftware</td>
+</tr>
+</tbody>
+</table>
+<h2 id="x_table-mastered-">x_table [Mastered]</h2>
+<pre><code>This <span class="hljs-keyword">is</span> a <span class="hljs-keyword">set</span> <span class="hljs-keyword">of</span> usefull functions <span class="hljs-keyword">for</span> different purposes.
+</code></pre><table>
+<thead>
+<tr>
+<th>Table Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_table_simple($array, $titlelist, $tableid = &quot;x_table_simple&quot;, $alignarray = false)</td>
+<td>Print a Simple Table</td>
+</tr>
+<tr>
+<td>x_table_complex($array, $titlelist, $formid = &quot;&quot;, $alignarray = false)</td>
+<td>Print a Complex Table with Search Function and Ordering</td>
+</tr>
+<tr>
+<td>x_table_div($array, $titlelist, $alignarray = false, $percentarray = false, $title = false)</td>
+<td>Build a Table with Divs for Responsive</td>
+</tr>
+</tbody>
+</table>
+<h1 id="xfp-functions">XFP Functions</h1>
+<pre><code>Functions <span class="hljs-keyword">for</span> Website Buildup
+</code></pre><h2 id="xfp_library-mastered-">xfp_library [Mastered]</h2>
+<table>
+<thead>
+<tr>
+<th>Runtime Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_XFP_MAIN<em>SEOVAR\</em></td>
+<td>Htaccess URL Get Variable</td>
+</tr>
+<tr>
+<td>_XFP_ADMIN<em>NAME\</em></td>
+<td>Administrator Name for Meta</td>
+</tr>
+<tr>
+<td>_XFP_ADMIN<em>MAIL\</em></td>
+<td>Administrator Mail for Meta</td>
+</tr>
+<tr>
+<td>_XFP<em>LANG\</em></td>
+<td>Language for Website (en, de) for Meta</td>
+</tr>
+<tr>
+<td>_XFP_META_TITLE<em>PRE\</em></td>
+<td>Before Meta Title</td>
+</tr>
+<tr>
+<td>_XFP_META_TITLE<em>POST\</em></td>
+<td>After Meta Title</td>
+</tr>
+<tr>
+<td>_XFP_META_DESC<em>PRE\</em></td>
+<td>Before Meta Title</td>
+</tr>
+<tr>
+<td>_XFP_META_DESC<em>POST\</em></td>
+<td>After Meta Title</td>
+</tr>
+<tr>
+<td>_XFP<em>THEME\</em></td>
+<td>Current Theme Name</td>
+</tr>
+<tr>
+<td>_XFP<em>COOKIES\</em></td>
+<td>Cookies Prefix</td>
+</tr>
+<tr>
+<td>_XFP<em>PATH\</em></td>
+<td>Path to File Document Root Folder</td>
+</tr>
+<tr>
+<td>_XFP<em>THEMESPIN\</em></td>
+<td>Random Themespin (yes/no)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Message Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xfp_etb_ok($text)</td>
+<td>Event Box</td>
+</tr>
+<tr>
+<td>xfp_etb_warning($text) (warn possitble)</td>
+<td>Event Box Function</td>
+</tr>
+<tr>
+<td>xfp_etb_error($text)</td>
+<td>Event Box Function</td>
+</tr>
+<tr>
+<td>xfp_etb_info($text)</td>
+<td>Event Box Function</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Build Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xfp_footer($text)</td>
+<td>Build Footer</td>
+</tr>
+<tr>
+<td>xfp_entry($var, $x, $level = 0)</td>
+<td>Check Location for Case in Index</td>
+</tr>
+<tr>
+<td>xfp_headline($title, $titlesec)</td>
+<td>Build Headline</td>
+</tr>
+<tr>
+<td>xfp_top_button($cssclasses = &quot;&quot;)</td>
+<td>Build Top Button below Headline</td>
+</tr>
+<tr>
+<td>xfp_return_button($cssclasses = &quot;&quot;)</td>
+<td>Build Top Back Button below Headline</td>
+</tr>
+<tr>
+<td>xfp_top_button_print($url, $cssclasses = &quot;&quot;)</td>
+<td>Print Button on Top</td>
+</tr>
+<tr>
+<td>xfp_theme()</td>
+<td>Get Current Theme Name</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Navigation Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xfp_navi_end()</td>
+<td>End of Navigation</td>
+</tr>
+<tr>
+<td>xfp_navi_start($searchpage = false&quot;, $searchparam_sc = &quot;&quot;, $navi_image = false)</td>
+<td>Start of Navigation</td>
+</tr>
+<tr>
+<td>xfp_navi_item($navname, $url, $titlealt, $level = 0, $isonempty = false)</td>
+<td>Spawn Navigation Item</td>
+</tr>
+<tr>
+<td>xfp_navi_location_seo($param = _XFP_MAIN<em>SEOVAR\</em>)</td>
+<td>Get Location</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Website Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xfp_website_create_table($mysql, $tablename, $query)</td>
+<td>Create Table if not Exists</td>
+</tr>
+<tr>
+<td>xfp_website_init($title, $meta_ext, $section)</td>
+<td>Get Object for use in settings.php of xfp-template</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Meta Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xfp_meta_error($object = false, $code = 404, $image = false, $cssarray = false, $setcode = true, $ext = &quot;&quot;, $docstart = true)</td>
+<td>Print Meta Error</td>
+</tr>
+<tr>
+<td>xfp_meta_prep($val, $maxlength = 350)</td>
+<td>Prepare Text for Meta</td>
+</tr>
+<tr>
+<td>xfp_meta($object, $title, $description, $keywords = false, $robots = false, $cssarray = false, $img = false, $formexpire =  false, $fallbackimage = false, $nocache = true, $canonical = false, $docstart = true, $ext = &quot;&quot;, $favicon = false)</td>
+<td>Write Meta Content</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+			  <header id="headertitle"><h2>BREAKBEAT</h2></header>
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eIsOHqOWCXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ 
+    </div>
+    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - contact@bugfish.eu </footer>
+  </body>
+</html>

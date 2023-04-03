@@ -1,0 +1,410 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bugfish MySQL Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish MySQL Class"> <!------------------------------------>
+    <meta name="author" content="Bugfish">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
+		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mysql.html" />
+	<meta property="og:title" content="Bugfish MySQL Class" />
+	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mysql.html" />
+	<style>
+		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
+		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
+		header {  background: #242424; padding: 15px;   color:#FFFFFF; }
+
+		ul.main-menu { margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: left;list-style: none;}
+		ul.main-menu li a {margin-right:20px;font-size:2.0rem; border-bottom: solid transparent 3px; color:#cfd2da;}
+		ul.main-menu li a:hover {color:#FFFFFF;}
+		ul.main-menu li a.active { color:#FFFFFF; border-bottom-color:#ff5707;}
+
+		a { font-weight: normal; text-decoration: none;  color:#ff5707;}
+		a:hover {color: white !important;}
+		a:focus {outline: thin dotted;}
+
+		h1 {  margin-top: 0;margin-bottom: 2rem;font-weight: 300;text-rendering: optimizeLegibility;line-height: 1;font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; color:#ff5707; }
+		h2 { font-size: 18px; padding-bottom: 0px; color:#ffffff; }
+
+		.inner { padding: 15px; }
+		#headertitle { text-align: center; width: 100; font-weight: bold; }
+		.inner_section table { width: 100%;}
+		.inner_section hr { border-color: #242424;  }
+		.inner_section th { background: #454545;  }
+		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
+		.inner_section tr:hover { background:#343434; color: white;  }
+		iframe{ width: 100%; margin-bottom: -5px; }
+		footer{ background: #242424; bottom: 0px; width: 100%; max-width: 800px; padding: 15px;box-sizing: border-box; text-align: center; color:#FFFFFF;}
+	</style>
+  </head>
+  <body>
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">
+    <header id="header">
+	  
+      <h1>Bugfish MySQL Class</h1> <!------------------------------------>
+      
+      <ul class="main-menu">
+        <li><a href="../../" >Home</a><a href="../">Back</a></li>
+        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
+        <li><a href="https://bugfish-fs.000webhostapp.com/impressum" target="_blank">Impressum</a></li>
+        <li><a href="https://bugfish-fs.000webhostapp.com/privacy" target="_blank">Privacy</a></li>
+      </ul>                 
+    </header>
+   
+    <div>
+             <div class="inner" style="text-align: center;"> Welcome to the bugfish framework github site!<br /> <!------------------------------------>
+			  Here some links of interests! Check out the music below if you like!</div>
+				<div class="inner inner_section" style="text-align: center;">
+
+<h1 id="classes-framework">Classes Framework</h1>
+<pre><code>This <span class="hljs-keyword">is</span> <span class="hljs-keyword">my</span> personal framework, feel free <span class="hljs-keyword">to</span> use <span class="hljs-keyword">it</span> <span class="hljs-keyword">as</span> you wish.  
+For help visit bugfish.eu!
+</code></pre><h2 id="x_class_mysql-mastered-">x_class_mysql [Mastered]</h2>
+<pre><code>The one <span class="hljs-keyword">and</span> only x_class_mysql <span class="hljs-keyword">by</span> bugfish! <span class="hljs-keyword">For</span> MySQL Handling.
+Sessions <span class="hljs-keyword">for</span> Query Counter / Tables (<span class="hljs-keyword">auto</span> install) <span class="hljs-keyword">for</span> Logging
+
+Needs php <span class="hljs-keyword">Module</span>: mysqli
+</code></pre><table>
+<thead>
+<tr>
+<th>Initialize Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__construct($hostname, $username, $password, $database)</td>
+<td>Construct the Class with Database Login Informations and Selected Database</td>
+</tr>
+<tr>
+<td>construct()</td>
+<td>Copy current Class Clean (Reconstructed with Auth-Info)</td>
+</tr>
+<tr>
+<td>construct_copy()</td>
+<td>Copy Current Class</td>
+</tr>
+<tr>
+<td>status()</td>
+<td>Get Status of MySQL Server Connection</td>
+</tr>
+<tr>
+<td>ping()</td>
+<td>Get Status of MySQL Server Connection</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$lasterror</td>
+<td>True if last Query was Error, False if OK</td>
+</tr>
+<tr>
+<td>$fullerror</td>
+<td>Get Full Error Array with all info Sended to Logging DB Function</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Table Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>table_exists($tablename)</td>
+<td>Exists Table?</td>
+</tr>
+<tr>
+<td>table_delete($tablename)</td>
+<td>Delete Table</td>
+</tr>
+<tr>
+<td>table_create($tablename)</td>
+<td>Create Table</td>
+</tr>
+<tr>
+<td>auto_increment($table, $value)</td>
+<td>Change Table Auto Increment Counter (after Flush for Example)</td>
+</tr>
+<tr>
+<td>table_backup($table, $filepath = false, $withdata = true, $dropstate = false)</td>
+<td>Backup a Tables Content and Creation to a File and get in Return the content of the File</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Database Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database_delete($database)</td>
+<td>Delete a Database</td>
+</tr>
+<tr>
+<td>database_create($database)</td>
+<td>Create a Database</td>
+</tr>
+<tr>
+<td>database_select($database)</td>
+<td>Select new Database for current Class Object</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Multi Query Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multi_query($query)</td>
+<td>Run a Multi Line Query</td>
+</tr>
+<tr>
+<td>multi_query_file($file)</td>
+<td>Get Content of a File and Run as Multi Line Query</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Transaction Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transaction($autocommit = false)</td>
+<td>Start Transaction</td>
+</tr>
+<tr>
+<td>rollback()</td>
+<td>Rollback inside Transaction</td>
+</tr>
+<tr>
+<td>transactionStatus()</td>
+<td>Check if there is an transaction running</td>
+</tr>
+<tr>
+<td>commit()</td>
+<td>Commit Transaction</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Config Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_on_error($bool = false)</td>
+<td>Stop Script if MySQL Gets Errors</td>
+</tr>
+<tr>
+<td>display_on_error($bool = false)</td>
+<td>Print Errors (Not Recommended for Productive Environment)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Log Config Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_disable()</td>
+<td>Disable Logging</td>
+</tr>
+<tr>
+<td>log_enable()</td>
+<td>Enable Logging - Do only after configuration log_config has been done!</td>
+</tr>
+<tr>
+<td>log_config($table = &quot;mysqllogging&quot;, $section = &quot;&quot;, $logall = false)</td>
+<td>Configure Logging and Provide Table for it and Section Optional (Logall Logs success querys)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Benchmarks Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>benchmark_get()</td>
+<td>Get Current Used Queries</td>
+</tr>
+<tr>
+<td>benchmark_config($bool = false, $preecookie = &quot;&quot;)</td>
+<td>Setup Query Benchmark and Count Queries in a Session to be obtained with benchmark_get</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Values Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row_element_increase($table, $nameidfield, $id, $increasefield, $increasevalue = 1)</td>
+<td>Increase a row by Value</td>
+</tr>
+<tr>
+<td>row_element_decrease($table, $nameidfield, $id, $decreasefield, $decreasevalue = 1)</td>
+<td>Decrease a row by Value</td>
+</tr>
+<tr>
+<td>row_get($table, $id, $row = &quot;id&quot;)</td>
+<td>Get Rull Row Single</td>
+</tr>
+<tr>
+<td>row_element_get($table, $id, $elementrow, $fallback = false, $row = &quot;id&quot;)</td>
+<td>Get Single Element of Row</td>
+</tr>
+<tr>
+<td>row_element_change($table, $id, $element, $elementrow, $row = &quot;id&quot;)</td>
+<td>Change a Row</td>
+</tr>
+<tr>
+<td>row_exist($table, $id, $row = &quot;id&quot;)</td>
+<td>Exists a Row</td>
+</tr>
+<tr>
+<td>rows_get($table, $id, $row = &quot;id&quot;)</td>
+<td>Get Rows in Array</td>
+</tr>
+<tr>
+<td>row_del($table, $id, $row = &quot;id&quot;)</td>
+<td>Delete a Row</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Misc Smart Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>escape($val)</td>
+<td>Escape a Value to be inserted in Query</td>
+</tr>
+<tr>
+<td>next_result()</td>
+<td>mysqli_next_result</td>
+</tr>
+<tr>
+<td>store_result()</td>
+<td>mysqli_store_result</td>
+</tr>
+<tr>
+<td>more_results()</td>
+<td>mysqli_more_results</td>
+</tr>
+<tr>
+<td>fetch_array($result)</td>
+<td>mysqli_fetch_array</td>
+</tr>
+<tr>
+<td>fetch_object($result)</td>
+<td>mysqli_fetch_object</td>
+</tr>
+<tr>
+<td>free_result($result)</td>
+<td>mysqli_free_result</td>
+</tr>
+<tr>
+<td>use_result()</td>
+<td>mysqli_use_result</td>
+</tr>
+<tr>
+<td>insert_id()</td>
+<td>Get Last Insert ID (May not trustable, better use insert)</td>
+</tr>
+<tr>
+<td>free_all()</td>
+<td>Free All Results in Current Mysql Object and get Back Results in Array</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Operation Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>select($query, $multiple = false, $bindarray = false, $fetch_type = MYSQLI_ASSOC)</td>
+<td><br /><br />Select Statement for Multi Purpose<br /><br />Multiple = True get Multi Array with different Rows - False get Single Array with Row<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;] = (s/i)<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+</tr>
+<tr>
+<td>query($query, $bindarray = false)</td>
+<td><br /><br />Query Statement for Multi Purpose<br /><br />Query = The Query<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+</tr>
+<tr>
+<td>insert($table, $array, $bindarray = false)</td>
+<td>Delivers Back Inserted ID - Insert Statement for Multi Purpose<br /><br />Table = Table Name to Insert<br /><br />Array = Array to be Inserted Array[fieldname] = value<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+</tr>
+<tr>
+<td>update($query, $bindarray = false)</td>
+<td>Delivers Back the Updated Affected Rows<br /><br />Update Statement for Multi Purpose<br /><br />Query = The Query<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+			  <header id="headertitle"><h2>BREAKBEAT</h2></header>
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1jjGbErLbSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				
+    </div>
+    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - contact@bugfish.eu </footer>
+  </body>
+</html>

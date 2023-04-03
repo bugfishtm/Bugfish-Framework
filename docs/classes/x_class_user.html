@@ -1,0 +1,661 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bugfish User Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish User Class"> <!------------------------------------>
+    <meta name="author" content="Bugfish">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
+			<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_user.html" />
+	<meta property="og:title" content="Bugfish User Class" />
+	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_user.html" />
+	<style>
+		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
+		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
+		header {  background: #242424; padding: 15px;   color:#FFFFFF; }
+
+		ul.main-menu { margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: left;list-style: none;}
+		ul.main-menu li a {margin-right:20px;font-size:2.0rem; border-bottom: solid transparent 3px; color:#cfd2da;}
+		ul.main-menu li a:hover {color:#FFFFFF;}
+		ul.main-menu li a.active { color:#FFFFFF; border-bottom-color:#ff5707;}
+
+		a { font-weight: normal; text-decoration: none;  color:#ff5707;}
+		a:hover {color: white !important;}
+		a:focus {outline: thin dotted;}
+
+		h1 {  margin-top: 0;margin-bottom: 2rem;font-weight: 300;text-rendering: optimizeLegibility;line-height: 1;font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; color:#ff5707; }
+		h2 { font-size: 18px; padding-bottom: 0px; color:#ffffff; }
+
+		.inner { padding: 15px; }
+		#headertitle { text-align: center; width: 100; font-weight: bold; }
+		.inner_section table { width: 100%;}
+		.inner_section hr { border-color: #242424;  }
+		.inner_section th { background: #454545;  }
+		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
+		.inner_section tr:hover { background:#343434; color: white;  }
+		iframe{ width: 100%; margin-bottom: -5px; }
+		footer{ background: #242424; bottom: 0px; width: 100%; max-width: 800px; padding: 15px;box-sizing: border-box; text-align: center; color:#FFFFFF;}
+	</style>
+  </head>
+  <body>
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">
+    <header id="header">
+	  
+      <h1>Bugfish User Class</h1> <!------------------------------------>
+      
+      <ul class="main-menu">
+        <li><a href="../../" >Home</a><a href="../">Back</a></li>
+        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
+        <li><a href="https://bugfish-fs.000webhostapp.com/impressum" target="_blank">Impressum</a></li>
+        <li><a href="https://bugfish-fs.000webhostapp.com/privacy" target="_blank">Privacy</a></li>
+      </ul>                 
+    </header>
+   
+    <div>
+             <div class="inner" style="text-align: center;"> Welcome to the bugfish framework github site!<br /> <!------------------------------------>
+			  Here some links of interests! Check out the music below if you like!</div>
+				<div class="inner inner_section" style="text-align: center;">
+
+<h1 id="classes-framework">Classes Framework</h1>
+<pre><code>This <span class="hljs-keyword">is</span> <span class="hljs-keyword">my</span> personal framework, feel free <span class="hljs-keyword">to</span> use <span class="hljs-keyword">it</span> <span class="hljs-keyword">as</span> you wish.  
+For help visit bugfish.eu!
+</code></pre><h2 id="x_class_user-mastered-">x_class_user [Mastered]</h2>
+<pre><code><span class="hljs-keyword">Class</span> <span class="hljs-keyword">to</span> control users.
+<span class="hljs-keyword">If</span> Configures <span class="hljs-keyword">uses</span> Cookies.
+<span class="hljs-keyword">Uses</span> php-sessions.  
+Needs x_class_mysql <span class="hljs-keyword">object</span> <span class="hljs-keyword">and</span> tables which are auto-installed.
+</code></pre><table>
+<thead>
+<tr>
+<th>Constructor Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__construct($mysqlcon, $table_users, $table_sessions, $preecokie = &quot;x<em>users</em>&quot;, $initial_ref = false, $initial_pass = false, $initial_rank)</td>
+<td>Construct with x_class_mysql object and Table names (will be auto-generated) Tables are for Users, Sessions. If wanted initial username(ref) and Password can be added! Will only be added on re-install of sql table (auto generated). To an inital User to be created all variables needs to be filled!</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Public Variables</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ref</td>
+<td>Array with References for Last Operation<br />Array with all Infos from corrosponding user - may &quot;token&quot; key with current useable token is existing.</td>
+</tr>
+<tr>
+<td>mail_ref_user</td>
+<td>Outdated Ref User ID to Send Mails To</td>
+</tr>
+<tr>
+<td>mail_ref_token</td>
+<td>Outdated Ref User Token to Send in Mails</td>
+</tr>
+<tr>
+<td>mail_ref_receiver</td>
+<td>Outdated Ref User Mail to Send Mails To</td>
+</tr>
+<tr>
+<td>user</td>
+<td>Array with Current User Informations from Table</td>
+</tr>
+<tr>
+<td>user_rank/rank</td>
+<td>Users Rank</td>
+</tr>
+<tr>
+<td>user_id/id</td>
+<td>User ID</td>
+</tr>
+<tr>
+<td>user_name/name</td>
+<td>User Name</td>
+</tr>
+<tr>
+<td>user_mail/mail</td>
+<td>User Mail</td>
+</tr>
+<tr>
+<td>loggedin/loggedIn/user_loggedIn/user_loggedin</td>
+<td>True if user logged in</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Reference Return Variables (outdated)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$login_request_code</td>
+<td>Return Code out of Login Functions</td>
+</tr>
+<tr>
+<td>$rec_request_code</td>
+<td>Return Code out of Recover Functions</td>
+</tr>
+<tr>
+<td>$act_request_code</td>
+<td>Return Code out of Activation Functions</td>
+</tr>
+<tr>
+<td>$mc_request_code</td>
+<td>Return Code out of Mail Change Functions</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Ajustment Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multi_login($bool = false)</td>
+<td>Allow Multi Login</td>
+</tr>
+<tr>
+<td>login_recover_drop($bool = false)</td>
+<td>Deactivate Password Reset Token on Successfull Login</td>
+</tr>
+<tr>
+<td>login_field_manual($string)</td>
+<td>Choose Custom Login Field which should be unique!</td>
+</tr>
+<tr>
+<td>login_field_user()</td>
+<td>User is for Login Primary(Unique)</td>
+</tr>
+<tr>
+<td>login_field_mail()</td>
+<td>Mail is for Login Primary(Unique)</td>
+</tr>
+<tr>
+<td>mail_unique($bool = false)</td>
+<td>Mails are unique</td>
+</tr>
+<tr>
+<td>user_unique($bool = false)</td>
+<td>Usernames are unique</td>
+</tr>
+<tr>
+<td>log_ip($bool=false)</td>
+<td>Log IPs in Session Table for All Keys</td>
+</tr>
+<tr>
+<td>log_activation($bool=false)</td>
+<td>Log Activation Session Table</td>
+</tr>
+<tr>
+<td>log_session($bool=false)</td>
+<td>Log Session Session Table</td>
+</tr>
+<tr>
+<td>log_recover($bool=false)</td>
+<td>Log Recover in Session Table</td>
+</tr>
+<tr>
+<td>log_mail_edit($bool=false)</td>
+<td>Log Mail Edits in Session Table</td>
+</tr>
+<tr>
+<td>wait_activation_min($int = 6)</td>
+<td>Activate Request Interval Minutes</td>
+</tr>
+<tr>
+<td>wait_recover_min($int = 6)</td>
+<td>Recover Request Interval Minutes</td>
+</tr>
+<tr>
+<td>wait_mail_edit_min($int = 6)</td>
+<td>Mail Edit Request Interval Minutes</td>
+</tr>
+<tr>
+<td>min_activation($int = 6)</td>
+<td>Activate Token Expire Minutes</td>
+</tr>
+<tr>
+<td>min_recover($int = 6)</td>
+<td>Recover Token Expire Minutes</td>
+</tr>
+<tr>
+<td>min_mail_edit($int = 6)</td>
+<td>Mail Edit Token Expire Minutes</td>
+</tr>
+<tr>
+<td>perm_config($table, $section)</td>
+<td>Set up Permissions Inits by Class itself (x_class_perm)</td>
+</tr>
+<tr>
+<td>autoblock($int = false)</td>
+<td>Activate Auto Block of User after X failed Logins, false for deactivate</td>
+</tr>
+<tr>
+<td>sessions_days($int = 7)</td>
+<td>Session Valid for X Days</td>
+</tr>
+<tr>
+<td>cookies_use($bool = true)</td>
+<td>Allow Use of Cookies</td>
+</tr>
+<tr>
+<td>cookies_days($int = 7)</td>
+<td>Cookies valid for X Days</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Password Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>password_gen($len = 12, $comb = &quot;abcde12345&quot;)</td>
+<td>Generate a Key with Charset[Comb String] and Length</td>
+</tr>
+<tr>
+<td>password_crypt($var, $hash = PASSWORD_BCRYPT)</td>
+<td>Crypt a Cleartext Password</td>
+</tr>
+<tr>
+<td>password_check($cleartext, $crypted)</td>
+<td>Check Crypted Password Validation</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Password Filter Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>passfilter($signs = 6, $capitals = 0, $small = 0, $special = 0, $number = 0)</td>
+<td>Setup Password Filter Check Variable</td>
+</tr>
+<tr>
+<td>passfilter_check($passclear)</td>
+<td>Check String if ok with Passfilter</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Token Config Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token_charset($charset = &quot;0123456789&quot;)</td>
+<td>Change Token Charset</td>
+</tr>
+<tr>
+<td>token_length($length = 24)</td>
+<td>Change Token Length</td>
+</tr>
+<tr>
+<td>session_length($length = 24)</td>
+<td>Change Session Length</td>
+</tr>
+<tr>
+<td>session_charset($charset = &quot;0123456789&quot;)</td>
+<td>Change Session Charset</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>User Operation Functions (relative or id)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get($id = false)</td>
+<td>Get User informations From ID</td>
+</tr>
+<tr>
+<td>exists($id = false)</td>
+<td>Check if user with id exists</td>
+</tr>
+<tr>
+<td>delete($id = false)</td>
+<td>Delete User</td>
+</tr>
+<tr>
+<td>disable_user_session($id = false)</td>
+<td>Disable a Users Session</td>
+</tr>
+<tr>
+<td>delete_user_session($id = false)</td>
+<td>Delete a Users Session</td>
+</tr>
+<tr>
+<td>change_pass($id = false, $new)<br />change_password<br />changeUserPass</td>
+<td>Change User Pass</td>
+</tr>
+<tr>
+<td>change_rank($id = false, $new)</td>
+<td>Change User Rank</td>
+</tr>
+<tr>
+<td>confirmed_user($id = false)</td>
+<td>Check User Confirmation State</td>
+</tr>
+<tr>
+<td>blocked_user($id = false)</td>
+<td>Is User Blocked?</td>
+</tr>
+<tr>
+<td>block_user($id = false)</td>
+<td>Block User</td>
+</tr>
+<tr>
+<td>unblock_user($id = false)</td>
+<td>Unblock User</td>
+</tr>
+<tr>
+<td>logout_all()</td>
+<td>Logout all Users</td>
+</tr>
+<tr>
+<td>refExists($ref)<br />ref_exists</td>
+<td>Check if ref Exists</td>
+</tr>
+<tr>
+<td>refExistsActive($ref)<br />ref_exists_active</td>
+<td>Check if Ref Exists confirmed User</td>
+</tr>
+<tr>
+<td>usernameExists($ref)<br />username_exists</td>
+<td>Check if username exists</td>
+</tr>
+<tr>
+<td>usernameExistsActive($ref)<br />username_exists_active</td>
+<td>Check if Username Exists confirmed User</td>
+</tr>
+<tr>
+<td>mailExists($ref)<br />mail_exists</td>
+<td>Check if Mail Exists</td>
+</tr>
+<tr>
+<td>mailExistsActive($ref)<br />mail_exists_active</td>
+<td>Check if Mail Exists Confirmed User</td>
+</tr>
+<tr>
+<td>delete($id)</td>
+<td>Delete a User</td>
+</tr>
+<tr>
+<td>changeUserName($id = false, $new)<br />change_name</td>
+<td>Change User Name</td>
+</tr>
+<tr>
+<td>changeUserShadowMail($id = false, $new)<br />change_shadow</td>
+<td>Change a Users Shadow Mail (Mail which is not activated Yet)</td>
+</tr>
+<tr>
+<td>changeUserMail($id = false, $new)<br />change_mail</td>
+<td>Change a Users Mail<br /><br />ATTENTION ATTENTION ATTENTION ATTENTION<br />If Mail is unique, this does delete never used, registered accounts with that mail as Shadow Mails on Users with that mail.</td>
+</tr>
+<tr>
+<td>addUser($nameref, $mail, $password = false, $rank = false, $activated = false) <br />add_user</td>
+<td>Add a New User <br /> ATTENTION ATTENTION ATTENTION ATTENTION <br /> If Mail is unique, this does delete never used, registered accounts with that mail as Shadow Mails on Users with that mail. <br /></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Extra Data Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_extra($id= false)</td>
+<td>Get extradata as array from user (You can store your own data for user here in an array if needed, there is an extradata field in users table)</td>
+</tr>
+<tr>
+<td>set_extra($id= false, $array)</td>
+<td>Set extra data from array for user (You can store your own data for user here in an array if needed, there is an extradata field in users table)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>User Extrafield Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_add_field($addstring)</td>
+<td>Add a Field to Users Database</td>
+</tr>
+<tr>
+<td>user_del_field($fieldname)</td>
+<td>Del a Field from Users Table (CAUTION that does delete data!)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>General Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>init()</td>
+<td>Init the Login with all Configs (Should run once after Configuration has been changed with adjustment functions</td>
+</tr>
+<tr>
+<td>logout()</td>
+<td>Logout the Current Logged In User</td>
+</tr>
+<tr>
+<td>login_request($ref, $pass, $cookies= false)</td>
+<td>Request Login with Reference, Pass and Want stay online? (cookies) <br />Return Code: 1 - Login Successfull <br /> Return Code: 2 -Ref does not exist <br /> Return Code: 3 - Wrong Password <br /> Return Code: 4 - User Blocked <br /> Return Code: 5 - User not confirmed <br /> Return Code: 6- Pass Wrong and User Auto-Blocked after X tries (if activated)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Check Token Validation Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activation_token_valid($user, $token)</td>
+<td>Check if Act Token Valid</td>
+</tr>
+<tr>
+<td>recover_token_valid($user, $token)</td>
+<td>Check if Recover Token Valid</td>
+</tr>
+<tr>
+<td>mail_edit_token_valid($user, $token)</td>
+<td>Check if Mail Edit Token Valid</td>
+</tr>
+<tr>
+<td>session_token_valid($user, $token)</td>
+<td>Check if Session Token Valid</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Get Expire Time for Request Functions in Seconds (Interval)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activation_request_time($user)</td>
+<td>Get Time till next Request Possible</td>
+</tr>
+<tr>
+<td>recover_request_time($user)</td>
+<td>Get Time till next Request Possible</td>
+</tr>
+<tr>
+<td>mail_edit_request_time($user)</td>
+<td>Get Time till next Request Possible</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Activation Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activation_request_id($id)</td>
+<td>Activation Requests without Interval Limits with User ID
+<p>Administrator can Request Activation for Users without Interval Checks<br />Request Activation for Account with ID (fills Ref for example Mail Sending) <br /> 1 - Successfull <br /> 2 - Ref Not Found<br /> 3 - Already Active User ID
+</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>activation_request($ref)</td>
+<td> Request Activation for Account with Ref from User  (fills Ref for example Mail Sending) <br /> 1 - Successfull <br /> 2 - Ref Not Found <br /> 3 - Interval not Reached between new Activation Requests <br /> 4 - Already Active User ID <br /> 5 - Activation for this user is blocked</p></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>activation_confirm($userid, $token, $newpass = false)</td>
+<td> Activate with Userid and Valid Token     <br /> 1 - Successfull Created<br /> 2 - Reference not Found<br /> 3 - Token Invalid<br /> 4 - Activation Blocked for this user </td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Reset Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recover_request_id($id)</td>
+<td>Recover Request for Account ID (fills Ref for example Mail Sending) <br /> 1 - Successfull Created <br /> 2 - Reference not Found</td>
+</tr>
+<tr>
+<td>recover_request($ref)</td>
+<td>Recover Request for User by Ref (fills Ref for example Mail Sending) <br /> 1 - Successfull <br /> 2 - Reference not found <br /> 3 - Interval not Reached <br /> 4 - User Blocked for Resets <br /></td>
+</tr>
+<tr>
+<td>recover_confirm($userid, $token, $newpass)</td>
+<td>Confirm Recover with new Password, Token and UseriD (fills Ref for example Mail Sending) <br /> 1 - Successfull <br /> 2 - Reference not found <br /> 3 - Token Error <br /> 4 - User Blocked for Resets</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Mail Edit Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mail_edit($id, $newmail, $nointervall = false)</td>
+<td>Create New Shadow Mail <br /> 1 - Success <br /> 2 - Reference Not Found <br /> 3 - Interval for new Request not Reached <br /> 4 - Mail Exists <br /> 5 - User Blocked for Mail Change <br /></td>
+</tr>
+<tr>
+<td>mail_edit_confirm($userid, $token, $run = true)</td>
+<td>Confirm Mail Edit <br /> 1 - Success <br /> 2 - Reference Not Found <br /> 3 - Token Expired <br /> 4 - Mail Exists Shadow Removed in Meantime <br /> 5 - User Blocked for Mail Change <br /> 6 - Change User Mail Function Error / Mail Exists or is already for User</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Display Function (optional)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>display_return_code</td>
+<td>Contains Return Codes<br />empty - Missing Fields <br >expired - CSRF Error <br >blocked - user blocked for operation <br >interval - interval time not reached <br >unknown - user ref unknown <br> ok - done success</td>
+</tr>
+<tr>
+<td>display_return_type</td>
+<td>Contains Return Type (error, warning, info, ok)</td>
+</tr>
+<tr>
+<td>display_recover($title, $backbuttonurl = false,<br /> $reference = &quot;Mail&quot;, $buttonstring = &quot;Reset Password&quot;, $buttonbackstring = &quot;Back to Login&quot;)</td>
+<td>Display Recover Password with Ref Form</td>
+</tr>
+<tr>
+<td>display_login($registerbuttonurl = false,<br /> $registerbuttonstring = &quot;Register&quot;,<br /> $cookiecheckbox = false, $resetbuttonurl = false,<br /> $resetbuttonstring = &quot;Reset&quot;,  $title = &quot;Login&quot;,<br /> $label = &quot;E-Mail&quot;)</td>
+<td>Display Login Form <br> ok - Success <br /> expired - CSRF Error <br > blocked - User blocked  <br > unconfirmed - user not confirmed <br > unknown - user ref unknown <br> wrongpass - wrong password</td>
+</tr>
+<tr>
+<td>display_reset($title = &quot;Reset&quot;, <br />$backbuttonurl = false, <br />$buttonbackstring = &quot;Back to Login&quot;)</td>
+<td>Reset Password <br /> ok - success <br />unknown - ref Unknown <br />interval - Token Not Valid <br /> blocked - user blocked for reset <br />passmatch - Passwords do not match <br /> expired - CSRF error</td>
+</tr>
+<tr>
+<td>display_register_unique_mail($title = &quot;Reset&quot;,<br /> $backbuttonurl = false,<br /> $buttonbackstring = &quot;Back to Login&quot;,<br /> $needusername = false, $captchaurl = false,<br /> $captchakey = false, $rank = 0,<br /> $confirmed = 0)</td>
+<td>Display Register Form <br /> ok - success <br /> empty - missing fields <br /> expired - csrf error <br />error - user mail already registered</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+			  <header id="headertitle"><h2>PHONK</h2></header>
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/O6WfeUYzCQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - contact@bugfish.eu </footer>
+  </body>
+</html>

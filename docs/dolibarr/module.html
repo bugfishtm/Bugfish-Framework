@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bugfish Framework Dolibarr Module</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Framework Dolibarr Module"> <!------------------------------------>
+    <meta name="author" content="Bugfish">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
+	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/dolibarr/modules.html" />
+	<meta property="og:title" content="Bugfish Dolibarr Framework Module" />
+	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/dolibarr/modules.html" />
+	<style>
+		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
+		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
+		header {  background: #242424; padding: 15px;   color:#FFFFFF; }
+
+		ul.main-menu { margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: left;list-style: none;}
+		ul.main-menu li a {margin-right:20px;font-size:2.0rem; border-bottom: solid transparent 3px; color:#cfd2da;}
+		ul.main-menu li a:hover {color:#FFFFFF;}
+		ul.main-menu li a.active { color:#FFFFFF; border-bottom-color:#ff5707;}
+
+		a { font-weight: normal; text-decoration: none;  color:#ff5707;}
+		a:hover {color: white !important;}
+		a:focus {outline: thin dotted;}
+
+		h1 {  margin-top: 0;margin-bottom: 2rem;font-weight: 300;text-rendering: optimizeLegibility;line-height: 1;font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; color:#ff5707; }
+		h2 { font-size: 18px; padding-bottom: 0px; color:#ffffff; }
+
+		.inner { padding: 15px; }
+		#headertitle { text-align: center; width: 100; font-weight: bold; }
+		.inner_section table { width: 100%;}
+		.inner_section hr { border-color: #242424;  }
+		.inner_section th { background: #454545;  }
+		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
+		.inner_section tr:hover { background:#343434; color: white;  }
+		iframe{ width: 100%; margin-bottom: -5px; }
+		footer{ background: #242424; bottom: 0px; width: 100%; max-width: 800px; padding: 15px;box-sizing: border-box; text-align: center; color:#FFFFFF;}
+	</style>
+  </head>
+  <body>
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">
+    <header id="header">
+	  
+      <h1>Bugfish Framework Dolibarr Module</h1> <!------------------------------------>
+      
+      <ul class="main-menu">
+        <li><a href="../../" >Home</a><a href="../">Back</a></li>
+        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
+        <li><a href="https://bugfish-fs.000webhostapp.com/impressum" target="_blank">Impressum</a></li>
+        <li><a href="https://bugfish-fs.000webhostapp.com/privacy" target="_blank">Privacy</a></li>
+      </ul>                 
+    </header>
+   
+    <div>
+             <div class="inner" style="text-align: center;"> Welcome to the bugfish framework github site!<br /> <!------------------------------------>
+			  Here some links of interests! Check out the music below if you like!</div>
+				<div class="inner inner_section" style="text-align: center;">
+
+
+<h1 id="dolibarr-module">Dolibarr Module</h1>
+<pre><code><span class="hljs-keyword">in</span> Repository Folder[_dolimodule]
+A Module wich can be installed <span class="hljs-keyword">on</span> dolibarr <span class="hljs-keyword">to</span> make this framework
+available <span class="hljs-keyword">in</span> code <span class="hljs-keyword">for</span> Development. It has <span class="hljs-keyword">some</span> additional
+extra functions like a changelog <span class="hljs-keyword">for</span> different areas <span class="hljs-keyword">and</span> more <span class="hljs-keyword">for</span>
+debugging! 
+</code></pre><h2 id="xframework-934285-">xframework [934285]</h2>
+<pre><code>This is <span class="hljs-keyword">a</span> Dolibarr Module <span class="hljs-built_in">to</span> <span class="hljs-built_in">include</span> <span class="hljs-keyword">the</span> Framework <span class="hljs-keyword">into</span> Dolibarr
+<span class="hljs-keyword">with</span> some additional Functions.
+</code></pre><h2 id="general-information">General information</h2>
+<p>The classes and functions from the framework are always integrated, the module does not have to be active for this, only the adaptation of conf.php has to be made for this. However, the module should be active for logging and views to work.</p>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Upload and install the module in Dolibarr.</li>
+<li><p>Adjust the Dolibarr config file (etc/dolibarr/conf.php) and add the following at the end:</p>
+<pre><code> <span class="hljs-keyword">if</span>(file_exists(“<span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/dolibarr/</span>htdocs<span class="hljs-regexp">/custom/</span>xframework<span class="hljs-regexp">/remote/</span>loader.php”)) {
+ require_once(“<span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/dolibarr/</span>htdocs<span class="hljs-regexp">/custom/</span>xframework<span class="hljs-regexp">/remote/</span>loader.php”);
+ }
+</code></pre></li>
+</ol>
+<h2 id="module-areas">Module-Areas</h2>
+<h3 id="trigger-and-object-logging">Trigger and Object Logging</h3>
+<p>Triggers and object information related to that trigger are intercepted and can be viewed in the Triggers section under Utilities in the xFramework menu item.</p>
+<h3 id="javascript-error-logging">Javascript Error Logging</h3>
+<p>Javascript errors caused by users can be viewed in the log under Utilities -&gt; xFramework -&gt; Javascript Loggin.</p>
+<h3 id="mysql-error-logging">MySQL Error Logging</h3>
+<pre><code>Only logging querys used <span class="hljs-keyword">with</span> x_class_mysql.
+</code></pre><p>MySQL error messages that arose when using the x_class_mysql can be viewed in the section under Utilities in the menu item xFramework.</p>
+<h3 id="changelog-for-different-areas">Changelog for different Areas</h3>
+<p>The following areas are intercepted: facture bank_account facture_fourn commande propal user societe product orderpicking expedition supplier_proposal commande_fournisseur fichinter [These are the $ref] - Changes to the respective areas can be viewed under Utilities - xFramework - Process logs if you have the respective rights.</p>
+<p>The following fields are ignored: tms rowid
+Fields are marked with the following prefix for functions: mn<em> [main table] xt</em> [extrafield]</p>
+<h2 id="module-functions">Module-Functions</h2>
+<h3 id="fast-mysql-mail-object-and-integration-of-js-functions">Fast MySQL/Mail object and integration of JS functions</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_c_mysql()</td>
+<td>Create a Quick xMysql Object without Credentials</td>
+</tr>
+<tr>
+<td>x_c_mail($host, $port, $auth, $user, $pass, $from_name, $from_mail)</td>
+<td>Create a Quick xMailer Object, Host: example.de, port: 25/587/465, Auth: tls/ssl /false, User: username, Pass: pass, From_name: Sender Name, From_Mail: Sender Mail</td>
+</tr>
+<tr>
+<td>x_l_js()</td>
+<td>Load Content of Javascript Functions for JS Files</td>
+</tr>
+</tbody>
+</table>
+<h3 id="function-for-triggers-to-check-for-changes">Function for Triggers to check for Changes</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d_get_change(\$db, $refid, $ref, $fieldname)</td>
+<td>Get Array with x[from] x[to] else is false if error, maybe if this is a new process, Db -&gt; doli db object, $refid -&gt; id of current object, $ref -&gt; table element, $fieldname -&gt; database fieldname to check</td>
+</tr>
+<tr>
+<td>d_is_change(\$db, $refid, $ref, $fieldname)</td>
+<td>True if changed, False if not changed may error if this is first time this ref is added in database, Db -&gt; doli db object, $refid -&gt; id of current object, $ref -&gt; table element, $fieldname -&gt; database fieldname to check</td>
+</tr>
+</tbody>
+</table>
+<h3 id="function-to-write-message-to-module-messages-area">Function to write Message to Module Messages Area</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d_message($db, $modulename, $message)</td>
+<td>Write something to the modules message area, Db: db object from MITEC<br /><br />message: Message you want to provide (filter if needed with $db-&gt;escape())<br /><br /> modulename: the name under which section the message appears in the message overview</td>
+</tr>
+</tbody>
+</table>
+<h2 id="permissions">Permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Default Activated</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>readchangelogs</td>
+<td>No</td>
+<td>View Change Logging</td>
+</tr>
+<tr>
+<td>readtriggers</td>
+<td>No</td>
+<td>View Trigger Logging</td>
+</tr>
+<tr>
+<td>readjs</td>
+<td>No</td>
+<td>View Javascript Logging</td>
+</tr>
+<tr>
+<td>readmysql</td>
+<td>No</td>
+<td>View MySQL Logging</td>
+</tr>
+<tr>
+<td>readmsg</td>
+<td>No</td>
+<td>View Messages Logging</td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-settings">Module settings</h2>
+<p>Module settings and initialization that should be performed on first start (once for each section) can be set in the module activation page at the xFramework module under the cogwheel. (Admin rights required!)</p>
+<h1 id="issues">Issues</h1>
+<p>If you encounter issues or have questions using this software, do not hesitate write us at our Forum on www.bugfish.eu !</p>
+<h1 id="license">License</h1>
+<pre><code><span class="hljs-keyword">For</span> License Informations see License.<span class="hljs-built_in">md</span>
+</code></pre>
+</div>
+
+
+			  <header id="headertitle"><h2>NBSPLV</h2></header>
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/StPPQgdPX-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ 
+    </div>
+    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - contact@bugfish.eu </footer>
+  </body>
+</html>

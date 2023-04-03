@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bugfish Javascript Framework</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Javascript Framework"> <!------------------------------------>
+    <meta name="author" content="Bugfish">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
+	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/javascript/xjs_library.html" />
+	<meta property="og:title" content="Bugfish Javascript Framework" />
+	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/javascript/xjs_library.html" />
+	<style>
+		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
+		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
+		header {  background: #242424; padding: 15px;   color:#FFFFFF; }
+
+		ul.main-menu { margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: left;list-style: none;}
+		ul.main-menu li a {margin-right:20px;font-size:2.0rem; border-bottom: solid transparent 3px; color:#cfd2da;}
+		ul.main-menu li a:hover {color:#FFFFFF;}
+		ul.main-menu li a.active { color:#FFFFFF; border-bottom-color:#ff5707;}
+
+		a { font-weight: normal; text-decoration: none;  color:#ff5707;}
+		a:hover {color: white !important;}
+		a:focus {outline: thin dotted;}
+
+		h1 {  margin-top: 0;margin-bottom: 2rem;font-weight: 300;text-rendering: optimizeLegibility;line-height: 1;font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; color:#ff5707; }
+		h2 { font-size: 18px; padding-bottom: 0px; color:#ffffff; }
+
+		.inner { padding: 15px; }
+		#headertitle { text-align: center; width: 100; font-weight: bold; }
+		.inner_section table { width: 100%;}
+		.inner_section hr { border-color: #242424;  }
+		.inner_section th { background: #454545;  }
+		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
+		.inner_section tr:hover { background:#343434; color: white;  }
+		iframe{ width: 100%; margin-bottom: -5px; }
+		footer{ background: #242424; bottom: 0px; width: 100%; max-width: 800px; padding: 15px;box-sizing: border-box; text-align: center; color:#FFFFFF;}
+	</style>
+  </head>
+  <body>
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">
+    <header id="header">
+	  
+      <h1>Bugfish Javascript Framework</h1> <!------------------------------------>
+      
+      <ul class="main-menu">
+        <li><a href="../../" >Home</a><a href="../">Back</a></li>
+        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
+        <li><a href="https://bugfish-fs.000webhostapp.com/impressum" target="_blank">Impressum</a></li>
+        <li><a href="https://bugfish-fs.000webhostapp.com/privacy" target="_blank">Privacy</a></li>
+      </ul>                 
+    </header>
+   
+    <div>
+             <div class="inner" style="text-align: center;"> Welcome to the bugfish framework github site!<br /> <!------------------------------------>
+			  Here some links of interests! Check out the music below if you like!</div>
+				<div class="inner inner_section" style="text-align: center;">
+
+
+
+<h1 id="javascript-framework">Javascript Framework</h1>
+<pre><code>This files can be included <span class="hljs-keyword">in</span> javascript files
+to make theire <span class="hljs-keyword">function</span> <span class="hljs-title">set</span> available! This <span class="hljs-keyword">is</span> meant <span class="hljs-keyword">for</span> 
+easier <span class="hljs-keyword">and</span> faster javascript development <span class="hljs-keyword">with</span> help <span class="hljs-keyword">of</span> this 
+functions.
+</code></pre><h2 id="xjs_library-mastered-">xjs_library [Mastered]</h2>
+<table>
+<thead>
+<tr>
+<th>URL Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xjs_get(parameterName)</td>
+<td>Function to get GET Parameters Value in current URL in Adress Bar</td>
+</tr>
+<tr>
+<td>xjs_in_url(parameterName)</td>
+<td>Search for A String in Current URL / True if Found / False if Not</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Hode/Show Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xjs_hide_id(id)</td>
+<td>Hide Object with ID</td>
+</tr>
+<tr>
+<td>xjs_show_id(id)</td>
+<td>Show Object with ID</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Validate Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xjs_is_email(email)</td>
+<td>Check if a String is a Valid Mail Adr</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Generate Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xjs_genkey(length = 12, charset = &quot;abcdefghijk lmnopqrstuvwxyzABCDEFGHIJ KLMNOPQRSTUVWXYZ0123456789&quot;)</td>
+<td>Generates and Returns a Key</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Popup Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xjs_popup(var_text, var_entrie = &quot;Close&quot;)</td>
+<td>Generate a Quick Popup which needs CSS Desiging with id = xjs_popup / xjs_popup_inner / xjs_popup_close</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+			  <header id="headertitle"><h2>SCENE</h2></header>
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zeDTzH0kVbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ 
+    </div>
+    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - contact@bugfish.eu </footer>
+  </body>
+</html>
