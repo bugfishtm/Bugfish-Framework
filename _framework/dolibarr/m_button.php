@@ -16,4 +16,3 @@
 			if($db->query($query)) { setEventMessage($msgok, "mesgs"); } else { setEventMessage($msgerr, "mesgs"); } 
 			$url = str_replace("?".$get."=x&", "?", $url); $url = str_replace("&".$get."=x", "", $url); 
 			print '<meta http-equiv="refresh" content="0; url='.$url.'">';exit();}}	
-?>

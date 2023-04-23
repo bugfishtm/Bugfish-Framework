@@ -11,7 +11,7 @@
 	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework" />
 	<meta property="og:title" content="Android Web-App Example" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework" />
-	<meta property="og:image" content="./meta.png" />
+	<meta property="og:image" content="./meta.jpg" />
 	<style>
 		html { font-size: 62.5%; background: url(bg.jpg); background-size:100%;}
 		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
@@ -50,57 +50,67 @@
         <li><a href="../" >Home</a></li>
         <li><a href="#" style="color: white;">Framework</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
-        <li><a href="https://bugfish-fs.000webhostapp.com/impressum" target="_blank">Impressum</a></li>
-        <li><a href="https://bugfish-fs.000webhostapp.com/privacy" target="_blank">Privacy</a></li>
+        <li><a href="./impressum.html" target="_blank">Impressum</a></li>
+        <li><a href="./privacy.html">Privacy</a></li>
       </ul>                 
     </header>
-   
+    <a href="#header"><div style="z-index:1000; !important; background: black; position: fixed; top: 5px; right: 5px; width: 110px; height: 30px;font-size: 16px;padding: 5px;border-radius: 5px;cursor: pointer;"><b>^ Back to Top</b></div></a>  
     <div>
 
 				<!------------------------------------>
 				
 				
 			  <header id="headertitle"><h2>PHP-CLASSES DOCUMENTATIONS</h2></header><div class="inner">
+			  A Crown means that a class/function/library is at ongoing development. <br />
+			  A Green Checkmark means the class/function/library is ready for productive use!
 			  <ul>
-				<li><a href="./classes/x_class_block.html"  rel="noopener">x_class_block</a></li>
-				<li><a href="./classes/x_class_bugcrypt.html"  rel="noopener">x_class_bugcrypt</a></li>
-				<li><a href="./classes/x_class_comment.html"  rel="noopener">x_class_comment</a></li>
-				<li><a href="./classes/x_class_csrf.html"  rel="noopener">x_class_csrf</a></li>
-				<li><a href="./classes/x_class_curl.html"  rel="noopener">x_class_curl</a></li>
-				<li><a href="./classes/x_class_debug.html"  rel="noopener">x_class_debug</a></li>
-				<li><a href="./classes/x_class_hitcounter.html"  rel="noopener">x_class_hitcounter</a></li>
-				<li><a href="./classes/x_class_ipbl.html"  rel="noopener">x_class_ipbl</a></li>
-				<li><a href="./classes/x_class_log.html"  rel="noopener">x_class_log</a></li>
-				<li><a href="./classes/x_class_mail.html"  rel="noopener">x_class_mail</a></li>
-				<li><a href="./classes/x_class_mail_template.html"  rel="noopener">x_class_mail_template</a></li>
-				<li><a href="./classes/x_class_mysql.html"  rel="noopener">x_class_mysql</a></li>
-				<li><a href="./classes/x_class_perm.html"  rel="noopener">x_class_perm</a></li>
-				<li><a href="./classes/x_class_redis.html"  rel="noopener">x_class_redis</a></li>
-				<li><a href="./classes/x_class_referer.html"  rel="noopener">x_class_referer</a></li>
-				<li><a href="./classes/x_class_user.html"  rel="noopener">x_class_user</a></li>
-				<li><a href="./classes/x_class_var.html"  rel="noopener">x_class_var</a></li>
+				<li>✔️ <a href="./classes/x_class_nextcloud.html"  rel="noopener">x_class_nextcloud</a></li> ( Class for some Nextcloud API Requests, works together with x_class_curl )
+				<li>✔️ <a href="./classes/x_class_block.html"  rel="noopener">x_class_block</a></li> ( Class for Session Based User Counting Block Operations )
+				<li>✔️ <a href="./classes/x_class_comment.html"  rel="noopener">x_class_comment</a></li> ( Class for Commenting Section like in use for Guestbook or Website Commenting Areas! )
+				<li>✔️ <a href="./classes/x_class_csrf.html"  rel="noopener">x_class_csrf</a></li> ( CSRF Class for Form Security, supports external actions )
+				<li>✔️ <a href="./classes/x_class_curl.html"  rel="noopener">x_class_curl</a></li> ( Class to make Curl Requests )
+				<li>✔️ <a href="./classes/x_class_debug.html"  rel="noopener">x_class_debug</a></li> ( Class with some Debugging and Requirement Notification Functions )
+				<li>✔️ <a href="./classes/x_class_hitcounter.html"  rel="noopener">x_class_hitcounter</a></li> ( Website Visitor Counting Class per Page URL )
+				<li>✔️ <a href="./classes/x_class_ipbl.html"  rel="noopener">x_class_ipbl</a></li> ( IP Blacklisting Class )
+				<li>✔️ <a href="./classes/x_class_log.html"  rel="noopener">x_class_log</a></li> ( Class for Logging Operations ) 
+				<li>✔️ <a href="./classes/x_class_mail.html"  rel="noopener">x_class_mail</a></li> ( Class for Mail Sending Operations with Subclass "x_class_mail_item" for Sending Operation Items)
+				<li>✔️ <a href="./classes/x_class_mail_template.html"  rel="noopener">x_class_mail_template</a></li> ( Class for Creating Mail Templates with Substitutions and Footer/Header, can be used in combination with x_class_mail )
+				<li>✔️👑 <a href="./classes/x_class_mysql.html"  rel="noopener">x_class_mysql</a></li> ( MySQL Class for Operations and more features! )
+				<li>✔️ <a href="./classes/x_class_perm.html"  rel="noopener">x_class_perm</a></li> ( Class to control Permissions for Users )
+				<li>✔️ <a href="./classes/x_class_redis.html"  rel="noopener">x_class_redis</a></li> ( Redis Control Class )
+				<li>✔️ <a href="./classes/x_class_referer.html"  rel="noopener">x_class_referer</a></li> ( Class to Log Visitors Referers )
+				<li>✔️ <a href="./classes/x_class_crypt.html"  rel="noopener">x_class_crypt</a></li> ( Class to crypt files and strings... )
+				<li>✔️ <a href="./classes/x_class_zip.html"  rel="noopener">x_class_zip</a></li> ( Class to zip and unzip files. Can be used together with x_class_crypt to directly crypt and decrypt files! )
+				<li>✔️👑 <a href="./classes/x_class_user.html"  rel="noopener">x_class_user</a></li> ( Class to Create different Types of Users Logins, fully functional with Recover Operation, Mail Edit with Token Operations and much more! )
+				<li>✔️ <a href="./classes/x_class_var.html"  rel="noopener">x_class_var</a></li> ( Class to control Setup Variables to use in site, comes with a function to create forms to change that values! )
+				<li>✔️ <a href="./classes/x_class_lang.html"  rel="noopener">x_class_lang</a></li> ( Class to control language translation for multi language websites! )
+				<li>✔️ <a href="./classes/x_class_api.html"  rel="noopener">x_class_api</a></li> ( Class to make simple and secured api requests! )
 			  </ul></div>
 			  
 			  
 			  <header id="headertitle"><h2>MISC DOCUMENTATIONS</h2></header><div class="inner">
+			  A Crown means that a class/function/library is at ongoing development. <br />
+			  A Green Checkmark means the class/function/library is ready for productive use!
 			  <ul>
-					<li><a href="./functions/x_library.html" rel="noopener">PHP Functions Library</a></li>
-					<li><a href="./javascript/xjs_library.html" rel="noopener">Javascript Functions Library</a></li>
-					<li><a href="./css/css_library.html" rel="noopener">CSS Library</a></li>
-					<li><a href="./dolibarr/module.html" rel="noopener">Dolibarr Module</a></li>
-					<li><a href="./dolibarr/m_library.html" rel="noopener">Dolibarr Library</a></li>
+					<li>✔️ <a href="./functions/x_library.html" rel="noopener">PHP Functions Library</a></li> ( PHP Function Library which may be useful, with Functions for fast Website Deployment )
+					<li>✔️ <a href="./javascript/xjs_library.html" rel="noopener">Javascript Functions Library</a></li> ( Javascript Functions which may be useful)
+					<li>✔️ <a href="./css/css_library.html" rel="noopener">CSS Library</a></li> ( CSS Library with Classes for faster Development)
+					<li>✔️ <a href="./dolibarr/module.html" rel="noopener">Dolibarr Module</a></li> (Bugfish Framework Dolibarr Module)
+					<li>✔️ <a href="./dolibarr/m_library.html" rel="noopener">Dolibarr Library</a></li> (m_mastertable in development)
 			  </ul></div>
 			 
 			  <!------------------------------------>
 
-			  <header id="headertitle"><h2>INDUSTRIAL</h2></header>
-				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RQoVHqveQ98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			  <header id="headertitle"><h2>TRAP</h2></header>
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1e_g7Y0-F90" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 				
 			  <header id="headertitle"><h2>GITHUB REPOSITORIES</h2></header><div class="inner">
 			  <ul>		
 				<li><a href="https://github.com/bugfishtm/bugfish-hive" rel="noopener" target="_blank">Bugfish-Hive</a></li>			  
 				<li><a href="https://github.com/bugfishtm/bugfish-framework" rel="noopener" target="_blank">Bugfish-Framework</a></li>
 				<li><a href="https://github.com/bugfishtm/Bind9-Web-Manager" rel="noopener" target="_blank">Bind9 Web Manager</a></li>
+				<li><a href="https://github.com/bugfishtm/Simple-Web-Chatbot" rel="noopener" target="_blank">Simple-Web-Chatbot</a></li>
+				<li><a href="https://github.com/bugfishtm/Dovecot-Certificate-Interface" rel="noopener" target="_blank">Dovecot-Certificate-Interface</a></li>
 				<li><a href="https://github.com/bugfishtm/Android-Web-App-Example" rel="noopener" target="_blank">Android Web App Example</a></li>
 				<li><a href="https://github.com/bugfishtm/Mail-Relaying-over-DNS" rel="noopener" target="_blank">Mail Relaying over DNS</a></li>
 				<li><a href="https://github.com/bugfishtm/bugfishtm.github.io" rel="noopener" target="_blank">This Github Page</a></li>
@@ -125,21 +135,10 @@
 				<li><a href="https://www.deviantart.com/bxgfxsh" target="_blank" rel="noopener">DeviantArt</a></li>
 				<li><a href="https://jan-maurice-dahlmanns.de" target="_blank" rel="noopener">About Me</a></li>
 			  </ul></div>
-			  <header id="headertitle"><h2>AFTERLIFE</h2></header>
-				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UBSKSIxnGjI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>	  
-			  
-			 <header id="headertitle"><h2>GITHUB PROJECTS</h2></header><div class="inner">
-			  <ul>
-				<li><a href="https://dnshttps.bugfish.eu" target="_blank" rel="noopener">Bind9 Web Manger</a></li>
-				<li><a href="https://mrod.bugfish.eu" target="_blank" rel="noopener">Mail Relaying over DNS</a></li>
-				<li><a href="https://framework.bugfish.eu" target="_blank" rel="noopener">Bugfish Framework</a></li>
-				<li><a href="https://deadseven.bugfish.eu" target="_blank" rel="noopener">Deadseven Website</a></li>
-				<li><a href="https://game.bugfish.eu" target="_blank" rel="noopener">Deadseven Browsergame</a></li>
-			  </ul></div>
 			  <header id="headertitle"><h2>RAP</h2></header>
-				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vDjaxGXrb5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IMjVeMdSr0I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>	  
  
     </div>
-    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - contact@bugfish.eu </footer>
+    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu/aboutme" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - <a href="mailto:contact@bugfish.eu">contact@bugfish.eu</a> </footer>
   </body>
 </html>

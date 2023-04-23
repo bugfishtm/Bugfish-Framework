@@ -52,14 +52,14 @@
 		// Table Init
 		private function create_table() {
 			$this->l_mysql->query("CREATE TABLE IF NOT EXISTS `".$this->l_table."` (
-											  `id` int NOT NULL AUTO_INCREMENT COMMENT 'Identificator',
+											  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Identificator',
 											  `receiver` text DEFAULT NULL COMMENT 'Mail Receiver Serialized',
 											  `bcc` text DEFAULT NULL COMMENT 'Mail BCC Serialized',
 											  `cc` text DEFAULT NULL COMMENT 'Mail CC Serialized',
 											  `attach` text DEFAULT NULL COMMENT 'Mail Attachments Serialized',
 											  `subject` varchar(512) DEFAULT NULL COMMENT 'Mail Subject',
 											  `msgtext` text COMMENT 'Mail Text',
-											  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation',
+											  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date | Auto - Set',
 											  `success` tinyint(1) DEFAULT NULL COMMENT '1 - Mail OK Sended | Else - Mail Error',
 											  `debugmsg` text COMMENT 'Debug Message',
 											  `section` varchar(64) DEFAULT NULL COMMENT 'Related Section',
@@ -325,4 +325,3 @@
 			return $this->x_class_mail->mail($subject, $content, $this->receiver, $this->cc, $this->bcc, $this->attachment, $this->settings);
 		}
 	}
-?>

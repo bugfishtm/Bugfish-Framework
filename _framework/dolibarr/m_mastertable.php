@@ -313,4 +313,3 @@ Currenturl is for url forward on sort arrows or search fields
 			}
 		}
 	}		
-?>

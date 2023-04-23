@@ -1012,4 +1012,3 @@ class x_class_user {
 		}	
 	
 	}
-?>

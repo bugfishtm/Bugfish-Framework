@@ -74,4 +74,3 @@
 						$t_r_count	=	$t_r_count	+ 1;$didfound = true;}print '</tr>';}}
 			if(!$didfound) {print '<tr class="oddeven"><td colspan="'.$colspan.'" style="text-align: center"><i>Keine Daten vorhanden...</i></td></tr>';}}
 		print '</table></form>';}	
-?>

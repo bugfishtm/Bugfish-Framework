@@ -103,7 +103,9 @@
 	/* ################################################################## */
 	/* Display
 	/* ################################################################## */
-	.xfpe_dinline { display: inline-block; }
+	.xfpe_dispinlineblock { display: inline-block; }
+	.xfpe_dispinline { display: inline; }
+	.xfpe_dispblock { display: block; }
 	
 	/* ################################################################## */
 	/* Margin

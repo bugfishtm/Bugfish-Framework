@@ -40,34 +40,33 @@
 	</style>
   </head>
   <body>
-<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div style="z-index:1000; !important; background: black; position: fixed; top: 5px; right: 5px; width: 110px; height: 30px;font-size: 16px;padding: 5px;border-radius: 5px;cursor: pointer;"><b>^ Back to Top</b></div></a>  
     <header id="header">
 	  
       <h1>Bugfish IPBL Class</h1> <!------------------------------------>
       
       <ul class="main-menu">
-        <li><a href="../../" >Home</a><a href="../">Framework</a><a href="#" style="color: white;">Manual</a></li>
+        <li><a href="../../index.html" >Home</a><a href="../index.html">Framework</a><a href="#" style="color: white;">Manual</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
-        <li><a href="https://bugfish-fs.000webhostapp.com/impressum" target="_blank">Impressum</a></li>
-        <li><a href="https://bugfish-fs.000webhostapp.com/privacy" target="_blank">Privacy</a></li>
+        <li><a href="../impressum.html">Impressum</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
       </ul>                 
     </header>
    
     <div>
 
-				<div class="inner inner_section" style="text-align: center;">
-
-
-
-<pre><code>This <span class="hljs-keyword">is</span> <span class="hljs-keyword">my</span> personal framework, feel free <span class="hljs-keyword">to</span> use <span class="hljs-keyword">it</span> <span class="hljs-keyword">as</span> you wish.  
-For help visit bugfish.eu!
-</code></pre><h2 id="x_class_ipbl-mastered-">x_class_ipbl [Mastered]</h2>
-<pre><code><span class="hljs-keyword">Class</span> <span class="hljs-keyword">to</span> control IP Blacklistings
+				<div class="inner inner_section" style="text-align: left;">
+<h2 id="x_class_ipbl-mastered-">x_class_ipbl </h2>
+<span class="hljs-keyword">Class</span> <span class="hljs-keyword">to</span> control IP Blacklistings
 Needs x_class_mysql object! Tables will be auto-installed upon first run.
 
 <span class="hljs-keyword">To</span> reset the blacklist, you should <span class="hljs-keyword">add</span> a cronjob which deletes all entries <span class="hljs-keyword">of</span>
 the related created tables which <span class="hljs-keyword">has</span> been specified <span class="hljs-keyword">in</span> the <span class="hljs-function"><span class="hljs-keyword">constructor</span>! </span>
-</code></pre><table>
+
+
+<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
+✔️ Productive - Ready<br /><br /></div>
+<table>
 <thead>
 <tr>
 <th>Function</th>
@@ -119,11 +118,15 @@ the related created tables which <span class="hljs-keyword">has</span> been spec
 <tbody>
 <tr>
 <td>get_counter($renew = false)</td>
-<td>Check for Current Counter State and Renew from Database if needed!</td>
+<td>Get Current Sesseion IPs Fail ounter (Renew means Update from Database)!</td>
 </tr>
 <tr>
 <td>counter($renew = false)</td>
-<td>Alias</td>
+<td>Alias of get_counter</td>
+</tr>
+<tr>
+<td>ip_counter($ip)</td>
+<td>Get Failure Count for an IP</td>
 </tr>
 </tbody>
 </table>
@@ -150,11 +153,9 @@ the related created tables which <span class="hljs-keyword">has</span> been spec
 </div>
 
 
-			  <header id="headertitle"><h2>ROCK</h2></header>
-				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eROhISP1nO4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 				
 
     </div>
-    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - contact@bugfish.eu </footer>
+    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu/aboutme" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - <a href="mailto:bugfish@bugfish.eu">contact@bugfish.eu</a> </footer>
   </body>
 </html>

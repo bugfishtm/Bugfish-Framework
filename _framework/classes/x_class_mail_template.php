@@ -15,7 +15,7 @@
 		// Table Init
 		private function create_table() {
 			$this->mysql->query("CREATE TABLE IF NOT EXISTS `".$this->table."` (
-								  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificator',
+								  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Identificator',
 								  `name` varchar(256) NOT NULL COMMENT 'Template Identifier',
 								  `subject` text NULL COMMENT 'Template Subject',
 								  `content` text DEFAULT NULL COMMENT 'Template Content',
@@ -25,8 +25,8 @@
 		// Construct		
 		function __construct($mysql, $table, $section = "") {
 			$this->mysql = $mysql;
-			$this->table = $table;
-			$this->section = $section;		
+			$this->table = @substr(trim($table), 0, 256);
+			$this->section = @substr(trim($section), 0, 127);		
 			if(!$this->mysql->table_exists($table)) { $this->create_table(); $this->mysql->free_all(); }} 
 		######################################################################################################################################
 		// Send a Template		
@@ -85,4 +85,5 @@
 		public $footer	=	"";
 		public function set_footer($footer) { $this->footer = $footer; }
 	} 
-?>
+	
+	

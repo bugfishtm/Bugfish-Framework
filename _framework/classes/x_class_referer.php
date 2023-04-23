@@ -22,9 +22,9 @@
 			return $this->mysql->query("CREATE TABLE IF NOT EXISTS `".$this->mysqltable."` (
 											  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Identificator',
 											  `full_url` varchar(512) NOT NULL DEFAULT '0' COMMENT 'Related Referer',
-											  `hits` int NOT NULL DEFAULT '0' COMMENT 'Counted Hits',
-											  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation',
-											  `modification` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification',
+											  `hits` int(10) NOT NULL DEFAULT '0' COMMENT 'Counted Hits',
+											  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date - Auto Set',
+											  `modification` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification Date | Auto - Set',
 											  PRIMARY KEY (`id`),
 											  UNIQUE KEY `UNIQUE` (`full_url`) USING BTREE );");		
 		}
@@ -58,10 +58,10 @@
 			if ( $parts = parse_url( @$_SERVER["HTTP_REFERER"] ) AND $this->enabled) {
 				$thecurrentreferer = $this->prepareUrl(@$parts[ "host" ]);
 				$b[0]["type"]	=	"s";
-				$b[0]["value"]	=	$thecurrentreferer;
+				$b[0]["value"]	=	@substr(trim($thecurrentreferer), 0, 510);
 				if(@trim(@$parts[ "host" ]) != $this->refurl AND @trim(@$parts[ "host" ]) != "www.".$this->refurl AND @trim(@$parts[ "host" ]) != "") {
 					$query = "SELECT * FROM `".$this->mysqltable."` WHERE full_url = ?;";
-					$sresult = @mysqli_fetch_array(@$this->mysql->query($query, $b), MYSQLI_BOTH);
+					$sresult = @$this->mysql->select($query, false, $b);
 					if (!is_array($sresult)) { 
 						$query = @$this->mysql->query("INSERT INTO `".$this->mysqltable."` (full_url, hits) VALUES (?, 1)", $b);
 					} else {
@@ -71,4 +71,3 @@
 			} return true;
 		} 
 	}
-?>

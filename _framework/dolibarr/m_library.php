@@ -27,4 +27,3 @@
 		if($number == 12) { return "Dezember";}
 		return "Error !";
 	};
-?>

@@ -1,6 +1,8 @@
 # Information
 This is just an information file, how someone can contribute to dolibarrs main core code! This file has nothing to do special with this repository itself. Its just here for informationa purposes!
 
+This is a contributions file for dolibarr!
+
 How to contribute to Dolibarr
 =============================
 

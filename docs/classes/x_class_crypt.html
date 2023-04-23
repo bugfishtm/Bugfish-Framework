@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Dolibarr Library</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Dolibarr Library"> <!------------------------------------>
+    <title>Bugfish Crypt Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Crypt Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
-	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/dolibarr/m_library.html" />
-	<meta property="og:title" content="Bugfish Dolibarr Framework" />
-	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/dolibarr/m_library.html" />
+	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_crypt.html" />
+	<meta property="og:title" content="Bugfish Crypt Class" />
+	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_crypt.html" />
 	<style>
 		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
 		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
@@ -43,7 +43,7 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div style="z-index:1000; !important; background: black; position: fixed; top: 5px; right: 5px; width: 110px; height: 30px;font-size: 16px;padding: 5px;border-radius: 5px;cursor: pointer;"><b>^ Back to Top</b></div></a>  
     <header id="header">
 	  
-      <h1>Bugfish Dolibarr Library</h1> <!------------------------------------>
+      <h1>Bugfish Crypt Class</h1> <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../../index.html" >Home</a><a href="../index.html">Framework</a><a href="#" style="color: white;">Manual</a></li>
@@ -54,111 +54,52 @@
     </header>
    
     <div>
+				<div class="inner inner_section" style="text-align: center;">
 
-				<div class="inner inner_section" style="text-align: left;">
+<h2 id="x_class_Crypt">x_class_crypt</h2>
+Class to crypt files using openssl with some available algorithms of it...
 
-<h2 id="m_library">m_library</h2>
-This is a set of function to use with the Dolibarr ERP CRM!
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
 ✔️ Productive - Ready<br /><br /></div>
+
 <table>
 <thead>
 <tr>
-<th>Function Name</th>
+<th>Construct Functions</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>m_month_num_to_name($number)</td>
-<td>Return Month Name or Error if Wrong (input number 1-12 to get german month name)</td>
-</tr>
-<tr>
-<td>m_isset($var)</td>
-<td>If var is Empty or &quot;&quot; than false</td>
-</tr>
-<tr>
-<td>m_login_name_from_id ($db, $userid)</td>
-<td>Get the current name of User by UserID, if error than false</td>
-</tr>
-<tr>
-<td>m_login_id($db, \$tmp = false)</td>
-<td>Get the current rowID of logged in User, if error than false</td>
+<td>__construct($algo = 'aes-256-cbc')</td>
+<td>Construct the class with optional Algorithm, default is aes-256-cbc. <br />This function uses the algo: openssl_random_pseudo_bytes(openssl_cipher_iv_length($this->algo));</td>
 </tr>
 </tbody>
 </table>
-<h2 id="m_button">m_button</h2>
+<hr>
 <table>
 <thead>
 <tr>
-<th>Function Name</th>
+<th>Crypt Functions</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>m_button_sql( $db, $name, $url, $query, $get, $break = false, \$style = &quot;&quot;)</td>
-<td>Add a Button to Execute a Simple SQL !  \$msgerr = &quot;Fehler!&quot;, \$msgok = &quot;Erfolgreich!&quot;,  Function</td>
+<td>encrypt($data, $password)</td>
+<td> Return Encrypted data<br />If you want to Decrypt a File provide the raw data...</td>
 </tr>
 <tr>
-<td>m_button_link($name, $url, $break = false, $style, $reacttourl = true)</td>
-<td>Add a Default Button Linked to another Page</td>
+<td>decrypt($data, $password)</td>
+<td> Return Decrypted data<br />If you want to Decrypt a File or String provide the raw data encryption return data...</td>
 </tr>
 </tbody>
 </table>
-<h2 id="m_table">m_table</h2>
-<table>
-<thead>
-<tr>
-<th>Function Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>m_table_simple($title, \$array, $titlelist, $tableid, $alignarray = false, \$imgeforlist = &#39;generic&#39;)</td>
-<td>Print a Simple Table</td>
-</tr>
-<tr>
-<td>m_table_complex($title, \$array, \$titlelist,$formid = &quot;&quot;, \$alignarray = false, \$imgeforlist =&quot;generic&quot;)</td>
-<td>Print a Complex Table with Search</td>
-</tr>
-</tbody>
-</table>
-<h2 id="m_mysql">m_mysql</h2>
-<table>
-<thead>
-<tr>
-<th>Function Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>m_db_rowsbycleanresult(\$db, \$sql_res)</td>
-<td>Get Array by provising a finished result</td>
-</tr>
-<tr>
-<td>m_db_row($db, $query)</td>
-<td>Get a Single Array with $array[&quot;fieldname&quot;] = \$value back</td>
-</tr>
-<tr>
-<td>m_db_row_insert($db, \$table, \$array, \$filter =*true)</td>
-<td>Insert into a Database with array [&quot;fieldname&quot;] =  \$value;</td>
-</tr>
-<tr>
-<td>m_db_rows($db, $query)</td>
-<td>Get a Multiple Array with $array[COUNT][&quot;fieldname&quot;] = $value back</td>
-</tr>
-</tbody>
-</table>
-<h2 id="-m_mastertable">m_mastertable</h2>
-<div style="max-width: 500px;text-align: left; background: 161616;">❌ Tested<br />
-❌ Productive - Ready<br /><br /></div>
+
 </div>
 
 
- 
+				
     </div>
     <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu/aboutme" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - <a href="mailto:bugfish@bugfish.eu">contact@bugfish.eu</a> </footer>
   </body>

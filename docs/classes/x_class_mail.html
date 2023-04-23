@@ -40,16 +40,16 @@
 	</style>
   </head>
   <body>
-<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div style="z-index:1000; !important; background: black; position: fixed; top: 5px; right: 5px; width: 110px; height: 30px;font-size: 16px;padding: 5px;border-radius: 5px;cursor: pointer;"><b>^ Back to Top</b></div></a>  
     <header id="header">
 	  
       <h1>Bugfish Mail Class</h1> <!------------------------------------>
       
       <ul class="main-menu">
-        <li><a href="../../" >Home</a><a href="../">Framework</a><a href="#" style="color: white;">Manual</a></li>
+        <li><a href="../../index.html" >Home</a><a href="../index.html">Framework</a><a href="#" style="color: white;">Manual</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
-        <li><a href="https://bugfish-fs.000webhostapp.com/impressum" target="_blank">Impressum</a></li>
-        <li><a href="https://bugfish-fs.000webhostapp.com/privacy" target="_blank">Privacy</a></li>
+        <li><a href="../impressum.html">Impressum</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
       </ul>                 
     </header>
    
@@ -57,14 +57,15 @@
 
 				<div class="inner inner_section" style="text-align: center;">
 
-
-<pre><code>This <span class="hljs-keyword">is</span> <span class="hljs-keyword">my</span> personal framework, feel free <span class="hljs-keyword">to</span> use <span class="hljs-keyword">it</span> <span class="hljs-keyword">as</span> you wish.  
-For help visit bugfish.eu!
-</code></pre><h2 id="x_class_mail-mastered-">x_class_mail [Mastered]</h2>
-<pre><code><span class="hljs-keyword">Class</span> <span class="hljs-keyword">to</span> handle mail Sending.
+<h2 id="x_class_mail-mastered-">x_class_mail</h2>
+<span class="hljs-keyword">Class</span> <span class="hljs-keyword">to</span> handle mail Sending.
 <span class="hljs-keyword">For</span> Logging a x_class_mysql <span class="hljs-built_in">object</span> <span class="hljs-keyword">is</span> needed!  
-Table will be <span class="hljs-keyword">auto</span>-installed! [x_class_mail_smtp required]
-</code></pre><table>
+Table will be <span class="hljs-keyword">auto</span>-installed! [x_class_phpmailer required]
+
+<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
+✔️ Productive - Ready<br /><br /></div>
+
+<table>
 <thead>
 <tr>
 <th>Construct Function</th>
@@ -190,12 +191,17 @@ Table will be <span class="hljs-keyword">auto</span>-installed! [x_class_mail_sm
 </tr>
 </tbody>
 </table>
-<h2 id="x_class_mail_item-mastered-">x_class_mail_item [Mastered]</h2>
-<pre><code>Item <span class="hljs-keyword">to</span> Handle Mail Send Operation.
+<h2 id="x_class_mail_item-mastered-">x_class_mail_item</h2>
+Item <span class="hljs-keyword">to</span> Handle Mail Send Operation.
 x_class_mail <span class="hljs-keyword">object</span> needed <span class="hljs-keyword">for</span> construction!
 
 All Sender <span class="hljs-keyword">and</span> Receiver information will be <span class="hljs-keyword">array</span>(mail, <span class="hljs-keyword">name</span>)
-</code></pre><table>
+
+
+<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
+✔️ Productive - Ready<br /><br /></div>
+
+<table>
 <thead>
 <tr>
 <th>Construct Function</th>
@@ -295,34 +301,31 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 </tr>
 </tbody>
 </table>
-<h2 id="x_class_mail_phpmailer-mastered-">x_class_mail_phpmailer [Mastered]</h2>
-<pre><code>This <span class="hljs-keyword">is</span> the PHPMailer <span class="hljs-keyword">class</span> needed <span class="hljs-keyword">for</span> x<span class="hljs-number">_</span><span class="hljs-keyword">class</span><span class="hljs-number">_m</span>ail <span class="hljs-keyword">class</span>!
+<h2 id="x_class_mail_phpmailer-mastered-">x_class_mail_phpmailer </h2>
+This <span class="hljs-keyword">is</span> the PHPMailer <span class="hljs-keyword">class</span> needed <span class="hljs-keyword">for</span> x<span class="hljs-number">_</span><span class="hljs-keyword">class</span><span class="hljs-number">_m</span>ail <span class="hljs-keyword">class</span>!
+
+<br /><br />
+<div style="text-align:left;">
+ PHPMAILER CLASS HAS BEEN USED FOR THIS CLASS.<br />
+ PHPMailer - PHP email creation and transport <span class="hljs-keyword">class</span>.<br />
+ PHP Version <span class="hljs-number">5.5</span>.<br />
+ <span class="hljs-meta">@see</span> https:<span class="hljs-comment">//github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project</span><br />
+ <span class="hljs-meta">@author</span>    Marcus Bointon (Synchro/coolbru) &lt;phpmailer<span class="hljs-meta">@synchromedia</span>.co.uk&gt;<br />
+ <span class="hljs-meta">@author</span>    Jim Jagielski (jimjag) &lt;jimjag<span class="hljs-meta">@gmail</span>.com&gt;<br />
+ <span class="hljs-meta">@author</span>    Andy Prevost (codeworxtech) &lt;codeworxtech<span class="hljs-meta">@users</span>.sourceforge.net&gt;<br />
+ <span class="hljs-meta">@author</span>    Brent R. Matzelle (original founder)<br />
+ <span class="hljs-meta">@copyright</span> <span class="hljs-number">2012</span> - <span class="hljs-number">2020</span> Marcus Bointon<br />
+ <span class="hljs-meta">@copyright</span> <span class="hljs-number">2010</span> - <span class="hljs-number">2012</span> Jim Jagielski<br />
+ <span class="hljs-meta">@copyright</span> <span class="hljs-number">2004</span> - <span class="hljs-number">2009</span> Andy Prevost<br />
+ <span class="hljs-meta">@license</span>   http:<span class="hljs-comment">//www.gnu.org/copyleft/lesser.html GNU Lesser General Public License</span><br />
+  <span class="hljs-meta">@note</span>      This program <span class="hljs-keyword">is</span> distributed <span class="hljs-keyword">in</span> the hope that it will be useful - WITHOUT<br />
+ ANY WARRANTY; without even the implied warranty <span class="hljs-keyword">of</span> MERCHANTABILITY or<br />
+ FITNESS FOR A PARTICULAR PURPOSE.<br />
+</div></div>
 
 
-
- PHPMAILER CLASS HAS BEEN USED FOR THIS CLASS.
- PHPMailer - PHP email creation and transport <span class="hljs-keyword">class</span>.
- PHP Version <span class="hljs-number">5.5</span>.
- <span class="hljs-meta">@see</span> https:<span class="hljs-comment">//github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project</span>
- <span class="hljs-meta">@author</span>    Marcus Bointon (Synchro/coolbru) &lt;phpmailer<span class="hljs-meta">@synchromedia</span>.co.uk&gt;
- <span class="hljs-meta">@author</span>    Jim Jagielski (jimjag) &lt;jimjag<span class="hljs-meta">@gmail</span>.com&gt;
- <span class="hljs-meta">@author</span>    Andy Prevost (codeworxtech) &lt;codeworxtech<span class="hljs-meta">@users</span>.sourceforge.net&gt;
- <span class="hljs-meta">@author</span>    Brent R. Matzelle (original founder)
- <span class="hljs-meta">@copyright</span> <span class="hljs-number">2012</span> - <span class="hljs-number">2020</span> Marcus Bointon
- <span class="hljs-meta">@copyright</span> <span class="hljs-number">2010</span> - <span class="hljs-number">2012</span> Jim Jagielski
- <span class="hljs-meta">@copyright</span> <span class="hljs-number">2004</span> - <span class="hljs-number">2009</span> Andy Prevost
- <span class="hljs-meta">@license</span>   http:<span class="hljs-comment">//www.gnu.org/copyleft/lesser.html GNU Lesser General Public License</span>
-  <span class="hljs-meta">@note</span>      This program <span class="hljs-keyword">is</span> distributed <span class="hljs-keyword">in</span> the hope that it will be useful - WITHOUT
- ANY WARRANTY; without even the implied warranty <span class="hljs-keyword">of</span> MERCHANTABILITY or
- FITNESS FOR A PARTICULAR PURPOSE.
-</code></pre>
-</div>
-
-
-			  <header id="headertitle"><h2>BREAKBEAT</h2></header>
-				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eIsOHqOWCXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 				
     </div>
-    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - contact@bugfish.eu </footer>
+    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu/aboutme" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - <a href="mailto:bugfish@bugfish.eu">contact@bugfish.eu</a> </footer>
   </body>
 </html>
