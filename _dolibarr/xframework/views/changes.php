@@ -39,20 +39,20 @@
 		echo "<h2>Kein Bereich ausgewählt!</h2>This area is also a demo of the m_mastertable class!";
 	} else {	
 		// Craete Table Object
-		$table	=	new m_class_mastertable($db, "Test".@htmlspecialchars($_GET["ref"]), "");
+		$table	=	new m_class_mastertable($db, "Changes for: ".@htmlspecialchars($_GET["ref"]), "clg");
 		
 		// Craete Table Column
-		$table->addColumn("refid", "Reference", "left", 1, true, true);
-		$table->addColumn("createdate", "Date", "left", 1, true, true);
-		$table->addColumn("username", "User", "left", 1, true, true);
-		$table->addColumn("changesstring", "Changes", "left", 1, true, true);
+		$table->addColumn("refid", "Reference", "text-align:left;", 1, true, true);
+		$table->addColumn("createdate", "Date", "text-align:left;", 1, true, true);
+		$table->addColumn("username", "User", "text-align:left;", 1, true, true);
+		$table->addColumn("changesstring", "Changes", "text-align:left;", 1, true, true);
 		
 		// Init the Table
-		$table->init("SELECT ref, refid, createdate, username, changesstring FROM dolibarr_xframework_logging WHERE ref LIKE '%".htmlspecialchars(@$_GET["ref"])."%' ", 10, "desc", "createdate");
+		$table->init("SELECT ref, refid, createdate, username, changesstring FROM dolibarr_xframework_logging WHERE ref LIKE '%".htmlspecialchars(@$_GET["ref"])."%' ", 50, "desc", "createdate", 1, "&ref=".@$_GET["ref"]."&mainmenu=tools");
 		
 		// Get needed Array
 		$array = $table->prepareArray();
-		
+		echo "<h2>Demo of m_mastertable!</h2>";
 		// Prepare Values
 		if(!empty($array)) {
 			for($i = 0; $i < count($array); $i++) {
@@ -71,7 +71,7 @@
 		}	
 			
 		// Print the Master Table
-		$table->printTable($array, "generic", $_SERVER["PHP_SELF"]);
+		$table->printTable($array, "generic", $_SERVER["PHP_SELF"], 0, 0, "", 1, array("mainmenu" => "tools", "ref" => htmlspecialchars(@$_GET["ref"])));
 	}
 	
 	// Close the Dolibarr Footer

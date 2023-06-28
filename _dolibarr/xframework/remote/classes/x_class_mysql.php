@@ -181,7 +181,7 @@
 					<meta name="expires" content="0" />	
 				</head>
 				<body>
-					<div id="dberrorwrapper"><font size="+5">Error 503</font><br/><font size="+3">Site under Maintenance...</font><br />Please check in later! x)<br />The MySQL Server Connection has failed!</div>
+					<div id="dberrorwrapper"><font size="+5">Error 503</font><br/><font size="+3">Site under Maintenance...</font><br />Please check in later! x)</div>
 				</body></html>';if($exit){exit();}}				
 				
 		/*	___________     ___.   .__                 

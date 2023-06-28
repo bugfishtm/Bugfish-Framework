@@ -30,7 +30,7 @@
 	/*******************************/	
 	function x_c_mysql()  {
 		$tmp = new x_class_mysql(constant("_MXINTCLASSX2546754_DB_HOST_"._MXINTCLASSX2546754_RANDRAND_), constant("_MXINTCLASSX2546754_DB_USER_"._MXINTCLASSX2546754_RANDRAND_), constant("_MXINTCLASSX2546754_DB_PASS_"._MXINTCLASSX2546754_RANDRAND_), constant("_MXINTCLASSX2546754_DB_NAME_"._MXINTCLASSX2546754_RANDRAND_));
-		if(is_object($tmp->mysqlcon)) { $tmp->loggingSetup(true, "dolibarr_xframework_sqlerrors" , true); return $tmp; } return false;  }	
+		if(is_object($tmp->mysqlcon)) { $tmp->log_config("dolibarr_xframework_sqlerrors", "xframework", false); return $tmp; } return false;  }	
 	
 	/*******************************/
 	/* Quick Mail Object		   */

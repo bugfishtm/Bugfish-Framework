@@ -153,12 +153,69 @@ This is a set of function to use with the Dolibarr ERP CRM!
 </tbody>
 </table>
 <h2 id="-m_mastertable">m_mastertable</h2>
-<div style="max-width: 500px;text-align: left; background: 161616;">❌ Tested<br />
-❌ Productive - Ready<br /><br /></div>
-</div>
+<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
+✔️ Productive - Ready<br /><br /></div>
 
 
- 
+
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> __construct($db, $tabletitle, $tableid = "")</td>
+<td>$db - Dolibarr DB Object <br /> $title - Table Title <br /> $tableid - unique id</td>
+</tr>
+
+<tr>
+<td> addColumn($field_name, $view_name, $style = "", $enabled = true, $search = true, $sort = true, $sqlexec = false, $orderexec = false)</td>
+<td>$field_name - Field Name in Database Query <br /> $view_name - View Name for Table Display <br /> $style - Style Tags for Columns <br /> $enabled - Field Enabled? <br /> $search - Search on Field allowed? <br /> $sort - Sort on Field allowed? <br /> $sqlexec - Field Name for Search Operations (optional) <br /> $orderexec - Field Name for Order Operations (optional)</td>
+</tr>
+
+<tr>
+<td> init($query, $default_limit = 50, $default_sort_order = "DESC", $default_sort_field = "rowid", $default_page = 1, $conf_paramsadd = "")</td>
+<td>$query - The SQL Query (needs to end with at least one where query [if there is none add where 1=1] ) <br /> $default_limit - Default Row Limit<br /> $default_sort_order - Default Sort Order <br /> $default_sort_field - Default Sort Field <br /> $default_page - Default Start Page <br /> $conf_paramsadd - Paramters to add to get Request at redirects </td>
+</tr>
+
+<tr>
+<td>$array = prepareArray()</td>
+<td>Returns Array with fetched data from pre-used functions...</td>
+</tr>
+
+<tr>
+<td>printTable($array, $tableimage = "", $cursiteurl = false, $hidelimit = 0, $hidetools = 0, $morecss = "", $donotsuggestlistofpages = 1, $extraparam = array())</td>
+<td>$array - The array result of prepareArray() <br /> $tableimage - Default Generic MITEC Table Image<br /> $cursiteurl - Current Site URL for Redirects (PHP SELF)<br /> $hidelimit - Hide the Limit Controls<br /> $hidetools - Hide the Tools Controls <br /> $morecss - Add CSS to MITEC List<br /> $donotsuggestlistofpages -  Do not suggest List of Pages <br /> $extraparam - Add key[name]->param[value] array elements to be used in get redirects.</td>
+</tr>
+
+
+
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </div>
     </div>
     <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu/aboutme" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - <a href="mailto:bugfish@bugfish.eu">contact@bugfish.eu</a> </footer>
   </body>

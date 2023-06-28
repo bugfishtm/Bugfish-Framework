@@ -136,7 +136,7 @@
 		// Setup Int
 		public function form($varname, $type = "int", $selectarray = array()) {
 			if(!isset($_SESSION["x_class_var"])) {$_SESSION["x_class_var"] = mt_rand(1000, 999999); }
-			if(isset($_POST["x_class_var_submit_".$varname."_".$this->sections_name])) {
+			if(isset($_POST["x_class_var_submit_".$varname."_".$section])) {
 				if($_POST["x_class_var_csrf"] == $_SESSION["x_class_var"]) {
 						$finalvalue = false;
 						switch($type) {
@@ -153,9 +153,9 @@
 				} else { $text = "<b><font color='red'>CSRF Error Try Again!</font></b>"; }	
 			} $current = $this->get_full($varname); ?>
 			<div class="x_class_var">
-				<form method="post" action="#x_class_var_ancor_<?php echo $varname.$this->sections_name; ?>">
-					<fieldset id="x_class_var_ancor_<?php echo $varname.$this->sections_name; ?>">
-						<?php if(is_array($current)) { echo $current[$this->db_r_c_descr]; echo "<br />"; } ?>
+				<form method="post" action="#x_class_var_ancor_<?php echo $varname.$section; ?>">
+					<fieldset id="x_class_var_ancor_<?php echo $varname.$section; ?>">
+						<?php if($description AND is_array($current)) { echo $current[$this->db_r_c_descr]; echo "<br />"; } ?>
 						<?php if(isset($text)) { echo $text; echo "<br />"; } ?>
 						<!-- Int -->
 						<?php if($type == "int") { ?> <input type="number" value="<?php if(is_array($current)) { echo $current[$this->db_r_c_value]; } ?>" name="x_class_var_submit_val"><?php } ?>
@@ -165,9 +165,9 @@
 						<?php if($type == "text") { ?> <textarea name="x_class_var_submit_val"><?php if(is_array($current)) { echo $current[$this->db_r_c_value]; } ?></textarea><br /><?php } ?>
 						<!-- Bool -->
 						<?php if($type == "bool" AND is_array($current) AND $current[$this->db_r_c_value] == 1) { $xxx = "checked"; } else { $xxx = ""; } ?>
-						<?php if($type == "bool") { ?>Activate: <input type="checkbox" name="x_class_var_submit_val" <?php echo $xxx; ?>><?php } ?>	
+						Activate: <input type="checkbox" name="x_class_var_submit_val" <?php echo $xxx; ?>>						
 						<!-- Select -->
-						<?php if($type == "select") { ?><select name="x_class_var_submit_val">
+						<select name="x_class_var_submit_val">
 						<?php $output = "";
 							foreach($selectarray AS $key => $value) {
 								if($current[$this->db_r_c_value] == $value[1]) { echo '<option value="'.$value[1].'">'.$value[0]."</option>"; }
@@ -175,10 +175,10 @@
 							}
 							echo $output;
 						?>
-						</select><?php } ?>
+						</select>
 						<!-- Misc Form -->
 						<input type="hidden" value="<?php echo $_SESSION["x_class_var"]; ?>" name="x_class_var_csrf">
-						<input type="submit" value="Change" name="x_class_var_submit_<?php echo $varname.$this->sections_name; ?>">
+						<input type="submit" value="Change" name="x_class_var_submit_<?php echo $varname.$section; ?>">
 					</fieldset>
 				</form>
 			</div>

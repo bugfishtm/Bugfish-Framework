@@ -86,69 +86,6 @@ class x_class_user {
 	private $cookies = true;private $cookies_use = false;public function cookies_use($bool = true){$this->cookies_use = $bool;$this->cookies = $this->sessions;} // Allow Cookies Use in General
 	private $cookies_days = 7;public function cookies_days($int = 7){$this->cookies_days = $int;} // Max Cookie Lifetime in Days	
 	
-	## Groups Setup
-	private $table_group	=	"";
-	private $table_group_link	=	"";
-	private $group_rel_obj	=	"";
-	public function groups($table_group, $table_group_link) {
-		$this->table_group = $table_group;
-		$this->table_group_link = $table_group_link;
-		// Create Group Name / Link Database Table
-		$this->groups_createtable();}
-	
-	private function groups_createtable() {
-		if(!$this->mysql->table_exists($this->table_group_link)) {
-			$this->mysql->query("CREATE TABLE IF NOT EXISTS `".$this->table_group_link."` (
-							`id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Unique Link ID',
-							`fk_user` int(10) NOT NULL COMMENT 'Related User ID',
-							`fk_group` int(10) NOT NULL COMMENT 'Related Group ID',
-							`creation` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date',
-							PRIMARY KEY (`id`), ADD CONSTRAINT unique_user_table_x_link UNIQUE (`fk_user`,`fk_group`););");	
-		}
-		if(!$this->mysql->table_exists($this->table_group)) {
-			$this->mysql->query("CREATE TABLE IF NOT EXISTS `".$this->table_group."` (
-							`id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Unique Group ID',
-							`group_name` varchar(255) NOT NULL COMMENT 'Group Name',
-							`group_description` TEXT DEFAULT NULL COMMENT 'Group Description',
-							`creation` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date',
-							`modification` datetime NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification Date',
-							PRIMARY KEY (`id`));");	
-		}
-	}
-	
-	public function group_add($name, $description = "") {
-		$bind[0]["value"] = trim($name); $bind[0]["type"] = "s";
-		$bind[1]["value"] = trim($description); $bind[1]["type"] = "s";
-		$this->mysql->query("INSERT INTO ".$this->table_group."(group_name, group_description)
-		VALUES(?, ?)", $bind); return true;}
-	public function group_del($id) {
-		if(is_numeric($id)) {
-			$this->mysql->query("DELETE FROM ".$this->table_group." WHERE id = ".$id."");
-			$this->mysql->query("DELETE FROM ".$this->table_group_link." WHERE fk_group = ".$id."");} return true; }
-	public function group_users($groupid) {
-		if(is_numeric($groupid)) {
-			return $this->mysql->select("SELECT * FROM ".$this->table_group_link." WHERE fk_group = ".$groupid."", true); 
-			return true;
-		} return false;
-	}
-	public function user_groups($userid) {
-		if(is_numeric($userid)) {
-			return $this->mysql->select("SELECT * FROM ".$this->table_group_link." WHERE fk_user = ".$userid."", true); 
-			return true;
-		} return false;
-	}
-	public function group_adduser($groupid, $userid) {
-		if(is_numeric($groupid) AND is_numeric($userid)) {
-			return $this->mysql->query("INSERT INTO ".$this->table_group_link."(fk_group, fk_user)
-			VALUES($groupid, $userid)"); return true;
-		} return true;
-	}
-	public function group_deluser($groupid, $userid) {
-		if(is_numeric($groupid) AND is_numeric($userid)) {
-			return $this->mysql->query("DELETE FROM ".$this->table_group_link." WHERE fk_group = ".$groupid." AND fk_user = ".$userid."");
-		} return true;
-	}
-	
 	## Cookies Functions
 	private function cookie_set($id, $key){if($this->cookies_use){setcookie($this->cookies."session_userid", $id, time() + $this->cookies_days * 24 * 60 * 60);setcookie($this->cookies."session_key", $key, time() + $this->cookies_days * 24 * 60 * 60);} return true;}
 	private function cookie_unset(){if($this->cookies_use){unset($_COOKIE[$this->cookies.'session_key']);@setcookie($this->cookies.'session_key', '', time() - 3600, '/');unset($_COOKIE[$this->cookies.'session_userid']);@setcookie($this->cookies.'session_userid', '', time() - 3600, '/');} return true;}	
@@ -244,12 +181,11 @@ class x_class_user {
 	public function change_shadow($id = false, $new = false){ return $this->changeUserShadowMail($id , $new);}	
 	public function changeUserShadowMail($id = false, $new = false){ $bind[0]["value"] = trim($new);$bind[0]["type"] = "s";
 		if(!$this->int_opid($id)){ return false; } else { $id = $this->int_opid($id);}
-		if(strlen(trim($new)) > 0) { } else { return false; }
+		if(strlen(trim($new)) > 0) {} else { return false; }
 		if (!$this->mail_unique) { 
-			$this->mysql->query("UPDATE ".$this->dt_users." SET user_shadow = ? WHERE id = '".$id."'", $bind);
-			return true;
+			return $this->mysql->query("UPDATE ".$this->dt_users." SET user_shadow = ? WHERE id = '".$id."'", $bind);
 		}else{ 
-			if($this->mailExistsActive($new)){return false;}else{$this->mysql->query("UPDATE ".$this->dt_users." SET user_shadow = ? WHERE id = '".$id."'", $bind); return true;}
+			if($this->mailExistsActive($new)){return false;}else{return $this->mysql->query("UPDATE ".$this->dt_users." SET user_shadow = ? WHERE id = '".$id."'", $bind);}
 		}
 		return false;}		
 	## Change Users Mail	
@@ -292,7 +228,7 @@ class x_class_user {
 		// Prepare Activated
 		if(!$activated) {$activated = 0;} else {$activated = 1;}		
 		// Prepare Rank
-		if(!$rank) {$rank = 0;} else {$rank = $rank;}		
+		if(!$rank) {$rank = "";} else {$rank = $rank;}		
 		// Prepare Password
 		if(!$password OR trim($password) == "") {$password = "NULL";} else {$password = $this->password_crypt($password);}		
 		//Delete Other Unconfirmed
@@ -398,7 +334,7 @@ class x_class_user {
 				if($res=$this->mysql->fetch_array($r)){
 					if($res["is_active"] != 1) { return false; }
 					if(is_numeric($this->min_mail_edit)) {
-						if(isset($res["creation"])) { if(!$this->check_interval($res["creation"], '- '.$this->min_mail_edit.' minutes')) {return false;} }
+						if(isset($res["creation"])) { if(!$this->check_interval($res["creation"], ''.$this->min_mail_edit.' minutes')) {return false;} }
 					}					
 					return true;
 				} else {return false;}					
@@ -445,7 +381,7 @@ class x_class_user {
 	### PRIVATE FUNCTIONS PRIVATE FUNCTIONS PRIVATE FUNCTIONS PRIVATE FUNCTIONS PRIVATE FUNCTIONS PRIVATE FUNCTIONS PRIVATE FUNCTIONS PRIVATE FUNCTIONS 
 	######################################################################################################################################################
 	## Check Time Interval Function	
-	private function check_interval($datetimeref, $strstring) { if (strtotime($datetimeref) < strtotime($strstring)) {return false;} return true;}	
+	private function check_interval($datetimeref, $strstring) {if (strtotime($datetimeref) < strtotime($strstring)) {return false;} return true;}	
 	private function check_intervalx($datetimeref, $strstring) {return strtotime($datetimeref)."-".$strstring."-".strtotime($strstring); if (strtotime($datetimeref) < strtotime($strstring)) {return false;} return true;}	
 	######################################################################################################################################################
 	## Token Creations and Singing
@@ -508,19 +444,7 @@ class x_class_user {
 	## Session Function to Restore
 	private function session_restore(){
 		if(is_numeric($_SESSION[$this->sessions."x_users_id"])) {
-				/////// SHADOW LOGIN EXTENSIONS
-				if(!is_numeric(@$_SESSION[$this->sessions."x_users_login_shadow"])) { 
-					$checkuser = $_SESSION[$this->sessions."x_users_id"]; 
-				} else { 
-				if($this->exists($_SESSION[$this->sessions."x_users_id"])) { 
-					$checkuser = $_SESSION[$this->sessions."x_users_login_shadow"]; 
-					} else { 
-					$_SESSION[$this->sessions."x_users_id"] = $_SESSION[$this->sessions."x_users_login_shadow"];
-					$_SESSION[$this->sessions."x_users_login_shadow"] = false;
-					$checkuser = $_SESSION[$this->sessions."x_users_id"]; } 
-				} 
-				
-			$r = $this->mysql->query("SELECT * FROM ".$this->dt_users." WHERE user_confirmed = '1' AND user_blocked <> 1 AND id = '".$checkuser."'");
+			$r = $this->mysql->query("SELECT * FROM ".$this->dt_users." WHERE user_confirmed = '1' AND user_blocked <> 1 AND id = '".$_SESSION[$this->sessions."x_users_id"]."'");
 			if($cr = $this->mysql->fetch_array($r)){
 				$this->object_user_set($cr["id"]);
 				$this->mysql->query("UPDATE ".$this->dt_keys." SET refresh_date = CURRENT_TIMESTAMP() WHERE fk_user = '".$cr["id"]."' AND session_key = \"".$this->mysql->escape(@$_SESSION[$this->sessions."x_users_key"])."\" AND is_active = 1 AND key_type = '".$this->key_session."'"); 
@@ -535,38 +459,6 @@ class x_class_user {
 			$this->cookie_unset();
 			return false;		
 		}}
-	######################################################################################################################################################
-	## Login as another user
-	public function login_as($id) {
-		// Only Logged in Users can Log In as Another User!
-		if($this->user_loggedin != true) { return false; }
-		// Do not allow Login as same user
-		if($this->user_id == trim($id)) { return false; }
-		// Already Shadow Logged in as another User?
-		if(is_numeric($_SESSION[$this->sessions."x_users_login_shadow"])) { return false; }
-		// Does the user exist?
-		if(!$this->exists($id)) { return false; }
-		// Loggin as the other User
-		$_SESSION[$this->sessions."x_users_login_shadow"] = $this->user_id;
-		$_SESSION[$this->sessions."x_users_id"] = $id;
-	}
-
-	public function login_as_is() {
-		if(is_numeric($_SESSION[$this->sessions."x_users_login_shadow"])) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public function login_as_return() {
-		// If no shadow Login do nothing
-		if(!is_numeric($_SESSION[$this->sessions."x_users_login_shadow"])) { return false; }
-		// Remove Login
-		$_SESSION[$this->sessions."x_users_id"] = $_SESSION[$this->sessions."x_users_login_shadow"];
-		$_SESSION[$this->sessions."x_users_login_shadow"] = false;
-	}		
-	
 	######################################################################################################################################################
 	######################################################################################################################################################
 	######################################################################################################################################################
@@ -689,8 +581,7 @@ class x_class_user {
 		} $this->login_request_code = 2; return 2;} // No-Ref Exit
 
 	## Logout Function
-	public function logout() { @$this->session_logout(); @$this->cookie_unset(); 
-		unset($_SESSION[$this->sessions."x_users_login_shadow"]); @$this->object_user_unset(); return true; }		
+	public function logout() { @$this->session_logout(); @$this->cookie_unset(); @$this->object_user_unset(); return true; }		
 	
 	## Init Function
 	public function init() {
@@ -700,18 +591,7 @@ class x_class_user {
 			AND isset($_SESSION[$this->sessions."x_users_key"])
 			AND is_bool($_SESSION[$this->sessions."x_users_stay"])
 			AND is_numeric($_SESSION[$this->sessions."x_users_id"])) {
-				/////// SHADOW LOGIN EXTENSIONS
-				if(!is_numeric(@$_SESSION[$this->sessions."x_users_login_shadow"])) { 
-					$checkuser = $_SESSION[$this->sessions."x_users_id"]; 
-				} else { 
-				if($this->exists($_SESSION[$this->sessions."x_users_id"])) { 
-					$checkuser = $_SESSION[$this->sessions."x_users_login_shadow"]; 
-					} else { 
-					$_SESSION[$this->sessions."x_users_id"] = $_SESSION[$this->sessions."x_users_login_shadow"];
-					$_SESSION[$this->sessions."x_users_login_shadow"] = false;
-					$checkuser = $_SESSION[$this->sessions."x_users_id"]; } 
-				} 
-				if(!$this->session_token_valid($checkuser, $_SESSION[$this->sessions."x_users_key"])) {
+				if(!$this->session_token_valid($_SESSION[$this->sessions."x_users_id"], $_SESSION[$this->sessions."x_users_key"])) {
 					$this->object_user_unset();
 					$this->cookie_restore();} 
 				else { $this->session_restore(); }
@@ -726,7 +606,6 @@ class x_class_user {
 		unset($_SESSION[$this->sessions."x_users_key"]);
 		unset($_SESSION[$this->sessions."x_users_id"]);
 		unset($_SESSION[$this->sessions."x_users_stay"]);
-		unset($_SESSION[$this->sessions."x_users_login_shadow"]);
 		$this->user_rank = false; $this->rank = false;
 		$this->user_id = false; $this->id = false;
 		$this->user_name = false; $this->name = false;

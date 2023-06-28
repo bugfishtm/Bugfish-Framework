@@ -35,7 +35,7 @@ class modxframework extends DolibarrModules {
 		// Module label (no space allowed), used if translation string 'ModulexframeworkName' not found (xframework is name of module).			
 		$this->name = preg_replace('/^mod/i','',get_class($this));		
 		// Module description, used if translation string 'ModulexframeworkDesc' not found (xframework is name of module).		
-		$this->description = "xframeworkDescription";
+		$this->description = "This is the official BugfishTM xFramework Dolibarr Module!";
 		// Used only if file README.md and README-LL.md not found.		
 		$this->descriptionlong = "ModulexframeworkNameDesc";
 		// Module Creator Informations
@@ -61,7 +61,7 @@ class modxframework extends DolibarrModules {
 		    'tpl' => 0,                                      	// Set this to 1 if module overwrite template dir (core/tpl)
 			'barcode' => 0,                                  	// Set this to 1 if module has its own barcode directory (core/modules/barcode)			
 			'models' => 0,                                   	// Set this to 1 if module has its own models directory (core/modules/xxx)
-			'css' => array("/custom/xframework/remote/css/xfpe_library.css"),	// Set this to relative path of css file if module has its own css file
+			'css' => array("/custom/xframework/remote/css/xfpe_library.css.php"),	// Set this to relative path of css file if module has its own css file
 	 		'js' => array("/custom/xframework/js/xframework.js.php"),      // Set this to relative path of js file if module must load a js on all pages
 			'hooks' => array('all'),							// Set here all hooks context managed by module. To find available hook context, make a "grep -r '>initHooks(' *" on source code. You can also set hook context 'all'
 			'moduleforexternal' => 0							// Set this to 1 if feature of module are opened to external users			
@@ -69,7 +69,7 @@ class modxframework extends DolibarrModules {
 		// Data directories to create when module is enabled.
 		$this->dirs = array();
 		// Config Page for "Gear" in Module Overview
-		$this->config_page_url = array(DOL_URL_ROOT."admin.php");
+		$this->config_page_url = array(DOL_URL_ROOT."/custom/xframework/admin/admin.php");
 		// A condition to hide module
 		$this->hidden = false;
 		// Array with Module which depends this module [ MAY AUTO DISABLE OTHER MODULE IF THIS MODULES GETS DISABLES/ENABLED ]

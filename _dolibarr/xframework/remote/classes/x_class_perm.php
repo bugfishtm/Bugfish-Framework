@@ -10,6 +10,7 @@
 		private $mysql     				= false;
 		private $tablename 				= false;
 		private $section   				= ""; public function section($section) { $this->section = $section; }
+		private $permission_set 	    = false; public function permission_set($array = false) { $this->permission_set = $array; } public function permission_set_get() { return $this->permission_set; }
 		
 		// Table Initialization
 		private function create_table() {
@@ -30,6 +31,14 @@
 			$this->section = substr(trim($section), 0, 127);
 			if(!$this->mysql->table_exists($tablename)) { $this->create_table(); $this->mysql->free_all(); }}
 
+		// Check is Requested Perm is inside Permission set If set is Activated (not False)
+		private function inPermissionSet($perm_name) {
+			if(is_array($this->permission_set)) {
+				foreach($this->permission_set AS $key => $value) {
+					if($perm_name == $value) { return true; }
+				} return false;
+			} else { return true; }}
+
 		// Get Permissions to Local Array
 		public function get_perm($ref) { return $this->getPerm($ref); }
 		public function getPerm($ref) {
@@ -44,6 +53,7 @@
 		// Check if Ref has Perm		
 		public function has_perm($ref, $permname) {return $this->hasPerm($ref, $permname); } 
 		public function hasPerm($ref, $permname) {
+			if(!$this->inPermissionSet($permname)) { return false; }
 			$current_perm	=	$this->getPerm($ref);
 			if(is_array($current_perm)) {
 				foreach($current_perm AS $key => $value) {
@@ -54,6 +64,7 @@
 		// Add Permission to Ref	
 		public function add_perm($ref, $permname) { return $this->addPerm($ref, $permname); }
 		public function addPerm($ref, $permname) {
+			if(!$this->inPermissionSet($permname)) { return false; }
 			$current_perm	=	$this->getPerm($ref);
 			$hasperm = false;
 			if(is_array($current_perm)) {
@@ -76,12 +87,12 @@
 			if(is_array($current_perm) AND is_array($array)) {
 				foreach($current_perm AS $key => $value) {
 					foreach($array AS $keyc => $valuec) {
-						if($value == $valuec) { $perms_or = true; }
+						if($value == $valuec AND $this->inPermissionSet($permname)) { $perms_or = true; }
 					}
 				}
 				foreach($array AS $key => $value) {
 					foreach($current_perm AS $keyc => $valuec) {
-						if($value == $valuec) { $perms_andra[$key] = true; }
+						if($value == $valuec AND $this->inPermissionSet($permname)) { $perms_andra[$key] = true; }
 					}
 					if(!isset($perms_andra[$key])) { $perms_andra[$key] = false; }
 				}				
@@ -127,9 +138,12 @@
 		// Delete a Ref from Permission Table	
 		public function delete_ref($ref) { if(is_numeric($ref)) { return $this->mysql->query("DELETE FROM ".$this->tablename." WHERE ref = \"".$ref."\" AND section = '".$this->section."'"); } return false; }
 		// Get a Ref Object
-		public function item($ref) { 
+		public function item($ref, $permission_set = false) { 
 			if(!is_numeric($ref)) { return false; }
-			$item = new x_class_perm_item($this->mysql, $this->tablename, $this->section, $ref, $this->getPerm($ref)); return $item; }
+			if($permission_set === false) { $permission_set = false;}
+			if($permission_set === true) { $permission_set = $this->permission_set; }
+			if(is_array($permission_set)) { $permission_set = $permission_set; }
+			$item = new x_class_perm_item($this->mysql, $this->tablename, $this->section, $ref, $permission_set, $this->getPerm($ref)); return $item; }
 	}
 	
 	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
@@ -144,14 +158,24 @@
 		private $tablename 				= false;
 		private $section   				= false;
 		private $ref 	   			    = false;
+		private $permission_set 	    = false; 
 		private $permissions 	    	= array(); 
 		// Constructor
-		function __construct($mysql, $tablename, $section, $ref, $permissions = array()) {
+		function __construct($mysql, $tablename, $section, $ref, $permission_set, $permissions) {
 			$this->mysql	= $mysql;
 			$this->tablename = $tablename;
 			$this->section = @substr(trim($section), 0, 127);
 			$this->ref = $ref;
+			$this->permission_set = $permission_set;
 			$this->permissions = $permissions; }	
+
+		// Check is Requested Perm is inside Permission set If set is Activated (not False)
+		private function inPermissionSet($perm_name) {
+			if(is_array($this->permission_set)) {
+				foreach($this->permission_set AS $key => $value) {
+					if($perm_name == $value) { return true; }
+				} return false;
+			} else { return true; }}
 
 		// Get Permissions to Local Array
 		public function refresh() {
@@ -163,6 +187,7 @@
 
 		// Check if Ref has Perm		
 		public function has_perm($permname) {
+			if(!$this->inPermissionSet($permname)) { return false; }
 			$current_perm	=	$this->permissions;
 			if(is_array($current_perm)) {
 				foreach($current_perm AS $key => $value) {
@@ -172,6 +197,7 @@
 
 		// Add Permission to Ref	
 		public function add_perm($permname) {
+			if(!$this->inPermissionSet($permname)) { return false; }
 			$current_perm	=	$this->permissions;
 			$hasperm = false;
 			if(is_array($current_perm)) {
@@ -192,12 +218,12 @@
 			if(is_array($current_perm) AND is_array($array)) {
 				foreach($current_perm AS $key => $value) {
 					foreach($array AS $keyc => $valuec) {
-						if($value == $valuec) { $perms_or = true; }
+						if($value == $valuec AND $this->inPermissionSet($permname)) { $perms_or = true; }
 					}
 				}
 				foreach($array AS $key => $value) {
 					foreach($current_perm AS $keyc => $valuec) {
-						if($value == $valuec) { $perms_andra[$key] = true; }
+						if($value == $valuec AND $this->inPermissionSet($permname)) { $perms_andra[$key] = true; }
 					}
 					if(!isset($perms_andra[$key])) { $perms_andra[$key] = false; }
 				}				

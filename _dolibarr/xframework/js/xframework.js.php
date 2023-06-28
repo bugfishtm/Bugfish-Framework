@@ -32,3 +32,4 @@
 		$.post("<?php print DOL_URL_ROOT; ?>/custom/xframework/action/action.php", 
 		{ action: 'logjserror', urlstring: window.location.href, errortext: 'File: '+url+' Line: '+line+' Error: '+error }, function (data) {});	
 	}
+	

@@ -91,13 +91,6 @@ Needs x_class_mysql object! <span class="hljs-keyword">Tables</span> will be <sp
 <td>section($section)</td>
 <td>Optional: Change Current Section in Table for Perms</td>
 </tr>
-<tr>
-<td>permission_set($array = false)</td>
-</tr>
-<tr>
-<td>permission_set_get()</td>
-<td>Optional: Get the Current Permission Set</td>
-</tr>
 </tbody>
 </table>
 <hr>
@@ -138,7 +131,7 @@ Needs x_class_mysql object! <span class="hljs-keyword">Tables</span> will be <sp
 <td>Flush a Ref from the Perms Table</td>
 </tr>
 <tr>
-<td>item($ref, $permission_set = false)</td>
+<td>item($ref)</td>
 <td>Get Item Permission Object for Red (see Below)</td>
 </tr>
 </tbody>
@@ -146,7 +139,7 @@ Needs x_class_mysql object! <span class="hljs-keyword">Tables</span> will be <sp
 <h2 id="x_class_perm_item-mastered-">x_class_perm_item </h2>
 This object can <span class="hljs-keyword">not</span> be created <span class="hljs-keyword">by</span> itself.  
 It needs <span class="hljs-keyword">to</span> be obtained <span class="hljs-keyword">by</span> getting <span class="hljs-keyword">it</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> x_class_perm function:
-<span class="hljs-built_in">item</span>($<span class="hljs-keyword">ref</span>, $permission_set = <span class="hljs-literal">false</span>) [See <span class="hljs-keyword">above</span> <span class="hljs-built_in">class</span> description]
+<span class="hljs-built_in">item</span>($<span class="hljs-keyword">ref</span>) [See <span class="hljs-keyword">above</span> <span class="hljs-built_in">class</span> description]
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />

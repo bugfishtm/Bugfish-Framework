@@ -26,7 +26,7 @@
 	$titlelist	=	array("User", "Datum", "Inhalt");
 	$alignlist	=	array("left", "center", "left");
 	$array = m_db_rows($db, "SELECT username, createdate, triggername FROM dolibarr_xframework_triggers ORDER BY rowid DESC LIMIT 20");
-	echo "<h2>Demo of m_table_complex!</h2>";
+
 	if(!empty($array)) {
 		for($i = 0; $i < count($array); $i++) {
 			foreach($array[$i] as $key => $value) {

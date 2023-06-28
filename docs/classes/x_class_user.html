@@ -286,6 +286,47 @@ As this Class is very complex, it may be ongoing further minor fixing. <br />But
 </tr>
 </tbody>
 </table>
+
+<table>
+<thead>
+<tr>
+<th>Group Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody> 
+<tr>
+<td>groups($table_group, $table_group_link)</td>
+<td>Intialize the Groups System with table Names to Create for Groups and Linking</td>
+</tr>
+<tr>
+<td>group_add($name, $description = "")</td>
+<td>Create a Group</td>
+</tr>
+<tr>
+<td>group_del($id)</td>
+<td>Delete a Group</td>
+</tr>
+<tr>
+<td>group_users($groupid)</td>
+<td>Get all Users for a Group</td>
+</tr>
+<tr>
+<td>user_groups($userid)</td>
+<td>Get all Groups for a User</td>
+</tr>
+<tr>
+<td>group_adduser($groupid, $userid)</td>
+<td>Add a user to a group</td>
+</tr>
+<tr>
+<td>group_deluser($groupid, $userid)</td>
+<td>Delete a User from a Group</td>
+</tr>
+</tbody>
+</table>
+
+
 <hr>
 <table>
 <thead>
@@ -493,6 +534,18 @@ As this Class is very complex, it may be ongoing further minor fixing. <br />But
 <tr>
 <td>login_request($ref, $pass, $cookies= false)</td>
 <td>Request Login with Reference, Pass and Want stay online? (cookies) <br />Return Code: 1 - Login Successfull <br /> Return Code: 2 -Ref does not exist <br /> Return Code: 3 - Wrong Password <br /> Return Code: 4 - User Blocked <br /> Return Code: 5 - User not confirmed <br /> Return Code: 6- Pass Wrong and User Auto-Blocked after X tries (if activated)</td>
+</tr>
+<tr>
+<td>login_as($id)</td>
+<td>Login as User with ID (needs to be logged in when this function is executed, multi login with user logged in at same time normally is possible!</td>
+</tr>
+<tr>
+<td>login_as_return()</td>
+<td>Return to normal State after login_as() function has been successfully executed</td>
+</tr>
+<tr>
+<td>login_as_is()</td>
+<td>True if current user is masked logged in as another user with login_as() function. False if current user is normally logged in!</td>
 </tr>
 </tbody>
 </table>
