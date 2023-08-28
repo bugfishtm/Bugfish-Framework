@@ -11,52 +11,46 @@
 	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_block.html" />
 	<meta property="og:title" content="Bugfish Session Block Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_block.html" />
-	<style>
-		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
-		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
-		header {  background: #242424; padding: 15px;   color:#FFFFFF; }
-
-		ul.main-menu { margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: left;list-style: none;}
-		ul.main-menu li a {margin-right:20px;font-size:2.0rem; border-bottom: solid transparent 3px; color:#cfd2da;}
-		ul.main-menu li a:hover {color:#FFFFFF;}
-		ul.main-menu li a.active { color:#FFFFFF; border-bottom-color:#ff5707;}
-
-		a { font-weight: normal; text-decoration: none;  color:#ff5707;}
-		a:hover {color: white !important;}
-		a:focus {outline: thin dotted;}
-
-		h1 {  margin-top: 0;margin-bottom: 2rem;font-weight: 300;text-rendering: optimizeLegibility;line-height: 1;font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; color:#ff5707; }
-		h2 { font-size: 18px; padding-bottom: 0px; color:#ffffff; }
-
-		.inner { padding: 15px; }
-		#headertitle { text-align: center; width: 100; font-weight: bold; }
-		.inner_section table { width: 100%;}
-		.inner_section hr { border-color: #242424;  }
-		.inner_section th { background: #454545;  }
-		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
-		.inner_section tr:hover { background:#343434; color: white;  }
-		iframe{ width: 100%; margin-bottom: -5px; }
-		footer{ background: #242424; bottom: 0px; width: 100%; max-width: 800px; padding: 15px;box-sizing: border-box; text-align: center; color:#FFFFFF;}
-	</style>
+	 <link rel="stylesheet" href="../stylesheet.css">
+	 <script src="../jquery.js"></script> 
+	 <script src="../datatable.js"></script> 
+	 <script>
+		function internal_show(newshowvar, thiselement) {
+			$(".internal_show").hide();
+			$(".test").hide();
+			$("#"+newshowvar).show();
+			$(".navitts").css('color', '');
+			thiselement.css('color', '#ff0c02');
+		}
+		
+		
+		$( document ).ready(function() {
+			$(".internal_show").hide();
+			$("#show_php").show();
+			$(".startactivenav").css('color', '#ff0c02');
+		});		
+	 </script>
   </head>
   <body>
-<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div style="z-index:1000; !important; background: black; position: fixed; top: 5px; right: 5px; width: 110px; height: 30px;font-size: 16px;padding: 5px;border-radius: 5px;cursor: pointer;"><b>^ Back to Top</b></div></a>  
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1>Bugfish Session Block Class</h1> <!------------------------------------>
+      <h1>Session Block Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
-        <li><a href="../../index.html" >Home</a><a href="../index.html">Framework</a><a href="#" style="color: white;">Manual</a></li>
-        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
+        <li><a href="../index.html">Back</a></li>
+        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
+        <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
         <li><a href="../privacy.html">Privacy</a></li>
-      </ul>                 
+      </ul>                
     </header>
    
     <div>
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_block-mastered-">x_class_block </h2>Block actions <span class="hljs-keyword">by</span> session counters with <span class="hljs-keyword">this</span> <span class="hljs-class"><span class="hljs-keyword">class</span>.. </span>(only sessions) - time based blocks possible to be released after x seconds if set in constructor
-Does use php-sessions!
+<h2 id="x_class_block-mastered-">x_class_block </h2>
+<p style="text-align: left;">Introducing the "x_class_block" PHP session security block class: Effectively prevents actions through session counters. This class exclusively operates within sessions, supporting time-based blocks that can be lifted after a designated duration if specified during construction. Leveraging PHP sessions, this class operates without the need for MySQL tables. Enhance security seamlessly.<br /><br />The x_class_block class essentially offers a mechanism to control actions based on session counters and optionally time-based blocking. It helps manage access to certain functionalities based on session activity. It's important to note that if the $dummy parameter is set to true, the class instance doesn't perform any actions, useful for creating a placeholder instance.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
 ✔️ Productive - Ready<br /><br /></div>
@@ -70,24 +64,24 @@ Does use php-sessions!
 </thead>
 <tbody>
 <tr>
-<td>__construct($key, $maxcount, $time_seconds_block = false)</td>
-<td>Construct with max Count value, Time until reset and pre cookie String ($key)</td>
+<td>__construct($pre_key, $maxcount, $block_time = false, $dummy = false)</td>
+<td>Initializes the class instance. It sets up the session key, maximum allowed count before blocking, and an optional time period for blocking. If $dummy is set to true, it creates a dummy instance.</td>
 </tr>
 <tr>
 <td>blocked()</td>
-<td>Check if Session is above Max, if time_seconds_clock is expired, it will be reseted to 0</td>
+<td>Checks if the current session is blocked based on the set conditions. If the block time is specified, it checks if the time has expired. If the maximum count is reached, it sets the block state. This function returns true if blocked, false otherwise.</td>
 </tr>
 <tr>
-<td>increase()</td>
-<td>Increase Session</td>
+<td>increase($int = 1)</td>
+<td>Increases the session counter by the specified integer value ($int). This function also calls the blocked function to update the block status.</td>
 </tr>
 <tr>
-<td>decrease()</td>
-<td>Decrease Session</td>
+<td>decrease($int = 1)</td>
+<td>Decreases the session counter by the specified integer value ($int). This function also calls the blocked function to update the block status.</td>
 </tr>
 <tr>
 <td>reset()</td>
-<td>Reset Session</td>
+<td>Resets the session counter to zero and clears the block timestamp if applicable. This function also calls the blocked function to update the block status.</td>
 </tr>
 </tbody>
 </table>
@@ -97,6 +91,6 @@ Does use php-sessions!
 
 
     </div>
-    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu/aboutme" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - <a href="mailto:bugfish@bugfish.eu">contact@bugfish.eu</a> </footer>
+
   </body>
 </html>

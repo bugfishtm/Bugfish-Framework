@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  Referers Control Class */
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_referer {
 		######################################################
 		// Class Variables
@@ -50,6 +64,13 @@
 			if(strpos($tmpcode, "www.") > -1)		{$tmpcode = @substr($tmpcode, 		strpos($tmpcode, "www."));} 
 			$return = urldecode(trim($tmpcode));
 		}	
+
+		######################################################
+		// Get current saved Referers in Array
+		######################################################		
+		public function get_array() {
+			return $this->mysql->select("SELECT * FROM `".$this->mysqltable."`", true);
+		}
 		
 		######################################################
 		// Execute Function
@@ -65,7 +86,7 @@
 					if (!is_array($sresult)) { 
 						$query = @$this->mysql->query("INSERT INTO `".$this->mysqltable."` (full_url, hits) VALUES (?, 1)", $b);
 					} else {
-						$query = @$this->mysql->update("UPDATE ".$this->mysqltable." SET hits = hits + 1 WHERE full_url = ?;", $b);
+						$query = @$this->mysql->update("UPDATE `".$this->mysqltable."` SET hits = hits + 1 WHERE full_url = ?;", $b);
 					}				
 				}
 			} return true;

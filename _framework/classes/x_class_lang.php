@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  Multilang Control Class */
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_lang {		
 		// Class Variables
 		private $mysql   = false; 
@@ -26,19 +40,40 @@
 												  PRIMARY KEY (`id`),
 												  UNIQUE KEY `Unique` (`identificator`,`lang`,`section`) USING BTREE);");}
 												  
-		// Construct the Class								  
-		function __construct($mysql, $table, $lang = "none", $section = "none") {
+		// Construct the Class		
+		private $filemode = false;
+		function __construct($mysql = false, $table = false, $lang = "none", $section = "none", $file_name = false) {
 			$this->mysql = $mysql;
 			$this->table = $table;
 			$this->lang = $lang;
 			$this->section = $section;
-			if(!$this->mysql->table_exists($table)) { $this->create_table(); $this->mysql->free_all();  }
-			$this->init();
+			if(is_object($mysql)) { if(!$this->mysql->table_exists($table)) { $this->create_table(); $this->mysql->free_all();  } 
+				$this->init(); } else {
+				if($file_name) {
+					$this->filemode = true;
+					if(file_exists($file_name)) { 
+						$file = file($file_name, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+						foreach ($file as $array) {
+							if(strpos($array, "=") > 1) { 
+								if(substr(trim($array), 0, 2) == "//" OR substr(trim($array), 0, 1) == "#") {  }
+								else { 
+									$newkey = @substr(trim($array), 0, strpos(trim($array), "=")); 
+									$newvalue = @substr(trim($array), strpos(trim($array), "=") + 1); 
+									$newval[$newkey] = $newvalue; 
+									$this->array = array_merge($this->array, $newval);
+								}
+							}
+						}
+					}
+				} 
+			}
 		}
+		
 		
 		// Init the Array to Fetch Translations Without SQL Queries for current Loaded Translation
 		private function init() {
-			$rres = @$this->mysql->select("SELECT identificator, translation FROM ".$this->table." WHERE lang = '".$this->mysql->escape($this->lang)."' AND section = '".$this->section."'", true);
+			if($this->filemode) { return false; }
+			$rres = @$this->mysql->select("SELECT identificator, translation FROM `".$this->table."` WHERE lang = '".$this->mysql->escape($this->lang)."' AND section = '".$this->section."'", true);
 			if(is_array($rres)) {
 				foreach($rres as $key => $value) {
 					$newar = array();
@@ -50,23 +85,25 @@
 
 		// Delete a Key from current Language loaded or From Another Language
 		public function delete($key, $lang = false) {
+			if($this->filemode) { return false; }
 			if(!$lang) {
-				return @$this->mysql->query("DELETE FROM ".$this->table." WHERE lang = '".$this->mysql->escape($this->lang)."' AND section = '".$this->section."' AND identificator = '".$this->mysql->escape($key)."'");
+				return @$this->mysql->query("DELETE FROM `".$this->table."` WHERE lang = '".$this->mysql->escape($this->lang)."' AND section = '".$this->section."' AND identificator = '".$this->mysql->escape($key)."'");
 			} else {
-				return @$this->mysql->query("DELETE FROM ".$this->table." WHERE lang = '".$this->mysql->escape($lang)."' AND section = '".$this->section."' AND identificator = '".$this->mysql->escape($key)."'");
+				return @$this->mysql->query("DELETE FROM `".$this->table."` WHERE lang = '".$this->mysql->escape($lang)."' AND section = '".$this->section."' AND identificator = '".$this->mysql->escape($key)."'");
 			}
 		}
 		
 		// Add a new Translation Key with Text and for loaded Lang // Or another Lang if entered as parameter
 		public function add($key, $text, $lang = false) {
+			if($this->filemode) { return false; }
 			if(!$lang) {
 				$b[0]["type"]	=	"s";
 				$b[0]["value"]	=	$text;					
-				return @$this->mysql->query("INSERT INTO ".$this->table."(section, lang, identificator, translation) VALUES('".$this->section."', '".$this->mysql->escape($this->lang)."', '".$this->mysql->escape($key)."', ?);", $b);
+				return @$this->mysql->query("INSERT INTO `".$this->table."`(section, lang, identificator, translation) VALUES('".$this->section."', '".$this->mysql->escape($this->lang)."', '".$this->mysql->escape($key)."', ?);", $b);
 			} else {
 				$b[0]["type"]	=	"s";
 				$b[0]["value"]	=	$text;					
-				return @$this->mysql->query("INSERT INTO ".$this->table."(section, lang, identificator, translation) VALUES('".$this->section."', '".$this->mysql->escape($lang)."', '".$this->mysql->escape($key)."', ?);", $b);
+				return @$this->mysql->query("INSERT INTO `".$this->table."`(section, lang, identificator, translation) VALUES('".$this->section."', '".$this->mysql->escape($lang)."', '".$this->mysql->escape($key)."', ?);", $b);
 			}
 		}
 

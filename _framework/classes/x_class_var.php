@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  Variables Control Class */
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_var {
 		// Class Variables
 		private $variable_msqlcon   = false; 
@@ -18,24 +32,24 @@
 		// Table Initialization
 		private function create_table() {
 			return $this->variable_msqlcon->query("CREATE TABLE IF NOT EXISTS `".$this->variable_table."` (
-												  `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
-												  `descriptor` varchar(256) NOT NULL COMMENT 'Descriptor for Constant',
-												  `value` text COMMENT 'Value for Constant',
-												  `description` text COMMENT 'Description for Constant',
-												  `section` varchar(128) DEFAULT '' COMMENT 'Section for Constant (For Multi Site)',
+												  `".$this->db_r_c_id."` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
+												  `".$this->db_r_c_title."` varchar(256) NOT NULL COMMENT 'Descriptor for Constant',
+												  `".$this->db_r_c_value."` text COMMENT 'Value for Constant',
+												  `".$this->db_r_c_descr."` text COMMENT 'Description for Constant',
+												  `".$this->db_r_c_section."` varchar(128) DEFAULT '' COMMENT 'Section for Constant (For Multi Site)',
 												  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date of Entry | Will be Auto-Set',
 												  `modification` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification Date of Entry with Auto-Update on Change',
 												  PRIMARY KEY (`id`),
-												  UNIQUE KEY `Unique` (`section`,`descriptor`) USING BTREE);");}
+												  UNIQUE KEY `x_class_var_unique` (`section`,`descriptor`) USING BTREE);");}
 		// Construct
-		function __construct($mysql, $tablename, $section = "", $descriptor = "descriptor", $value = "value", $description = "description", $sectionfield = "section", $idfield = "id") { 
+		function __construct($mysql, $tablename, $section, $descriptor = "descriptor", $value = "value", $description = "description", $sectionfield = "section", $idfield = "id") { 
 			if (session_status() !== PHP_SESSION_ACTIVE) {@session_start();}
 			$this->variable_msqlcon = $mysql; 
 			$this->db_r_c_title     = @substr(trim($descriptor), 0, 255); 
 			$this->db_r_c_value     = @substr(trim($value), 0, 255); 
 			$this->db_r_c_descr     = @substr(trim($description), 0, 255); 
 			$this->db_r_c_section   = @substr(trim($sectionfield), 0, 255); 
-			$this->db_r_c_id    	= @substr(trim($sectionfield), 0, 255); 
+			$this->db_r_c_id    	= @substr(trim($idfield), 0, 255); 
 			$this->sections_name    = @substr(trim($section), 0, 127); 
 			$this->variable_table   = $tablename; 
 			if(!$this->variable_msqlcon->table_exists($tablename)) { $this->create_table(); $this->variable_msqlcon->free_all();  } }
@@ -43,11 +57,13 @@
 
 		// Init as Constant
 		public function init_constant(){ 
-			if(!$this->db_r_c_section) { $section = ""; } else { $section = " WHERE ".$this->db_r_c_section." = '".$this->sections_name."' ";}
-			$rres = @$this->variable_msqlcon->select("SELECT * FROM ".$this->variable_table." ".$section, true);
+			$b[0]["type"]	=	"s";
+			$b[0]["value"]	=	$this->sections_name;
+			if(!$this->db_r_c_section) { $section = ""; } else { $section = " WHERE ".$this->db_r_c_section." = ? ";}
+			$rres = @$this->variable_msqlcon->select("SELECT * FROM `".$this->variable_table."` ".$section, true, $b);
 			if(is_array($rres)) {
 				foreach($rres AS $key => $value) {	
-					if(!defined($value[$this->db_r_c_title])) {
+					if(!defined($value[$this->db_r_c_title])) { 
 						define($value[$this->db_r_c_title], $value["".$this->db_r_c_value.""]);
 					}	
 				}
@@ -57,8 +73,10 @@
 		// Init as Array
 		public function get_array(){ 
 			$tmparray = array();
-			if(!$this->db_r_c_section) { $section = ""; } else { $section = " WHERE ".$this->db_r_c_section." = '".$this->sections_name."' ";}
-			$rres = @$this->variable_msqlcon->select("SELECT * FROM ".$this->variable_table." ".$section, true);
+			$b[0]["type"]	=	"s";
+			$b[0]["value"]	=	$this->sections_name;	
+			$section = " WHERE ".$this->db_r_c_section." = ? ";
+			$rres = @$this->variable_msqlcon->select("SELECT * FROM `".$this->variable_table."` ".$section, true, $b);
 			if(is_array($rres)) {
 				foreach($rres AS $key => $value) {	
 					$tmparray_two = array();
@@ -68,119 +86,152 @@
 			} return $tmparray;
 		}
 		
-		// Add Variable
-		public function add($name, $value, $description = false, $overwrite = false)  { return $this->set($name, $value, $description, true, $overwrite);}
-		// Setup Variable
-		public function setup($name, $value, $description = false) { return $this->set($name, $value, $description, true, false);}		
+		// Init as Array
+		public function get_array_full(){ 
+			$tmparray = array();
+			$b[0]["type"]	=	"s";
+			$b[0]["value"]	=	$this->sections_name;	
+			$section = " WHERE ".$this->db_r_c_section." = ? ";
+			$rres = @$this->variable_msqlcon->select("SELECT * FROM `".$this->variable_table."` ".$section, true, $b);
+			return $rres;
+		}
+		
+		// Get a Full Array from Row of Table with This name Found 1st Hit
+		public function get_full($name) {
+			$b[0]["type"]	=	"s";
+			$b[0]["value"]	=	$this->sections_name;	
+			$b[1]["type"]	=	"s";
+			$b[1]["value"]	=	$name;	
+			return @$this->variable_msqlcon->select("SELECT * FROM `".$this->variable_table."` WHERE (".$this->db_r_c_section." = ? ) AND ".$this->db_r_c_title." = ?;", false, $b);							
+		}			
+		
 		// Check if Var Exists
-		public function exists($name) { if($this->get($name)) { return true; } else { return false; }}		
+		public function exists($name) { if($this->get_id($name)) { return true; } else { return false; }}		
 		// Get a Variable
-		public function get($name) { $var = $this->get_full($name); if(isset($var[$this->db_r_c_value])) { return $var[$this->db_r_c_value]; } else { return false; }	}	
+		public function get($name) { $var = $this->get_full($name); if(isset($var[$this->db_r_c_id])) { return $var[$this->db_r_c_value]; } else { return false; }	}			
+		private function get_id($name) { $var = $this->get_full($name); if(isset($var[$this->db_r_c_id])) { return $var[$this->db_r_c_id]; } else { return false; }	}			
+		
 		// Delete a Constant
 		public function del($name) {
 			if($var = $this->get_full($name)) {
-				return @$this->variable_msqlcon->query("DELETE FROM ".$this->variable_table." WHERE ".$this->db_r_c_id." = ".$var[$this->db_r_c_id]." ;");	
-			} else {return false;}}		
-
+				return @$this->variable_msqlcon->query("DELETE FROM `".$this->variable_table."` WHERE ".$this->db_r_c_id." = ".$var[$this->db_r_c_id]." ;");	
+			} else {return false;}}				
+		
+		// Setup Variable
+		public function setup($name, $value, $description = "") { if(!$this->exists($name)) { return $this->set($name, $value, $description, true, false); } else { return false; }}			
+		
+		// Add Variable
+		public function add($name, $value, $description = "", $overwrite = false)  { return $this->set($name, $value, $description, true, $overwrite);}
+	
 		// Internal Function to Handle Variables
 		public function set($name, $value, $description = false, $add = true, $overwrite = true) {
-			if(!$description OR !$this->db_r_c_descr) { $descriptionedit = false;$descriptioneditv = false; } else { $descriptionedit = " , ".$this->db_r_c_descr." = ? ";$descriptioneditv = $description;}
-		
-			$b[0]["type"]	=	"s";
-			$b[0]["value"]	=	$descriptioneditv;		
-		
-			if($this->exists($name)) {
-				if($overwrite) {
-					if($description) {
-						if($this->db_r_c_section) {
-							return @$this->variable_msqlcon->update("UPDATE ".$this->variable_table." SET ".$this->db_r_c_descr." = ?, ".$this->db_r_c_value." = '".$this->variable_msqlcon->escape(@$value)."' WHERE ".$this->db_r_c_title." = \"".$this->variable_msqlcon->escape(@$name)."\" AND (".$this->db_r_c_section." = '".$this->sections_name."');", $b); 								
-						} else {
-							return @$this->variable_msqlcon->update("UPDATE ".$this->variable_table." SET ".$this->db_r_c_descr." = ?, ".$this->db_r_c_value." = '".$this->variable_msqlcon->escape(@$value)."' WHERE ".$this->db_r_c_title." = \"".$this->variable_msqlcon->escape(@$name)."\";", $b); 		
-						}							
+			if(!$description OR !$this->db_r_c_descr) { $descriptionedit = false; $descriptioneditv = ""; } else { $descriptionedit = true ;$descriptioneditv = $description;}
+			
+			if($this->exists($name)) { 
+				if($overwrite) {	
+					if($descriptionedit) {
+						$b[0]["type"]	=	"s";
+						$b[0]["value"]	=	$descriptioneditv;		
+						$b[1]["type"]	=	"s";
+						$b[1]["value"]	=	$value;
+						$b[2]["type"]	=	"s";
+						$b[2]["value"]	=	$name;
+						$b[3]["type"]	=	"s";
+						$b[3]["value"]	=	$this->sections_name;
+						return @$this->variable_msqlcon->update("UPDATE `".$this->variable_table."` SET ".$this->db_r_c_descr." = ?, ".$this->db_r_c_value." = ? WHERE ".$this->db_r_c_title." = ? AND (".$this->db_r_c_section." = ?);", $b); 														
 					} else {
-						if($this->db_r_c_section) {
-							return @$this->variable_msqlcon->update("UPDATE ".$this->variable_table." SET ".$this->db_r_c_value." = '".$this->variable_msqlcon->escape(@$value)."' WHERE ".$this->db_r_c_title." = \"".$this->variable_msqlcon->escape(@$name)."\" AND (".$this->db_r_c_section." = '".$this->sections_name."');"); 								
-						} else {
-							return @$this->variable_msqlcon->update("UPDATE ".$this->variable_table." SET ".$this->db_r_c_value." = '".$this->variable_msqlcon->escape(@$value)."' WHERE ".$this->db_r_c_title." = \"".$this->variable_msqlcon->escape(@$name)."\";"); 		
-						}					
+						$b[0]["type"]	=	"s";
+						$b[0]["value"]	=	$value;
+						$b[1]["type"]	=	"s";
+						$b[1]["value"]	=	$name;
+						$b[2]["type"]	=	"s";
+						$b[2]["value"]	=	$this->sections_name;
+						return @$this->variable_msqlcon->update("UPDATE `".$this->variable_table."` SET ".$this->db_r_c_value." = ? WHERE ".$this->db_r_c_title." = ? AND (".$this->db_r_c_section." = ?);", $b); 								
+								
 					}
-				}				
+				} return false;
 			} else {
 				if($add) {
-					if($description) {
-						if($this->db_r_c_section) {
-							return @$this->variable_msqlcon->query("INSERT INTO ".$this->variable_table."(".$this->db_r_c_title.", ".$this->db_r_c_value.", ".$this->db_r_c_descr.", ".$this->db_r_c_section.") VALUES('".$this->variable_msqlcon->escape(@$name)."', '".$this->variable_msqlcon->escape(@$value)."', ?, \"".$this->sections_name."\");", $b);							
-						} else {
-							return @$this->variable_msqlcon->query("INSERT INTO ".$this->variable_table."(".$this->db_r_c_title.", ".$this->db_r_c_value.", ".$this->db_r_c_section.", ".$this->db_r_c_descr.") VALUES('".$this->variable_msqlcon->escape(@$name)."', '".$this->variable_msqlcon->escape(@$value)."', \"".$this->sections_name."\", ?);", $b);
-						}							
-					} else {
-						if($this->db_r_c_section) {
-							return @$this->variable_msqlcon->query("INSERT INTO ".$this->variable_table."(".$this->db_r_c_title.", ".$this->db_r_c_value.", ".$this->db_r_c_section.") VALUES('".$this->variable_msqlcon->escape(@$name)."', '".$this->variable_msqlcon->escape(@$value)."', \"".$this->sections_name."\");");							
-						} else {
-							return @$this->variable_msqlcon->query("INSERT INTO ".$this->variable_table."(".$this->db_r_c_title.", ".$this->db_r_c_value.", ".$this->db_r_c_section.") VALUES('".$this->variable_msqlcon->escape(@$name)."', '".$this->variable_msqlcon->escape(@$value)."', \"".$this->sections_name."\");");
-						}					
+					if($descriptionedit) {
+						$b[0]["type"]	=	"s";
+						$b[0]["value"]	=	$name;
+						$b[1]["type"]	=	"s";
+						$b[1]["value"]	=	$value;
+						$b[2]["type"]	=	"s";
+						$b[2]["value"]	=	$descriptioneditv;
+						$b[3]["type"]	=	"s";
+						$b[3]["value"]	=	$this->sections_name;
+						return @$this->variable_msqlcon->query("INSERT INTO `".$this->variable_table."`(".$this->db_r_c_title.", ".$this->db_r_c_value.", ".$this->db_r_c_descr.", ".$this->db_r_c_section.") VALUES(?, ?, ?, ?);", $b);							
+						
+					} else {	
+						$b[0]["type"]	=	"s";
+						$b[0]["value"]	=	$name;
+						$b[1]["type"]	=	"s";
+						$b[1]["value"]	=	$value;
+						$b[2]["type"]	=	"s";
+						$b[2]["value"]	=	$this->sections_name;
+						return @$this->variable_msqlcon->query("INSERT INTO `".$this->variable_table."`(".$this->db_r_c_title.", ".$this->db_r_c_value.", ".$this->db_r_c_section.") VALUES(?, ?, ?);", $b);							
+						
 					}
-				}
-			} return false;
+				} return false;
+			} 
+			return false;
 		}		
 
-		// Get a Full Array from Row of Table with This name Found 1st Hit
-		public function get_full($name) {
-			if($this->db_r_c_section) {
-				return @$this->variable_msqlcon->select("SELECT * FROM `".$this->variable_table."` WHERE (".$this->db_r_c_section." = '".$this->sections_name."' ) AND ".$this->db_r_c_title." = \"".$this->variable_msqlcon->escape(@$name)."\";");
-			} else {
-				return @$this->variable_msqlcon->select("SELECT * FROM `".$this->variable_table."` WHERE ".$this->db_r_c_title." = \"".$this->variable_msqlcon->escape(@$name)."\";");		
-			}							
-		}		
-		
 		// Setup Int
-		public function form($varname, $type = "int", $selectarray = array()) {
-			if(!isset($_SESSION["x_class_var"])) {$_SESSION["x_class_var"] = mt_rand(1000, 999999); }
-			if(isset($_POST["x_class_var_submit_".$varname."_".$this->sections_name])) {
-				if($_POST["x_class_var_csrf"] == $_SESSION["x_class_var"]) {
-						$finalvalue = false;
-						switch($type) {
-							case "int": $finalvalue = @$_POST["x_class_var_val"]; break;	
-							case "text": $finalvalue = @$_POST["x_class_var_val"]; break;	
-							case "string": $finalvalue = @$_POST["x_class_var_val"]; break;	
-							case "select": $finalvalue = @$_POST["x_class_var_val"]; break;		
-							case "bool": if(@$_POST["x_class_var_val"]) {$finalvalue =1;} else {$finalvalue =0;}  break;		
-							case "array": $finalvalue = @serialize($_POST["x_class_var_val"]); break;					
-						} 
+		public function form($varname, $type = "int", $selectarray = array(), $precookie = "", $button_class="btn btn-warning waves-effect waves-light", $itemclass = "form-control", $editbuttonname = "Edit") {	
+			$outputform = 0;
+			if(!$this->exists($varname)) { return "error-var-not-found";}
+			if(!isset($_SESSION[$precookie."x_class_var"])) {$_SESSION[$precookie."x_class_var"] = mt_rand(1000, 999999); }
+			$tmp_var = $this->get_full($varname);
+			$varnamenew = $precookie."x_class_var_submit_".$tmp_var[$this->db_r_c_id];
+			$varnamenews = $precookie."x_class_var_submit_val".$tmp_var[$this->db_r_c_id];
+			if(isset($_POST[$varnamenew])) {
+				if($_POST[$precookie."x_class_var_csrf"] == $_SESSION[$precookie."x_class_var"]) {
+					$finalvalue = false;
+					switch($type) {
+						case "int": $finalvalue = @$_POST[$varnamenews]; break;	
+						case "text": $finalvalue = @$_POST[$varnamenews]; break;	
+						case "string": $finalvalue = @$_POST[$varnamenews]; break;	
+						case "select": $finalvalue = @$_POST[$varnamenews]; break;		
+						case "bool": if(@$_POST[$varnamenews]) {$finalvalue =1;} else {$finalvalue =0;}  break;		
+					} 		
 					if($this->set($varname, $finalvalue, false, true, true)) {
 						$text = "<b><font color='lime'>Changed successfully!</font></b>";
-					} else {$text = "<b><font color='red'>Could not be changed!</font></b>";}
-				} else { $text = "<b><font color='red'>CSRF Error Try Again!</font></b>"; }	
-			} $current = $this->get_full($varname); ?>
-			<div class="x_class_var">
-				<form method="post" action="#x_class_var_ancor_<?php echo $varname.$this->sections_name; ?>">
-					<fieldset id="x_class_var_ancor_<?php echo $varname.$this->sections_name; ?>">
-						<?php if(is_array($current)) { echo $current[$this->db_r_c_descr]; echo "<br />"; } ?>
-						<?php if(isset($text)) { echo $text; echo "<br />"; } ?>
+					} else {$text = "<b><font color='red'>Could not be changed!</font></b>";}	
+				} else { $text = "<b><font color='red'>CSRF Error Try Again!</font></b>"; }
+			} $current = $this->get_full($varname);  ?>
+			<section id="<?php echo $precookie; ?>x_class_var_anchor_<?php echo $current[$this->db_r_c_id]; ?>"></section><br />
+			<div class="x_class_var" >
+				<form method="post" action="#<?php echo $precookie; ?>x_class_var_anchor_<?php echo $current[$this->db_r_c_id]; ?>">
+					<?php if(is_string($current[$this->db_r_c_title])) { echo "<b>".$current[$this->db_r_c_title]."</b>"; echo "<br />"; } ?>
+					<?php if(is_string($current[$this->db_r_c_descr])) { echo $current[$this->db_r_c_descr]; echo "<br />"; } ?>
+					<?php if(is_string(@$text) AND strlen(@$text) > 5) { echo @$text; echo "<br />"; } ?>
 						<!-- Int -->
-						<?php if($type == "int") { ?> <input type="number" value="<?php if(is_array($current)) { echo $current[$this->db_r_c_value]; } ?>" name="x_class_var_submit_val"><?php } ?>
+						<?php if($type == "int") { ?> <input class="<?php echo $itemclass; ?>"  type="number" value="<?php if(is_array($current)) { echo @htmlentities($current[$this->db_r_c_value]); } ?>" name="<?php echo $varnamenews; ?>"><br /><?php } ?>				
 						<!-- String -->
-						<?php if($type == "string") { ?> <input type="text" value="<?php if(is_array($current)) { echo $current[$this->db_r_c_value]; } ?>" name="x_class_var_submit_val"><?php } ?>
+						<?php if($type == "string") { ?> <input class="<?php echo $itemclass; ?>"  type="text" value="<?php if(is_array($current)) { echo @htmlentities($current[$this->db_r_c_value]); } ?>" name="<?php echo $varnamenews; ?>"><br /><?php } ?>					
 						<!-- Text -->
-						<?php if($type == "text") { ?> <textarea name="x_class_var_submit_val"><?php if(is_array($current)) { echo $current[$this->db_r_c_value]; } ?></textarea><br /><?php } ?>
+						<?php if($type == "text") { ?> <textarea class="<?php echo $itemclass; ?>"  name="<?php echo $varnamenews; ?>"><?php if(is_array($current)) { echo $current[$this->db_r_c_value]; } ?></textarea><br /><?php } ?>
 						<!-- Bool -->
-						<?php if($type == "bool" AND is_array($current) AND $current[$this->db_r_c_value] == 1) { $xxx = "checked"; } else { $xxx = ""; } ?>
-						<?php if($type == "bool") { ?>Activate: <input type="checkbox" name="x_class_var_submit_val" <?php echo $xxx; ?>><?php } ?>	
+						<?php if($type == "bool" AND is_array($current) AND $current[$this->db_r_c_value] == 1) { $xxx = "checked"; } else { $xxx = ""; } ?>	
+						<?php if($type == "bool") { ?>Configure: <input class="<?php echo $itemclass; ?>" type="checkbox" name="<?php echo $varnamenews; ?>" <?php echo $xxx; ?>><?php } ?>		
 						<!-- Select -->
-						<?php if($type == "select") { ?><select name="x_class_var_submit_val">
-						<?php $output = "";
-							foreach($selectarray AS $key => $value) {
-								if($current[$this->db_r_c_value] == $value[1]) { echo '<option value="'.$value[1].'">'.$value[0]."</option>"; }
-								else { $output .= '<option value="'.$value[1].'">'.$value[0]."</option>"; }
-							}
-							echo $output;
-						?>
-						</select><?php } ?>
+						<?php if($type == "select") { ?>
+							<select class="<?php echo $itemclass; ?>"  name="<?php echo $varnamenews; ?>">
+							<option value="<?php echo htmlentities($current[$this->db_r_c_value]); ?>">No Change: <?php echo @htmlentities($current[$this->db_r_c_value]); ?></option>
+								<?php
+									foreach($selectarray AS $key => $value) {
+										echo '<option value="'.$value[1].'">'.$value[0]."</option>";
+									}
+								?>
+							</select><br />
+						<?php } ?>
 						<!-- Misc Form -->
-						<input type="hidden" value="<?php echo $_SESSION["x_class_var"]; ?>" name="x_class_var_csrf">
-						<input type="submit" value="Change" name="x_class_var_submit_<?php echo $varname.$this->sections_name; ?>">
-					</fieldset>
+						<input type="hidden" value="<?php echo $_SESSION[$precookie."x_class_var"]; ?>" name="<?php echo $precookie; ?>x_class_var_csrf">
+						<input type="hidden" value="<?php echo "true"; ?>" name="<?php $varnamenew; ?>">
+						<input type="submit" value="<?php echo $editbuttonname; ?>" name="<?php echo $varnamenew; ?>" class="<?php echo $button_class; ?>">			
 				</form>
 			</div>
-		<?php }	
+		<?php  return $outputform; }	
 	}

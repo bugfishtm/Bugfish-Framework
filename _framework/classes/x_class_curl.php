@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  Curl Control Class */	
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/	
 	class x_class_curl {
 		// Class Variables
 		public $last_info = false;
@@ -83,7 +97,7 @@
 				$bind[3]["type"] = "s";
 				$bind[3]["value"] = $url;			
 				
-				$this->mysql->query("INSERT INTO ".$this->logging_table."(output, request, settings, url, filename, type) VALUES(?, ?, ?, ?, 'none', 'request');", $bind); 
+				$this->mysql->query("INSERT INTO `".$this->logging_table."`(output, request, settings, url, filename, type) VALUES(?, ?, ?, ?, 'none', 'request');", $bind); 
 			}
 			
 			// Return Output of Request
@@ -146,7 +160,7 @@
 				$bind[4]["type"] = "s";
 				$bind[4]["value"] = $local;	
 				
-				$this->mysql->query("INSERT INTO ".$this->logging_table."(output, request, settings, url, filename, type) VALUES(?, ?, ?, ?, ?, 'request');", $bind); 
+				$this->mysql->query("INSERT INTO `".$this->logging_table."`(output, request, settings, url, filename, type) VALUES(?, ?, ?, ?, ?, 'request');", $bind); 
 			}
 			
 			// Return Output of Request
@@ -204,67 +218,11 @@
 				$bind[4]["type"] = "s";
 				$bind[4]["value"] = $local;	
 				
-				$this->mysql->query("INSERT INTO ".$this->logging_table."(output, request, settings, url, filename, type) VALUES(?, ?, ?, ?, ?, 'request');", $bind); 
+				$this->mysql->query("INSERT INTO `".$this->logging_table."`(output, request, settings, url, filename, type) VALUES(?, ?, ?, ?, ?, 'request');", $bind); 
 			}
 			
 			// Return Output of Request
 			return $output;
 		}			
-		
-		######################################################
-		// Upload Chunk with Authentication
-		######################################################		
-		/*public function upload_chunk($remote, $filepath, $username, $password, $request = "PUT", $settings = array()) {
-			// Reset Last Info
-			$this->last_info = false;			
-			
-			// Init Curl Request
-			$ch = curl_init();
-			
-
-			// Default Settings for all Chunk Uploads
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $request);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_URL, $remote);
-			curl_setopt($ch, CURLOPT_TIMEOUT, 600);
-		
-
-		
-			$file = fopen($filepath, 'r');
-			$filesize = filesize($filepath);
-			$chunkSize = 1048576; // 1MB chunks
-			$startByte = 0;
-			$endByte = $chunkSize - 1;
-			$chunks = ceil($filesize / $chunkSize);		
-		
-			while ($startByte < $filesize) {
-				$headers = array(
-					'Authorization: Basic '.base64_encode($username.':'.$password),
-					'Content-Type: application/octet-stream',
-					'Content-Length: '.($endByte - $startByte + 1),
-					'Content-Range: bytes '.$startByte.'-'.$endByte.'/'.$filesize
-				);
-				curl_setopt($ch, CURLOPT_URL, $url);
-				curl_setopt($ch, CURLOPT_INFILE, $file);
-				curl_setopt($ch, CURLOPT_INFILESIZE, $endByte - $startByte + 1);
-				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-				$output = curl_exec($ch);
-				$startByte = $endByte + 1;
-				$endByte = min($startByte + $chunkSize - 1, $filesize - 1);
-			}
-			
-			
-			// Finish File Stream
-			fclose($file);
-			
-			// Refresh Last Information
-			$this->last_info = curl_getinfo($ch);
-			
-			// Close Curl
-			curl_close($ch);
-			
-			// Return Output of Request
-			return $output;
-		}*/
 	}
 	

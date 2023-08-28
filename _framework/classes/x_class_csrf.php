@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  CSRF Class	*/	
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_csrf {
 		// Settings Variables and Functions
 		private $extension 	= false;
@@ -25,7 +39,7 @@
 			if (session_status() !== PHP_SESSION_ACTIVE) { @session_start(); }
 			// Generate new Key and Save to Parameters
 			$this->c_key			 = mt_rand(100000000,900000000);
-			$this->c_key_time		 = @$_SESSION["x_class_csrf_tms".$this->extension];
+			$this->c_key_time		 = @$_SESSION[$this->extension."x_class_csrf_tms"];
 			// Cookie Extension
 			$this->extension  	 = $cookie_extension;
 			// Valid Time for CSRF Key
@@ -33,8 +47,8 @@
 			// Disable Renewal for Actions if Parameter Set True
 			if($external_action) { $this->disableRenewal(true);  $this->external_action  = true; }
 			// Set the Last Session Keys Time and Value to Class Parameters if there is any
-			$this->l_key			 = @$_SESSION["x_class_csrf".$this->extension];
-			$this->l_key_time		 = @$_SESSION["x_class_csrf_tms".$this->extension];
+			$this->l_key			 = @$_SESSION[$this->extension."x_class_csrf"];
+			$this->l_key_time		 = @$_SESSION[$this->extension."x_class_csrf_tms"];
 		}
 		
 		// Get Input Hidden Field with Current Key, Provided ID and Name
@@ -54,8 +68,8 @@
 		// Check if Submitted CSRF if Valid with CSRF Before in Session
 		public function check($code, $override_valid_time = false) {		
 			if(!$override_valid_time) { $override_valid_time = $this->valid_time;}
-			$tmp_s	=	@$_SESSION["x_class_csrf".$this->extension];
-			$tmp_st	=	@$_SESSION["x_class_csrf_tms".$this->extension];
+			$tmp_s	=	@$_SESSION[$this->extension."x_class_csrf"];
+			$tmp_st	=	@$_SESSION[$this->extension."x_class_csrf_tms"];
 			if(@$code == $tmp_s AND @$code != NULL AND @trim($code) != "") {
 				if((time() - $tmp_st) < $override_valid_time AND $tmp_st != NULL AND isset($tmp_st)) {
 						return true;
@@ -79,8 +93,8 @@
 		// Deconstruct and Apply new CSRF to Session
 		function __destruct() {
 			if(!$this->norenewal) {
-				$_SESSION["x_class_csrf".$this->extension] = $this->c_key;
-				$_SESSION["x_class_csrf_tms".$this->extension]  = time();
+				$_SESSION[$this->extension."x_class_csrf"] = $this->c_key;
+				$_SESSION[$this->extension."x_class_csrf_tms"]  = time();
 			}
 		}			
 	}

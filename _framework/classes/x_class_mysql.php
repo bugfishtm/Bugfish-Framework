@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  MySQL Control Class */
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_mysql {
 		/*	___________     ___.   .__                 
 			\__    ___/____ \_ |__ |  |   ____   ______
@@ -67,7 +81,7 @@
 						$b[3]["value"] = $inarray["init"];
 						$b[4]["type"] = "s";
 						$b[4]["value"] = $inarray["output"];
-						$x = $mysql->query("INSERT INTO ".$this->logging_table."(url, sqlerror, exception, init, output, section, success) VALUES(?, ?,?,?,?, \"".$inarray["section"]."\", ".$boolsuccess.");", $b);
+						$x = $mysql->query("INSERT INTO `".$this->logging_table."`(url, sqlerror, exception, init, output, section, success) VALUES(?, ?,?,?,?, \"".$inarray["section"]."\", ".$boolsuccess.");", $b);
 						return $x;}
 				 catch (Exception $e){ return false; }
 				} return false; }
@@ -92,9 +106,9 @@
 			 |___  /\___  >___|  /\___  >___|  /__|_|  (____  /__|  |__|_ \
 				 \/     \/     \/     \/     \/      \/     \/           \/ */								  
 			private $bm	  	  = false;	private $bmcookie  = false; 				  
-			private function benchmark_raise($raise = 1) {if( $this->bm) {  $_SESSION["x_class_mysql".$this->bmcookie] = $_SESSION["x_class_mysql".$this->bmcookie] + 1; } } 
-			public function benchmark_get() { if( $this->bm) { return $_SESSION["x_class_mysql".$this->bmcookie]; } return false;}						
-			public function benchmark_config($bool = false, $preecookie = "") {$this->bmcookie = $preecookie;$this->bm  	= $bool;$_SESSION["x_class_mysql".$this->bmcookie] = 0;}		
+			private function benchmark_raise($raise = 1) {if( $this->bm) {  $_SESSION[$this->bmcookie."x_class_mysql"] = $_SESSION[$this->bmcookie."x_class_mysql"] + 1; } } 
+			public function benchmark_get() { if( $this->bm) { return $_SESSION[$this->bmcookie."x_class_mysql"]; } return false;}						
+			public function benchmark_config($bool = false, $preecookie = "") {$this->bmcookie = $preecookie;$this->bm  	= $bool;$_SESSION[$this->bmcookie."x_class_mysql"] = 0;}		
 				
 		/*	  ___ ___                    .___.__                
 			 /   |   \_____    ____    __| _/|  |   ___________ 
@@ -105,7 +119,7 @@
 		private function handler($excecution, $exception, $init, $nolog = false) {	
 			// Benchmark Raise
 			$this->benchmark_raise();
-			
+			$this->fullerror = array();
 			// Handle Exception
 			if(is_object($exception)) {
 				// Set Last Error and Full Error
@@ -280,11 +294,11 @@
 		public function row_get($table, $id, $row = "id") { 
 			$bindar[0]["value"] = $id;
 			$bindar[0]["type"]  = "s";
-			return $this->select("SELECT * FROM ".$table." WHERE ".$row." = ?", false, $bindar); }
+			return $this->select("SELECT * FROM `".$table."` WHERE ".$row." = ?", false, $bindar); }
 		public function row_element_get($table, $id, $elementrow, $fallback = false, $row = "id") { 
 			$bindar[0]["value"] = $id;
 			$bindar[0]["type"]  = "s";
-			$ar =  $this->select("SELECT * FROM ".$table." WHERE ".$row." = ?", false, $bindar); 
+			$ar =  $this->select("SELECT * FROM `".$table."` WHERE ".$row." = ?", false, $bindar); 
 			if(is_array($ar)) {
 				if(isset($ar[$elementrow])) {
 					return $ar[$elementrow];
@@ -295,19 +309,19 @@
 			$bindar[0]["type"]  = "s";
 			$bindar[1]["value"] = $id;
 			$bindar[1]["type"]  = "s";
-			return $this->update("UPDATE ".$table." SET ".$elementrow." = ? WHERE ".$row." = ?", false, $bindar); }		
+			return $this->update("UPDATE `".$table."` SET ".$elementrow." = ? WHERE ".$row." = ?", false, $bindar); }		
 		public function row_exist($table, $id, $row = "id") {  
 			$bindar[0]["value"] = $id;
 			$bindar[0]["type"]  = "s";		
-			$tmp =  $this->select("SELECT * FROM ".$table." WHERE ".$row." = ?", false, $bindar); if(is_array($tmp)) {return true;} else {return false;}}
+			$tmp =  $this->select("SELECT * FROM `".$table."` WHERE ".$row." = ?", false, $bindar); if(is_array($tmp)) {return true;} else {return false;}}
 		public function rows_get($table, $id, $row = "id") { 
 			$bindar[0]["value"] = $id;
 			$bindar[0]["type"]  = "s";
-			return $this->select("SELECT * FROM ".$table." WHERE ".$row." = ?", true, $bindar); 		}
+			return $this->select("SELECT * FROM `".$table."` WHERE ".$row." = ?", true, $bindar); 		}
 		public function row_del($table, $id, $row = "id") { 
 			$bindar[0]["value"] = $id;
 			$bindar[0]["type"]  = "s";		
-			return $this->query("DELETE FROM ".$table." WHERE ".$row." = ?", $bindar); }				
+			return $this->query("DELETE FROM `".$table."` WHERE ".$row." = ?", $bindar); }				
 			
 		/*			   _          
 					  (_)         
@@ -551,7 +565,7 @@
 					foreach( $array as $key => $value ){if(!$firstrun) {$build_first .= ", ";}
 					if(!$firstrun) {$build_second .= ", ";}$build_first .= $key;
 					if($value == "?") {$build_second .= $value;} else {$build_second .= "'".$value."'";}$firstrun = false;}
-					$newquery = 'INSERT INTO '.$table.'('.$build_first.') VALUES('.$build_second.');';
+					$newquery = 'INSERT INTO `'.$table.'`('.$build_first.') VALUES('.$build_second.');';
 					error_log($newquery);
 					if ($stmt =  $this->handler(@$this->mysqlcon->prepare($newquery), false, "insert#prepare: ".$table, false)) { 
 						$before_prepare	=	"";

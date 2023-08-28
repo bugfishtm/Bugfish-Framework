@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  Simple Perms Control Class */	
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_perm {
 		// Class Variables
 		private $mysql     				= false;
@@ -34,7 +48,7 @@
 		public function get_perm($ref) { return $this->getPerm($ref); }
 		public function getPerm($ref) {
 			if(is_numeric($ref)) { 
-				$ar = $this->mysql->select("SELECT * FROM ".$this->tablename." WHERE ref = \"".$ref."\" AND section = '".$this->section."'", false);
+				$ar = $this->mysql->select("SELECT * FROM `".$this->tablename."` WHERE ref = \"".$ref."\" AND section = '".$this->section."'", false);
 				if(is_array($ar)) {
 					$newar	= unserialize($ar["content"]);
 					if(is_array($newar)) { return $newar; } else {return array();}
@@ -97,18 +111,18 @@
 		private function set_perm($ref, $array) { return $this->setPerm($ref, $array); }
 		private function setPerm($ref, $array) {	
 			if(is_numeric($ref)) { 
-				$query = $this->mysql->select("SELECT * FROM ".$this->tablename." WHERE ref = \"".$ref."\" AND section = '".$this->section."'", false);
+				$query = $this->mysql->select("SELECT * FROM `".$this->tablename."` WHERE ref = \"".$ref."\" AND section = '".$this->section."'", false);
 				if ($query ) { 
-					$this->mysql->update("UPDATE ".$this->tablename." SET content = '".$this->mysql->escape(serialize($array))."' WHERE ref = '".$ref."' AND section = '".$this->section."'  ");
+					$this->mysql->update("UPDATE `".$this->tablename."` SET content = '".$this->mysql->escape(serialize($array))."' WHERE ref = '".$ref."' AND section = '".$this->section."'  ");
 				} else { 
-					$this->mysql->query("INSERT INTO ".$this->tablename." (ref, content, section) VALUES('".$ref."', '".$this->mysql->escape(serialize($array))."', '".$this->section."')"); 
+					$this->mysql->query("INSERT INTO `".$this->tablename."` (ref, content, section) VALUES('".$ref."', '".$this->mysql->escape(serialize($array))."', '".$this->section."')"); 
 				}
 				return true;
 			} return false; 		
 		}
 		
 		// Remove Single Permissions
-		public function remove_perm($ref, $permname) { return $this->remove_perm($ref, $permname); }
+		public function remove_perm($ref, $permname) { return $this->removePerm($ref, $permname); }
 		public function removePerm($ref, $permname) {
 			if(!is_numeric($ref)) {return false;}
 			$current_perm = $this->getPerm($ref);
@@ -125,11 +139,9 @@
 		public function remove_perms($ref) { if(is_numeric($ref)) { return $this->setPerm($ref, array()); } return false; }
 		public function clear_perms($ref) { if(is_numeric($ref)) { return $this->setPerm($ref, array()); } return false; }
 		// Delete a Ref from Permission Table	
-		public function delete_ref($ref) { if(is_numeric($ref)) { return $this->mysql->query("DELETE FROM ".$this->tablename." WHERE ref = \"".$ref."\" AND section = '".$this->section."'"); } return false; }
+		public function delete_ref($ref) { if(is_numeric($ref)) { return $this->mysql->query("DELETE FROM `".$this->tablename."` WHERE ref = \"".$ref."\" AND section = '".$this->section."'"); } return false; }
 		// Get a Ref Object
-		public function item($ref) { 
-			if(!is_numeric($ref)) { return false; }
-			$item = new x_class_perm_item($this->mysql, $this->tablename, $this->section, $ref, $this->getPerm($ref)); return $item; }
+		public function item($ref) { $item = new x_class_perm_item($this->mysql, $this->tablename, $this->section, $ref, $this->getPerm($ref)); return $item; }
 	}
 	
 	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
@@ -155,7 +167,7 @@
 
 		// Get Permissions to Local Array
 		public function refresh() {
-				$ar = $this->mysql->select("SELECT * FROM ".$this->tablename." WHERE ref = \"".$this->ref."\" AND section = '".$this->section."'", false);
+				$ar = $this->mysql->select("SELECT * FROM `".$this->tablename."` WHERE ref = \"".$this->ref."\" AND section = '".$this->section."'", false);
 				if(is_array($ar)) {
 					$newar	= unserialize($ar["content"]);
 					if(is_array($newar)) { $this->permissions = $newar; } else {$this->permissions =  array();}
@@ -221,15 +233,15 @@
 
 		// Set Ref Permissions		
 		private function set_perm($ref, $array) { 	
-			$query = $this->mysql->select("SELECT * FROM ".$this->tablename." WHERE ref = \"".$this->ref."\" AND section = '".$this->section."'", false);
+			$query = $this->mysql->select("SELECT * FROM `".$this->tablename."` WHERE ref = \"".$this->ref."\" AND section = '".$this->section."'", false);
 			if ($query) { 
-				$this->mysql->update("UPDATE ".$this->tablename." SET content = '".$this->mysql->escape(serialize($array))."' WHERE ref = '".$ref."' AND section = '".$this->section."'  ");
+				$this->mysql->update("UPDATE `".$this->tablename."` SET content = '".$this->mysql->escape(serialize($array))."' WHERE ref = '".$ref."' AND section = '".$this->section."'  ");
 			} else { 
-				$this->mysql->query("INSERT INTO ".$this->tablename." (ref, content, section) VALUES('".$this->ref."', '".$this->mysql->escape(serialize($array))."', '".$this->section."')"); 
+				$this->mysql->query("INSERT INTO `".$this->tablename."` (ref, content, section) VALUES('".$this->ref."', '".$this->mysql->escape(serialize($array))."', '".$this->section."')"); 
 			} return true;}
 		
 		// Remove Ref Permissions	
 		public function remove_perms() { return $this->set_perm(array()); }
 		// Delete a Ref from Permission Table	
-		public function delete_ref() { return $this->mysql->query("DELETE FROM ".$this->tablename." WHERE ref = \"".$this->ref."\" AND section = '".$this->section."'");}
+		public function delete_ref() { return $this->mysql->query("DELETE FROM `".$this->tablename."` WHERE ref = \"".$this->ref."\" AND section = '".$this->section."'");}
 	}

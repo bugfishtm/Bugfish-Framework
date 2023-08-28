@@ -11,57 +11,47 @@
 			<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_var.html" />
 	<meta property="og:title" content="Bugfish Variables Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_var.html" />
-	<style>
-		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
-		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
-		header {  background: #242424; padding: 15px;   color:#FFFFFF; }
-
-		ul.main-menu { margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: left;list-style: none;}
-		ul.main-menu li a {margin-right:20px;font-size:2.0rem; border-bottom: solid transparent 3px; color:#cfd2da;}
-		ul.main-menu li a:hover {color:#FFFFFF;}
-		ul.main-menu li a.active { color:#FFFFFF; border-bottom-color:#ff5707;}
-
-		a { font-weight: normal; text-decoration: none;  color:#ff5707;}
-		a:hover {color: white !important;}
-		a:focus {outline: thin dotted;}
-
-		h1 {  margin-top: 0;margin-bottom: 2rem;font-weight: 300;text-rendering: optimizeLegibility;line-height: 1;font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; color:#ff5707; }
-		h2 { font-size: 18px; padding-bottom: 0px; color:#ffffff; }
-
-		.inner { padding: 15px; }
-		#headertitle { text-align: center; width: 100; font-weight: bold; }
-		.inner_section table { width: 100%;}
-		.inner_section hr { border-color: #242424;  }
-		.inner_section th { background: #454545;  }
-		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
-		.inner_section tr:hover { background:#343434; color: white;  }
-		iframe{ width: 100%; margin-bottom: -5px; }
-		footer{ background: #242424; bottom: 0px; width: 100%; max-width: 800px; padding: 15px;box-sizing: border-box; text-align: center; color:#FFFFFF;}
-	</style>
+	 <link rel="stylesheet" href="../stylesheet.css">
+	 <script src="../jquery.js"></script> 
+	 <script src="../datatable.js"></script> 
+	 <script>
+		function internal_show(newshowvar, thiselement) {
+			$(".internal_show").hide();
+			$(".test").hide();
+			$("#"+newshowvar).show();
+			$(".navitts").css('color', '');
+			thiselement.css('color', '#ff0c02');
+		}
+		
+		
+		$( document ).ready(function() {
+			$(".internal_show").hide();
+			$("#show_php").show();
+			$(".startactivenav").css('color', '#ff0c02');
+		});		
+	 </script>
   </head>
   <body>
-<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div style="z-index:1000; !important; background: black; position: fixed; top: 5px; right: 5px; width: 110px; height: 30px;font-size: 16px;padding: 5px;border-radius: 5px;cursor: pointer;"><b>^ Back to Top</b></div></a>  
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1>Bugfish Variables Class</h1> <!------------------------------------>
+      <h1> Variables Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
-        <li><a href="../../index.html" >Home</a><a href="../index.html">Framework</a><a href="#" style="color: white;">Manual</a></li>
-        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
+        <li><a href="../index.html">Back</a></li>
+        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
+        <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
         <li><a href="../privacy.html">Privacy</a></li>
-      </ul>                 
+      </ul>                
     </header>
    
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
 <h2 id="x_class_var">x_class_var</h2>
-
-
-<span class="hljs-keyword">Class</span> <span class="hljs-keyword">to</span> control constants / setup variables <span class="hljs-keyword">and</span> handling.
-Needs x_class_mysql <span class="hljs-keyword">object</span>!
-/ Sessions <span class="hljs-keyword">for</span> Setup Admin Pages CSRF
+<p style="text-align: left;">The x_class_var PHP class is designed to manage variables stored in a MySQL database. It provides methods for initializing, retrieving, and modifying these variables, which can be used as constants or stored in arrays. The class also includes basic security features like CSRF protection and input sanitation.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
 ✔️ Productive - Ready<br /><br /></div>
@@ -159,6 +149,6 @@ Needs x_class_mysql <span class="hljs-keyword">object</span>!
 
  
     </div>
-    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu/aboutme" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - <a href="mailto:bugfish@bugfish.eu">contact@bugfish.eu</a> </footer>
+
   </body>
 </html>

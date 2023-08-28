@@ -18,24 +18,10 @@
 		Bugfish Framework Codebase // All rights Reserved
 		// Autor: Jan-Maurice Dahlmanns (Bugfish)
 		// Website: www.bugfish.eu 
-	*/
-	class x_class_crypt {
-		private $algo = 'aes-256-cbc'; 
-		
-		// Constructor and choose algorythm
-		function __construct($algo = 'aes-256-cbc') { $this->algo = $algo; }
-		
-		// Encrypt Data and Return
-		public function encrypt($data, $key) {
-			$encryption_key = base64_decode($key);
-			$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($this->algo));
-			$encrypted = openssl_encrypt($data, $this->algo, $encryption_key, 0, $iv);
-			return base64_encode($encrypted . '::' . $iv);
-		}		
-		// Decrypt Data and Return
-		public function decrypt($data, $key) {
-			$encryption_key = base64_decode($key);
-			list($encrypted_data, $iv) = explode('::', base64_decode($data), 2);
-			return openssl_decrypt($encrypted_data, $this->algo, $encryption_key, 0, $iv);
-		}		
+	*/	
+	class x_class_version {
+		public $autor 		= "Bugfish (Jan-Maurice Dahlmanns)";
+		public $contact 	= "request@bugfish.eu";
+		public $website 	= "https://www.bugfish.eu";
+		public $version 	= "1.2.0";
 	}

@@ -11,63 +11,63 @@
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mysql.html" />
 	<meta property="og:title" content="Bugfish MySQL Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mysql.html" />
-	<style>
-		html { font-size: 62.5%; background: url(../bg.jpg); background-size:100%;}
-		body { font-size: 1.5em; line-height: 1.6; font-weight: 400;font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #FFFFFF; max-width:800px;margin:auto; background: #121212;}
-		header {  background: #242424; padding: 15px;   color:#FFFFFF; }
-
-		ul.main-menu { margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: left;list-style: none;}
-		ul.main-menu li a {margin-right:20px;font-size:2.0rem; border-bottom: solid transparent 3px; color:#cfd2da;}
-		ul.main-menu li a:hover {color:#FFFFFF;}
-		ul.main-menu li a.active { color:#FFFFFF; border-bottom-color:#ff5707;}
-
-		a { font-weight: normal; text-decoration: none;  color:#ff5707;}
-		a:hover {color: white !important;}
-		a:focus {outline: thin dotted;}
-
-		h1 {  margin-top: 0;margin-bottom: 2rem;font-weight: 300;text-rendering: optimizeLegibility;line-height: 1;font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; color:#ff5707; }
-		h2 { font-size: 18px; padding-bottom: 0px; color:#ffffff; }
-
-		.inner { padding: 15px; }
-		#headertitle { text-align: center; width: 100; font-weight: bold; }
-		.inner_section table { width: 100%;}
-		.inner_section hr { border-color: #242424;  }
-		.inner_section th { background: #454545;  }
-		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
-		.inner_section tr:hover { background:#343434; color: white;  }
-		iframe{ width: 100%; margin-bottom: -5px; }
-		footer{ background: #242424; bottom: 0px; width: 100%; max-width: 800px; padding: 15px;box-sizing: border-box; text-align: center; color:#FFFFFF;}
-	</style>
+	 <link rel="stylesheet" href="../stylesheet.css">
+	 <script src="../jquery.js"></script> 
+	 <script src="../datatable.js"></script> 
+	 <script>
+		function internal_show(newshowvar, thiselement) {
+			$(".internal_show").hide();
+			$(".test").hide();
+			$("#"+newshowvar).show();
+			$(".navitts").css('color', '');
+			thiselement.css('color', '#ff0c02');
+		}
+		
+		
+		$( document ).ready(function() {
+			$(".internal_show").hide();
+			$("#show_co").show();
+			$(".startactivenav").css('color', '#ff0c02');
+		});		
+	 </script>
   </head>
   <body>
-<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div style="z-index:1000; !important; background: black; position: fixed; top: 5px; right: 5px; width: 110px; height: 30px;font-size: 16px;padding: 5px;border-radius: 5px;cursor: pointer;"><b>^ Back to Top</b></div></a>  
+<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1>Bugfish MySQL Class</h1> <!------------------------------------>
+      <h1> MySQL Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
-        <li><a href="../../index.html" >Home</a><a href="../index.html">Framework</a><a href="#" style="color: white;">Manual</a></li>
-        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li> <!------------------------------------>
+        <li><a href="../index.html">Back</a></li>
+        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
+        <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
         <li><a href="../privacy.html">Privacy</a></li>
-      </ul>                 
+      </ul>     <hr>     
+      <ul class="main-menu submm">
+        <li><a href="#" class="startactivenav navitts" onclick="internal_show('show_co', $(this))">Configuration</a></li>
+        <li><a href="#" class="navitts" onclick="internal_show('show_qu', $(this))">Queries</a></li>
+        <li><a href="#" class="navitts" onclick="internal_show('show_da', $(this))">Databases</a></li> 
+        <li><a href="#" class="navitts" onclick="internal_show('show_ta', $(this))">Tables</a></li> 
+        <li><a href="#" class="navitts" onclick="internal_show('show_tr', $(this))">Transactions</a></li> 
+      </ul>                
     </header>
    
     <div>
 
 				<div class="inner inner_section" style="text-align: left;">
 <h2 id="x_class_mysql-mastered-">x_class_mysql </h2>
-The one <span class="hljs-keyword">and</span> only x_class_mysql <span class="hljs-keyword">by</span> bugfish! <span class="hljs-keyword">For</span> MySQL Handling.
-Sessions <span class="hljs-keyword">for</span> Query Counter / Tables (<span class="hljs-keyword">auto</span> install) <span class="hljs-keyword">for</span> Logging
-
-Needs php <span class="hljs-keyword">Module</span>: mysqli
+<p style="text-align: left;">The "x_class_mysql" class is a versatile component of the Bugfish Framework designed for efficient handling of MySQL databases. It offers a wide array of functions for database connection, querying, error management, logging, benchmarking, table, and database administration, as well as transaction control. It simplifies complex MySQL operations and provides developers with a powerful toolset for managing MySQL databases effectively.</p>
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br />
-As this Class is very complex, it may be ongoing further minor fixing. <br />But it is productive-ready!<br /><br /></div>
+✔️ Productive - Ready<br /><br /></div>
 
 
+
+<div class="internal_show" id="show_co">
+<h3>Constructor and Testing Functions</h3>
 <table>
 <thead>
 <tr>
@@ -99,6 +99,7 @@ As this Class is very complex, it may be ongoing further minor fixing. <br />But
 </tbody>
 </table>
 <hr>
+<h3>Error Messages and Config Functions</h3>
 <table>
 <thead>
 <tr>
@@ -121,7 +122,72 @@ As this Class is very complex, it may be ongoing further minor fixing. <br />But
 </tr>
 </tbody>
 </table>
+<h3>Error Handle Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Config Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_on_error($bool = false)</td>
+<td>Stop Script if MySQL Gets Errors</td>
+</tr>
+<tr>
+<td>display_on_error($bool = false)</td>
+<td>Print Errors (Not Recommended for Productive Environment)</td>
+</tr>
+</tbody>
+</table>
 <hr>
+<h3>Logging Configuration Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Log Config Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_disable()</td>
+<td>Disable Logging</td>
+</tr>
+<tr>
+<td>log_enable()</td>
+<td>Enable Logging - Do only after configuration log_config has been done!</td>
+</tr>
+<tr>
+<td>log_config($table = &quot;mysqllogging&quot;, $section = &quot;&quot;, $logall = false)</td>
+<td>Configure Logging and Provide Table for it and Section Optional (Logall Logs success querys)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Benchmarking Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Benchmarks Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>benchmark_get()</td>
+<td>Get Current Used Queries</td>
+</tr>
+<tr>
+<td>benchmark_config($bool = false, $preecookie = &quot;&quot;)</td>
+<td>Setup Query Benchmark and Count Queries in a Session to be obtained with benchmark_get</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="internal_show" id="show_ta">
+<h3>Table Functions</h3>
 <table>
 <thead>
 <tr>
@@ -152,7 +218,9 @@ As this Class is very complex, it may be ongoing further minor fixing. <br />But
 </tr>
 </tbody>
 </table>
-<hr>
+</div>
+<div class="internal_show" id="show_da">
+<h3>Database Functions</h3>
 <table>
 <thead>
 <tr>
@@ -175,26 +243,11 @@ As this Class is very complex, it may be ongoing further minor fixing. <br />But
 </tr>
 </tbody>
 </table>
+</div>
 <hr>
-<table>
-<thead>
-<tr>
-<th>Multi Query Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>multi_query($query)</td>
-<td>Run a Multi Line Query</td>
-</tr>
-<tr>
-<td>multi_query_file($file)</td>
-<td>Get Content of a File and Run as Multi Line Query</td>
-</tr>
-</tbody>
-</table>
-<hr>
+
+<div class="internal_show" id="show_tr">
+<h3>Transaction Functions</h3>
 <table>
 <thead>
 <tr>
@@ -221,111 +274,38 @@ As this Class is very complex, it may be ongoing further minor fixing. <br />But
 </tr>
 </tbody>
 </table>
-<hr>
+</div>
+
+
+<div class="internal_show" id="show_qu">
+<h3>Main Query Functions</h3>
 <table>
 <thead>
 <tr>
-<th>Config Functions</th>
+<th>Operation Functions</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>stop_on_error($bool = false)</td>
-<td>Stop Script if MySQL Gets Errors</td>
+<td>select($query, $multiple = false, $bindarray = false, $fetch_type = MYSQLI_ASSOC)</td>
+<td><br /><br />Select Statement for Multi Purpose<br /><br />Multiple = True get Multi Array with different Rows - False get Single Array with Row<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;] = (s/i)<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
 </tr>
 <tr>
-<td>display_on_error($bool = false)</td>
-<td>Print Errors (Not Recommended for Productive Environment)</td>
+<td>query($query, $bindarray = false)</td>
+<td><br /><br />Query Statement for Multi Purpose<br /><br />Query = The Query<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+</tr>
+<tr>
+<td>insert($table, $array, $bindarray = false)</td>
+<td>Delivers Back Inserted ID - Insert Statement for Multi Purpose<br /><br />Table = Table Name to Insert<br /><br />Array = Array to be Inserted Array[fieldname] = value<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+</tr>
+<tr>
+<td>update($query, $bindarray = false)</td>
+<td>Delivers Back the Updated Affected Rows<br /><br />Update Statement for Multi Purpose<br /><br />Query = The Query<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Log Config Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>log_disable()</td>
-<td>Disable Logging</td>
-</tr>
-<tr>
-<td>log_enable()</td>
-<td>Enable Logging - Do only after configuration log_config has been done!</td>
-</tr>
-<tr>
-<td>log_config($table = &quot;mysqllogging&quot;, $section = &quot;&quot;, $logall = false)</td>
-<td>Configure Logging and Provide Table for it and Section Optional (Logall Logs success querys)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Benchmarks Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>benchmark_get()</td>
-<td>Get Current Used Queries</td>
-</tr>
-<tr>
-<td>benchmark_config($bool = false, $preecookie = &quot;&quot;)</td>
-<td>Setup Query Benchmark and Count Queries in a Session to be obtained with benchmark_get</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Values Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>row_element_increase($table, $nameidfield, $id, $increasefield, $increasevalue = 1)</td>
-<td>Increase a row by Value</td>
-</tr>
-<tr>
-<td>row_element_decrease($table, $nameidfield, $id, $decreasefield, $decreasevalue = 1)</td>
-<td>Decrease a row by Value</td>
-</tr>
-<tr>
-<td>row_get($table, $id, $row = &quot;id&quot;)</td>
-<td>Get Rull Row Single</td>
-</tr>
-<tr>
-<td>row_element_get($table, $id, $elementrow, $fallback = false, $row = &quot;id&quot;)</td>
-<td>Get Single Element of Row</td>
-</tr>
-<tr>
-<td>row_element_change($table, $id, $element, $elementrow, $row = &quot;id&quot;)</td>
-<td>Change a Row</td>
-</tr>
-<tr>
-<td>row_exist($table, $id, $row = &quot;id&quot;)</td>
-<td>Exists a Row</td>
-</tr>
-<tr>
-<td>rows_get($table, $id, $row = &quot;id&quot;)</td>
-<td>Get Rows in Array</td>
-</tr>
-<tr>
-<td>row_del($table, $id, $row = &quot;id&quot;)</td>
-<td>Delete a Row</td>
-</tr>
-</tbody>
-</table>
-<hr>
+<h3>Exception Handled Function Aliases Functions</h3>
 <table>
 <thead>
 <tr>
@@ -377,38 +357,75 @@ As this Class is very complex, it may be ongoing further minor fixing. <br />But
 </tbody>
 </table>
 <hr>
+<h3>Quick Value Handling Functions</h3>
 <table>
 <thead>
 <tr>
-<th>Operation Functions</th>
+<th>Values Functions</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>select($query, $multiple = false, $bindarray = false, $fetch_type = MYSQLI_ASSOC)</td>
-<td><br /><br />Select Statement for Multi Purpose<br /><br />Multiple = True get Multi Array with different Rows - False get Single Array with Row<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;] = (s/i)<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+<td>row_element_increase($table, $nameidfield, $id, $increasefield, $increasevalue = 1)</td>
+<td>Increase a row by Value</td>
 </tr>
 <tr>
-<td>query($query, $bindarray = false)</td>
-<td><br /><br />Query Statement for Multi Purpose<br /><br />Query = The Query<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+<td>row_element_decrease($table, $nameidfield, $id, $decreasefield, $decreasevalue = 1)</td>
+<td>Decrease a row by Value</td>
 </tr>
 <tr>
-<td>insert($table, $array, $bindarray = false)</td>
-<td>Delivers Back Inserted ID - Insert Statement for Multi Purpose<br /><br />Table = Table Name to Insert<br /><br />Array = Array to be Inserted Array[fieldname] = value<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+<td>row_get($table, $id, $row = &quot;id&quot;)</td>
+<td>Get Rull Row Single</td>
 </tr>
 <tr>
-<td>update($query, $bindarray = false)</td>
-<td>Delivers Back the Updated Affected Rows<br /><br />Update Statement for Multi Purpose<br /><br />Query = The Query<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+<td>row_element_get($table, $id, $elementrow, $fallback = false, $row = &quot;id&quot;)</td>
+<td>Get Single Element of Row</td>
+</tr>
+<tr>
+<td>row_element_change($table, $id, $element, $elementrow, $row = &quot;id&quot;)</td>
+<td>Change a Row</td>
+</tr>
+<tr>
+<td>row_exist($table, $id, $row = &quot;id&quot;)</td>
+<td>Exists a Row</td>
+</tr>
+<tr>
+<td>rows_get($table, $id, $row = &quot;id&quot;)</td>
+<td>Get Rows in Array</td>
+</tr>
+<tr>
+<td>row_del($table, $id, $row = &quot;id&quot;)</td>
+<td>Delete a Row</td>
 </tr>
 </tbody>
 </table>
-
+<hr>
+<h3>Multi Query Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Multi Query Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multi_query($query)</td>
+<td>Run a Multi Line Query</td>
+</tr>
+<tr>
+<td>multi_query_file($file)</td>
+<td>Get Content of a File and Run as Multi Line Query</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
 				
     </div>
-    <footer>  Jan-Maurice Dahlmanns [<a href="https://www.bugfish.eu/aboutme" target="_blank">Bugfish</a>] - Kattowitzerstraße 2b - 41065 Mönchengladbach - <a href="mailto:bugfish@bugfish.eu">contact@bugfish.eu</a> </footer>
+    
   </body>
 </html>

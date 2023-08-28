@@ -4,7 +4,8 @@
 	send mails. If you do not aggree to theire license, do not
 	use that class. All other classes and content are MIT.
 	Dolibarr Modules License is GPL.
-## This Framework (Bugfish)
+
+## Bugfish Framework
 Copyright 2023 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)
 This Product is running with MIT LICENSE
 
@@ -15,8 +16,8 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-## PHPMailer (x_class_mail_phpmailer)
-	In use at the x_class_mail_phpmailer / x_class_mail class!
+## PHPMailer (x_class_mail)
+	In use at the x_class_mail class!
 	
 Keep that in mind!
 

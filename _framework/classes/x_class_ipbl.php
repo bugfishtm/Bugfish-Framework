@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  IP Blacklisting Control Class */	
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_ipbl {
 		######################################################
 		// Class Variables
@@ -48,14 +62,31 @@
 		private function int_block_renew() {
 			$b[0]["type"]	=	"s";
 			$b[0]["value"]	=	$this->ip;
-			$r = @$this->mysql->select("SELECT * FROM ".$this->table." WHERE ip_adr = ? AND fail > ".$this->max.";", false, $b);
+			$r = @$this->mysql->select("SELECT * FROM `".$this->table."` WHERE ip_adr = ? AND fail > ".$this->max.";", false, $b);
 			if(is_array($r)) {	
 				$this->blocked = true;
 				return $this->blocked; 
 			}
 			$this->blocked = false;
 			return $this->blocked;}
-
+			
+		######################################################
+		// Get Current Ban Table as Array
+		######################################################				
+		public function get_array() {
+			return $this->mysql->select("SELECT * FROM `".$this->table."`", true);
+		}
+		
+		
+		######################################################
+		// Unblcok an UP Adr
+		######################################################			
+		function unblock($ip) {
+			$b[0]["type"]	=	"s";
+			$b[0]["value"]	=	$ip;
+			$r = @$this->mysql->query("DELETE FROM `".$this->table."` WHERE ip_adr = ?;", $b);			
+		}
+		
 		######################################################
 		// Get Counter for IP
 		######################################################	
@@ -65,7 +96,7 @@
 		private function int_counter_renew() {
 			$b[0]["type"]	=	"s";
 			$b[0]["value"]	=	$this->ip;
-			$r = @$this->mysql->select("SELECT * FROM ".$this->table." WHERE ip_adr = ? AND fail > ".$this->max.";", false, $b); 
+			$r = @$this->mysql->select("SELECT * FROM `".$this->table."` WHERE ip_adr = ? AND fail > ".$this->max.";", false, $b); 
 			if(is_array($r)) {	
 				$this->counter = $r["fail"];
 				return $this->counter; 
@@ -79,8 +110,8 @@
 		public function ip_counter($ip) {
 			$b[0]["type"]	=	"s";
 			$b[0]["value"]	=	@trim(@strtolower($this->ip)); ;
-			if(!$ip) { $r = @$this->mysql->select("SELECT * FROM ".$this->table." WHERE ip_adr = ? AND fail > ".$this->max.";", false, $b); }
-			else { $r = @$this->mysql->select("SELECT * FROM ".$this->table." WHERE ip_adr = ? AND fail > ".$this->max.";", false, $b); }
+			if(!$ip) { $r = @$this->mysql->select("SELECT * FROM `".$this->table."` WHERE ip_adr = ? AND fail > ".$this->max.";", false, $b); }
+			else { $r = @$this->mysql->select("SELECT * FROM `".$this->table."` WHERE ip_adr = ? AND fail > ".$this->max.";", false, $b); }
 			if(is_array($r)) {	
 				return $r["fail"]; 
 			}
@@ -96,10 +127,10 @@
 			if(!is_int($value)) { return false; }
 			$b[0]["type"]	=	"s";
 			$b[0]["value"]	=	$this->ip;
-			$rres = @$this->mysql->select("SELECT * FROM ".$this->table." WHERE ip_adr = ?;", false, $b); 
+			$rres = @$this->mysql->select("SELECT * FROM `".$this->table."` WHERE ip_adr = ?;", false, $b); 
 			if(is_array($rres)) {	
-				@$this->mysql->update("UPDATE ".$this->table." SET fail = fail + ".$value." WHERE id = '".$rres["id"]."';");
-			} else { @$this->mysql->query("INSERT INTO ".$this->table."(ip_adr, fail) VALUES(?, 1);", $b); }
+				@$this->mysql->update("UPDATE `".$this->table."` SET fail = fail + ".$value." WHERE id = '".$rres["id"]."';");
+			} else { @$this->mysql->query("INSERT INTO `".$this->table."`(ip_adr, fail) VALUES(?, 1);", $b); }
 			return $this->int_counter_renew();			
 		}	
 	}

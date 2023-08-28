@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  Logfile Control Class */	
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_log {
 		######################################################
 		// Class Variables
@@ -34,6 +48,13 @@
 			$this->table    = $tablename; 
 			$this->section 	= $section; 
 			if(!$this->mysql->table_exists($tablename)) { $this->create_table(); $this->mysql->free_all();  }
+		}
+
+		######################################################
+		// Get Current Ban Table as Array
+		######################################################				
+		public function get_array() {
+			return $this->mysql->select("SELECT * FROM `".$this->table."`", true);
 		}
 		
 		######################################################
@@ -86,20 +107,20 @@
 		// Get Log Table Entries as Array
 		######################################################	
 		public function list_get($limit = 50) { 
-			return @$this->mysql->select("SELECT * FROM ".$this->table." WHERE section = '".$this->section."' ORDER BY id DESC LIMIT ".$this->mysql->escape($limit).";", true); 
+			return @$this->mysql->select("SELECT * FROM `".$this->table."` WHERE section = '".$this->section."' ORDER BY id DESC LIMIT ".$this->mysql->escape($limit).";", true); 
 		}	
 
 		######################################################
 		// Delete Entries in Logtable List and reset Auto Increment
 		######################################################	
 		public function list_flush_section() { 
-			@$this->mysql->query("DELETE FROM ".$this->table." WHERE section = '".$this->section."';"); 
+			@$this->mysql->query("DELETE FROM `".$this->table."` WHERE section = '".$this->section."';"); 
 			@$this->mysql->auto_increment($this->table, 1); 
 			return true;
 		}	
 		
 		public function list_flush() { 
-			@$this->mysql->query("DELETE FROM ".$this->table.""); 
+			@$this->mysql->query("DELETE FROM `".$this->table."`"); 
 			@$this->mysql->auto_increment($this->table, 1); 
 			return true;
 		}

@@ -1,10 +1,24 @@
-<?php
-	/*	__________ ____ ___  ___________________.___  _________ ___ ___  
-		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
-		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
-		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
-		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
-				\/                 \/     \/                \/       \/  Hitcounter Control Class */
+<?php 
+	/* 	
+		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
+		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
+		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
+		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
+		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
+		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
+		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
+		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
+		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
+		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
+		   ____         _     __                      __  __         __           __  __
+		  /  _/ _    __(_)__ / /    __ _____  __ __  / /_/ /  ___   / /  ___ ___ / /_/ /
+		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
+		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
+								  /___/                           
+		Bugfish Framework Codebase // All rights Reserved
+		// Autor: Jan-Maurice Dahlmanns (Bugfish)
+		// Website: www.bugfish.eu 
+	*/
 	class x_class_hitcounter {
 		######################################################
 		// Class Variables
@@ -25,6 +39,13 @@
 		public $arrivals	=	0;
 		public $summarized	=	0;
 
+		######################################################
+		// Get current saved Referers in Array
+		######################################################		
+		public function get_array() {
+			return $this->mysql->select("SELECT * FROM `".$this->mysqltable."`", true);
+		}
+		
 		######################################################
 		// Table Initialization
 		######################################################
@@ -89,12 +110,12 @@
 			if($this->enabled) {
 				// Count Arrivals
 				$isarrival = false;	
-				if(@$_SESSION["x_class_hitcounter".$this->precookie] != "ok") { 		
+				if(@$_SESSION[$this->precookie."x_class_hitcounter"] != "ok") { 		
 					$isarrival = true;
 					$ar = $this->mysql->select("SELECT * FROM `".$this->mysqltable."` WHERE full_url = ?;",false, $b);
 					if(is_array($ar)) {
-						$this->mysql->update("UPDATE ".$this->mysqltable." SET arrivals = arrivals + 1, summarized = switches + arrivals WHERE full_url = ?;", $b);
-						$_SESSION["x_class_hitcounter".$this->precookie] = "ok";	
+						$this->mysql->update("UPDATE `".$this->mysqltable."` SET arrivals = arrivals + 1, summarized = switches + arrivals WHERE full_url = ?;", $b);
+						$_SESSION[$this->precookie."x_class_hitcounter"] = "ok";	
 					} else {
 						$this->mysql->query("INSERT INTO `".$this->mysqltable."` (full_url, switches, arrivals) VALUES (?, \"0\", \"1\")", $b);
 					}
@@ -102,7 +123,7 @@
 				}		
 				// Count Switches	
 				$ishittedarray = false;
-				$current_switches_ar	=	@$_SESSION["x_class_hitcounter_s".$this->precookie];
+				$current_switches_ar	=	@$_SESSION[$this->precookie."x_class_hitcounter_s"];
 				$current_switches_ar = @unserialize($current_switches_ar);
 				if(!is_array($current_switches_ar)) { $current_switches_ar = array(); }
 				foreach($current_switches_ar as $key => $value) { if($value == $this->urlmd5) { $ishittedarray = true; } }
@@ -116,7 +137,7 @@
 					array_push($current_switches_ar, $this->urlmd5);
 				}
 				$current_switches_ar = @serialize($current_switches_ar);
-				$_SESSION["x_class_hitcounter_s".$this->precookie] = $current_switches_ar;
+				$_SESSION[$this->precookie."x_class_hitcounter_s"] = $current_switches_ar;
 				return true;
 			}
 		}
