@@ -133,7 +133,7 @@
 		.inner_section hr { border-color: #242424;  }
 		.inner_section th { background: #454545;  }
 		.inner_section tr { border-top: 2px solid #242424; text-align: left; }
-		.inner_section tr td { padding: 5px; }
+		.inner_section tr td { padding: 5px; padding-bottom: 15px; padding-top: 15px; padding-left: 15px;padding-right: 15px; }
 		.inner_section tr, .inner_section td { border-top: 2px solid #242424; text-align: left; }
 		.inner_section tr:hover { background:#343434; color: white;  }		
 		

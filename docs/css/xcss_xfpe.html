@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">   <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>
     <header id="header">
 	  
-      <h1> CSS XFPE Library</h1>Bugfish Framework
+      <h1>CSS XFPE Library</h1>Bugfish Framework
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">XCSS-XFPE</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,183 +50,593 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="xfpe_library-mastered-">xfpe_library</h2>
-<p style="text-align: left;">Introducing a CSS Classes File tailored for swift design implementation. Appending "_f" to a class enhances its importance. This resource encompasses style definitions for XML and HTML classes, expediting and refining styling with precision. To begin, include the required file in the "_css" directory within the framework's folder. Streamline your design process with efficiency and accuracy.</p>
+<h2 id="xfpe_library-mastered-">General Information and Classlist</h2>
+<p style="text-align: left;">Introducing a CSS Classes File tailored for swift design implementation. Appending <b>"_f"</b> to a class enhances its importance. This resource encompasses style definitions for XML and HTML classes, expediting and refining styling with precision. To begin, include the required file in the "_css" directory within the framework's folder. Streamline your design process with efficiency and accuracy.</p>
 <b>Add _f <span class="hljs-keyword">to</span> <span class="hljs-keyword">end</span> <span class="hljs-keyword">of</span> a <span class="hljs-built_in">class</span> <span class="hljs-keyword">to</span> make <span class="hljs-keyword">it</span> important!<br /><br /></b>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
 ✔️ Productive - Ready<br /><br /></div>
 
-</code></pre><table>
+</code></pre>
+
+<table>
 <thead>
 <tr>
-<th>Class</th>
+<th>Padding / Margin Class</th>
+<th>Description</th>
+<th>Possible Values</th>
+<th>Max Value of N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_nopadding</td>
+<td>Removes padding from all sides (sets to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nopaddingtop</td>
+<td>Removes padding from the top (sets padding-top to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nopaddingbottom</td>
+<td>Removes padding from the bottom (sets padding-bottom to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nopaddingleft</td>
+<td>Removes padding from the left (sets padding-left to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nopaddingright</td>
+<td>Removes padding from the right (sets padding-right to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_paddingleft{N}px</td>
+<td>Sets the left padding of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_paddingright{N}px</td>
+<td>Sets the right padding of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_paddingleftm{N}px</td>
+<td>Sets a negative left padding of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_paddingrightm{N}px</td>
+<td>Sets a negative right padding of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_paddingbottom{N}px</td>
+<td>Sets padding-bottom to a specific value in pixels (Xpx)</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_paddingbottomm{N}px</td>
+<td>Sets negative padding-bottom to a specific value in pixels (-Xpx)</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_paddingtop{N}px</td>
+<td>Sets padding-top to a specific value in pixels (Xpx)</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_paddingtopm{N}px</td>
+<td>Sets negative padding-top to a specific value in pixels (-Xpx)</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+
+
+<tr>
+<td>.xfpe_marginauto</td>
+<td>Sets margin to &quot;auto&quot; for all sides</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nomargin</td>
+<td>Removes margin from all sides (sets to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nomargintop</td>
+<td>Removes margin from the top (sets margin-top to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nomarginbottom</td>
+<td>Removes margin from the bottom (sets margin-bottom to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nomarginleft</td>
+<td>Removes margin from the left (sets margin-left to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_nomarginright</td>
+<td>Removes margin from the right (sets margin-right to 0px)</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_marginleft{N}px</td>
+<td>Sets the left margin of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_marginright{N}px</td>
+<td>Sets the right margin of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_marginleftm{N}px</td>
+<td>Sets a negative left margin of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_marginrightm{N}px</td>
+<td>Sets a negative right margin of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_margintop{N}px</td>
+<td>Sets the top margin of the element to N pixels.</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_margintopm{N}px</td>
+<td>Sets negative margin-top to a specific value in pixels (-Xpx)</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+
+<tr>
+<td>.xfpe_marginbottom{N}px</td>
+<td>Sets margin-bottom to a specific value in pixels (Xpx)</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+<tr>
+<td>.xfpe_marginbottomm{N}px</td>
+<td>Sets negative margin-bottom to a specific value in pixels (-Xpx)</td>
+<td>N: 5, 10, 15, ...</td>
+<td>150</td>
+</tr>
+
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Width / Height Class</th>
+<th>Description</th>
+<th>Possible Values</th>
+<th>Max Value of N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_width{N}px</td>
+<td>Sets the element&#39;s width to N pixels.</td>
+<td>N: 25, 50, 75, 100, ...</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>.xfpe_height{N}px</td>
+<td>Sets the element&#39;s height to N pixels.</td>
+<td>N: 25, 50, 75, 100, ...</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>.xfpe_width{N}pct</td>
+<td>Sets the element&#39;s width to N pixels.</td>
+<td>N: 25, 50, 75, 100, ...</td>
+<td>100</td>
+</tr>
+<tr>
+<td>.xfpe_height{N}pct</td>
+<td>Sets the element&#39;s height to N pixels.</td>
+<td>N: 25, 50, 75, 100, ...</td>
+<td>100</td>
+</tr>
+<tr>
+<td>.xfpe_maxwidth{N}pct</td>
+<td>Sets the element&#39;s width to N percentage of parent.</td>
+<td>N: 25, 50, 100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>.xfpe_maxwidth{N}px</td>
+<td>Sets the maximum width of the element to N pixels.</td>
+<td>N: 50, 100, 150, ...</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>.xfpe_minwidth{N}px</td>
+<td>Sets the minimum width of the element to N pixels.</td>
+<td>N: 50, 100, 150, ...</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>.xfpe_minwidth{N}pct</td>
+<td>Sets the element&#39;s width to N percentage of parent.</td>
+<td>N: 25, 50, 100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>.xfpe_maxheight{N}px</td>
+<td>Sets the maximum height of the element to N pixels.</td>
+<td>N: 50, 100, 150, ...</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>.xfpe_minheight{N}px</td>
+<td>Sets the minimum height of the element to N pixels.</td>
+<td>N: 50, 100, 150, ...</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>.xfpe_maxheight{N}pct</td>
+<td>Sets the maximum height of the element to N pixels.</td>
+<td>N: 25, 50, 100, ...</td>
+<td>100</td>
+</tr>
+<tr>
+<td>.xfpe_minheight{N}pct</td>
+<td>Sets the minimum height of the element to N pixels.</td>
+<td>N: 25, 50, 100, ...</td>
+<td>100</td>
+</tr>
+
+
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Display Class</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>xfpe_nopadding</td>
-<td>No padding</td>
+<td>.xfpe_dispinlineblock</td>
+<td>Sets the element&#39;s display property to inline-block.</td>
 </tr>
 <tr>
-<td>xfpe_nopaddingtop</td>
-<td>No Padding Top</td>
+<td>.xfpe_dispinline</td>
+<td>Sets the element&#39;s display property to inline.</td>
 </tr>
 <tr>
-<td>xfpe_nopaddingbottom</td>
-<td>No Padding Bottom</td>
+<td>.xfpe_dispblock</td>
+<td>Sets the element&#39;s display property to block.</td>
 </tr>
 <tr>
-<td>xfpe_nopaddingright</td>
-<td>No Padding Right</td>
+<td>.xfpe_dispnone</td>
+<td>Sets the element&#39;s display property to none (hides the element).</td>
 </tr>
 <tr>
-<td>xfpe_nopaddingleft</td>
-<td>No Padding Left</td>
+<td>.xfpe_dispflex</td>
+<td>Sets the element&#39;s display property to flex (enables flexbox layout).</td>
 </tr>
 <tr>
-<td>xfpe_paddingtop10px</td>
-<td>Goes to 50px [5 steps] Padding Top</td>
+<td>.xfpe_dispgrid</td>
+<td>Sets the element&#39;s display property to grid (enables grid layout).</td>
 </tr>
 <tr>
-<td>xfpe_paddingtopm10px</td>
-<td>Goes to 50px [5 steps] Padding Top MINUS</td>
+<td>.xfpe_dispinlineflex</td>
+<td>Sets the element&#39;s display property to inline-flex (enables inline flexbox layout).</td>
 </tr>
 <tr>
-<td>xfpe_paddingbottom10px</td>
-<td>Goes to 50px [5 steps] Padding Bottom</td>
-</tr>
-<tr>
-<td>xfpe_paddingbottomm10px</td>
-<td>Goes to 50px [5 steps] Padding Bottom MINUS</td>
-</tr>
-<tr>
-<td>xfpe_marginauto</td>
-<td>Margin Auto</td>
-</tr>
-<tr>
-<td>xfpe_nomargin</td>
-<td>Margin Off</td>
-</tr>
-<tr>
-<td>xfpe_nomargintop</td>
-<td>Margin Top Off</td>
-</tr>
-<tr>
-<td>xfpe_nomarginbottom</td>
-<td>Margin Bottom Off</td>
-</tr>
-<tr>
-<td>xfpe_nomarginleft</td>
-<td>Margin Left Off</td>
-</tr>
-<tr>
-<td>xfpe_nomarginright</td>
-<td>Margin Right Off</td>
-</tr>
-<tr>
-<td>xfpe_margintop10px</td>
-<td>Goes to 50px [5 steps] Margin Top</td>
-</tr>
-<tr>
-<td>xfpe_margintopm10px</td>
-<td>Goes to 50px [5 steps] Margin Top MINUS</td>
-</tr>
-<tr>
-<td>xfpe_marginbottom10px</td>
-<td>Goes to 50px [5 steps] Margin Bottom</td>
-</tr>
-<tr>
-<td>xfpe_marginbottomm10px</td>
-<td>Goes to 50px [5 steps] Margin Bottom MINUS</td>
-</tr>
-<tr>
-<td>xfpe_floatright</td>
-<td>Float Right</td>
-</tr>
-<tr>
-<td>xfpe_floatleft</td>
-<td>Float Left</td>
-</tr>
-<tr>
-<td>xfpe_width100px</td>
-<td>Goes up to 800px [100 Steps] Width</td>
-</tr>
-<tr>
-<td>xfpe_maxwidth100px</td>
-<td>Goes up to 800px [100 Steps] Max Width</td>
-</tr>
-<tr>
-<td>xfpe_width25pct</td>
-<td>Width Percent [25/50/100]</td>
-</tr>
-<tr>
-<td>xfpe_maxwidth25pct</td>
-<td>Max Width Percent [25/50/100]</td>
-</tr>
-<tr>
-<td>xfpe_alignright</td>
-<td>Text Align Right</td>
-</tr>
-<tr>
-<td>xfpe_alignleft</td>
-<td>Text Align Left</td>
-</tr>
-<tr>
-<td>xfpe_aligncenter</td>
-<td>Text Align Center</td>
-</tr>
-<tr>
-<td>xfpe_textbreakall</td>
-<td>Break Text Completely for Long Text</td>
-</tr>
-<tr>
-<td>xfpe_overflowhidden</td>
-<td>Overflow Hidden</td>
-</tr>
-<tr>
-<td>xfpe_overflowscroll</td>
-<td>Overflow Scroll</td>
-</tr>
-<tr>
-<td>xfpe_cursorpointer</td>
-<td>Cursor Pointer</td>
-</tr>
-<tr>
-<td>xfpe_bordernone</td>
-<td>No border</td>
-</tr>
-<tr>
-<td>xfpe_outlinenone</td>
-<td>No Outline</td>
-</tr>
-<tr>
-<td>xfpe_font8px</td>
-<td>Goes up to 24px / Font Size</td>
-</tr>
-<tr>
-<td>xfpe_t3d</td>
-<td>Translate for zIndex Compatibility</td>
-</tr>
-<tr>
-<td>xfpe_borderbox</td>
-<td>Border-Box No Padding Margin Inner</td>
-</tr>
-<tr>
-<td>xfpe_relative</td>
-<td>position relative</td>
-</tr>
-<tr>
-<td>xfpe_fixed</td>
-<td>position fixed</td>
-</tr>
-<tr>
-<td>xfpe_absolute</td>
-<td>position absolute</td>
+<td>.xfpe_dispinlinegrid</td>
+<td>Sets the element&#39;s display property to inline-grid (enables inline grid layout).</td>
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th>Float Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_floatleft</td>
+<td>Sets the element&#39;s float property to left.</td>
+</tr>
+<tr>
+<td>.xfpe_floatright</td>
+<td>Sets the element&#39;s float property to right.</td>
+</tr>
+<tr>
+<td>.xfpe_floatnone</td>
+<td>Clears any previous float property.</td>
+</tr>
+<tr>
+<td>.xfpe_floatinherit</td>
+<td>Inherits the float property from the parent element.</td>
+</tr>
+<tr>
+<td>.xfpe_floatinitial</td>
+<td>Sets the float property to its default value.</td>
+</tr>
+<tr>
+<td>.xfpe_floatunset</td>
+<td>Resets the float property to its inherited value.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Overflow Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_overflowhidden</td>
+<td>Sets the element&#39;s overflow property to hidden.</td>
+</tr>
+<tr>
+<td>.xfpe_overflowscroll</td>
+<td>Sets the element&#39;s overflow property to scroll.</td>
+</tr>
+<tr>
+<td>.xfpe_overflowvisible</td>
+<td>Sets the element&#39;s overflow property to visible.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<table>
+<thead>
+<tr>
+<th>Text Class Name</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_textbreakall</td>
+<td>Breaks text at any character, preserving space</td>
+</tr>
+<tr>
+<td>.xfpe_textnowrap</td>
+<td>Prevents text from wrapping to the next line</td>
+</tr>
+<tr>
+<td>.xfpe_textuppercase</td>
+<td>Converts text to uppercase</td>
+</tr>
+<tr>
+<td>.xfpe_textlowercase</td>
+<td>Converts text to lowercase</td>
+</tr>
+<tr>
+<td>.xfpe_textcapitalize</td>
+<td>Capitalizes the first letter of each word</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Align Classes Name</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_aligncenter</td>
+<td>Centers text horizontally</td>
+</tr>
+<tr>
+<td>.xfpe_alignleft</td>
+<td>Aligns text to the left</td>
+</tr>
+<tr>
+<td>.xfpe_alignright</td>
+<td>Aligns text to the right</td>
+</tr>
+<tr>
+<td>.xfpe_alignjustify</td>
+<td>Justifies text</td>
+</tr>
+<tr>
+<td>.xfpe_verticalalignmiddle</td>
+<td>Vertically aligns text to the middle</td>
+</tr>
+<tr>
+<td>.xfpe_verticalaligntop</td>
+<td>Vertically aligns text to the top</td>
+</tr>
+<tr>
+<td>.xfpe_verticalalignbottom</td>
+<td>Vertically aligns text to the bottom</td>
+</tr>
+<tr>
+<td>.xfpe_alignbaseline</td>
+<td>Vertically aligns text to the baseline</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Cursor Class Name</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_cursorpointer</td>
+<td>Changes the cursor to a pointer hand</td>
+</tr>
+<tr>
+<td>.xfpe_cursordefault</td>
+<td>Sets the default cursor (usually an arrow)</td>
+</tr>
+<tr>
+<td>.xfpe_cursorauto</td>
+<td>Automatically sets the cursor based on the element</td>
+</tr>
+<tr>
+<td>.xfpe_cursorcrosshair</td>
+<td>Sets the cursor to a crosshair</td>
+</tr>
+<tr>
+<td>.xfpe_cursorhelp</td>
+<td>Sets the cursor to a help cursor (question mark)</td>
+</tr>
+<tr>
+<td>.xfpe_cursormove</td>
+<td>Sets the cursor to a move cursor</td>
+</tr>
+<tr>
+<td>.xfpe_cursornotallowed</td>
+<td>Sets the cursor to a not-allowed cursor</td>
+</tr>
+<tr>
+<td>.xfpe_cursorprogress</td>
+<td>Sets the cursor to a progress cursor</td>
+</tr>
+<tr>
+<td>.xfpe_cursortext</td>
+<td>Sets the cursor to a text cursor (I-beam)</td>
+</tr>
+<tr>
+<td>.xfpe_cursorwait</td>
+<td>Sets the cursor to a wait cursor (hourglass)</td>
+</tr>
+<tr>
+<td>.xfpe_cursoralias</td>
+<td>Sets the cursor to an alias cursor</td>
+</tr>
+<tr>
+<td>.xfpe_cursorcopy</td>
+<td>Sets the cursor to a copy cursor</td>
+</tr>
+<tr>
+<td>.xfpe_cursorzoomin</td>
+<td>Sets the cursor to a zoom-in cursor</td>
+</tr>
+<tr>
+<td>.xfpe_cursorzoomout</td>
+<td>Sets the cursor to a zoom-out cursor</td>
+</tr>
+<tr>
+<td>.xfpe_cursorgrab</td>
+<td>Sets the cursor to a grab cursor</td>
+</tr>
+<tr>
+<td>.xfpe_cursorgrabbing</td>
+<td>Sets the cursor to a grabbing cursor</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Border Class Name</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_bordernone</td>
+<td>Removes the border from an element</td>
+</tr>
+<tr>
+<td>.xfpe_outlinenone</td>
+<td>Removes the outline from an element</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<table>
+<thead>
+<tr>
+<th>Misc Classes</th>
+<th>Description</th>
+<th>Steps</th>
+<th>Max Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_font{N}px</td>
+<td>Set Font Size in PX</td>
+<td>N: 1, 2, 3, 4</td>
+<td>100</td>
+</tr>
+<tr>
+<td>.xfpe_t3d</td>
+<td>Applies a 3D transform to the element.</td><td></td><td></td>
+</tr>
+<tr>
+<td>.xfpe_borderbox</td>
+<td>Applies the CSS border-box box-sizing to the element.</td><td></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Position Class Name</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.xfpe_absolute</td>
+<td>Sets the element&#39;s position to absolute</td>
+</tr>
+<tr>
+<td>.xfpe_fixed</td>
+<td>Sets the element&#39;s position to fixed</td>
+</tr>
+<tr>
+<td>.xfpe_relative</td>
+<td>Sets the element&#39;s position to relative</td>
+</tr>
+<tr>
+<td>.xfpe_static</td>
+<td>Sets the element&#39;s position to static</td>
+</tr>
+<tr>
+<td>.xfpe_sticky</td>
+<td>Sets the element&#39;s position to sticky</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
 
 </div>
 

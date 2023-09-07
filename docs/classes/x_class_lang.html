@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Lang Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Lang Class"> <!------------------------------------>
+    <title>Bugfish - PHP Lang Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Lang Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 			<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_lang.html" />
-	<meta property="og:title" content="Bugfish Lang Class" />
+	<meta property="og:title" content="Bugfish - PHP Lang Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_lang.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Lang Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Lang Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Lang</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,51 +50,97 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_var">x_class_lang</h2>
+<h2 id="x_class_var">Bugfish - PHP Lang Class</h2>
 <p style="text-align: left;">The x_class_lang class handles multilingual translation and localization. It provides methods for managing translations both through a MySQL database and a file-based approach. The class can initialize translation arrays, delete translation keys, add new translations, and perform translations using the loaded data. It simplifies the process of translating content for different languages and sections within an application.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
 
+
+⚠️ Does use MySQL (x_class_mysqli object) (if not using language file)<br />
+⚠️ Tables will be automatically installed<br />
+<br /></div>
+<h2 id="x_class_var">How to use x_class_lang?</h2>
 <table>
 <thead>
 <tr>
-<th>Construct Function</th>
-<th>Description</th>
+<th>Function</th>
+<th>Parameters</th>
+<th>Result</th>
+<th>Explanation</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>__construct($mysql = false, $table = false, $lang = "none", $section = "none", $file_name = false)</td>
-<td>Construct the Class with x_class_mysql_object, set a lang identifier which will be loaded for the object (for translations) and a section for multi-site use support of the same table (optional), If filename is there you can load language out of a language file (# / // for comment and = as seperator)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>delete($key, $lang = false)</td>
-<td>Delete a Translation with key. (Optional is to enter a lang string as well to delete a lang specific key, otherwhise the current loaded lang key will be deleted!</td>
+<td>create_table()</td>
+<td>None</td>
+<td>Executes SQL to create a table</td>
+<td>Creates a MySQL table for storing translations if it doesn&#39;t already exist.</td>
+<td>php $x_class_lang-&gt;create_table();</td>
 </tr>
 <tr>
-<td>add($key, $text, $lang = false)</td>
-<td>Add a Translation with key. (Optional is to enter a lang string as well to add a lang specific key, otherwhise the current loaded lang key will be related!</td>
+<td>__construct()</td>
+<td>$mysql, $table, $lang, $section, $file_name</td>
+<td>Initializes class properties</td>
+<td>Constructor for the class. It initializes properties like database connection, table name, language, section, and file mode. If the MySQL object is provided, it checks if the table exists and creates it if not. If a file name is provided, it reads translations from a file.</td>
+<td>php $x_class_lang = new x_class_lang($mysql, $table, $lang, $section, $file_name);</td>
+</tr>
+<tr>
+<td>init()</td>
+<td>None</td>
+<td>Initializes translation array</td>
+<td>Initializes the translation array by fetching translations from the database. It is called automatically in the constructor.</td>
+<td>Automatically called in constructor</td>
+</tr>
+<tr>
+<td>delete($key, $lang)</td>
+<td>$key (string), $lang (optional string)</td>
+<td>Deletes a translation entry</td>
+<td>Deletes a translation entry for a specific key and language from the database. If $lang is not provided, it deletes the entry for the current language and section.</td>
+<td>php $x_class_lang-&gt;delete(&#39;example_key&#39;, &#39;en&#39;);</td>
+</tr>
+<tr>
+<td>add($key, $text, $lang)</td>
+<td>$key (string), $text (string), $lang (optional string)</td>
+<td>Adds a new translation entry</td>
+<td>Adds a new translation entry to the database. If $lang is not provided, it adds it for the current language and section.</td>
+<td>php $x_class_lang-&gt;add(&#39;new_key&#39;, &#39;New Text&#39;, &#39;fr&#39;);</td>
 </tr>
 <tr>
 <td>translate($key)</td>
-<td>Get Translation text for current loaded language with provided key.</td>
+<td>$key (string)</td>
+<td>Translates a key</td>
+<td>Translates a given key. If the key exists in the translation array, it returns the translation; otherwise, it returns the key itself.</td>
+<td>php $x_class_lang-&gt;translate(&#39;example_key&#39;);</td>
 </tr>
 </tbody>
 </table>
 
+<h2 id="x_class_mastered-">Example Language File</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Language file example
+example_key = This is an example translation
+another_key = Another translation
 
+
+</textarea>
+
+<h2 id="x_class_mastered-">Example DB Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+$mysql = new MySQLConnection(); // Replace with your database connection
+$table = 'translations';
+$lang = 'en';
+$section = 'general';
+
+$x_class_lang = new x_class_lang($mysql, $table, $lang, $section);
+
+// Usage example
+$translation = $x_class_lang->translate('example_key');
+echo $translation; // Output: This is an example translation
+
+
+</textarea>
 </div>
 
 

@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Comment Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Comment Class"> <!------------------------------------>
+    <title>Bugfish - PHP Comment Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Comment Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 	
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_comment.html" />
-	<meta property="og:title" content="Bugfish Comment Class" />
+	<meta property="og:title" content="Bugfish - PHP Comment Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_comment.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -36,11 +36,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Comment Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Comment Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Comment</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -51,111 +51,123 @@
     <div>
 				<div class="inner inner_section" style="text-align: center;">
 
-<h2 id="x_class_comment-mastered-">x_class_comment </h2>
+<h2 id="x_class_comment-mastered-">Bugfish - PHP Comment Class </h2>
 <p style="text-align: left;">The x_class_comment is a PHP class for managing a commenting system. It handles comment display, user voting, and submission. It interacts with a MySQL database, provides voting and comment forms, and allows comments to be shown based on filters. The class simplifies the integration of a commenting system into websites or applications.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+⚠️ Does use Session-Cookies<br />
+⚠️ Does use MySQL (x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br />
 
+<br /></div>
+<h2 id="x_class-mastered-">How to use x_class_comment?</h2>
 <table>
 <thead>
 <tr>
-<th>Function</th>
+<th>Method</th>
 <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>__construct($x_class_mysql, $table, $precookie, $module, $target)</td>
-<td>Class Construction with x_class_myqsl object, table name, pre cookie string, a module and target ID</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
 <th>Parameters</th>
-<th>Description</th>
+<th>Results</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>upvote</td>
-<td>Actual Upvote Counter</td>
+<td><code>__construct</code></td>
+<td>Constructor function for the class. Initializes class</td>
+<td><code>$mysql</code> (MySQL object), <code>$table</code> (Table name),</td>
+<td>- Initializes class variables.<br> - Starts a session if not started.</td>
 </tr>
 <tr>
-<td>comment</td>
-<td>Actual Comment Counter (Confirmed)</td>
+<td></td>
+<td>variables and starts a session if not started.</td>
+<td><code>$precookie</code> (Cookie prefix), <code>$module</code> (Module name),</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>$target</code> (Target name).</td>
+<td></td>
+</tr>
+<tr>
+<td><code>vote_show</code></td>
+<td>Displays a vote box with upvote button.</td>
+<td>None</td>
+<td>- Displays a vote box with upvote button.<br> - Handles vote status.</td>
+</tr>
+<tr>
+<td><code>form_show</code></td>
+<td>Displays a comment form.</td>
+<td><code>$captchaurl</code> (URL for captcha image)</td>
+<td>- Displays a comment form.<br> - Handles form submission.</td>
+</tr>
+<tr>
+<td><code>comment_show</code></td>
+<td>Displays comments based on various filters and sorting.</td>
+<td><code>$hide_system_msg</code> (Hide system messages),</td>
+<td>- Displays comments based on filters and sorting criteria.<br> - Returns an array of displayed comments.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>$hide_internal_msg</code> (Hide internal messages),</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>$hide_confirmed</code> (Hide confirmed comments),</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>$hide_unconfirmed</code> (Hide unconfirmed comments),</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>$sorting</code> (Sorting criteria).</td>
+<td></td>
+</tr>
+<tr>
+<td><code>comment_get</code></td>
+<td>Retrieves comments based on various filters and sorting.</td>
+<td>Parameters same as <code>comment_show</code>.</td>
+<td>- Retrieves comments based on filters and sorting criteria.<br> - Returns an array of retrieved comments.</td>
+</tr>
+<tr>
+<td><code>init</code></td>
+<td>Initializes the commenting system and handles messages.</td>
+<td><code>$captcha_code_if_delivered</code> (Captcha code if delivered)</td>
+<td>- Initializes the commenting system.<br> - Handles various messages based on system state.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Init</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>init_res</td>
-<td>Returns Init Value if new Comment is Pushed for Notifications and more: // 1 - System Message Inserted// 2 - Vote OK// 3 - Comment Missing Fields// 4 - Comment Captcha Error// 5 - Comment OK</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Config</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sys_name($name = &quot;System&quot;)</td>
-<td>Name of System Message Autor</td>
-</tr>
-<tr>
-<td>sys_text($text = &quot;Thanks for visiting my page and have a nice day!&quot;)</td>
-<td>Default Message Text</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Init Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>vote_show()</td>
-<td>Show Vote Box</td>
-</tr>
-<tr>
-<td>comment_show($hide_system_msg = false, $hide_internal_msg = false, $hide_confirmed = false, $hide_unconfirmed = false, $sorting = " ORDER BY id DESC")</td>
-<td>Show Comments Box</td>
-</tr>
-<tr>
-<td>comment_get($hide_system_msg = false, $hide_internal_msg = false, $hide_confirmed = false, $hide_unconfirmed = false, $sorting = " ORDER BY id DESC")</td>
-<td>Get Comments Current to Array in Return</td>
-</tr>
-<tr>
-<td>form_show($captchaurl)</td>
-<td>Show Form for new Comments</td>
-</tr>
-<tr>
-<td>init($captcha_code_if_delivered = false)</td>
-<td>Init with Configs (Before Show of Form) Handles new Comments and Votes</td>
-</tr>
-</tbody>
-</table>
-
+<div style="text-align: left">
+<p>In the provided code for the <code>x_class_comment</code> class, the <code>init_res</code> parameter is a class variable that is used to store the result or status of the <code>init</code> method. The <code>init</code> method is responsible for initializing the commenting system and handling various messages or outcomes based on the system&#39;s state and user interactions.</p>
+<p>The <code>init_res</code> variable appears to be used to communicate back to the caller of the <code>init</code> method about what happened during the initialization process. It can have different values to represent different outcomes or statuses. Here are the possible values and their meanings:</p>
+<ol>
+<li><p><code>init_res = 1</code>: This value indicates that a system message was inserted during initialization.</p>
+</li>
+<li><p><code>init_res = 2</code>: This value suggests that a vote was successfully processed during initialization.</p>
+</li>
+<li><p><code>init_res = 3</code>: This value indicates that there was an issue with the comment submission because some required fields were missing.</p>
+</li>
+<li><p><code>init_res = 4</code>: This value suggests that there was an issue with the comment submission due to a captcha error.</p>
+</li>
+<li><p><code>init_res = 5</code>: This value indicates that a comment was successfully added during initialization.</p>
+</li>
+</ol>
+<p>By checking the value of <code>init_res</code> after calling the <code>init</code> method, the caller can determine what specific action or outcome occurred during the initialization process. This allows the caller to handle different scenarios or display appropriate messages to the user based on the result of the initialization.</p>
+</div>
 </div>
 
 

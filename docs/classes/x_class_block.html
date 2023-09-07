@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Session Block Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Session Block Class"> <!------------------------------------>
+    <title>Bugfish - PHP Session Block Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Session Block Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_block.html" />
-	<meta property="og:title" content="Bugfish Session Block Class" />
+	<meta property="og:title" content="Bugfish - PHP Session Block Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_block.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -39,7 +39,7 @@
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Block</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -49,42 +49,162 @@
    
     <div>
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_block-mastered-">x_class_block </h2>
+<h2 id="x_class_block-mastered-">Bugfish - PHP Session Block Class </h2>
 <p style="text-align: left;">Introducing the "x_class_block" PHP session security block class: Effectively prevents actions through session counters. This class exclusively operates within sessions, supporting time-based blocks that can be lifted after a designated duration if specified during construction. Leveraging PHP sessions, this class operates without the need for MySQL tables. Enhance security seamlessly.<br /><br />The x_class_block class essentially offers a mechanism to control actions based on session counters and optionally time-based blocking. It helps manage access to certain functionalities based on session activity. It's important to note that if the $dummy parameter is set to true, the class instance doesn't perform any actions, useful for creating a placeholder instance.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
 
+
+⚠️ Does use Session-Cookies<br />
+
+
+<br /></div>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$pre_key</code></td>
+<td>A prefix used to generate the session key for the class.</td>
+<td>string</td>
+<td>N/A</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>$maxcount</code></td>
+<td>The maximum count until the class instance is blocked.</td>
+<td>int</td>
+<td>N/A</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>$block_time</code></td>
+<td>The time in seconds for which the instance remains blocked.</td>
+<td>int</td>
+<td><code>false</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>$dummy</code></td>
+<td>A flag to enable &quot;dummy&quot; mode for testing purposes.</td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
 <th>Function</th>
 <th>Description</th>
+<th>Parameters</th>
+<th>Expected Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>__construct($pre_key, $maxcount, $block_time = false, $dummy = false)</td>
-<td>Initializes the class instance. It sets up the session key, maximum allowed count before blocking, and an optional time period for blocking. If $dummy is set to true, it creates a dummy instance.</td>
+<td><code>__construct</code></td>
+<td>Constructor for the class. Initializes class variables and starts a session if not already active.</td>
+<td><code>$pre_key</code> (string), <code>$maxcount</code> (int), <code>$block_time</code> (int, optional, default: <code>false</code>), <code>$dummy</code> (bool, optional)</td>
+<td>- Initializes class variables. - Starts a session.</td>
 </tr>
 <tr>
-<td>blocked()</td>
-<td>Checks if the current session is blocked based on the set conditions. If the block time is specified, it checks if the time has expired. If the maximum count is reached, it sets the block state. This function returns true if blocked, false otherwise.</td>
+<td><code>blocked</code></td>
+<td>Checks if the class instance is blocked based on session count and block time.</td>
+<td>None</td>
+<td>- Returns <code>true</code> if blocked. - Returns <code>false</code> if not blocked.</td>
 </tr>
 <tr>
-<td>increase($int = 1)</td>
-<td>Increases the session counter by the specified integer value ($int). This function also calls the blocked function to update the block status.</td>
+<td><code>increase</code></td>
+<td>Increases the session count.</td>
+<td><code>$int</code> (int, optional, default: <code>1</code>)</td>
+<td>- Increments the session count by the specified value. - Calls <code>blocked</code> method.</td>
 </tr>
 <tr>
-<td>decrease($int = 1)</td>
-<td>Decreases the session counter by the specified integer value ($int). This function also calls the blocked function to update the block status.</td>
+<td><code>decrease</code></td>
+<td>Decreases the session count.</td>
+<td><code>$int</code> (int, optional, default: <code>1</code>)</td>
+<td>- Decrements the session count by the specified value. - Calls <code>blocked</code> method. - Returns <code>true</code>.</td>
 </tr>
 <tr>
-<td>reset()</td>
-<td>Resets the session counter to zero and clears the block timestamp if applicable. This function also calls the blocked function to update the block status.</td>
+<td><code>reset</code></td>
+<td>Resets the session count and block timer.</td>
+<td>None</td>
+<td>- Sets the session count to 0. - Clears the block timer. - Calls <code>blocked</code> method. - Returns <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>blocked</code> (getter)</td>
+<td>Returns the current blocked status.</td>
+<td>None</td>
+<td>- Returns <code>true</code> if blocked. - Returns <code>false</code> if not blocked.</td>
 </tr>
 </tbody>
 </table>
+
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+
+// Include or require the class definition here
+
+// Create an instance of x_class_block
+$preKey = "example_";
+$maxCount = 5;
+$blockTime = 60; // 60 seconds
+$dummyMode = false;
+
+$blockInstance = new x_class_block($preKey, $maxCount, $blockTime, $dummyMode);
+
+// Check if the instance is blocked
+if ($blockInstance->blocked()) {
+    echo "The instance is blocked.\n";
+} else {
+    echo "The instance is not blocked.\n";
+}
+
+// Increase the session count
+$blockInstance->increase();
+
+// Check if the instance is blocked after an increase
+if ($blockInstance->blocked()) {
+    echo "The instance is blocked after an increase.\n";
+} else {
+    echo "The instance is not blocked after an increase.\n";
+}
+
+// Decrease the session count
+$blockInstance->decrease();
+
+// Check if the instance is blocked after a decrease
+if ($blockInstance->blocked()) {
+    echo "The instance is blocked after a decrease.\n";
+} else {
+    echo "The instance is not blocked after a decrease.\n";
+}
+
+// Reset the session count and block timer
+$blockInstance->reset();
+
+// Check if the instance is blocked after a reset
+if ($blockInstance->blocked()) {
+    echo "The instance is blocked after a reset.\n";
+} else {
+    echo "The instance is not blocked after a reset.\n";
+}
+
+
+
+</textarea>
+
 
 </div>
 

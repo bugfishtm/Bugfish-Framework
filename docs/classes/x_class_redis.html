@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Redis Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Redis Class"> <!------------------------------------>
+    <title>Bugfish - PHP Redis Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Redis Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_redis.html" />
-	<meta property="og:title" content="Bugfish Redis Class" />
+	<meta property="og:title" content="Bugfish - PHP Redis Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_redis.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Redis Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Redis Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Redis</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,14 +50,16 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-				<h2 id="x_class_redis-mastered-">x_class_redis </h2>
+				<h2 id="x_class_redis-mastered-">Bugfish - PHP Redis Class </h2>
 <p style="text-align: left;">The x_class_redis class facilitates interactions with a Redis server, offering methods for connecting, adding and retrieving data, and managing keys and lists. It includes functionalities like checking connection validity, pinging the server, fetching keys, adding strings and lists, and retrieving values. This class simplifies Redis operations for caching and fast data storage.</p>
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+⚠️ Needs PHP Redis Module<br />
+<br /></div>
 
-
+<h2 id="x_class_redis-mastered-">How to use x_class_redis?</h2>
 <table>
 <thead>
 <tr>
@@ -116,7 +118,44 @@
 </tr>
 </tbody>
 </table>
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Include the class definition or autoload it if needed
 
+// Define your Redis server connection details
+$redisHost = 'localhost';  // Redis server hostname or IP address
+$redisPort = 6379;         // Redis server port
+$redisPrefix = 'my_prefix'; // Optional key prefix
+
+// Create an instance of the x_class_redis class
+$redisClient = new x_class_redis($redisHost, $redisPort, $redisPrefix);
+
+// Check if the connection to Redis is successful
+if ($redisClient->valid()) {
+    echo "Connected to Redis\n";
+
+    // Ping the Redis server
+    $pingResponse = $redisClient->ping();
+    echo "Ping Response: $pingResponse\n";
+
+    // Add a string value to Redis
+    $redisClient->add_string('my_key', 'Hello, Redis!');
+    
+    // Retrieve the string value from Redis
+    $redisValue = $redisClient->get_string('my_key');
+    echo "Retrieved Value: $redisValue\n";
+
+    // Add items to a Redis list
+    $listData = ['item1', 'item2', 'item3'];
+    $redisClient->add_list('my_list', $listData);
+
+    // Retrieve a range of items from the Redis list
+    $listItems = $redisClient->get_list('my_list', 0, -1);
+    echo "List Items: " . implode(', ', $listItems) . "\n";
+} else {
+    echo "Failed to connect to Redis\n";
+}
+</textarea>
 </div>
 
 

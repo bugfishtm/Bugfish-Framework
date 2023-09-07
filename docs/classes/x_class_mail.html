@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Mail Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Mail Class"> <!------------------------------------>
+    <title>Bugfish - PHP Mail Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Mail Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mail.html" />
-	<meta property="og:title" content="Bugfish Mail Class" />
+	<meta property="og:title" content="Bugfish - PHP Mail Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mail.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Mail Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Mail Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Mail</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -51,12 +51,16 @@
 
 				<div class="inner inner_section" style="text-align: center;">
 
-<h2 id="x_class_mail-mastered-">x_class_mail</h2>
+<h2 id="x_class_mail-mastered-">Bugfish - PHP Mail Class</h2>
 <p style="text-align: left;">The x_class_mail class is a PHP class designed for sending emails using the PHPMailer library. It encapsulates various email-related functionalities and configurations. The class includes features such as setting up SMTP authentication, defining host details, configuring secure connections, managing email recipients (To, CC, BCC), attaching files, and handling HTML content. The class provides methods to send emails using either a simplified approach (method send) or an advanced method (mail) that allows more customization. It also supports logging email activities, allowing developers to track sent emails. The class can be used to create email sending instances (x_class_mail_item) that hold specific settings and attachments, providing a convenient way to send emails with specific configurations.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
 
+⚠️ Does use MySQL (x_class_mysqli object) (for logging)<br />
+⚠️ Tables will be automatically installed<br />
+<br /></div>
+<h2 id="x_class_mail-mastered-">How to use x_class_mail?</h2>
 <table>
 <thead>
 <tr>
@@ -191,8 +195,12 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+⚠️ Does use MySQL (x_class_mysqli object) (for logging)<br />
+⚠️ Tables will be automatically installed<br />
 
+<br /></div>
+<h2 id="x_class_mail_template-mastered-">How to use x_class_mail_item?</h2>
 <table>
 <thead>
 <tr>
@@ -293,6 +301,56 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 </tr>
 </tbody>
 </table>
+
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Include the PHPMailer library and create an instance of x_class_mail
+require 'path/to/PHPMailer.php';
+require 'path/to/Exception.php';
+require 'path/to/x_class_mail.php';
+
+$mail = new x_class_mail('your_smtp_server.com', 587, 'tls', 'your_username', 'your_password', 'your_email@example.com', 'Your Name');
+
+// Set additional configurations (optional)
+$mail->charset('UTF-8');
+$mail->encoding('base64');
+$mail->allow_insecure_ssl_connections(false);
+$mail->smtpdebuglevel(0);
+$mail->all_default_html(false);
+$mail->change_default_template('', ''); // You can specify custom header and footer here
+$mail->initReplyTo('reply@example.com', 'Reply Name');
+$mail->test_mode(false);
+
+// Create an instance of x_class_mail_item for easier email configuration
+$email = $mail->object();
+
+// Add recipients
+$email->add_receiver('recipient1@example.com', 'Recipient 1');
+$email->add_receiver('recipient2@example.com', 'Recipient 2');
+
+// Add CC and BCC recipients (optional)
+$email->add_cc('cc@example.com', 'CC Recipient');
+$email->add_bcc('bcc@example.com', 'BCC Recipient');
+
+// Add attachments (optional)
+$email->add_attachment('path/to/attachment1.pdf', 'Attachment 1');
+$email->add_attachment('path/to/attachment2.jpg', 'Attachment 2');
+
+// Set additional settings (optional)
+$email->add_setting('header', 'Custom Header');
+$email->add_setting('footer', 'Custom Footer');
+
+// Send the email
+$subject = 'Your Subject';
+$content = 'Email content goes here. You can use HTML if HTML mode is enabled.';
+if ($email->send($subject, $content)) {
+    echo 'Email sent successfully!';
+} else {
+    echo 'Email sending failed. Error: ' . $mail->last_info();
+}
+</textarea>
+
+
 <h2 id="x_class_mail_phpmailer-mastered-">x_class_mail_phpmailer </h2>
 This <span class="hljs-keyword">is</span> the PHPMailer <span class="hljs-keyword">class</span> needed <span class="hljs-keyword">for</span> x<span class="hljs-number">_</span><span class="hljs-keyword">class</span><span class="hljs-number">_m</span>ail <span class="hljs-keyword">class</span>!
 

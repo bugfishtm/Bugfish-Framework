@@ -194,7 +194,7 @@
 						case "text": $finalvalue = @$_POST[$varnamenews]; break;	
 						case "string": $finalvalue = @$_POST[$varnamenews]; break;	
 						case "select": $finalvalue = @$_POST[$varnamenews]; break;		
-						case "bool": if(@$_POST[$varnamenews]) {$finalvalue =1;} else {$finalvalue =0;}  break;		
+						//case "bool": if(@$_POST[$varnamenews]) {$finalvalue =1;} else {$finalvalue =0;}  break;		
 					} 		
 					if($this->set($varname, $finalvalue, false, true, true)) {
 						$text = "<b><font color='lime'>Changed successfully!</font></b>";
@@ -214,16 +214,18 @@
 						<!-- Text -->
 						<?php if($type == "text") { ?> <textarea class="<?php echo $itemclass; ?>"  name="<?php echo $varnamenews; ?>"><?php if(is_array($current)) { echo $current[$this->db_r_c_value]; } ?></textarea><br /><?php } ?>
 						<!-- Bool -->
-						<?php if($type == "bool" AND is_array($current) AND $current[$this->db_r_c_value] == 1) { $xxx = "checked"; } else { $xxx = ""; } ?>	
-						<?php if($type == "bool") { ?>Configure: <input class="<?php echo $itemclass; ?>" type="checkbox" name="<?php echo $varnamenews; ?>" <?php echo $xxx; ?>><?php } ?>		
+						<?php if(false AND is_array($current) AND $current[$this->db_r_c_value] == 1) { $xxx = "checked"; } else { $xxx = ""; } ?>	
+						<?php if(false) { ?>Configure: <input class="<?php echo $itemclass; ?>" type="checkbox" name="<?php echo $varnamenews; ?>" <?php echo $xxx; ?>><?php } ?>		
 						<!-- Select -->
 						<?php if($type == "select") { ?>
 							<select class="<?php echo $itemclass; ?>"  name="<?php echo $varnamenews; ?>">
 							<option value="<?php echo htmlentities($current[$this->db_r_c_value]); ?>">No Change: <?php echo @htmlentities($current[$this->db_r_c_value]); ?></option>
 								<?php
-									foreach($selectarray AS $key => $value) {
+									 foreach($selectarray AS $key => $value) { if(is_array($value)) {
 										echo '<option value="'.$value[1].'">'.$value[0]."</option>";
-									}
+									} else {
+											echo '<option value="'.$value.'">'.$value."</option>";	
+									} }
 								?>
 							</select><br />
 						<?php } ?>

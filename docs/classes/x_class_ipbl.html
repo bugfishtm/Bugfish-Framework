@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish IPBL Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish IPBL Class"> <!------------------------------------>
+    <title>Bugfish - PHP Blacklist Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Blacklist Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_ipbl.html" />
-	<meta property="og:title" content="Bugfish IPBL Class" />
+	<meta property="og:title" content="Bugfish - PHP Blacklist Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_ipbl.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> IPBL Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP IPBL Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP IPBL</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,12 +50,17 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: left;">
-<h2 id="x_class_ipbl-mastered-">x_class_ipbl </h2>
+<h2 id="x_class_ipbl-mastered-">Bugfish - PHP Blacklist Class </h2>
 The x_class_ipbl class serves as a tool for IP blacklisting control. It facilitates managing and controlling access from specific IP addresses through interaction with a MySQL database. Key features of the class include the ability to check if an IP address is blocked, retrieve an array of banned IPs, unblock a specific IP, retrieve the failure counter for an IP address, raise the counter for an IP, and manage the state of blocked IPs. The class employs a MySQL database for storing IP blacklisting information and controlling access to the application.
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+⚠️ Does use MySQL (x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br />
+<br /></div>
+
+<h2 id="x_class_ipbl-mastered-">How to use x_class_ipbl?</h2>
 <table>
 <thead>
 <tr>
@@ -147,6 +152,49 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 </tr>
 </tbody>
 </table>
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+
+// First, you need to have a MySQL database connection. You can create one like this:
+$mysql = new mysqli("localhost", "username", "password", "database_name");
+
+// Include your class definition here
+
+// Create an instance of the x_class_ipbl class
+$tablename = "ip_block_table"; // Replace with your desired table name
+$maxvalue = 5; // Replace with your desired maximum failure count
+$ipbl = new x_class_ipbl($mysql, $tablename, $maxvalue);
+
+// Check if the current IP is blocked
+if ($ipbl->blocked()) {
+    echo "IP is blocked!";
+} else {
+    echo "IP is not blocked.";
+}
+
+// Get the counter for the current IP
+$counter = $ipbl->get_counter();
+echo "Failure count for current IP: $counter";
+
+// Increase the failure count for the current IP
+$ipbl->raise(); // You can specify the amount to raise by passing an integer to the raise() function
+
+// Unblock an IP address
+$ip_to_unblock = "192.168.1.100"; // Replace with the IP you want to unblock
+$ipbl->unblock($ip_to_unblock);
+
+// Get the list of blocked IP addresses as an array
+$blocked_ips = $ipbl->get_array();
+print_r($blocked_ips);
+
+// Check if a specific IP is blocked
+$ip_to_check = "192.168.1.200"; // Replace with the IP you want to check
+if ($ipbl->ip_counter($ip_to_check) > $maxvalue) {
+    echo "IP $ip_to_check is blocked!";
+} else {
+    echo "IP $ip_to_check is not blocked.";
+}
+</textarea>
 
 </div>
 

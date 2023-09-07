@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Permission Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Permission Class"> <!------------------------------------>
+    <title>Bugfish - PHP Permission Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Permission Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_perm.html" />
-	<meta property="og:title" content="Bugfish Permission Class" />
+	<meta property="og:title" content="Bugfish - PHP Permission Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_perm.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Permission Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Permission Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Permission</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -49,7 +49,7 @@
    
     <div>
 
-				<div class="inner inner_section" style="text-align: center;"><h2 id="x_class_perm-mastered-">x_class_perm </h2>
+				<div class="inner inner_section" style="text-align: center;"><h2 id="x_class_perm-mastered-">Bugfish - PHP Permission Class </h2>
 <p style="text-align: left;">The x_class_perm class is a simple permission control class that allows you to manage permissions associated with different references (or users) and sections. It interacts with a MySQL database to store permission data. The class provides methods for adding, checking, and removing permissions for specific references.
 <br /><br />
 The x_class_perm_item class is used in conjunction with the x_class_perm class to represent individual reference-based permission items. It allows you to manipulate permissions associated with a specific reference more conveniently.
@@ -57,9 +57,14 @@ The x_class_perm_item class is used in conjunction with the x_class_perm class t
 These classes offer a straightforward way to manage and check permissions in your application by storing and querying permission data from a database.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
 
+⚠️ Does use MySQL (x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br />
 
+<br /></div>
+
+<h2 id="x_class_perm-mastered-">How to use x_class_perm?</h2>
 <table>
 <thead>
 <tr>
@@ -139,7 +144,11 @@ It needs <span class="hljs-keyword">to</span> be obtained <span class="hljs-keyw
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+
+⚠️ Does use MySQL (x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br /><br /></div>
+<h2 id="x_class_perm-mastered-">How to use x_class_perm_item?</h2>
 
 <table>
 <thead>
@@ -163,7 +172,7 @@ It needs <span class="hljs-keyword">to</span> be obtained <span class="hljs-keyw
 </tr>
 <tr>
 <td>check_perm($array, $or = false)</td>
-<td></td>
+<td>This PHP function named check_perm compares two arrays: $current_perm (an array of permissions) and $array (an array of permissions to check). It determines whether any or all of the permissions in $array exist in $current_perm. The function returns true if all permissions in $array exist in $current_perm when $or is set to false, and it returns true if at least one permission in $array exists in $current_perm when $or is set to true. If the input arrays are not valid or the conditions are not met, the function returns false.</td>
 </tr>
 <tr>
 <td>remove_perm($permname)</td>
@@ -179,7 +188,65 @@ It needs <span class="hljs-keyword">to</span> be obtained <span class="hljs-keyw
 </tr>
 </tbody>
 </table>
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Include your database connection code here
 
+// Assuming you have a MySQLi or PDO database connection object named $db
+require_once('x_class_perm.php');
+
+// Create an instance of the x_class_perm class
+$permissions = new x_class_perm($db, 'permissions_table', 'example_section');
+
+// Example usage of the x_class_perm class
+
+// Add permission to a reference
+$permissions->add_perm(1, 'read');
+$permissions->add_perm(1, 'write');
+
+// Check if a reference has a specific permission
+if ($permissions->has_perm(1, 'read')) {
+    echo "User has read permission.";
+} else {
+    echo "User does not have read permission.";
+}
+
+// Check if a reference has multiple permissions at once
+$permissionsArray = ['read', 'write'];
+if ($permissions->check_perm(1, $permissionsArray, false)) {
+    echo "User has all specified permissions.";
+} else {
+    echo "User does not have all specified permissions.";
+}
+
+// Get permissions for a reference
+$userPermissions = $permissions->get_perm(1);
+print_r($userPermissions);
+
+// Remove a permission from a reference
+$permissions->remove_perm(1, 'read');
+
+// Example usage of the x_class_perm_item class
+
+// Create an instance of the x_class_perm_item class for a specific reference
+$permItem = $permissions->item(1);
+
+// Add a permission to the reference using the x_class_perm_item instance
+$permItem->add_perm('delete');
+
+// Check if the reference has a specific permission using the x_class_perm_item instance
+if ($permItem->has_perm('delete')) {
+    echo "User has delete permission.";
+} else {
+    echo "User does not have delete permission.";
+}
+
+// Remove a permission from the reference using the x_class_perm_item instance
+$permItem->remove_perm('delete');
+
+// Refresh permissions for the reference using the x_class_perm_item instance
+$permItem->refresh();
+</textarea>
 </div>
 
 

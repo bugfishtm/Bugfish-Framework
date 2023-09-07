@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish PHP-Functions Library</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish PHP-Functions Library"> <!------------------------------------>
+    <title>Bugfish - PHP-Functions Library</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP-Functions Library"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/functions/x_library.html" />
-	<meta property="og:title" content="Bugfish PHP-Functions Framework" />
+	<meta property="og:title" content="Bugfish - PHP-Functions Library" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/functions/x_library.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -39,7 +39,7 @@
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">X Library</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -64,44 +64,83 @@
 </thead>
 <tbody>
 <tr>
-<td>x_thumbnail($url, $filename, $width = 600, $height = true)</td>
-<td>Create Thumbnail from URL to Local JPG</td>
+<td><code>x_thumbnail</code></td>
+<td>This function creates a thumbnail image from a URL and saves it to a file. It takes the following parameters:</td>
 </tr>
 <tr>
-<td>x_thumbnail_save($url,  $save_path = null, $width, $height)</td>
-<td>Create Thumbnail from URL to Local JPG without returning Object</td>
+<td></td>
+<td>- <code>$url</code>: The URL of the image to create a thumbnail from.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$filename</code>: The filename for the saved thumbnail.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$width</code>: The width of the thumbnail.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$height</code>: The height of the thumbnail (or <code>true</code> to maintain aspect ratio).</td>
+</tr>
+<tr>
+<td><code>x_thumbnail_save</code></td>
+<td>This function creates a thumbnail image from a URL and optionally saves it to a file. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$url</code>: The URL of the image to create a thumbnail from.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$save_path</code>: An optional path to save the thumbnail file.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$width</code>: The width of the thumbnail.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$height</code>: The height of the thumbnail (or <code>true</code> to maintain aspect ratio).</td>
 </tr>
 </tbody>
 </table>
+
+
 
 <table>
 <thead>
 <tr>
 <th>Library Function Name</th>
 <th>Description</th>
+<th>Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>x_firstimagetext($text, $all = false)</td>
-<td>Get first Image URL from Text</td>
-</tr>
-
-<tr>
-<td>x_connection_check($host, $port, $timeout = 1)</td>
-<td>Check a Connection with fsockopeny</td>
+<td>x_firstimagetext</td>
+<td>$text, $all = false</td>
+<td>- <code>$text</code>: Input text containing HTML.<br> - <code>$all</code>: Whether to return all image tags or just the first one. Parses HTML text to extract image tags and returns either the first image tag or all of them, depending on the <code>$all</code> parameter.</td>
 </tr>
 <tr>
-<td>x_inCLI()</td>
-<td>True if current script runs in CLI</td>
+<td>x_connection_check</td>
+<td>$host, $port, $timeout = 1</td>
+<td>- <code>$host</code>: Hostname or IP address to check the connection to.<br> - <code>$port</code>: Port number to check.<br> - <code>$timeout</code>: Timeout duration in seconds. Checks if a connection can be established to the specified host and port within the given timeout. Returns <code>true</code> if successful, <code>false</code> otherwise.</td>
 </tr>
 <tr>
-<td>x_rmdir($dir)</td>
-<td>Recursive Delete Directory</td>
+<td>x_inCLI</td>
+<td>None</td>
+<td>Checks if the script is running in a Command Line Interface (CLI) environment and returns <code>true</code> if it is, <code>false</code> otherwise.</td>
 </tr>
 <tr>
-<td>x_html_redirect($url, $seconds = 0)</td>
-<td>HTML Redirect</td>
+<td>x_rmdir</td>
+<td>$dir</td>
+<td>- <code>$dir</code>: Directory path to be deleted recursively. Recursively deletes all files and subdirectories within the specified directory.</td>
+</tr>
+<tr>
+<td>x_html_redirect</td>
+<td>$url, $seconds = 0</td>
+<td>- <code>$url</code>: URL to redirect to.<br> - <code>$seconds</code>: Number of seconds before the redirection occurs. Generates an HTML meta tag for redirection to the specified URL after the specified number of seconds.</td>
 </tr>
 </tbody>
 </table>
@@ -115,48 +154,48 @@
 </thead>
 <tbody>
 <tr>
-<td>x_datediff_before($d1, $d2, $length)</td>
-<td>Diff Two Dates (Outdated)</td>
+<td><code>x_isset</code></td>
+<td>This function checks if a value is not null and has a length greater than 1.</td>
 </tr>
 <tr>
-<td>x_isset($val)</td>
-<td>equal to !empty</td>
+<td><code>x_imgValid</code></td>
+<td>This function checks if a given string represents a valid image URL.</td>
 </tr>
 <tr>
-<td>x_imgValid($url)</td>
-<td>Is a valid image URL = True</td>
+<td><code>x_contains_cyrillic</code></td>
+<td>This function checks if a string contains Cyrillic characters.</td>
 </tr>
 <tr>
-<td>x_contains_cyrillic($val)</td>
-<td>(True if Cyrillic in String)</td>
+<td><code>x_contains_bad_word</code></td>
+<td>This function checks if a string contains bad words based on a filter.</td>
 </tr>
 <tr>
-<td>x_contains_bad_word($val)</td>
-<td>(Simple Bad word Filter)</td>
+<td><code>x_contains_url</code></td>
+<td>This function checks if a string contains a URL.</td>
 </tr>
 <tr>
-<td>x_contains_url($val)</td>
-<td>(Check if String Contains URL)</td>
+<td><code>x_hsc</code></td>
+<td>This function is a simple replacement for <code>htmlspecialchars</code>.</td>
 </tr>
 <tr>
-<td>x_getint($val)</td>
-<td>Get Parameter Get if Int</td>
+<td><code>x_getint</code></td>
+<td>This function retrieves a GET value as an integer if it is numeric.</td>
 </tr>
 <tr>
-<td>x_postint($val)</td>
-<td>Same for Post</td>
+<td><code>x_postint</code></td>
+<td>This function retrieves a POST value as an integer if it is numeric.</td>
 </tr>
 <tr>
-<td>x_get($val)</td>
-<td>Get GET Param</td>
+<td><code>x_get</code></td>
+<td>This function retrieves a GET value.</td>
 </tr>
 <tr>
-<td>x_post($val)</td>
-<td>Get Post Param</td>
+<td><code>x_post</code></td>
+<td>This function retrieves a POST value.</td>
 </tr>
 <tr>
-<td>x_hsc($string)</td>
-<td>htmlspecialchars alias</td>
+<td><code>x_datediff_before</code></td>
+<td>This function checks if one date is a certain length of time before another date.</td>
 </tr>
 </tbody>
 </table>
@@ -166,16 +205,19 @@
 <tr>
 <th>Button Functions</th>
 <th>Description</th>
+<th>Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>x_executionButton($db, $name, $url, $query, $get, $msgerr = &quot;Fehler!&quot;, $msgok = &quot;Erfolgreich!&quot;, $break = false, $style = &quot;&quot;)</td>
-<td>Button with Execution</td>
+<td>x_executionButton</td>
+<td>$db, $name, $url, $query, $get, $msgerr = &quot;Fehler!&quot;, $msgok = &quot;Erfolgreich!&quot;, $break = false, $style = &quot;&quot;</td>
+<td>- <code>$db</code>: Database connection object.<br> - <code>$name</code>: Button name.<br> - <code>$url</code>: URL to execute the action.<br> - <code>$query</code>: SQL query to execute.<br> - <code>$get</code>: GET parameter to trigger the action.<br> - <code>$msgerr</code>: Error message.<br> - <code>$msgok</code>: Success message.<br> - <code>$break</code>: Whether to add a line break after the button.<br> - <code>$style</code>: CSS style for the button.</td>
 </tr>
 <tr>
-<td>x_button($name, $url, $break = false, $style = &quot;&quot;, $reacttourl = true)</td>
-<td>Button Without Execution</td>
+<td>x_button</td>
+<td>$name, $url, $break = false, $style = &quot;&quot;, $reacttourl = true</td>
+<td>- <code>$name</code>: Button name.<br> - <code>$url</code>: URL to navigate to.<br> - <code>$break</code>: Whether to add a line break after the button.<br> - <code>$style</code>: CSS style for the button.<br> - <code>$reacttourl</code>: Whether to style the button differently if it matches the current URL.</td>
 </tr>
 </tbody>
 </table>
@@ -185,20 +227,29 @@
 <tr>
 <th>EventBox Functions</th>
 <th>Description</th>
+<th>Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>x_eventBoxPrep($text, $type = &quot;x&quot;, $precookie = &quot;&quot;, $morecss = &quot;&quot;, $buttontext = &quot;X&quot;, $imgok = false, $imgfail = false, $imgwarn = false, $imgelse = false)</td>
-<td>Prepare EventBox / Only one is Possible with this Function - text = the message   - type = error/warning/ok/[undefined] for different styles   - precookie = prestring for cookie   - morecss = tags direct inside style element of html element  -$buttontext = Text of the button to Close</td>
+<td>x_eventBoxPrep</td>
+<td>$text, $type = &quot;x&quot;, $precookie = &quot;&quot;, $morecss = &quot;&quot;, $buttontext = &quot;X&quot;, $imgok = false, $imgfail = false, $imgwarn = false, $imgelse = false</td>
+<td>- <code>$text</code>: Text to display in the event box.<br> - <code>$type</code>: Type of event box (ok, warning, error, etc.).<br> - <code>$precookie</code>: Session variable name for storing event box content.<br> - <code>$morecss</code>: Additional CSS styles for the event box.<br> - <code>$buttontext</code>: Text for the close button.<br> - <code>$imgok</code>, <code>$imgfail</code>, <code>$imgwarn</code>, <code>$imgelse</code>: Optional images to display in the event box.</td>
 </tr>
 <tr>
-<td>x_eventBoxShow($precookie = &quot;&quot;)</td>
-<td>Include at End or Start of the Page to display Eventbox Content</td>
+<td>x_eventBoxShow</td>
+<td>$precookie = &quot;&quot;</td>
+<td>- <code>$precookie</code>: Session variable name for event box content. Displays the event box content and clears the session variable.</td>
 </tr>
 <tr>
-<td>x_eventBoxSet($precookie = "")</td>
-<td>True if Event Box is Prepared, False if not (Set)</td>
+<td>x_eventBoxSet</td>
+<td>$precookie = &quot;&quot;</td>
+<td>- <code>$precookie</code>: Session variable name for event box content. Checks if the event box content is set in the session.</td>
+</tr>
+<tr>
+<td>x_eventBoxSkip</td>
+<td>$precookie = &quot;&quot;</td>
+<td>- <code>$precookie</code>: Session variable name for event box content. Sets a flag to skip displaying the event box.</td>
 </tr>
 </tbody>
 </table>
@@ -208,16 +259,19 @@
 <tr>
 <th>CookieBanner Functions</th>
 <th>Description</th>
+<th>Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>x_cookieBanner($precookie = &quot;&quot;, $method = &#39;post&#39;, $text = false, $url_cookies = "#")</td>
-<td>Cookie Banner Post Load Banner or Get depend on Post option!</td>
+<td>x_cookieBanner_Pre</td>
+<td>$precookie = &quot;&quot;, $redirect = true</td>
+<td>- <code>$precookie</code>: Session variable name for tracking if the cookie banner has been accepted.<br> - <code>$redirect</code>: Whether to redirect after accepting the cookie banner.</td>
 </tr>
 <tr>
-<td>x_cookieBanner_Pre($precookie = &quot;&quot;, $redirect = true)</td>
-<td>Redirect should be in Header, you can post this in Header for Redirect if someone clicks Ok Button, is optional only for post!</td>
+<td>x_cookieBanner</td>
+<td>$precookie = &quot;&quot;, $use_post = false, $text = false, $url_cookies = &quot;&quot;</td>
+<td>- <code>$precookie</code>: Session variable name for tracking if the cookie banner has been accepted.<br> - <code>$use_post</code>: Whether to use POST method for accepting the banner.<br> - <code>$text</code>: Text to display in the cookie banner.<br> - <code>$url_cookies</code>: URL to the cookies policy.</td>
 </tr>
 </tbody>
 </table>
@@ -227,16 +281,16 @@
 <tr>
 <th>RSS Functions</th>
 <th>Description</th>
-</tr>
-</thead>
-<tbody>
+<th>Parameter</th>
 <tr>
-<td>x_rss_list($urltemp, $defaultcover, $limit = 25)</td>
-<td>Get RSS As List printed with following CSS Classes - x_rss_item x_rss_title x_rss_date x_rss_image</td>
+<td>x_rss_list</td>
+<td>$urltemp, $defaultcover, $limit = 25</td>
+<td>- <code>$urltemp</code>: URL of the RSS feed to parse.<br> - <code>$defaultcover</code>: Default cover image URL for RSS items without images.<br> - <code>$limit</code>: Maximum number of RSS items to display. Parses an RSS feed and displays a list of items with their titles, links, dates, and images.</td>
 </tr>
 <tr>
-<td>x_rss_array($urltemp)</td>
-<td>GenerateArray from RSS with items - title - link - date - img</td>
+<td>x_rss_array</td>
+<td>$urltemp</td>
+<td>- <code>$urltemp</code>: URL of the RSS feed to parse. Parses an RSS feed and returns an array of items with their titles, links, dates, and images.</td>
 </tr>
 </tbody>
 </table>
@@ -246,16 +300,19 @@
 <tr>
 <th>Captcha Functions</th>
 <th>Description</th>
+<th>Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>x_captcha($preecookie = &quot;&quot;, $width = 550, $height = 250, $square_count = 5, $eclipse_count = 5, $color_ar = false, $font = &quot;&quot;, $code = &quot;&quot;)</td>
-<td>Generate Captcha Image</td>
+<td>x_captcha</td>
+<td>$preecookie = &quot;&quot;, $width = 550, $height = 250, $square_count = 5, $eclipse_count = 5, $color_ar = false, $font = &quot;&quot;, $code = &quot;&quot;</td>
+<td>- <code>$preecookie</code>: Session variable name for storing the captcha code.<br> - <code>$width</code>: Width of the captcha image.<br> - <code>$height</code>: Height of the captcha image.<br> - <code>$square_count</code>: Number of squares in the captcha.<br> - <code>$eclipse_count</code>: Number of ellipses in the captcha.<br> - <code>$color_ar</code>: An array of colors for various elements.<br> - <code>$font</code>: Font file for text in the captcha.<br> - <code>$code</code>: The captcha code to display.</td>
 </tr>
 <tr>
-<td>x_captcha_key($preecookie = &quot;&quot;)</td>
-<td>Get the last Captured Captcha Key</td>
+<td>x_captcha_key</td>
+<td>$preecookie = &quot;&quot;</td>
+<td>- <code>$preecookie</code>: Session variable name for the captcha code. Returns the captcha code stored in the session.</td>
 </tr>
 </tbody>
 </table>
@@ -269,13 +326,36 @@
 </thead>
 <tbody>
 <tr>
-<td>x_search($mysql (x_mysql), $table (to search), $search_fields = array(), $get_fields = array(), $search_string, $uniqueref = &quot;id&quot;)</td>
-<td>Do a Database Search with Metascore!<br />Search Fields Array Key 0 = Fieldname Array Key 1 = Hit score <br /> Get Fields will be available in Output Array <br /></td>
+<td><code>x_search</code></td>
+<td>This function performs a database search using MySQL. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$mysql</code>: The MySQL database connection.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$table</code>: The name of the table to search in.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$search_fields</code>: An array of fields to search in.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$get_fields</code>: An array of fields to retrieve in the results.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$search_string</code>: The search string.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$uniqueref</code>: The unique reference field (default is &quot;id&quot;).</td>
 </tr>
 </tbody>
 </table>
-<pre><code>This <span class="hljs-keyword">is</span> a <span class="hljs-keyword">set</span> <span class="hljs-keyword">of</span> usefull functions <span class="hljs-keyword">for</span> different purposes.
-</code></pre><table>
+<table>
 <thead>
 <tr>
 <th>Table Functions</th>
@@ -284,16 +364,68 @@
 </thead>
 <tbody>
 <tr>
-<td>x_table_simple($array, $titlelist, $tableid = &quot;x_table_simple&quot;, $alignarray = false)</td>
-<td>Print a Simple Table</td>
+<td><code>x_table_div</code></td>
+<td>This function generates an HTML table from an array of data. It takes the following parameters:</td>
 </tr>
 <tr>
-<td>x_table_complex($array, $titlelist, $formid = &quot;&quot;, $alignarray = false)</td>
-<td>Print a Complex Table with Search Function and Ordering</td>
+<td></td>
+<td>- <code>$array</code>: The array of data to display in the table.</td>
 </tr>
 <tr>
-<td>x_table_div($array, $titlelist, $alignarray = false, $percentarray = false, $title = false)</td>
-<td>Build a Table with Divs for Responsive</td>
+<td></td>
+<td>- <code>$titlelist</code>: An array of column titles.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$percentarray</code>: An optional array specifying the width of each column as a percentage.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$title</code>: An optional title for the table.</td>
+</tr>
+<tr>
+<td><code>x_table_complex</code></td>
+<td>This function generates a complex HTML table with a search filter form. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$array</code>: The array of data to display in the table.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$titlelist</code>: An array of column titles.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$formid</code>: An optional form ID for the search filter form.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
+</tr>
+<tr>
+<td><code>x_table_simple</code></td>
+<td>This function generates a simple HTML table from an array of data. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$array</code>: The array of data to display in the table.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$titlelist</code>: An array of column titles.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$tableid</code>: An optional table ID.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
 </tr>
 </tbody>
 </table>

@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish API Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish API Class"> <!------------------------------------>
+    <title>Bugfish - PHP API Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP API Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 			<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_api.html" />
-	<meta property="og:title" content="Bugfish API Class" />
+	<meta property="og:title" content="Bugfish - PHP API Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_api.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> API Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP API Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP API</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,12 +50,16 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_var">x_class_api</h2>
+<h2 id="x_class_var">Bugfish - PHP API Class</h2>
 
 <p style="text-align: left;">The x_class_api is a PHP class designed for handling API requests and managing API tokens. It facilitates making API requests with customizable parameters and payloads. The class also provides functionalities to manage API tokens, including generating, adding, deleting, and checking the validity of incoming and outgoing tokens. The class helps simplify API interactions and token management within PHP applications.</p>
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
-
+✔️ Productive - Ready<br />
+⚠️ Does use MySQL (x_class_mysqli object) (for Tokens)<br />
+⚠️ Tables will be automatically installed<br />
+⚠️ PHP Module CURL Needed<br />
+<br /></div>
+<h2 id="x_class_api">How to use x_class_api?</h2>
 <table>
 <thead>
 <tr>
@@ -110,7 +114,47 @@
 </tbody>
 </table>
 
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Include your MySQL database connection code here.
 
+// Include the x_class_api class definition here.
+
+// Create a MySQL database connection (replace with your actual database connection code).
+$mysqli = new mysqli("localhost", "username", "password", "database");
+
+if ($mysqli->connect_errno) {
+    die("Failed to connect to MySQL: " . $mysqli->connect_error);
+}
+
+// Define the table name and optional section.
+$tableName = "api_tokens";
+$section = "default";
+
+// Create an instance of the x_class_api class.
+$api = new x_class_api($mysqli, $tableName, $section);
+
+// Example: Adding an incoming API token.
+$incomingToken = "your_incoming_token";
+$api->token_add_incoming($incomingToken);
+
+// Example: Making an API request with a URL and payload.
+$apiUrl = "https://api.example.com";
+$apiPayload = array("key" => "value");
+$response = $api->request($apiUrl, $apiPayload);
+
+// Example: Checking if an incoming API token is valid.
+$isValid = $api->token_check_incoming($incomingToken);
+
+if ($isValid) {
+    echo "The incoming API token is valid.";
+} else {
+    echo "The incoming API token is not valid.";
+}
+
+// Close the database connection (recommended).
+$mysqli->close();
+</textarea>
 </div>
 
 

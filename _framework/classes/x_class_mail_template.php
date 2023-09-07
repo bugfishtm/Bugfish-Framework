@@ -77,7 +77,7 @@
 		// Do Substitutions on Text
 		public function do_substitute($text) {
 			if(is_array($this->substitute)) {
-				foreach($this->substitute as $key => $value) { $text = str_replace($value[0], $value[1], $text); }
+				foreach($this->substitute as $key => $value) { $text = @str_replace($value[0], $value[1], $text); }
 				return $text;
 			}			
 		}			
@@ -116,7 +116,7 @@
 				$bind[0]["type"] = "s";
 				$bind[1]["value"] = $content;
 				$bind[1]["type"] = "s";
-				$this->mysql->query("INSERT INTO `".$this->table."` (name, subject, content, section) VALUES('".$name."', ?, ?, '".$this->section."');", $bind);
+				$this->mysql->query("INSERT IGNORE INTO `".$this->table."` (name, subject, content, section) VALUES('".$name."', ?, ?, '".$this->section."');", $bind);
 			}			
 		}
 	} 

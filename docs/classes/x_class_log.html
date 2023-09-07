@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Log Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Log Class"> <!------------------------------------>
+    <title>Bugfish - PHP Log Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Log Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_log.html" />
-	<meta property="og:title" content="Bugfish Log Class" />
+	<meta property="og:title" content="Bugfish - PHP Log Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_log.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Log Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Log Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Log</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,13 +50,17 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_log-mastered-">x_class_log </h2>
+<h2 id="x_class_log-mastered-">Bugfish - PHP Log Class </h2>
 <p style="text-align: left;">The x_class_log class is designed to manage logging and recording various types of messages, notifications, warnings, and errors to a MySQL database. It offers an organized way to keep track of system events, errors, and important information. The class interacts with the provided MySQL connection and table to store log entries.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+⚠️ Does use MySQL (x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br />
 
+<br /></div>
 
+<h3 id="x_class_log-mastered-">How to use x_class_log?</h3>
 <table>
 <thead>
 <tr>
@@ -190,7 +194,33 @@
 </tr>
 </tbody>
 </table>
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Assuming you have a MySQL database connection already established
+$mysql = new mysqli('localhost', 'username', 'password', 'database_name');
 
+// Include the x_class_log class definition here
+
+// Create an instance of the x_class_log class
+$log = new x_class_log($mysql, 'log_table', 'example_section');
+
+// Log some messages
+$log->error('This is an error message');
+$log->warning('This is a warning message');
+$log->notify('This is a notification');
+
+// Retrieve and display the log entries for the 'example_section'
+$logEntries = $log->list_get(10); // Get the last 10 log entries
+foreach ($logEntries as $entry) {
+    echo 'Type: ' . $entry['type'] . '-';
+    echo 'Message: ' . $entry['message'] . '-';
+    echo 'Creation Date: ' . $entry['creation'] . '-';
+}
+
+// Clear the log entries for the 'example_section'
+$log->list_flush_section();
+
+</textarea>
 </div>
 
 

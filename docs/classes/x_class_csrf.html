@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish CSRF Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish CSRF Class"> <!------------------------------------>
+    <title>Bugfish - PHP CSRF Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP CSRF Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_csrf.html" />
-	<meta property="og:title" content="Bugfish CSRF Class" />
+	<meta property="og:title" content="Bugfish - PHP CSRF Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_csrf.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -39,7 +39,7 @@
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP CSRF</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,126 +50,122 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_csrf-mastered-">x_class_csrf </h2>
+<h2 id="x_class_csrf-mastered-">Bugfish - PHP CSRF Class </h2>
 The x_class_csrf class is designed to manage Cross-Site Request Forgery (CSRF) prevention by generating, validating, and maintaining CSRF tokens within sessions. It provides methods to retrieve tokens, validate submissions, and handle token renewal.
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+⚠️ Does use Session-Cookies<br />
+<br /></div>
+<h2 id="x_class-mastered-">How to use x_class_csrf?</h2>
+<table>
+<thead>
+<tr>
+<th>Method/Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Class Initialization</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>__construct($cookie_extension = &quot;&quot;, $second_valid = 300, $external_action = false)</code></td>
+<td>Constructor method for initializing the class. It accepts three optional parameters: <code>cookie_extension</code> (string) for adding an extension to session keys, <code>second_valid</code> (integer) for setting the validity time of CSRF keys in seconds, and <code>external_action</code> (boolean) for disabling key renewal.</td>
+</tr>
+<tr>
+<td><strong>Key Generation and Retrieval</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>getField($name, $id = &quot;&quot;)</code></td>
+<td>Generates and echoes an HTML input hidden field with the current CSRF key. You can provide an optional <code>name</code> and <code>id</code> attributes for the field.</td>
+</tr>
+<tr>
+<td><code>crypto()</code></td>
+<td>Returns the CSRF key for the current session or the last session key, depending on whether external actions are enabled.</td>
+</tr>
+<tr>
+<td><code>time()</code></td>
+<td>Returns the timestamp of when the current CSRF key or last session key was generated, depending on whether external actions are enabled.</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>validate($code, $override_valid_time = false)</code></td>
+<td>Validates a given CSRF key (<code>$code</code>) against the current or last session key, depending on whether external actions are enabled. You can optionally override the validity time (in seconds) by providing <code>$override_valid_time</code>. Returns <code>true</code> if the key is valid, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>check($code, $override_valid_time = false)</code></td>
+<td>Checks if the provided CSRF key (<code>$code</code>) is valid for the current session. You can optionally override the validity time (in seconds) by providing <code>$override_valid_time</code>. Returns <code>true</code> if the key is valid, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>check_lkey($code, $override_valid_time = false)</code></td>
+<td>Checks if the provided CSRF key (<code>$code</code>) is valid for the last session, if external actions are enabled. You can optionally override the validity time (in seconds) by providing <code>$override_valid_time</code>. Returns <code>true</code> if the key is valid, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><strong>Disabling Key Renewal</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>disableRenewal($bool = false)</code></td>
+<td>Sets the <code>$norenewal</code> property to <code>true</code> or <code>false</code> to disable or enable key renewal for the current session.</td>
+</tr>
+<tr>
+<td><code>norenewal($bool = false)</code></td>
+<td>An alias for <code>disableRenewal()</code>. Sets the <code>$norenewal</code> property to <code>true</code> or <code>false</code>.</td>
+</tr>
+<tr>
+<td><strong>External Action</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>external_action($bool = false)</code></td>
+<td>Enables or disables external actions mode by setting the <code>$external_action</code> property to <code>true</code> or <code>false</code>. In external actions mode, the class uses the last session key for validation.</td>
+</tr>
+<tr>
+<td><strong>Session Cleanup</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>__destruct()</code></td>
+<td>Deconstructor method that stores the current CSRF key and its timestamp in the session if key renewal is not disabled (<code>$norenewal</code> is <code>false</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Initialize the CSRF class with optional parameters
+$csrf = new x_class_csrf("myapp_", 600, true);
 
-<table>
-<thead>
-<tr>
-<th>Construct Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>__construct($cookie_extension = &quot;&quot;, $second_valid = 300, $external_action = false)</td>
-<td> Initializes the class instance. Generates a new session key and saves it to parameters. Sets various settings including the cookie extension, valid time for the CSRF key, and whether to disable renewal for certain actions. Sets the last session keys if they exist.</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Config Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>isDisabled()</td>
-<td>Check if renewal is disabled</td>
-</tr>
-<tr>
-<td>norenewal($bool = true)</td>
-<td>Disable Key Renewal on Session at end of script</td>
-</tr>
-<tr>
-<td>disableRenewal($bool = false)</td>
-<td>Disable Key Renewal on Session at end of script</td>
-</tr>
-<tr>
-<td>external_action($bool = false)</td>
-<td>Enable to Disable Renewal for External Actions (optional if set in constructor or renewal deactivated) but needed for dynamic key function!</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Dynamic Key Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>crypto()</td>
-<td>Returns either the last session key or the current session key based on whether an external action is being performed or not.</td>
-</tr>
-<tr>
-<td>time()</td>
-<td>Returns either the last session key time or the current session key time based on whether an external action is being performed or not.</td>
-</tr>
-<tr>
-<td>validate($code, $override_valid_time = false)</td>
-<td>Validates the submitted CSRF code. If $override_valid_time is not provided, it uses the default valid time. Returns true if valid, false otherwise.</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Current Key Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>get()</td>
-<td>Get new Generated Key for Forms</td>
-</tr>
-<tr>
-<td>get_time()</td>
-<td>Get new Generated Key Time for Forms</td>
-</tr>
-<tr>
-<td>getField($name, $id = &quot;&quot;)</td>
-<td>Outputs an HTML hidden input field with the current session key. Useful for embedding CSRF tokens within forms.</td>
-</tr>
-<tr>
-<td>getfield($name, $id = &quot;&quot;)</td>
-<td>Print hidden Form Field with name and id attribute</td>
-</tr>
-<tr>
-<td>check($code, $ovr_valid_time = false)</td>
-<td>Checks the last session key. Compares the submitted code with the stored last key and validates based on the provided or default valid time. Returns true if valid, false otherwise.</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Last Key [Actions] Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>get_lkey() / get_lkey_time()</td>
-<td>Get key/time from last page if exists else “undef”</td>
-</tr>
-<tr>
-<td>check_lkey($code, $ovr_valid_time = false)</td>
-<td> Checks the last session key for actions. Compares the submitted code with the stored last key and validates based on the provided or default valid time. Returns true if valid, false otherwise.</td>
-</tr>
-</tbody>
-</table>
+// Generate and echo a hidden input field with the CSRF key
+$csrf->getField("csrf_token", "csrf_input");
+
+// Validate a submitted CSRF key
+if ($csrf->validate($_POST['csrf_token'])) {
+    // CSRF key is valid, perform the action
+} else {
+    // CSRF key is invalid, handle the error
+}
+
+// Optionally, disable key renewal for the current session
+$csrf->disableRenewal(true);
+
+// Optionally, enable external actions mode
+$csrf->external_action(true);
+
+// Check a submitted CSRF key against the last session key
+if ($csrf->validate($_POST['csrf_token'])) {
+    // CSRF key is valid for external actions, perform the action
+} else {
+    // CSRF key is invalid for external actions, handle the error
+}
+
+</textarea>
+
 
 </div>
 

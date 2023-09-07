@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Debug Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Debug Class"> <!------------------------------------>
+    <title>Bugfish - PHP Debug Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Debug Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_debug.html" />
-	<meta property="og:title" content="Bugfish Debug Class" />
+	<meta property="og:title" content="Bugfish - PHP Debug Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_debug.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Debug Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Debug Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Debug</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,12 +50,12 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_debug-mastered-">x_class_debug </h2>
+<h2 id="x_class_debug-mastered-">PHP Debug Class</h2>
 <p style="text-align: left">The x_class_debug class provides debugging and benchmarking functionalities for PHP applications. It includes methods to check for required PHP modules, monitor memory usage and limits, track CPU load, determine upload file size limits, and measure script execution time. Additionally, it offers a method to generate error screens for maintenance messages and missing modules. This class is useful for debugging, ensuring module availability, and benchmarking code performance.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
 ✔️ Productive - Ready<br /><br /></div>
-
+<h2 id="x_class_debug-mastered-">How to use x_class_debug?</h2>
 <table>
 <thead>
 <tr>
@@ -102,7 +102,59 @@
 </tr>
 </tbody>
 </table>
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Include or require the file that contains the x_class_debug class
 
+// Create an instance of the x_class_debug class
+$debug = new x_class_debug();
+
+// Check if a required PHP module is available
+$requiredModule = 'mysqli'; // Replace with the module you need
+if (!$debug->required_php_module($requiredModule, true)) {
+    // Display an error screen if the module is missing
+    // The 'true' parameter tells the class to display an error screen
+}
+
+// Check for multiple required PHP modules
+$requiredModules = ['pdo', 'curl', 'gd']; // Replace with the modules you need
+$missingModules = $debug->required_php_modules($requiredModules, true);
+if (count($missingModules) > 0) {
+    // Display an error screen if any of the required modules are missing
+    // The 'true' parameter tells the class to display an error screen
+}
+
+// Check memory usage and limit
+$memoryUsage = $debug->memory_usage();
+$memoryLimit = $debug->memory_limit();
+echo "Memory Usage: $memoryUsage<br>";
+echo "Memory Limit: $memoryLimit<br>";
+
+// Check CPU load
+$cpuLoad = $debug->cpu_load();
+echo "CPU Load: $cpuLoad<br>";
+
+// Check upload max filesize
+$maxFilesize = $debug->upload_max_filesize();
+echo "Max Upload Filesize: $maxFilesize<br>";
+
+// Start a timer
+$debug->timer();
+
+// Perform some operations that you want to measure
+
+// Get the elapsed time from the timer
+$elapsedTime = $debug->timer();
+echo "Elapsed Time: $elapsedTime seconds<br>";
+
+// Display an error screen with a custom message
+$errorMessage = "Something went wrong!";
+$debug->error_screen($errorMessage);
+
+// Note: In a real application, you may want to customize the error messages and handling as needed.
+
+
+</textarea>
 </div>
 
 

@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Curl Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Curl Class"> <!------------------------------------>
+    <title>Bugfish - PHP Curl Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Curl Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_curl.html" />
-	<meta property="og:title" content="Bugfish CURL Class" />
+	<meta property="og:title" content="Bugfish - PHP Curl Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_curl.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Curl Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Curl Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Curl</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -49,13 +49,18 @@
    
     <div>
 
-				<div class="inner inner_section" style="text-align: center;"><h2 id="x_class_curl-mastered-">x_class_curl </h2>
+				<div class="inner inner_section" style="text-align: center;"><h2 id="x_class_curl-mastered-">Bugfish - PHP Curl Class </h2>
 This is a class designed for managing Curl requests. Please ensure that the PHP Curl module is installed and operational to use this class effectively. If you intend to enable logging through the constructor, MySQL is also required for proper functionality.
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
 
+⚠️ Does use MySQL (If Logging activated)(x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br />
+⚠️ Needs PHP Module: curl<br />
+<br /></div>
+<h2 id="x_class_mastered-">How to use x_class_curl?</h2>
 <table>
 <thead>
 <tr>
@@ -74,75 +79,122 @@ This is a class designed for managing Curl requests. Please ensure that the PHP 
 <table>
 <thead>
 <tr>
-<th>Config Function</th>
-<th>Description</th>
+<th><strong>Class: x_class_curl</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>logging($mysql, $logging, $logging_settings, $logging_table)</td>
-<td>Activate Logging for Requests, provide x_mysql_class object, Logging active book?, Log Settings Array in table bool? and Table Name to automatically install for log.</td>
+<td><strong>Parameters</strong></td>
+</tr>
+<tr>
+<td>- <code>$last_info</code> (public): Holds information about the last Curl request (initialized as <code>false</code>).</td>
+</tr>
+<tr>
+<td>- <code>$logging</code> (private): Indicates whether logging is enabled or not (initialized as <code>false</code>).</td>
+</tr>
+<tr>
+<td>- <code>$logging_settings</code> (private): Indicates whether to log request settings (initialized as <code>false</code>).</td>
+</tr>
+<tr>
+<td>- <code>$logging_table</code> (private): The name of the logging table (initialized as <code>false</code>).</td>
+</tr>
+<tr>
+<td>- <code>$mysql</code> (private): An instance of the MySQL database connection (initialized as <code>false</code>).</td>
 </tr>
 </tbody>
 </table>
-<hr>
 <table>
 <thead>
 <tr>
-<th>Conversion Functions</th>
-<th>Description</th>
+<th><strong>Functions</strong></th>
+<th><strong>Results</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>xml_to_array($xml)</td>
-<td>xml_to_array conversion</td>
+<td>- <code>logging($mysql, $logging, $logging_settings, $logging_table)</code>: Initializes logging settings and creates the logging table if it doesn&#39;t exist.</td>
+<td>No direct result returned.</td>
 </tr>
 <tr>
-<td>xml_to_json($xml)</td>
-<td>xml_to_json conversion</td>
+<td>- <code>create_table()</code>: Creates the logging table in the database.</td>
+<td>Returns the result of the database query.</td>
 </tr>
 <tr>
-<td>json_to_array($json)</td>
-<td>json_to_array conversion</td>
+<td>- <code>xml_to_array($xml)</code>: Converts XML data to an associative array.</td>
+<td>Returns the converted array.</td>
 </tr>
 <tr>
-<td>json_to_xml($json)</td>
-<td>json_to_xml conversion</td>
+<td>- <code>xml_to_json($xml)</code>: Converts XML data to JSON format.</td>
+<td>Returns the converted JSON string.</td>
 </tr>
 <tr>
-<td>array_to_xml($array)</td>
-<td>array_to_xml conversion</td>
+<td>- <code>json_to_array($json)</code>: Converts JSON data to an associative array.</td>
+<td>Returns the converted array.</td>
 </tr>
 <tr>
-<td>array_to_json($array)</td>
-<td>array_to_json conversion</td>
+<td>- <code>json_to_xml($json)</code>: Converts JSON data to XML format.</td>
+<td>Returns the converted XML string.</td>
+</tr>
+<tr>
+<td>- <code>array_to_xml($array)</code>: Converts an associative array to XML format.</td>
+<td>Returns the converted XML string.</td>
+</tr>
+<tr>
+<td>- <code>array_to_json($array)</code>: Converts an associative array to JSON format.</td>
+<td>Returns the converted JSON string.</td>
+</tr>
+<tr>
+<td>- <code>request($url, $request, $settings)</code>: Performs a Curl request with various settings and logs it if needed.</td>
+<td>Returns the response content of the Curl request.</td>
+</tr>
+<tr>
+<td>- <code>download($remote, $local, $request, $settings)</code>: Downloads a file using Curl and logs the operation if needed.</td>
+<td>Returns the downloaded file content.</td>
+</tr>
+<tr>
+<td>- <code>upload($remote, $local, $request, $settings)</code>: Uploads a file using Curl and logs the operation if needed.</td>
+<td>Returns the response content of the Curl request.</td>
 </tr>
 </tbody>
 </table>
-<hr>
 <table>
 <thead>
 <tr>
-<th>Functions</th>
-<th>Description</th>
+<th><strong>Public Parameters</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>request($url, $request = &quot;GET&quot;, $settings = array())</td>
-<td>Request Curl</td>
-</tr>
-<tr>
-<td>download($remote, $local, $request = &quot;GET&quot;, $settings = array())</td>
-<td>Download Curl</td>
-</tr>
-<tr>
-<td>upload($remote, $local, $request = &quot;POST&quot;, $settings = array())</td>
-<td>Upload Curl</td>
+<td>- <code>$last_info</code></td>
 </tr>
 </tbody>
 </table>
+
+<p>The $settings array is used to customize the behavior of Curl requests within the x_class_curl class. It allows you to dynamically specify various Curl options and parameters, such as user-agent strings, request headers, timeouts, and more, to tailor each HTTP request to specific requirements or scenarios. This flexibility enables you to adapt the class's functionality to a wide range of use cases without the need for extensive code modifications.</p>
+
+
+
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Instantiate the x_class_curl class
+$x_curl = new x_class_curl();
+
+// Define the URL you want to request
+$url = 'https://example.com';
+
+// Make a GET request using x_class_curl
+$response = $x_curl->request($url, 'GET');
+
+// Check for any errors
+if ($x_curl->last_info !== false && $x_curl->last_info['http_code'] === 200) {
+    // Request was successful, and $response contains the response content
+    echo $response;
+} else {
+    // Handle the error, such as displaying an error message or logging it
+    echo 'Curl request failed.';
+}
+
+</textarea>
 
 </div>
 

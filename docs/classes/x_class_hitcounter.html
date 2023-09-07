@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Hitcounter Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Hitcounter Class"> <!------------------------------------>
+    <title>Bugfish - PHP Hitcounter Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Hitcounter Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_hitcounter.html" />
-	<meta property="og:title" content="Bugfish Hitcounter Class" />
+	<meta property="og:title" content="Bugfish - PHP Hitcounter Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_hitcounter.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Hitcounter Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Hitcounter Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Hitcounter</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,13 +50,19 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_hitcounter">x_class_hitcounter</h2>
+<h2 id="x_class_hitcounter">Bugfish - PHP Hitcounter Class</h2>
 <p style="text-align: left;">The x_class_hitcounter class is designed to manage a hit counter for tracking the number of hits and visits to specific URLs. It interacts with a MySQL database to store and retrieve hit counter data. Key features of the class include the ability to count arrivals and switches, refresh counters, prepare URLs for storage, and execute hit counting. The class also offers options for enabling or disabling hit counting and clearing GET parameters from URLs before storage. It maintains counters for arrivals, switches, and the summarized total of hits and visits for a given URL. The class uses PHP sessions to manage the state of visited URLs and store hit counter data in the MySQL database.</p>
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+⚠️ Does use MySQL (x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br />
+⚠️ Does use Session-Cookies<br />
+<br /></div>
 
+
+<h2 id="x_class_hitcounter">How to use x_class_hitcounter?</h2>
 <table>
 <thead>
 <tr>
@@ -132,7 +138,39 @@
 </tr>
 </tbody>
 </table>
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Include the necessary files and set up your database connection here.
 
+// Create an instance of the x_class_hitcounter class.
+$hitCounter = new x_class_hitcounter($your_db_connection, 'hit_counter_table', 'precookie_');
+
+// You can disable hit counting if needed (e.g., for certain pages).
+// $hitCounter->enabled(false);
+
+// You can also enable or disable cleaning of the URL query string.
+// $hitCounter->clearget(true);
+
+// Execute the hit counter to track the current page view.
+$hitCounter->execute();
+
+// Retrieve the hit counts for the current page.
+$switches = $hitCounter->switches;
+$arrivals = $hitCounter->arrivals;
+$summarized = $hitCounter->summarized;
+
+// Display the hit counts on your web page.
+echo "Switches: $switches<br>";
+echo "Arrivals: $arrivals<br>";
+echo "Summarized: $summarized<br>";
+
+// Optionally, you can get an array of all saved referers.
+// $referers = $hitCounter->get_array();
+// print_r($referers);
+
+// Close your database connection if necessary
+
+</textarea>
 </div>
 
 

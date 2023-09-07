@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Mail Template Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Mail Template Class"> <!------------------------------------>
+    <title>Bugfish - PHP Mail Template Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Mail Template Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mail_template.html" />
-	<meta property="og:title" content="Bugfish Mail Template Class" />
+	<meta property="og:title" content="Bugfish - PHP Mail Template Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mail_template.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Mail Template Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Mail Template Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP MAIL TPL</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -52,12 +52,16 @@
 				<div class="inner inner_section" style="text-align: center;">
 
 
-<h2 id="x_class_mail_template-mastered-">x_class_mail_template </h2>
+<h2 id="x_class_mail_template-mastered-">PHP Mail Template Class </h2>
 <p style="text-align: left;"> The provided PHP class, x_class_mail_template, manages email templates and their substitutions using a MySQL database. It allows for setting headers, footers, content, and subjects of email templates, along with substitution capabilities. This class simplifies the process of generating dynamic emails from templates. </p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
+⚠️ Does use MySQL (x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br />
 
+<br /></div>
+<h2 id="x_class_mail_template-mastered-">How to use x_class_mail_template?</h2>
 <table>
 <thead>
 <tr>
@@ -134,7 +138,47 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Include the necessary code to connect to your MySQL database and define the $mysql object.
+
+// Include the x_class_mail_template class definition.
+// Make sure you've already included or autoloaded the x_class_mail_template class.
+
+// Assuming you have a MySQL connection in the $mysql variable.
+
+// Initialize the x_class_mail_template object.
+$template = new x_class_mail_template($mysql, 'email_templates', 'general');
+
+// Set the header and footer for the email template.
+$template->set_header("<html><head><title>Email Header</title></head><body>");
+$template->set_footer("</body></html>");
+
+// Set the email content and subject.
+$content = "<p>Hello, {{name}}!</p>";
+$subject = "Welcome to our website, {{name}}!";
+$template->set_content($content, $subject);
+
+// Define substitutions.
+$name = "John Doe";
+$template->add_substitution("{{name}}", $name);
+
+// Optionally, you can retrieve the subject and content with substitutions.
+$subjectWithSubstitutions = $template->get_subject(true);
+$contentWithSubstitutions = $template->get_content(true);
+
+// Now, you can use $subjectWithSubstitutions and $contentWithSubstitutions to send an email using your preferred email-sending method.
+
+// Example of sending an email (using PHP's built-in mail function):
+$to = 'john@example.com';
+$headers = 'Content-type: text/html; charset=UTF-8';
+mail($to, $subjectWithSubstitutions, $contentWithSubstitutions, $headers);
+
+// Optionally, you can also store this template in the database for future use.
+$template->setup('welcome_template', $subject, $content, true);
+
+// Close the MySQL connection or perform other necessary cleanup.
+</textarea>
 
 </div>
 

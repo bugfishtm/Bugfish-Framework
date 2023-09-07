@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish MySQL Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish MySQL Class"> <!------------------------------------>
+    <title>Bugfish - PHP MySQL Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP MySQL Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mysql.html" />
-	<meta property="og:title" content="Bugfish MySQL Class" />
+	<meta property="og:title" content="Bugfish - PHP MySQLi Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mysql.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,18 +35,19 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> MySQL Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP MySQL Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP MySQL</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
         <li><a href="../privacy.html">Privacy</a></li>
       </ul>     <hr>     
       <ul class="main-menu submm">
-        <li><a href="#" class="startactivenav navitts" onclick="internal_show('show_co', $(this))">Configuration</a></li>
+        <li><a href="#" class="startactivenav navitts" onclick="internal_show('show_co', $(this))">Information</a></li>
+        <li><a href="#" class="navitts" onclick="internal_show('show_cc', $(this))">Configuration</a></li>
         <li><a href="#" class="navitts" onclick="internal_show('show_qu', $(this))">Queries</a></li>
         <li><a href="#" class="navitts" onclick="internal_show('show_da', $(this))">Databases</a></li> 
         <li><a href="#" class="navitts" onclick="internal_show('show_ta', $(this))">Tables</a></li> 
@@ -55,377 +56,390 @@
     </header>
    
     <div>
+<div class="inner inner_section" style="text-align: left;">
+	<h2 id="x_class_mysql-mastered-">PHP MySQLi Class - Information </h2>
+	<p style="text-align: left;">The "x_class_mysql" class is a versatile component of the Bugfish Framework designed for efficient handling of MySQL databases. It offers a wide array of functions for database connection, querying, error management, logging, benchmarking, table, and database administration, as well as transaction control. It simplifies complex MySQL operations and provides developers with a powerful toolset for managing MySQL databases effectively.</p>				
+	✔️ Tested<br />
+	✔️ Productive - Ready<br />
 
-				<div class="inner inner_section" style="text-align: left;">
-<h2 id="x_class_mysql-mastered-">x_class_mysql </h2>
-<p style="text-align: left;">The "x_class_mysql" class is a versatile component of the Bugfish Framework designed for efficient handling of MySQL databases. It offers a wide array of functions for database connection, querying, error management, logging, benchmarking, table, and database administration, as well as transaction control. It simplifies complex MySQL operations and provides developers with a powerful toolset for managing MySQL databases effectively.</p>
-
-
-<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
-
-
-
+	⚠️ Does use MySQL (x_class_mysqli object)<br />
+	⚠️ Tables will be automatically installed (logging)<br />
+	⚠️ PHP MySQLi Module needed<br />
+	⚠️ Does use Session-Cookies (Benchmarks)<br />
+	<br />				
 <div class="internal_show" id="show_co">
-<h3>Constructor and Testing Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Initialize Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>__construct($hostname, $username, $password, $database)</td>
-<td>Construct the Class with Database Login Informations and Selected Database</td>
-</tr>
-<tr>
-<td>construct()</td>
-<td>Copy current Class Clean (Reconstructed with Auth-Info)</td>
-</tr>
-<tr>
-<td>construct_copy()</td>
-<td>Copy Current Class</td>
-</tr>
-<tr>
-<td>status()</td>
-<td>Get Status of MySQL Server Connection</td>
-</tr>
-<tr>
-<td>ping()</td>
-<td>Get Status of MySQL Server Connection</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3>Error Messages and Config Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Parameters</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$lasterror</td>
-<td>True if last Query was Error, False if OK</td>
-</tr>
-<tr>
-<td>$fullerror</td>
-<td>Get Full Error Array with all info Sended to Logging DB Function</td>
-</tr>
-<tr>
-<td>logfile_messages($bool = false)</td>
-<td>Report Database Errors in Logfile? False / True - Be cautous, this is very detailed information that will be posted!</td>
-</tr>
-</tbody>
-</table>
-<h3>Error Handle Configuration</h3>
-<table>
-<thead>
-<tr>
-<th>Config Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stop_on_error($bool = false)</td>
-<td>Stop Script if MySQL Gets Errors</td>
-</tr>
-<tr>
-<td>display_on_error($bool = false)</td>
-<td>Print Errors (Not Recommended for Productive Environment)</td>
-</tr>
-</tbody>
-</table>
-<hr>
+<h3>Public Parameters</h3>
+	<table>
+	<thead>
+	<tr>
+	<th>Parameters</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>$mysqlcon</td>
+	<td>PHP Mysql Connection Object (con() function get retrieve this too)</td>
+	</tr>
+	<tr>
+	<td>$lasterror</td>
+	<td>Last Registered Database Error / Table Error</td>
+	</tr>
+	<tr>
+	<td>$fullerror</td>
+	<td>Last Written Full Error String to Logging Table if Enabled</td>
+	</tr>
+	<tr>
+	<td>$insert_id</td>
+	<td>Last Inserted Row ID (Functions below can be also used to fetch this parameter)</td>
+	</tr>
+	<tr>
+	<td>$transaction</td>
+	<td>Bool Value, Is a Transaction Running?</td>
+	</tr>
+	</tbody>
+	</table>	
+<h3>Constructor and Status</h3>
+	<table>
+	<thead>
+	<tr>
+	<th>Initialize Function</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>__construct($hostname, $username, $password, $database)</td>
+	<td>Construct the Class with Database Login Informations and Selected Database</td>
+	</tr>
+	<tr>
+	<td>construct()</td>
+	<td>Copy current Class Clean (Reconstructed with Auth-Info)</td>
+	</tr>
+	<tr>
+	<td>construct_copy()</td>
+	<td>Copy Current Class as it is</td>
+	</tr>
+	<tr>
+	<td>status()</td>
+	<td>Alias for Ping</td>
+	</tr>
+	<tr>
+	<td>ping()</td>
+	<td>Get Status of MySQL Server Connection</td>
+	</tr>
+	<tr>
+	<td>con()</td>
+	<td>Get the PHP mysqli class Object, which is used for the connection. (One level below x_class_mysql)</td>
+	</tr>
+	<tr>
+	<td>lastError() <br />last_error() </td>
+	<td>Get last Query Error saved in Parameter $lasterror</td>
+	</tr>
+	<tr>
+	<td>fullError() <br />full_error() </td>
+	<td>Get last Query Error saved in Database if Logging Enabled $fullerror</td>
+	</tr>
+	<tr>
+	<td>last_insert() <br />lastinsert()<br /> insert_id() <br />insertid() </td>
+	<td>Get last inserted ID from Insert Command, saved in parameter insert_id</td>
+	</tr>
+	<tr>
+	<td>displayError($exit = true, $response_code = 503)</td>
+	<td>Will display an Error Page if connection is failed. You can check $lasterror after connection. If that variable is true than you can execute displayError() to show an error page. $exit true/false is to stop the script after error page has been shown. $response_code is the http response code the script will provide if this page is shown!</td>
+	</tr>
+	</tbody>
+	</table>	
+</div>	
+<div class="internal_show" id="show_cc">
 <h3>Logging Configuration Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Log Config Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>log_disable()</td>
-<td>Disable Logging</td>
-</tr>
-<tr>
-<td>log_enable()</td>
-<td>Enable Logging - Do only after configuration log_config has been done!</td>
-</tr>
-<tr>
-<td>log_config($table = &quot;mysqllogging&quot;, $section = &quot;&quot;, $logall = false)</td>
-<td>Configure Logging and Provide Table for it and Section Optional (Logall Logs success querys)</td>
-</tr>
-</tbody>
-</table>
-<hr>
+	<table>
+	<thead>
+	<tr>
+	<th>Log Config Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>log_config($table = &quot;mysqllogging&quot;, $section = &quot;&quot;, $logall = false)</td>
+	<td>Configure Logging and Provide Table for it and Section Optional (Logall Logs success querys). Table for Logging will be automatically installed. Section needs to be string, $section variable is for multi-site purpose and can be interchanged between sites. Its okay to leave it empty like: "". If $logall is true, all MySQL Queries will be logged, this produces a mass of data and is not recommended. If $logall is false, than only errors will be logged.</td>
+	</tr>
+	<tr>
+	<td>logfile_messages($bool = false)</td>
+	<td>Report Database Errors in PHP Logfile? False / True<br /> Be cautous, this is very detailed information that will be posted!</td>
+	</tr>
+	<tr>
+	<td>stop_on_error($bool = false)</td>
+	<td>Stop Script if MySQL Gets Errors with php exit(), can be (true/false)...</td>
+	</tr>
+	<tr>
+	<td>display_on_error($bool = false)</td>
+	<td>Print Errors on screen if there are mysql errors... (true/false)<br />(Not Recommended for Productive Environment, it contains very detailed informations!)</td>
+	</tr>
+	<tr>
+	<td>log_disable()</td>
+	<td>Disable Logging (has to be initialized by log_config before..)</td>
+	</tr>
+	<tr>
+	<td>log_enable()</td>
+	<td>Enable Logging (has to be initialized by log_config before..)</td>
+	</tr>
+	</tbody>
+	</table>
 <h3>Benchmarking Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Benchmarks Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>benchmark_get()</td>
-<td>Get Current Used Queries</td>
-</tr>
-<tr>
-<td>benchmark_config($bool = false, $preecookie = &quot;&quot;)</td>
-<td>Setup Query Benchmark and Count Queries in a Session to be obtained with benchmark_get</td>
-</tr>
-</tbody>
-</table>
+	<table>
+	<thead>
+	<tr>
+	<th>Benchmarks Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>benchmark_get()</td>
+	<td>Get Current Used Queries if benchmark_config enabled!</td>
+	</tr>
+	<tr>
+	<td>benchmark_config($bool = false, $preecookie = &quot;&quot;)</td>
+	<td>Setup Query Benchmark and Count Queries in a Session to be obtained with benchmark_get. $bool can be true/false to activate and deativate benchmarking - $preecookie will be put before the session benchmark variable to make multi site use possible!</td>
+	</tr>
+	</tbody>
+	</table>
 </div>
 <div class="internal_show" id="show_ta">
 <h3>Table Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Table Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>table_exists($tablename)</td>
-<td>Exists Table?</td>
-</tr>
-<tr>
-<td>table_delete($tablename)</td>
-<td>Delete Table</td>
-</tr>
-<tr>
-<td>table_create($tablename)</td>
-<td>Create Table</td>
-</tr>
-<tr>
-<td>auto_increment($table, $value)</td>
-<td>Change Table Auto Increment Counter (after Flush for Example)</td>
-</tr>
-<tr>
-<td>table_backup($table, $filepath = false, $withdata = true, $dropstate = false)</td>
-<td>Backup a Tables Content and Creation to a File and get in Return the content of the File</td>
-</tr>
-</tbody>
-</table>
+	<table>
+	<thead>
+	<tr>
+	<th>Table Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>table_exists($tablename)</td>
+	<td>Exists Table with Tablename?</td>
+	</tr>
+	<tr>
+	<td>table_delete($tablename)</td>
+	<td>Delete Table with Tablename</td>
+	</tr>
+	<tr>
+	<td>table_create($tablename)</td>
+	<td>Create Table with Tablename</td>
+	</tr>
+	<tr>
+	<td>auto_increment($table, $value)</td>
+	<td>Change Table Auto Increment Counter (after Flush for Example)</td>
+	</tr>
+	<tr>
+	<td>table_backup($table, $filepath = false, $withdata = true, $dropstate = false)</td>
+	<td>Backup a Tables Content and Creation to a File and get in Return the content of the File. You can provide a File Path where the Content should be saved to. $withdata determines if Table Data should be exported too. $dropstate determines if a Drop Table statement should be added to the table.</td>
+	</tr>
+	</tbody>
+	</table>
 </div>
 <div class="internal_show" id="show_da">
 <h3>Database Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Database Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>database_delete($database)</td>
-<td>Delete a Database</td>
-</tr>
-<tr>
-<td>database_create($database)</td>
-<td>Create a Database</td>
-</tr>
-<tr>
-<td>database_select($database)</td>
-<td>Select new Database for current Class Object</td>
-</tr>
-</tbody>
-</table>
+	<table>
+	<thead>
+	<tr>
+	<th>Database Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>database_delete($database)</td>
+	<td>Delete a Database with Name</td>
+	</tr>
+	<tr>
+	<td>database_create($database)</td>
+	<td>Create a Database  with Name</td>
+	</tr>
+	<tr>
+	<td>database_select($database)</td>
+	<td>Select new Database for current Class Object with Name</td>
+	</tr>
+	</tbody>
+	</table>
 </div>
-<hr>
-
 <div class="internal_show" id="show_tr">
-<h3>Transaction Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Transaction Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>transaction($autocommit = false)</td>
-<td>Start Transaction</td>
-</tr>
-<tr>
-<td>rollback()</td>
-<td>Rollback inside Transaction</td>
-</tr>
-<tr>
-<td>transactionStatus()</td>
-<td>Check if there is an transaction running</td>
-</tr>
-<tr>
-<td>commit()</td>
-<td>Commit Transaction</td>
-</tr>
-</tbody>
-</table>
+	<h3>Transaction Functions</h3>
+	<table>
+	<thead>
+	<tr>
+	<th>Transaction Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>transaction($autocommit = false)</td>
+	<td>Start Transaction</td>
+	</tr>
+	<tr>
+	<td>rollback()</td>
+	<td>Rollback inside Transaction</td>
+	</tr>
+	<tr>
+	<td>transactionStatus()</td>
+	<td>Check if there is an transaction running</td>
+	</tr>
+	<tr>
+	<td>commit()</td>
+	<td>Commit Transaction</td>
+	</tr>
+	</tbody>
+	</table>
 </div>
-
-
 <div class="internal_show" id="show_qu">
 <h3>Main Query Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Operation Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>select($query, $multiple = false, $bindarray = false, $fetch_type = MYSQLI_ASSOC)</td>
-<td><br /><br />Select Statement for Multi Purpose<br /><br />Multiple = True get Multi Array with different Rows - False get Single Array with Row<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;] = (s/i)<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
-</tr>
-<tr>
-<td>query($query, $bindarray = false)</td>
-<td><br /><br />Query Statement for Multi Purpose<br /><br />Query = The Query<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
-</tr>
-<tr>
-<td>insert($table, $array, $bindarray = false)</td>
-<td>Delivers Back Inserted ID - Insert Statement for Multi Purpose<br /><br />Table = Table Name to Insert<br /><br />Array = Array to be Inserted Array[fieldname] = value<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
-</tr>
-<tr>
-<td>update($query, $bindarray = false)</td>
-<td>Delivers Back the Updated Affected Rows<br /><br />Update Statement for Multi Purpose<br /><br />Query = The Query<br /><br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br /><br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
-</tr>
-</tbody>
-</table>
+	<table>
+	<thead>
+	<tr>
+	<th>Operation Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>select($query, $multiple = false, $bindarray = false, $fetch_type = MYSQLI_ASSOC)</td>
+	<td><br />Select Statement for Multi Purpose<br />Multiple = True get Multi Array with different Rows - False get Single Array with Row<br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;] = (s/i)<br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+	</tr>
+	<tr>
+	<td>query($query, $bindarray = false)</td>
+	<td><br />Query Statement for Multi Purpose<br />Query = The Query<br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+	</tr>
+	<tr>
+	<td>insert($table, $array, $bindarray = false)</td>	
+	<td>Delivers Back Inserted ID - Insert Statement for Multi Purpose
+	<br />Table = Table Name to Insert to
+	<br />Array = Array to be Inserted Array[fieldname] = value<br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+	</tr>
+	<tr>
+	<td>update($query, $bindarray = false)</td>
+	<td>Delivers Back the Updated Affected Rows<br />Update Statement for Multi Purpose<br />Query = The Query<br />If Bindarray = false -&gt; normal input query - If not deliver Multi Array with Array[X][&quot;value&quot;] = VALUE and Array[X][&quot;type&quot;]<br />TYPE //Binding parameters. Types: s = string, i = integer, d = double,  b = blob]</td>
+	</tr>
+	</tbody>
+	</table>
 <h3>Exception Handled Function Aliases Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Misc Smart Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>escape($val)</td>
-<td>Escape a Value to be inserted in Query</td>
-</tr>
-<tr>
-<td>next_result()</td>
-<td>mysqli_next_result</td>
-</tr>
-<tr>
-<td>store_result()</td>
-<td>mysqli_store_result</td>
-</tr>
-<tr>
-<td>more_results()</td>
-<td>mysqli_more_results</td>
-</tr>
-<tr>
-<td>fetch_array($result)</td>
-<td>mysqli_fetch_array</td>
-</tr>
-<tr>
-<td>fetch_object($result)</td>
-<td>mysqli_fetch_object</td>
-</tr>
-<tr>
-<td>free_result($result)</td>
-<td>mysqli_free_result</td>
-</tr>
-<tr>
-<td>use_result()</td>
-<td>mysqli_use_result</td>
-</tr>
-<tr>
-<td>insert_id()</td>
-<td>Get Last Insert ID (May not trustable, better use insert)</td>
-</tr>
-<tr>
-<td>free_all()</td>
-<td>Free All Results in Current Mysql Object and get Back Results in Array</td>
-</tr>
-</tbody>
-</table>
-<hr>
+	<table>
+	<thead>
+	<tr>
+	<th>Misc Smart Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>escape($val)</td>
+	<td>Escape a Value to be inserted in Query</td>
+	</tr>
+	<tr>
+	<td>next_result()</td>
+	<td>Alias for: mysqli_next_result with x_class_mysql Error Log Handlers and Functionality</td>
+	</tr>
+	<tr>
+	<td>store_result()</td>
+	<td>Alias for: mysqli_store_result with x_class_mysql Error Log Handlers and Functionality</td>
+	</tr>
+	<tr>
+	<td>more_results()</td>
+	<td>Alias for: mysqli_more_results with x_class_mysql Error Log Handlers and Functionality</td>
+	</tr>
+	<tr>
+	<td>fetch_array($result)</td>
+	<td>Alias for: mysqli_fetch_array with x_class_mysql Error Log Handlers and Functionality</td>
+	</tr>
+	<tr>
+	<td>fetch_object($result)</td>
+	<td>Alias for: mysqli_fetch_object with x_class_mysql Error Log Handlers and Functionality</td>
+	</tr>
+	<tr>
+	<td>free_result($result)</td>
+	<td>Alias for: mysqli_free_result with x_class_mysql Error Log Handlers and Functionality</td>
+	</tr>
+	<tr>
+	<td>use_result()</td>
+	<td>Alias for: mysqli_use_result with x_class_mysql Error Log Handlers and Functionality</td>
+	</tr>
+	<tr>
+	<td>free_all()</td>
+	<td>Free All Results in Current Mysql Object and get Back Results in Array</td>
+	</tr>
+	</tbody>
+	</table>
+
 <h3>Quick Value Handling Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Values Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>row_element_increase($table, $nameidfield, $id, $increasefield, $increasevalue = 1)</td>
-<td>Increase a row by Value</td>
-</tr>
-<tr>
-<td>row_element_decrease($table, $nameidfield, $id, $decreasefield, $decreasevalue = 1)</td>
-<td>Decrease a row by Value</td>
-</tr>
-<tr>
-<td>row_get($table, $id, $row = &quot;id&quot;)</td>
-<td>Get Rull Row Single</td>
-</tr>
-<tr>
-<td>row_element_get($table, $id, $elementrow, $fallback = false, $row = &quot;id&quot;)</td>
-<td>Get Single Element of Row</td>
-</tr>
-<tr>
-<td>row_element_change($table, $id, $element, $elementrow, $row = &quot;id&quot;)</td>
-<td>Change a Row</td>
-</tr>
-<tr>
-<td>row_exist($table, $id, $row = &quot;id&quot;)</td>
-<td>Exists a Row</td>
-</tr>
-<tr>
-<td>rows_get($table, $id, $row = &quot;id&quot;)</td>
-<td>Get Rows in Array</td>
-</tr>
-<tr>
-<td>row_del($table, $id, $row = &quot;id&quot;)</td>
-<td>Delete a Row</td>
-</tr>
-</tbody>
-</table>
-<hr>
+	<table>
+	<thead>
+	<tr>
+	<th>Values Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>row_element_increase($table, $nameidfield, $id, $increasefield, $increasevalue = 1)</td>
+	<td>Increase a row by Value <br />$table is the Tables Name <br />$id is the items ID <br />$nameidfield is the field name of the field holding the id <br /> $increasevalue contains the value the item should be increased<br />$increasefield contains the field in which the value is that should be increased</td>
+	</tr>
+	<tr>
+	<td>row_element_decrease($table, $nameidfield, $id, $decreasefield, $decreasevalue = 1)</td>
+	<td>Decrease a row by Value <br />$table is the Tables Name <br />$id is the items ID<br />$nameidfield is the field name of the field holding the id<br /> $decreasevalue contains the value the item should be decreased<br />$decreasefield contains the field in which the value is that should be decreased</td>
+	</tr>
+	<tr>
+	<td>row_get($table, $id, $row = &quot;id&quot;)</td>
+	<td>Get Rull Row Single  <br />$table is the Tables Name<br />$id is the items ID<br />$row is the field name of the field holding the id</td>
+	</tr>
+	<tr>
+	<td>row_element_get($table, $id, $elementrow, $fallback = false, $row = &quot;id&quot;)</td>
+	<td>Get Single Element of Row <br />$table is the Tables Name<br />$elementrow Which Field data to return from Row?<br />$fallback Fallback value to return if fetching fails<br />$elementrow Column Name of Element to be changed<br />$id is the items ID<br />$row is the field name of the field holding the id</td>
+	</tr>
+	<tr>
+	<td>row_element_change($table, $id, $element, $elementrow, $row = &quot;id&quot;)</td>
+	<td>Change a Row <br />$table is the Tables Name<br />$element Changed Data to update the Element with<br />$elementrow Column Name of Element to be changed<br />$id is the items ID<br />$row is the field name of the field holding the id</td>
+	</tr>
+	<tr>
+	<td>row_exist($table, $id, $row = &quot;id&quot;)</td>
+	<td>Exists a Row <br />$table is the Tables Name<br />$id is the items ID<br />$row is the field name of the field holding the id</td>
+	</tr>
+	<tr>
+	<td>rows_get($table, $id, $row = &quot;id&quot;)</td>
+	<td>Get Rows in Array <br />$table is the Tables Name<br />$id is the items ID<br />$row is the field name of the field holding the id</td>
+	</tr>
+	<tr>
+	<td>row_del($table, $id, $row = &quot;id&quot;)</td>
+	<td>Delete a Row <br />$table is the Tables Name<br />$id is the items ID<br />$row is the field name of the field holding the id</td>
+	</tr>
+	</tbody>
+	</table>
 <h3>Multi Query Functions</h3>
-<table>
-<thead>
-<tr>
-<th>Multi Query Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>multi_query($query)</td>
-<td>Run a Multi Line Query</td>
-</tr>
-<tr>
-<td>multi_query_file($file)</td>
-<td>Get Content of a File and Run as Multi Line Query</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+	<table>
+	<thead>
+	<tr>
+	<th>Multi Query Functions</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>multi_query($query)</td>
+	<td>Run a Multi Line Query</td>
+	</tr>
+	<tr>
+	<td>multi_query_file($file)</td>
+	<td>Get Content of a File and Run as Multi Line Query</td>
+	</tr>
+	</tbody>
+	</table>
+
 
 
 				
-    </div>
+  </div>
+</div>  </div>
     
   </body>
 </html>

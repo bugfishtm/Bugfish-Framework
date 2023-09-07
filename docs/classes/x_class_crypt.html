@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Crypt Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Crypt Class"> <!------------------------------------>
+    <title>Bugfish - PHP Crypt Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Crypt Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_crypt.html" />
-	<meta property="og:title" content="Bugfish Crypt Class" />
+	<meta property="og:title" content="Bugfish - PHP Crypt Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_crypt.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Crypt Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Crypt Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Crypt</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,42 +50,37 @@
     <div>
 				<div class="inner inner_section" style="text-align: center;">
 
-<h2 id="x_class_Crypt">x_class_crypt</h2>
+<h2 id="x_class_Crypt">Bugfish - PHP Crypt Class</h2>
 <p style="text-align: left;">The x_class_crypt class is designed for data encryption and decryption in PHP applications. It utilizes the Advanced Encryption Standard (AES) algorithm with a specific cipher block chaining (CBC) mode, specified by the chosen algorithm during class instantiation. The class offers methods to encrypt and decrypt data using the provided encryption key. This class can be used to secure sensitive data in your application by providing encryption and decryption capabilities.</p>
 
-<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
-
+<div style="max-width: 500px;text-align: left; background: 161616;">
+✔️ Tested<br />
+✔️ Productive - Ready<br />
+<br /></div>
+<h2 id="x_class-mastered-">How to use x_class_crypt?</h2>
 <table>
 <thead>
 <tr>
-<th>Construct Functions</th>
+<th>Function</th>
 <th>Description</th>
+<th>Parameters</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>__construct($algo = 'aes-256-cbc')</td>
-<td>Construct the class with optional Algorithm, default is aes-256-cbc. <br />This function uses the algo: openssl_random_pseudo_bytes(openssl_cipher_iv_length($this->algo));</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Crypt Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>encrypt($data, $password)</td>
-<td> Return Encrypted data<br />If you want to Decrypt a File provide the raw data...</td>
+<td><code>__construct</code></td>
+<td>Constructor method for initializing the object</td>
+<td><code>$algo</code> (optional): The encryption algorithm to use (default is &#39;aes-256-cbc&#39;)</td>
 </tr>
 <tr>
-<td>decrypt($data, $password)</td>
-<td> Return Decrypted data<br />If you want to Decrypt a File or String provide the raw data encryption return data...</td>
+<td><code>encrypt</code></td>
+<td>Encrypts data using the specified algorithm</td>
+<td><code>$data</code>: The data to be encrypted<br> <code>$key</code>: The encryption key used for encryption</td>
+</tr>
+<tr>
+<td><code>decrypt</code></td>
+<td>Decrypts data using the specified algorithm</td>
+<td><code>$data</code>: The data to be decrypted<br> <code>$key</code>: The encryption key used for decryption</td>
 </tr>
 </tbody>
 </table>

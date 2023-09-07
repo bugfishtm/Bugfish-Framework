@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Zip Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Zip Class"> <!------------------------------------>
+    <title>Bugfish - PHP Zip Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Zip Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 	<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_zip.html" />
-	<meta property="og:title" content="Bugfish Zip Class" />
+	<meta property="og:title" content="Bugfish - PHP Zip Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_zip.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Zip Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Zip Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP ZIP</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -49,13 +49,15 @@
    
     <div>
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_bugcrypt">x_class_zip</h2>
+<h2 id="x_class_bugcrypt">Bugfish - PHP Zip Class</h2>
 <p style="text-align: left;">The x_class_zip class is a utility class for handling the compression and decompression of files using the ZIP format. This class provides methods to zip and unzip files, and it also supports encryption and decryption of the zip files if you provide an encryption class (x_class_crypt) and a cryptokey.</p>
 
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
-
+✔️ Productive - Ready<br />
+⚠️ Needs PHP Zip Module<br />
+<br /></div>
+<h2 id="x_class_bugcrypt">How to use x_class_zip?</h2>
 <table>
 <thead>
 <tr>
@@ -74,7 +76,85 @@
 </tr>
 </tbody>
 </table>
+<h2 id="x_class_mastered-">Zip a File</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 200px; resize-x: none;" readonly>
+// Include the class definition or autoload it if needed.
+// $x_class_crypt should be your cryptography class, and $cryptokey should be your encryption key (if used).
 
+$zipper = new x_class_zip();
+
+// Zip a file without encryption
+$sourceFile = '/path/to/source/file.txt';
+$destinationZip = '/path/to/destination/file.zip';
+$result = $zipper->zip($sourceFile, $destinationZip);
+
+if ($result) {
+    echo "File zipped successfully.";
+} else {
+    echo "Error zipping file.";
+}
+
+</textarea>
+<h2 id="x_class_mastered-">Zip Encrypted</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 200px; resize-x: none;" readonly>
+// Include the class definition or autoload it if needed.
+// $x_class_crypt should be your cryptography class, and $cryptokey should be your encryption key.
+
+$zipper = new x_class_zip();
+
+// Zip a file with encryption
+$sourceFile = '/path/to/source/file.txt';
+$destinationZip = '/path/to/destination/encrypted_file.zip';
+$result = $zipper->zip($sourceFile, $destinationZip, $x_class_crypt, $cryptokey);
+
+if ($result) {
+    echo "File zipped and encrypted successfully.";
+} else {
+    echo "Error zipping and encrypting file.";
+}
+
+</textarea>
+
+<h2 id="x_class_mastered-">Unzipping a File:</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 200px; resize-x: none;" readonly>
+// Include the class definition or autoload it if needed.
+// $x_class_crypt should be your cryptography class, and $cryptokey should be your decryption key (if used).
+
+$zipper = new x_class_zip();
+
+// Unzip a file without decryption
+$sourceZip = '/path/to/source/file.zip';
+$destinationFolder = '/path/to/destination/folder/';
+$result = $zipper->unzip($sourceZip, $destinationFolder);
+
+if ($result) {
+    echo "File unzipped successfully.";
+} else {
+    echo "Error unzipping file.";
+}
+
+</textarea>
+
+<h2 id="x_class_mastered-">Unzipping an Encrypted File:</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 200px; resize-x: none;" readonly>
+// Include the class definition or autoload it if needed.
+// $x_class_crypt should be your cryptography class, and $cryptokey should be your decryption key.
+
+$zipper = new x_class_zip();
+
+// Unzip an encrypted file
+$sourceZip = '/path/to/source/encrypted_file.zip';
+$destinationFolder = '/path/to/destination/folder/';
+$result = $zipper->unzip($sourceZip, $destinationFolder, $x_class_crypt, $cryptokey);
+
+if ($result) {
+    echo "File unzipped and decrypted successfully.";
+} else {
+    echo "Error unzipping and decrypting file.";
+}
+
+
+</textarea>
 </div>
 
 

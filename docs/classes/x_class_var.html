@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bugfish Variables Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish Variables Class"> <!------------------------------------>
+    <title>Bugfish - PHP Variables Class</title> <!------------------------------------>
+    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Variables Class"> <!------------------------------------>
     <meta name="author" content="Bugfish">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="../style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
 			<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_var.html" />
-	<meta property="og:title" content="Bugfish Variables Class" />
+	<meta property="og:title" content="Bugfish - PHP Variables Class" />
 	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_var.html" />
 	 <link rel="stylesheet" href="../stylesheet.css">
 	 <script src="../jquery.js"></script> 
@@ -35,11 +35,11 @@
 <img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
     <header id="header">
 	  
-      <h1> Variables Class</h1>Bugfish Framework <!------------------------------------>
+      <h1>PHP Variables Class</h1>Bugfish Framework <!------------------------------------>
       
       <ul class="main-menu">
         <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">Documentation</a></li>
+        <li><a href="#" class="navon">PHP Vars</a></li>
         <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
         <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
         <li><a href="../impressum.html">Impressum</a></li>
@@ -50,12 +50,16 @@
     <div>
 
 				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_var">x_class_var</h2>
+<h2 id="x_class_var">Bugfish - PHP Variables Class</h2>
 <p style="text-align: left;">The x_class_var PHP class is designed to manage variables stored in a MySQL database. It provides methods for initializing, retrieving, and modifying these variables, which can be used as constants or stored in arrays. The class also includes basic security features like CSRF protection and input sanitation.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br /><br /></div>
+✔️ Productive - Ready<br />
 
+⚠️ Does use MySQL (x_class_mysqli object)<br />
+⚠️ Tables will be automatically installed<br />
+<br /></div>
+<h2 id="x_class_var">How to use x_class_var?</h2>
 <table>
 <thead>
 <tr>
@@ -86,6 +90,10 @@
 <tr>
 <td>get_array()</td>
 <td>Get Array with all Constants</td>
+</tr>
+<tr>
+<td>get_array_full()</td>
+<td>Get Full Array with all Constants</td>
 </tr>
 </tbody>
 </table>
@@ -128,22 +136,138 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<h2>form() </h2>
 <table>
 <thead>
 <tr>
-<th>Form Functions</th>
+<th>Parameter</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>form($varname, $type = &quot;int&quot;, $selectarray = array())</td>
-<td>Get a Form to Change a Setup Variable <br />int/string/bool/array/select/text / For SELECT Type you can Provide Select array with array(array(name, value))</td>
+<td><code>$varname</code></td>
+<td>Name of the variable to be created or updated using the form.</td>
+</tr>
+<tr>
+<td><code>$type</code></td>
+<td>Data type of the variable (<code>int</code>, <code>text</code>, <code>string</code>, <code>select</code>, or <code>bool</code>).</td>
+</tr>
+<tr>
+<td><code>$selectarray</code></td>
+<td>Optional array for generating select options (used only if <code>$type</code> is <code>select</code>).</td>
+</tr>
+<tr>
+<td><code>$precookie</code></td>
+<td>Prefix for generating unique names for form elements and session variables.</td>
+</tr>
+<tr>
+<td><code>$button_class</code></td>
+<td>CSS class for the submit button in the form.</td>
+</tr>
+<tr>
+<td><code>$itemclass</code></td>
+<td>CSS class for form input elements (e.g., input fields, select boxes).</td>
+</tr>
+<tr>
+<td><code>$editbuttonname</code></td>
+<td>Label displayed on the submit button.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Function Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generates an HTML form for configuring or updating a specified variable within a class context. Handles form submission, CSRF protection, and feedback messages.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Possible Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- If the specified variable doesn&#39;t exist, it returns <code>&quot;error-var-not-found&quot;</code>.</td>
+</tr>
+<tr>
+<td>- After form submission, it sets the variable with the submitted value and displays success or error messages.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simplifies the creation of HTML forms for configuring class variables, providing a user-friendly interface within the class context. Uses CSRF protection to enhance security during submissions.</td>
 </tr>
 </tbody>
 </table>
 
+<h2 id="x_class_mastered-">Example Implementation</h2>
+<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
+// Include your MySQL database connection here
+// For demonstration purposes, we'll use a dummy connection function.
+function connectToDatabase() {
+    // Replace this with your database connection code.
+    return new mysqli("localhost", "username", "password", "database_name");
+}
+
+// Include the x_class_var class definition here
+
+// Create a database connection
+$mysql = connectToDatabase();
+
+// Define your table name and section name
+$tableName = "config_table";
+$sectionName = "my_section";
+
+// Create an instance of the x_class_var class
+$config = new x_class_var($mysql, $tableName, $sectionName);
+
+// Initialize constants based on the configuration table
+$config->init_constant();
+
+// Example: Retrieving a configuration variable
+$myVariable = $config->get("my_variable");
+if ($myVariable !== false) {
+    echo "The value of my_variable is: " . $myVariable;
+} else {
+    echo "my_variable not found or has no value.";
+}
+
+// Example: Setting a configuration variable
+$newValue = "new_value";
+$description = "This is a new configuration variable";
+$overwrite = true; // Set to true to update if the variable already exists, false to create a new one
+if ($config->set("my_variable", $newValue, $description, true, $overwrite)) {
+    echo "my_variable updated successfully!";
+} else {
+    echo "Failed to update my_variable.";
+}
+
+// Example: Deleting a configuration variable
+if ($config->del("my_variable")) {
+    echo "my_variable deleted successfully!";
+} else {
+    echo "Failed to delete my_variable.";
+}
+
+// Close the MySQL connection
+$mysql->close();
+
+</textarea>
 </div>
 
 
