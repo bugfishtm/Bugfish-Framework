@@ -1,66 +1,87 @@
-<!doctype html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <!-- META RELATED -->
     <meta charset="utf-8">
-    <title>Bugfish - PHP Variables Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Variables Class"> <!------------------------------------>
-    <meta name="author" content="Bugfish">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <link href="../style.css" rel="stylesheet" type="text/css" />
-	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
-			<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_var.html" />
-	<meta property="og:title" content="Bugfish - PHP Variables Class" />
-	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_var.html" />
-	 <link rel="stylesheet" href="../stylesheet.css">
-	 <script src="../jquery.js"></script> 
-	 <script src="../datatable.js"></script> 
-	 <script>
-		function internal_show(newshowvar, thiselement) {
-			$(".internal_show").hide();
-			$(".test").hide();
-			$("#"+newshowvar).show();
-			$(".navitts").css('color', '');
-			thiselement.css('color', '#ff0c02');
-		}
-		
-		
-		$( document ).ready(function() {
-			$(".internal_show").hide();
-			$("#show_php").show();
-			$(".startactivenav").css('color', '#ff0c02');
-		});		
-	 </script>
-  </head>
-  <body>
-<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
-    <header id="header">
-	  
-      <h1>PHP Variables Class</h1>Bugfish Framework <!------------------------------------>
-      
-      <ul class="main-menu">
-        <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">PHP Vars</a></li>
-        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
-        <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
-        <li><a href="../impressum.html">Impressum</a></li>
-        <li><a href="../privacy.html">Privacy</a></li>
-      </ul>                
-    </header>
-   
-    <div>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+	<meta property="og:image" content="https://bugfishtm.github.io/assets/meta.png" />
+	<meta name="subject" content="documentation">
+	<meta name="copyright" content="bugfish">
+	<meta name='language' content='en'>
+	<meta name='robots' content='index,follow'>
+	<meta name='author' content='bugfish, ynvnzmlzaa@gmail.com'>
+	<!-- LINK RELATED -->
+	<script defer src="../assets/fontawesome/js/all.min.js"></script>    
+	<link rel="stylesheet" href="../assets/css/atom-one-dark.min.css">
+	<link rel="stylesheet" href="../assets/plugins/simplelightbox/simple-lightbox.min.css">
+	<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">	
+	<link id="theme-style" rel="stylesheet" href="../assets/css/stylesheet.css">
+    <script src="../assets/js/jq.3.6.min.js"></script>	
+    <script src="../assets/js/jquery.highlight.js"></script>
+    <script src="../assets/js/jquery.scrollto.js"></script>
+    <script src="../assets/js/jquery.finder.js"></script>
+	<!-- Descriptions -->
+    <title>PHP Var Class - BugfishDocs</title>
+	<meta property="og:title" content="PHP Var Class - BugfishDocs"/>
+	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_var! Here you can fing the github url to the project and different explanation about the classes and functions! We wish you the best!">
+</head> 
+<body class="docs-page" data-finder-wrapper>    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="https://bugfishtm.github.io"><img class="logo-icon me-2" src="../assets/logo.png" alt="logo" width="25"><span class="logo-text">Bugfish<span class="text-alt">Docs</span></span></a></div>    
+                </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	            </div><!--//docs-top-utilities-->
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header><!--//header-->
+    <div class="docs-wrapper" >
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+				    <li class="nav-item section-title"><a class="nav-link" href="../index.html"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-left"></i></span>Back</a></li>
+				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>PHP Var Class</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Documentation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2" target="_blank">How to get support?</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3" target="_blank">License</a></li>
+					<!-- Impressum and Bugfish Link -->
+				    <li class="nav-item section-title mt-3"><a class="nav-link"><span class="theme-icon-holder me-2"><i class="fas fa-link"></i></span>Links</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://www.bugfish.eu" target="_blank">My Website</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.github.io" target="_blank">Documentations</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.blogspot.com/2023/05/impressum.html" target="_blank">Impressum</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.blogspot.com/2023/05/privacy.html" target="_blank">Privacy</a></li>
+			    </ul>
 
-				<div class="inner inner_section" style="text-align: center;">
-<h2 id="x_class_var">Bugfish - PHP Variables Class</h2>
+		    </nav><!--//docs-nav-->
+	    </div><!--//docs-sidebar-->
+	    <div class="docs-content" data-finder-content>
+		    <div class="container">
+			    <article class="docs-article" id="section-1">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">PHP Var Class [x_class_var]<span class="docs-time">Documentations</span></h1>
+					    <section class="docs-intro">
+						    <p>This is the Documentation for the Bugfish Framework!</p>
+						</section><!--//docs-intro-->
+				    </header>	
+	
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+				<h2>Documentation</h2>
 <p style="text-align: left;">The x_class_var PHP class is designed to manage variables stored in a MySQL database. It provides methods for initializing, retrieving, and modifying these variables, which can be used as constants or stored in arrays. The class also includes basic security features like CSRF protection and input sanitation.</p>
 
-<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br />
-
+<div style="max-width: 500px;text-align: left; background: 161616;">
 ⚠️ Does use MySQL (x_class_mysqli object)<br />
 ⚠️ Tables will be automatically installed<br />
 <br /></div>
-<h2 id="x_class_var">How to use x_class_var?</h2>
-<table>
+<h2 id="x_class_var">Class Functions</h2>
+<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Construct Function</th>
@@ -74,8 +95,7 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
+<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Init Functions</th>
@@ -97,8 +117,7 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
+<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Vars Functions</th>
@@ -137,7 +156,7 @@
 </tbody>
 </table>
 <h2>form() </h2>
-<table>
+<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -175,7 +194,7 @@
 </tr>
 </tbody>
 </table>
-<table>
+<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Function Description</th>
@@ -187,7 +206,7 @@
 </tr>
 </tbody>
 </table>
-<table>
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Possible Results</th>
@@ -202,7 +221,7 @@
 </tr>
 </tbody>
 </table>
-<table>
+<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Purpose</th>
@@ -214,65 +233,96 @@
 </tr>
 </tbody>
 </table>
-
+<br />
 <h2 id="x_class_mastered-">Example Implementation</h2>
-<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
-// Include your MySQL database connection here
-// For demonstration purposes, we'll use a dummy connection function.
-function connectToDatabase() {
-    // Replace this with your database connection code.
-    return new mysqli("localhost", "username", "password", "database_name");
-}
+<code class="json hljs">
+// Include your MySQL database connection here<br />
+// For demonstration purposes, we'll use a dummy connection function.<br />
+function connectToDatabase() {<br />
+    // Replace this with your database connection code.<br />
+    return new mysqli("localhost", "username", "password", "database_name");<br />
+}<br />
+<br />
+// Include the x_class_var class definition here<br />
+<br />
+// Create a database connection<br />
+$mysql = connectToDatabase();<br />
+<br />
+// Define your table name and section name<br />
+$tableName = "config_table";<br />
+$sectionName = "my_section";<br />
+<br />
+// Create an instance of the x_class_var class<br />
+$config = new x_class_var($mysql, $tableName, $sectionName);<br />
+<br />
+// Initialize constants based on the configuration table<br />
+$config->init_constant();<br />
+<br />
+// Example: Retrieving a configuration variable<br />
+$myVariable = $config->get("my_variable");<br />
+if ($myVariable !== false) {<br />
+    echo "The value of my_variable is: " . $myVariable;<br />
+} else {<br />
+    echo "my_variable not found or has no value.";<br />
+}<br />
+<br />
+// Example: Setting a configuration variable<br />
+$newValue = "new_value";<br />
+$description = "This is a new configuration variable";<br />
+$overwrite = true; // Set to true to update if the variable already exists, false to create a new one<br />
+if ($config->set("my_variable", $newValue, $description, true, $overwrite)) {<br />
+    echo "my_variable updated successfully!";<br />
+} else {<br />
+    echo "Failed to update my_variable.";<br />
+}<br />
+<br />
+// Example: Deleting a configuration variable<br />
+if ($config->del("my_variable")) {<br />
+    echo "my_variable deleted successfully!";<br />
+} else {<br />
+    echo "Failed to delete my_variable.";<br />
+}<br />
+<br />
+// Close the MySQL connection<br />
+$mysql->close();<br />
 
-// Include the x_class_var class definition here
+</code>
+					</section><section class="docs-section" id="item-1-2">
+						<h2 class="section-heading">How to get support?</h2>
+						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
+						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
+						<a href="https://forum.bugfish.eu/" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
+					</section><!--//section-->	
+					<section class="docs-section" id="item-1-3">
+						<h2 class="section-heading">License Informations</h2>
+						<h4>License Informations of this Class</h4>
+		<code class="hljs">Copyright 2022 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)<br />
+		This Product is running with MIT LICENSE<br /><br />
 
-// Create a database connection
-$mysql = connectToDatabase();
+		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br /><br />
 
-// Define your table name and section name
-$tableName = "config_table";
-$sectionName = "my_section";
+		The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br /><br />
 
-// Create an instance of the x_class_var class
-$config = new x_class_var($mysql, $tableName, $sectionName);
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code>
 
-// Initialize constants based on the configuration table
-$config->init_constant();
-
-// Example: Retrieving a configuration variable
-$myVariable = $config->get("my_variable");
-if ($myVariable !== false) {
-    echo "The value of my_variable is: " . $myVariable;
-} else {
-    echo "my_variable not found or has no value.";
-}
-
-// Example: Setting a configuration variable
-$newValue = "new_value";
-$description = "This is a new configuration variable";
-$overwrite = true; // Set to true to update if the variable already exists, false to create a new one
-if ($config->set("my_variable", $newValue, $description, true, $overwrite)) {
-    echo "my_variable updated successfully!";
-} else {
-    echo "Failed to update my_variable.";
-}
-
-// Example: Deleting a configuration variable
-if ($config->del("my_variable")) {
-    echo "my_variable deleted successfully!";
-} else {
-    echo "Failed to delete my_variable.";
-}
-
-// Close the MySQL connection
-$mysql->close();
-
-</textarea>
-</div>
-
-
- 
-    </div>
-
-  </body>
-</html>
+						
+						<br /><br /><h4>License Informations of this Github Page</h4>
+				       <p> <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+			            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank" rel="noopener">Xiaoying Riley</a> for developers <br/>(And modified by <a href="https://www.bugfish.eu" target="_blank" rel="noopener">bugfish</a>)<br />You are only allowed to use this template if you include this attribution!</small></p>					
+					</section><!--//section-->		
+			    </article><!--//docs-article-->
+			</div> <!--//docs-container--> 
+		</div><!--//docs-content-->   
+    </div><!--//docs-wrapper-->       
+    <!-- Javascript -->          
+    <script src="../assets/plugins/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    <!-- Page Specific JS -->
+    <script src="../assets/plugins/smoothscroll.min.js"></script>
+    <script src="../assets/js/highlight.min.js"></script>
+    <script src="../assets/js/highlight-custom.js"></script> 
+    <script src="../assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="../assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="../assets/js/docs.js"></script> 
+</body>
+</html> 

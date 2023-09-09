@@ -124,15 +124,15 @@ class x_class_user {
 		public function session_length($length = 24) { $this->session_length = $length; }	 
 		private function session_gen() { return $this->password_gen($this->session_length, $this->session_charset); }
 	## Edit User Table Fields
-	public function user_add_field($fieldstring) { return $this->mysql->query("ALTER IGNORE TABLE `".$this->dt_users."` ADD COLUMN ".$fieldstring." ;");}
-	public function user_del_field($fieldname) { return $this->mysql->query("ALTER IGNORE TABLE `".$this->dt_users."` DROP COLUMN ".$fieldname." ;"); }
+	public function user_add_field($fieldstring) { $x = $this->mysql->log_status(); $this->mysql->log_disable(); $y =   $this->mysql->query("ALTER TABLE `".$this->dt_users."` ADD COLUMN ".$fieldstring." ;");  if($x) {$this->mysql->log_enable();} return $y; }
+	public function user_del_field($fieldname) { $x = $this->mysql->log_status(); $this->mysql->log_disable(); $y =   $this->mysql->query("ALTER TABLE `".$this->dt_users."` DROP COLUMN ".$fieldname." ;"); $this->log_disable(); if($x) {$this->mysql->log_enable();} return $y; }
 	## Groups Setup and Table Creation
 	public function groups($table_group, $table_group_link) {
 		$this->table_group = $table_group;
 		$this->table_group_link = $table_group_link;
 		$this->groups_createtable();}	
-	public function groups_add_field($fieldstring) { return $this->mysql->query("ALTER IGNORE TABLE `".$this->table_group."` ADD COLUMN ".$fieldstring." ;");}
-	public function groups_del_field($fieldname) { return $this->mysql->query("ALTER IGNORE TABLE `".$this->table_group."` DROP COLUMN ".$fieldname." ;"); }		
+	public function groups_add_field($fieldstring) { $x = $this->mysql->log_status(); $this->mysql->log_disable(); $y =   $this->mysql->query("ALTER TABLE `".$this->table_group."` ADD COLUMN ".$fieldstring." ;");  if($x) {$this->mysql->log_enable();} return $y;}
+	public function groups_del_field($fieldname) { $x = $this->mysql->log_status(); $this->mysql->log_disable(); $y =   $this->mysql->query("ALTER TABLE `".$this->table_group."` DROP COLUMN ".$fieldname." ;"); if($x) {$this->mysql->log_enable();} return $y;}		
 	private function groups_createtable() {
 		if(!$this->mysql->table_exists($this->table_group_link)) {
 			$this->mysql->query("CREATE TABLE IF NOT EXISTS `".$this->table_group_link."` (
@@ -166,8 +166,8 @@ class x_class_user {
 							`creation` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date',
 							`modification` datetime NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification Date',
 							PRIMARY KEY (`id`));");	}}	
-	public function extrafield_add_field($string) { return $this->mysql->query("ALTER TABLE `".$this->table_ext."` ADD COLUMN ".$string." ;"); }
-	public function extrafield_del_field($fieldname) { return $this->mysql->query("ALTER TABLE `".$this->table_ext."` DROP COLUMN ".$fieldname." ;"); }	
+	public function extrafield_add_field($string) { $x = $this->mysql->log_status(); $this->mysql->log_disable(); $y =   $this->mysql->query("ALTER TABLE `".$this->table_ext."` ADD COLUMN ".$string." ;"); if($x) {$this->mysql->log_enable();}return $y; }
+	public function extrafield_del_field($fieldname) { $x = $this->mysql->log_status(); $this->mysql->log_disable(); $y =  $this->mysql->query("ALTER TABLE `".$this->table_ext."` DROP COLUMN ".$fieldname." ;"); if($x) {$this->mysql->log_enable();} return $y; }	
 	## Passfilter
 	private $passfilter = false; private $passfilter_signs = 0; private $passfilter_capital = 0; 
 	private $passfilter_small = 0; private $passfilter_special = 0; private $passfilter_number = 0;

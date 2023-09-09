@@ -21,6 +21,7 @@ https://github.com/bugfishtm/bugfish-framework
 |Folder|Description|
 |-|-|
 |_release|Release Packages|
+|_experimental|Unfinished Experimental Classes|
 |_onepage|Template to deploy a smart website with xfp functions...|
 |_dolibarr|a dolibarr module to include our framework and additional functions|
 |_framework| The actual Framework and the heart of this repository!|

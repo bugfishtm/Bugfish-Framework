@@ -1,67 +1,87 @@
-<!doctype html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <!-- META RELATED -->
     <meta charset="utf-8">
-    <title>Bugfish - PHP Mail Class</title> <!------------------------------------>
-    <meta name="description" content="Welcome to the bugfish framework github page! Here you can find informations about: Bugfish - PHP Mail Class"> <!------------------------------------>
-    <meta name="author" content="Bugfish">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <link href="../style.css" rel="stylesheet" type="text/css" />
-	<link rel="icon" type="image/x-icon" href="../favicon.ico"><meta property="og:image" content="../meta.png" />
-		<link rel="canonical" href="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mail.html" />
-	<meta property="og:title" content="Bugfish - PHP Mail Class" />
-	<meta property="og:url" content="https://bugfishtm.github.io/bugfish-framework/classes/x_class_mail.html" />
-	 <link rel="stylesheet" href="../stylesheet.css">
-	 <script src="../jquery.js"></script> 
-	 <script src="../datatable.js"></script> 
-	 <script>
-		function internal_show(newshowvar, thiselement) {
-			$(".internal_show").hide();
-			$(".test").hide();
-			$("#"+newshowvar).show();
-			$(".navitts").css('color', '');
-			thiselement.css('color', '#ff0c02');
-		}
-		
-		
-		$( document ).ready(function() {
-			$(".internal_show").hide();
-			$("#show_php").show();
-			$(".startactivenav").css('color', '#ff0c02');
-		});		
-	 </script>
-  </head>
-  <body>
-<img src="../logo.png" style="width: 100%; margin-bottom: -7px;">    <a href="#header"><div class="gobacktotop"><b>^ Back to Top</b></div></a>   
-    <header id="header">
-	  
-      <h1>PHP Mail Class</h1>Bugfish Framework <!------------------------------------>
-      
-      <ul class="main-menu">
-        <li><a href="../index.html">Back</a></li>
-        <li><a href="#" class="navon">PHP Mail</a></li>
-        <li><a href="https://github.com/bugfishtm/bugfish-framework" target="_blank">Github</a></li>
-        <li><a href="https://bugfish.eu" target="_blank" rel="noopener">Bugfish</a></li>
-        <li><a href="../impressum.html">Impressum</a></li>
-        <li><a href="../privacy.html">Privacy</a></li>
-      </ul>                    
-    </header>
-   
-    <div>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+	<meta property="og:image" content="https://bugfishtm.github.io/assets/meta.png" />
+	<meta name="subject" content="documentation">
+	<meta name="copyright" content="bugfish">
+	<meta name='language' content='en'>
+	<meta name='robots' content='index,follow'>
+	<meta name='author' content='bugfish, ynvnzmlzaa@gmail.com'>
+	<!-- LINK RELATED -->
+	<script defer src="../assets/fontawesome/js/all.min.js"></script>    
+	<link rel="stylesheet" href="../assets/css/atom-one-dark.min.css">
+	<link rel="stylesheet" href="../assets/plugins/simplelightbox/simple-lightbox.min.css">
+	<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">	
+	<link id="theme-style" rel="stylesheet" href="../assets/css/stylesheet.css">
+    <script src="../assets/js/jq.3.6.min.js"></script>	
+    <script src="../assets/js/jquery.highlight.js"></script>
+    <script src="../assets/js/jquery.scrollto.js"></script>
+    <script src="../assets/js/jquery.finder.js"></script>
+	<!-- Descriptions -->
+    <title>PHP Mail Class - BugfishDocs</title>
+	<meta property="og:title" content="PHP Mail Class - BugfishDocs"/>
+	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_mail! Here you can fing the github url to the project and different explanation about the classes and functions! We wish you the best!">
+</head> 
+<body class="docs-page" data-finder-wrapper>    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="https://bugfishtm.github.io"><img class="logo-icon me-2" src="../assets/logo.png" alt="logo" width="25"><span class="logo-text">Bugfish<span class="text-alt">Docs</span></span></a></div>    
+                </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	            </div><!--//docs-top-utilities-->
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header><!--//header-->
+    <div class="docs-wrapper" >
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+				    <li class="nav-item section-title"><a class="nav-link" href="../index.html"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-left"></i></span>Back</a></li>
+				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>PHP Mail Class</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Documentation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2" target="_blank">How to get support?</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3" target="_blank">License</a></li>
+					<!-- Impressum and Bugfish Link -->
+				    <li class="nav-item section-title mt-3"><a class="nav-link"><span class="theme-icon-holder me-2"><i class="fas fa-link"></i></span>Links</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://www.bugfish.eu" target="_blank">My Website</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.github.io" target="_blank">Documentations</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.blogspot.com/2023/05/impressum.html" target="_blank">Impressum</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.blogspot.com/2023/05/privacy.html" target="_blank">Privacy</a></li>
+			    </ul>
 
-				<div class="inner inner_section" style="text-align: center;">
-
-<h2 id="x_class_mail-mastered-">Bugfish - PHP Mail Class</h2>
+		    </nav><!--//docs-nav-->
+	    </div><!--//docs-sidebar-->
+	    <div class="docs-content" data-finder-content>
+		    <div class="container">
+			    <article class="docs-article" id="section-1">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">PHP Mail Class [x_class_mail]<span class="docs-time">Documentations</span></h1>
+					    <section class="docs-intro">
+						    <p>This is the Documentation for the Bugfish Framework!</p>
+						</section><!--//docs-intro-->
+				    </header>	
+	
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+				<h2>Documentation</h2>
 <p style="text-align: left;">The x_class_mail class is a PHP class designed for sending emails using the PHPMailer library. It encapsulates various email-related functionalities and configurations. The class includes features such as setting up SMTP authentication, defining host details, configuring secure connections, managing email recipients (To, CC, BCC), attaching files, and handling HTML content. The class provides methods to send emails using either a simplified approach (method send) or an advanced method (mail) that allows more customization. It also supports logging email activities, allowing developers to track sent emails. The class can be used to create email sending instances (x_class_mail_item) that hold specific settings and attachments, providing a convenient way to send emails with specific configurations.</p>
 
-<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br />
-
+<div style="max-width: 500px;text-align: left; background: 161616;">
 ⚠️ Does use MySQL (x_class_mysqli object) (for logging)<br />
 ⚠️ Tables will be automatically installed<br />
 <br /></div>
-<h2 id="x_class_mail-mastered-">How to use x_class_mail?</h2>
-<table>
+<h2 id="x_class_mail-mastered-">Class Functions</h2>
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Construct Function</th>
@@ -75,8 +95,8 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
+
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Config Logging Functions</th>
@@ -98,8 +118,8 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
+
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Config Functions</th>
@@ -153,8 +173,7 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Send Functions</th>
@@ -172,8 +191,8 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
+
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Misc Functions</th>
@@ -194,14 +213,13 @@ x_class_mail <span class="hljs-keyword">object</span> needed <span class="hljs-k
 All Sender <span class="hljs-keyword">and</span> Receiver information will be <span class="hljs-keyword">array</span>(mail, <span class="hljs-keyword">name</span>)
 
 
-<div style="max-width: 500px;text-align: left; background: 161616;">✔️ Tested<br />
-✔️ Productive - Ready<br />
+<div style="max-width: 500px;text-align: left; background: 161616;">
 ⚠️ Does use MySQL (x_class_mysqli object) (for logging)<br />
 ⚠️ Tables will be automatically installed<br />
 
 <br /></div>
-<h2 id="x_class_mail_template-mastered-">How to use x_class_mail_item?</h2>
-<table>
+<h2 id="x_class_mail_template-mastered-">Class Functions</h2>
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Construct Function</th>
@@ -215,8 +233,8 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
+
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Setup Function</th>
@@ -286,8 +304,8 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 </tr>
 </tbody>
 </table>
-<hr>
-<table>
+
+<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Send Function</th>
@@ -303,59 +321,83 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 </table>
 
 <h2 id="x_class_mastered-">Example Implementation</h2>
-<textarea style="max-width: 100%; min-width: 100%; width: 100%; background: black; color: yellow;height: 400px; resize-x: none;" readonly>
-// Include the PHPMailer library and create an instance of x_class_mail
-require 'path/to/PHPMailer.php';
-require 'path/to/Exception.php';
-require 'path/to/x_class_mail.php';
+<code class="json hljs">
+// Include the PHPMailer library and create an instance of x_class_mail<br />
+require 'path/to/PHPMailer.php';<br />
+require 'path/to/Exception.php';<br />
+require 'path/to/x_class_mail.php';<br />
+<br />
+$mail = new x_class_mail('your_smtp_server.com', 587, 'tls', 'your_username', 'your_password', 'your_email@example.com', 'Your Name');<br />
+<br />
+// Set additional configurations (optional)<br />
+$mail->charset('UTF-8');<br />
+$mail->encoding('base64');<br />
+$mail->allow_insecure_ssl_connections(false);<br />
+$mail->smtpdebuglevel(0);<br />
+$mail->all_default_html(false);<br />
+$mail->change_default_template('', ''); // You can specify custom header and footer here<br />
+$mail->initReplyTo('reply@example.com', 'Reply Name');<br />
+$mail->test_mode(false);<br />
+<br />
+// Create an instance of x_class_mail_item for easier email configuration<br />
+$email = $mail->object();<br />
+<br />
+// Add recipients<br />
+$email->add_receiver('recipient1@example.com', 'Recipient 1');<br />
+$email->add_receiver('recipient2@example.com', 'Recipient 2');<br />
+<br />
+// Add CC and BCC recipients (optional)<br />
+$email->add_cc('cc@example.com', 'CC Recipient');<br />
+$email->add_bcc('bcc@example.com', 'BCC Recipient');<br />
+<br />
+// Add attachments (optional)<br />
+$email->add_attachment('path/to/attachment1.pdf', 'Attachment 1');<br />
+$email->add_attachment('path/to/attachment2.jpg', 'Attachment 2');<br />
+<br />
+// Set additional settings (optional)<br />
+$email->add_setting('header', 'Custom Header');<br />
+$email->add_setting('footer', 'Custom Footer');<br />
+<br />
+// Send the email<br />
+$subject = 'Your Subject';<br />
+$content = 'Email content goes here. You can use HTML if HTML mode is enabled.';<br />
+if ($email->send($subject, $content)) {<br />
+    echo 'Email sent successfully!';<br />
+} else {<br />
+    echo 'Email sending failed. Error: ' . $mail->last_info();<br />
+}<br />
+</code>
 
-$mail = new x_class_mail('your_smtp_server.com', 587, 'tls', 'your_username', 'your_password', 'your_email@example.com', 'Your Name');
-
-// Set additional configurations (optional)
-$mail->charset('UTF-8');
-$mail->encoding('base64');
-$mail->allow_insecure_ssl_connections(false);
-$mail->smtpdebuglevel(0);
-$mail->all_default_html(false);
-$mail->change_default_template('', ''); // You can specify custom header and footer here
-$mail->initReplyTo('reply@example.com', 'Reply Name');
-$mail->test_mode(false);
-
-// Create an instance of x_class_mail_item for easier email configuration
-$email = $mail->object();
-
-// Add recipients
-$email->add_receiver('recipient1@example.com', 'Recipient 1');
-$email->add_receiver('recipient2@example.com', 'Recipient 2');
-
-// Add CC and BCC recipients (optional)
-$email->add_cc('cc@example.com', 'CC Recipient');
-$email->add_bcc('bcc@example.com', 'BCC Recipient');
-
-// Add attachments (optional)
-$email->add_attachment('path/to/attachment1.pdf', 'Attachment 1');
-$email->add_attachment('path/to/attachment2.jpg', 'Attachment 2');
-
-// Set additional settings (optional)
-$email->add_setting('header', 'Custom Header');
-$email->add_setting('footer', 'Custom Footer');
-
-// Send the email
-$subject = 'Your Subject';
-$content = 'Email content goes here. You can use HTML if HTML mode is enabled.';
-if ($email->send($subject, $content)) {
-    echo 'Email sent successfully!';
-} else {
-    echo 'Email sending failed. Error: ' . $mail->last_info();
-}
-</textarea>
+<br />
 
 
-<h2 id="x_class_mail_phpmailer-mastered-">x_class_mail_phpmailer </h2>
+
+
+					</section><section class="docs-section" id="item-1-2">
+						<h2 class="section-heading">How to get support?</h2>
+						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
+						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
+						<a href="https://forum.bugfish.eu/" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
+					</section><!--//section-->	
+					<section class="docs-section" id="item-1-3">
+						<h2 class="section-heading">License Informations</h2>
+						<h4>License Informations of this Class</h4>
+		<code class="hljs">Copyright 2022 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)<br />
+		This Product is running with MIT LICENSE<br /><br />
+
+		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br /><br />
+
+		The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br /><br />
+
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code>
+
+
+<br />
+<br /><br /><h4>License Informations of x_class_phpmailer</h4>
 This <span class="hljs-keyword">is</span> the PHPMailer <span class="hljs-keyword">class</span> needed <span class="hljs-keyword">for</span> x<span class="hljs-number">_</span><span class="hljs-keyword">class</span><span class="hljs-number">_m</span>ail <span class="hljs-keyword">class</span>!
 
 <br /><br />
-<div style="text-align:left;">
+
  PHPMAILER CLASS HAS BEEN USED FOR THIS CLASS.<br />
  PHPMailer - PHP email creation and transport <span class="hljs-keyword">class</span>.<br />
  PHP Version <span class="hljs-number">5.5</span>.<br />
@@ -371,11 +413,24 @@ This <span class="hljs-keyword">is</span> the PHPMailer <span class="hljs-keywor
   <span class="hljs-meta">@note</span>      This program <span class="hljs-keyword">is</span> distributed <span class="hljs-keyword">in</span> the hope that it will be useful - WITHOUT<br />
  ANY WARRANTY; without even the implied warranty <span class="hljs-keyword">of</span> MERCHANTABILITY or<br />
  FITNESS FOR A PARTICULAR PURPOSE.<br />
-</div></div>
-
-
-				
-    </div>
-    
-  </body>
-</html>
+						
+						<br /><br /><h4>License Informations of this Github Page</h4>
+				       <p> <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+			            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank" rel="noopener">Xiaoying Riley</a> for developers <br/>(And modified by <a href="https://www.bugfish.eu" target="_blank" rel="noopener">bugfish</a>)<br />You are only allowed to use this template if you include this attribution!</small></p>					
+					</section><!--//section-->		
+			    </article><!--//docs-article-->
+			</div> <!--//docs-container--> 
+		</div><!--//docs-content-->   
+    </div><!--//docs-wrapper-->       
+    <!-- Javascript -->          
+    <script src="../assets/plugins/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    <!-- Page Specific JS -->
+    <script src="../assets/plugins/smoothscroll.min.js"></script>
+    <script src="../assets/js/highlight.min.js"></script>
+    <script src="../assets/js/highlight-custom.js"></script> 
+    <script src="../assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="../assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="../assets/js/docs.js"></script> 
+</body>
+</html> 

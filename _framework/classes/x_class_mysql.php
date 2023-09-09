@@ -111,6 +111,7 @@
 			private $logfile_messages = false; 
 			public function logfile_messages($bool = false) { $this->logfile_messages = $bool; }				
 			public function log_disable() { $this->logging_active = false; }
+			public function log_status() { return $this->logging_active; } 
 			public function log_enable() { if($this->logging_table) { $this->logging_active = true; } }
 			private function log_con() { return new x_class_mysql($this->auth_host, $this->auth_user, $this->auth_pass, $this->auth_db); }	
 				private $logging_active = false;
@@ -216,12 +217,12 @@
 			  |    |   / __ \| \_\ \  |_\  ___/ \___ \ 
 			  |____|  (____  /___  /____/\___  >____  >
 						   \/    \/          \/     \/  */
-		public function table_exists($tablename){ $bind[0]["value"] = $tablename; $bind[0]["type"] = "s";
-										return $this->query("SELECT 1 FROM ? LIMIT 1;", $bind); } 
+		public function table_exists($tablename){$x = $this->log_status(); $this->log_disable();  $bind[0]["value"] = $tablename; $bind[0]["type"] = "s";
+										$y =  $this->query("SELECT 1 FROM `".$tablename."` LIMIT 1;"); if($x) {$this->log_enable();} return $y;} 
 		public function table_delete($tablename){ $bind[0]["value"] = $tablename; $bind[0]["type"] = "s"; 
-										return $this->query('DROP TABLE ?', $bind); }										
+										return $this->query('DROP TABLE `'.$tablename.'`'); }										
 		public function table_create($tablename){ $bind[0]["value"] = $tablename; $bind[0]["type"] = "s";
-										return $this->update('CREATE TABLE ?', $bind); }										
+										return $this->update('CREATE TABLE `".$tablename."`'); }										
 		public function auto_increment($table, $value){ $bind[0]["value"] = $table; $bind[0]["type"] = "s"; 
 														$bind[1]["value"] = $value; $bind[1]["type"] = "i";
 										return $this->query('ALTER TABLE ?'. " AUTO_INCREMENT = ?"); }
