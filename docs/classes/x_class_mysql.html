@@ -22,8 +22,8 @@
     <script src="../assets/js/jquery.scrollto.js"></script>
     <script src="../assets/js/jquery.finder.js"></script>
 	<!-- Descriptions -->
-    <title>PHP MySQL Class - BugfishDocs</title>
-	<meta property="og:title" content="PHP MySQL Class - BugfishDocs"/>
+    <title>PHP MySQL Class - Bugfish Documentations</title>
+	<meta property="og:title" content="PHP MySQL Class - Bugfish Documentations"/>
 	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_mysql! Here you can fing the github url to the project and different explanation about the classes and functions! We wish you the best!">
 </head> 
 <body class="docs-page" data-finder-wrapper>    
@@ -36,7 +36,7 @@
 	                    <span></span>
 	                    <span></span>
 	                </button>
-	                <div class="site-logo"><a class="navbar-brand" href="https://bugfishtm.github.io"><img class="logo-icon me-2" src="../assets/logo.png" alt="logo" width="25"><span class="logo-text">Bugfish<span class="text-alt">Docs</span></span></a></div>    
+	                <div class="site-logo"><a class="navbar-brand" href="https://bugfishtm.github.io"><img class="logo-icon me-2" src="../assets/logo.png" alt="logo" width="25"><span class="logo-text">Bugfish <span class="text-alt">Documentations</span></span></a></div>    
                 </div><!--//docs-logo-wrapper-->
 	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
 	            </div><!--//docs-top-utilities-->
@@ -49,8 +49,9 @@
 			    <ul class="section-items list-unstyled nav flex-column pb-3">
 				    <li class="nav-item section-title"><a class="nav-link" href="../index.html"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-left"></i></span>Back</a></li>
 				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>PHP MySQL Class</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Documentation</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2" target="_blank">How to get support?</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">x_class_mysql</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1-1">x_class_mysql_item</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2" target="_blank">Support</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3" target="_blank">License</a></li>
 					<!-- Impressum and Bugfish Link -->
 				    <li class="nav-item section-title mt-3"><a class="nav-link"><span class="theme-icon-holder me-2"><i class="fas fa-link"></i></span>Links</a></li>
@@ -73,10 +74,8 @@
 				    </header>	
 	
 			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
-				<h2>Documentation</h2>
+				<h2>x_class_mysql</h2>
 	<p style="text-align: left;">The "x_class_mysql" class is a versatile component of the Bugfish Framework designed for efficient handling of MySQL databases. It offers a wide array of functions for database connection, querying, error management, logging, benchmarking, table, and database administration, as well as transaction control. It simplifies complex MySQL operations and provides developers with a powerful toolset for managing MySQL databases effectively.</p>				
-	✔️ Tested<br />
-	✔️ Productive - Ready<br />
 
 	⚠️ Does use MySQL (x_class_mysqli object)<br />
 	⚠️ Tables will be automatically installed (logging)<br />
@@ -454,16 +453,69 @@
 	</tr>
 	</tbody>
 	</table>
+</section><section class="docs-section" id="item-1-1-1">
+	<h2>x_class_mysql_item</h2>
+	<p style="text-align: left;">The x_class_mysql_item class in PHP facilitates the management of individual database items. It offers methods for retrieving item fields, updating item data, deleting items, and cloning items with different identifiers.</p>				
+
+	⚠️ Does use MySQL (x_class_mysqli object)<br />
+	⚠️ PHP MySQLi Module needed<br />
+	<br />
+
+<table class="table table-bordered table-dark">
+	<thead>
+    <tr>
+        <th>Function Name</th>
+        <th>Description</th>
+        <th>Parameters</th>
+    </tr>
+	</thead>
+	<tbody>
+    <tr>
+        <td>`__construct`</td>
+        <td>Initializes an instance of the class.</td>
+        <td>- `$mysql`: An instance of the MySQL database connection. &lt;br&gt; - `$tablename`: The name of the MySQL table associated with the item. &lt;br&gt; - `$id`: The unique identifier of the item. &lt;br&gt; - `$id_field` (optional): The name of the field that stores item identifiers (defaults to &quot;id&quot;).</td>
+    </tr>
+    <tr>
+        <td>`get`</td>
+        <td>Retrieves a specific field&#39;s value for the current item.</td>
+        <td>- `$field`: The name of the field to retrieve.</td>
+    </tr>
+    <tr>
+        <td>`get_array`</td>
+        <td>Retrieves an array representing the current item.</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>`update`</td>
+        <td>Updates a specific field&#39;s value for the current item.</td>
+        <td>- `$field`: The name of the field to update. &lt;br&gt; - `$value`: The new value for the field.</td>
+    </tr>
+    <tr>
+        <td>`update_null`</td>
+        <td>Updates a specific field to NULL for the current item.</td>
+        <td>- `$field`: The name of the field to update to NULL.</td>
+    </tr>
+    <tr>
+        <td>`delete`</td>
+        <td>Deletes the current item from the associated table.</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>`clone`</td>
+        <td>Creates a clone of the current item with a different ID.</td>
+        <td>- `$id`: The new ID for the cloned item.</td>
+    </tr>
+	</tbody>
+</table>	
 
 
+	
 
-				
-
-					</section><section class="docs-section" id="item-1-2">
+</section><section class="docs-section" id="item-1-2">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
-						<a href="https://forum.bugfish.eu/" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
+						<a href="https://bugfish.eu/forum" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
 					</section><!--//section-->	
 					<section class="docs-section" id="item-1-3">
 						<h2 class="section-heading">License Informations</h2>

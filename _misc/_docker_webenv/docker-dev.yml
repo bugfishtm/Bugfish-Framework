@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  devdocker:
+    build: .
+    volumes:
+      - ./_source/:/var/www/html
+      - ./_vhost/:/etc/apache2/conf-available
+    ports:
+      - 280:80
+    environment:
+      db_hosts: "devdockerdb"
+      db_user: "${db_user}"
+      db_pass: "${db_pass}"
+      db_name: "${db_name}"
+      db_root_pass: "${db_root_pass}"
+    depends_on:
+      - devdockerdb
+    profiles:
+      - dev
+      
+  devdockerdb:
+    image: mysql
+    ports:
+      - 23306:3306
+    volumes:
+      - devdockerdb_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: "${db_name}"
+      MYSQL_ROOT_PASSWORD: "${db_root_pass}"
+      MYSQL_USER: "${db_user}"
+      MYSQL_PASSWORD: "${db_pass}"
+    profiles:
+      - dev
+
+volumes:
+  devdockerdb_data:
