@@ -53,17 +53,19 @@
 			public $auth_pass	= false; 
 			public $auth_host	= false; 
 			public $auth_db = false;
+			public $auth_port = 3306;
 		/********************** Construct Connection ****/	
-		function __construct($hostname, $username, $password, $database) {
+		function __construct($hostname, $username, $password, $database, $port = 3306) {
 			$this->auth_user = $username;
 			$this->auth_pass = $password;
 			$this->auth_host = $hostname;
 			$this->auth_db = $database;
-			try { $this->mysqlcon = @mysqli_connect($hostname, $username, $password, $database); 
+			$this->auth_port = $port;
+			try { $this->mysqlcon = @mysqli_connect($hostname, $username, $password, $database, $port); 
 				   if(@mysqli_connect_errno()) { $this->lasterror  =  @mysqli_connect_error(); } else { $this->lasterror = false; }
 			} catch (Exception $e){ $this->lasterror = $e; } }			
 		/**************** Internal Function to get Class Copy */
-		public function construct() { return new x_class_mysql($this->auth_host, $this->auth_user, $this->auth_pass, $this->auth_db); }			
+		public function construct() { return new x_class_mysql($this->auth_host, $this->auth_user, $this->auth_pass, $this->auth_db, $this->auth_port); }			
 		/**************** Internal Function to get Class Copy */
 		public function construct_copy() { return $this; }			
 		/********************** Get Connection Status (ping alias) ****/	
@@ -113,7 +115,7 @@
 			public function log_disable() { $this->logging_active = false; }
 			public function log_status() { return $this->logging_active; } 
 			public function log_enable() { if($this->logging_table) { $this->logging_active = true; } }
-			private function log_con() { return new x_class_mysql($this->auth_host, $this->auth_user, $this->auth_pass, $this->auth_db); }	
+			private function log_con() { return new x_class_mysql($this->auth_host, $this->auth_user, $this->auth_pass, $this->auth_db, $this->auth_port); }	
 				private $logging_active = false;
 				private $logging_table = false;
 				private $logging_section = "";

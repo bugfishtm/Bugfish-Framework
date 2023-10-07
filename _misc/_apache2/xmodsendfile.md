@@ -1,2 +1,2 @@
-XSendFile on
+XSendFile on  
 XSendFilePath /PATH

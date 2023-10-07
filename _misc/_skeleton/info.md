@@ -1,0 +1,1 @@
+This is a template folder with initial files to fast deploy a complex php webpage with the help of the bugfish framework functions. It is meant to be a prototype for a later following CMS, which will be full documented. This page is not documented.

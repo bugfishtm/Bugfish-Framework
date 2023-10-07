@@ -178,16 +178,26 @@
 			return false;
 		}		
 
+		// Form new CSRF
+		public function form_start($precookie = "") {
+			$_SESSION[$precookie."x_class_var"] = mt_rand(10000000, 90000000);
+			if(!is_numeric(@$_SESSION[$precookie."x_class_var_csrf"])) { $_SESSION[$precookie."x_class_var_csrf"] = mt_rand(10000000, 90000000); }
+		}
+		public function form_end($precookie = "") {
+			$_SESSION[$precookie."x_class_var_csrf"] = $_SESSION[$precookie."x_class_var"];
+		}
+		
+		
 		// Setup Int
 		public function form($varname, $type = "int", $selectarray = array(), $precookie = "", $button_class="btn btn-warning waves-effect waves-light", $itemclass = "form-control", $editbuttonname = "Edit") {	
 			$outputform = 0;
 			if(!$this->exists($varname)) { return "error-var-not-found";}
-			if(!isset($_SESSION[$precookie."x_class_var"])) {$_SESSION[$precookie."x_class_var"] = mt_rand(1000, 999999); }
+			if(!isset($_SESSION[$precookie."x_class_var"])) {$_SESSION[$precookie."x_class_var"] = mt_rand(10000000, 90000000); }
 			$tmp_var = $this->get_full($varname);
 			$varnamenew = $precookie."x_class_var_submit_".$tmp_var[$this->db_r_c_id];
 			$varnamenews = $precookie."x_class_var_submit_val".$tmp_var[$this->db_r_c_id];
 			if(isset($_POST[$varnamenew])) {
-				if($_POST[$precookie."x_class_var_csrf"] == $_SESSION[$precookie."x_class_var"]) {
+				if($_POST[$precookie."x_class_var_csrf"] == $_SESSION[$precookie."x_class_var_csrf"]) {
 					$finalvalue = false;
 					switch($type) {
 						case "int": $finalvalue = @$_POST[$varnamenews]; break;	
@@ -196,17 +206,19 @@
 						case "select": $finalvalue = @$_POST[$varnamenews]; break;		
 						//case "bool": if(@$_POST[$varnamenews]) {$finalvalue =1;} else {$finalvalue =0;}  break;		
 					} 		
-					if($this->set($varname, $finalvalue, false, true, true)) {
-						$text = "<b><font color='lime'>Changed successfully!</font></b>";
-					} else {$text = "<b><font color='red'>Could not be changed!</font></b>";}	
-				} else { $text = "<b><font color='red'>CSRF Error Try Again!</font></b>"; }
+					if(@$_POST[$varnamenews] != $tmp_var[$this->db_r_c_value]) {
+						if($this->set($varname, $finalvalue, false, true, true)) {
+							$text = "<div class='x_class_var_change_ok'>Changed successfully!</div>";
+						} else {$text = "<div class='x_class_var_change_fail'>Could not be changed!</div>";}	
+					} else {$text = "<div class='x_class_var_change_ok'>Changed successfully!</div>";}	
+				} else { $text = "<div class='x_class_var_change_fail'>CSRF Error Try Again!</div>"; }
 			} $current = $this->get_full($varname);  ?>
 			<section id="<?php echo $precookie; ?>x_class_var_anchor_<?php echo $current[$this->db_r_c_id]; ?>"></section><br />
 			<div class="x_class_var" >
 				<form method="post" action="#<?php echo $precookie; ?>x_class_var_anchor_<?php echo $current[$this->db_r_c_id]; ?>">
-					<?php if(is_string($current[$this->db_r_c_title])) { echo "<b>".$current[$this->db_r_c_title]."</b>"; echo "<br />"; } ?>
-					<?php if(is_string($current[$this->db_r_c_descr])) { echo $current[$this->db_r_c_descr]; echo "<br />"; } ?>
-					<?php if(is_string(@$text) AND strlen(@$text) > 5) { echo @$text; echo "<br />"; } ?>
+					<?php if(is_string($current[$this->db_r_c_title])) { echo "<div class='x_class_var_setup_title'>".$current[$this->db_r_c_title].""; echo "</div>"; } ?>
+					<?php if(is_string($current[$this->db_r_c_descr])) { echo "<div class='x_class_var_setup_descr'>".$current[$this->db_r_c_descr]; echo "</div>"; } ?>
+					<?php if(is_string(@$text) AND strlen(@$text) > 5) { echo @$text; echo ""; } ?>
 						<!-- Int -->
 						<?php if($type == "int") { ?> <input class="<?php echo $itemclass; ?>"  type="number" value="<?php if(is_array($current)) { echo @htmlentities($current[$this->db_r_c_value]); } ?>" name="<?php echo $varnamenews; ?>"><br /><?php } ?>				
 						<!-- String -->

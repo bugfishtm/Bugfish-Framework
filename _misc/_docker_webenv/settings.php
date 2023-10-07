@@ -15,11 +15,10 @@
 		 _/ /  | |/|/ / (_-</ _ \  / // / _ \/ // / / __/ _ \/ -_) / _ \/ -_|_-</ __/_/ 
 		/___/  |__,__/_/___/_//_/  \_, /\___/\_,_/  \__/_//_/\__/ /_.__/\__/___/\__(_)  
 								  /___/                           
-		Bugfish Framework - Skeleton / MIT License
-		// Autor: Jan-Maurice Dahlmanns (Bugfish)
-		// Website: www.bugfish.eu 
-
-		// Example Configuration File to Connect to Docker DB via PHP
+		Bugfish Framework - Docker Web Environment / MIT License
+		Autor: Jan-Maurice Dahlmanns (Bugfish)
+		Website: www.bugfish.eu 
+		File: Example Configuration File to Connect to Docker DB via PHP
 	*/
 	$object["path"]	= "/var/www/html/"; 		// Path to Document Root
 	$mysql["host"]	= "devdockerdb"; 			// Database Host

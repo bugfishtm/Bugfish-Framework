@@ -56,6 +56,8 @@
 								  `description` text NULL COMMENT 'Template Description',
 								  `content` text DEFAULT NULL COMMENT 'Template Content',
 								  `section` VARCHAR(128) DEFAULT NULL COMMENT 'Related Section',
+								  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation',
+								  `modification` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification | Auto - Set',
 								  PRIMARY KEY (`id`),
 								  UNIQUE KEY `Unique` (`name`, `section`));");}
 
@@ -122,6 +124,68 @@
 				$bind[2]["value"] = $description;
 				$bind[2]["type"] = "s";
 				$this->mysql->query("INSERT IGNORE INTO `".$this->table."` (name, subject, content, description, section) VALUES('".$name."', ?, ?, ?,'".$this->section."');", $bind);
+				return $this->mysql->insert_id;
+			}			
+		}
+		
+		// Setup new Mail template 
+		public function change($id, $name, $subject, $content, $description = "") {
+			if(!is_numeric($id)) { return false; }
+			$ar = $this->mysql->select("SELECT * FROM `".$this->table."` WHERE id = '".$id."' AND section = '".$this->section."'", false);
+			if(is_array($ar)) {
+				$bind[0]["value"] = $subject;
+				$bind[0]["type"] = "s";
+				$bind[1]["value"] = $content;
+				$bind[1]["type"] = "s";
+				$bind[2]["value"] = $description;
+				$bind[2]["type"] = "s";
+				$this->mysql->query("UPDATE `".$this->table."` SET name = '".$name."', subject = ?, content = ?, description = ? WHERE id = '".$id."' AND section = '".$this->section."'", $bind);
+			}		
+		}
+		
+		public function name_exists($name) {
+			$bind[0]["value"] = $name;
+			$bind[0]["type"] = "s";
+			$ar = $this->mysql->select("SELECT * FROM `".$this->table."` WHERE name = ? AND section = '".$this->section."'", false, $bind);
+			if(is_array($ar)) {
+				return true;
+			} else { 
+				return false;
+			}			
+		}
+
+		public function get_name_by_id($id) {
+			if(!is_numeric($id)) { return false; }
+			$ar = $this->mysql->select("SELECT * FROM `".$this->table."` WHERE id = '".$id."' AND section = '".$this->section."'", false);
+			if(is_array($ar)) {
+				return $ar["name"];
+			} else { 
+				return false;
+			}			
+		}
+		
+		public function id_exists($id) {
+			if(!is_numeric($id)) { return false; }
+			$ar = $this->mysql->select("SELECT * FROM `".$this->table."` WHERE id = '".$id."' AND section = '".$this->section."'", false);
+			if(is_array($ar)) {
+				return true;
+			} else { 
+				return false;
+			}			
+		}
+		
+		public function id_delete($id) {
+			if(!is_numeric($id)) { return false; }
+			return $this->mysql->query("DELETE FROM `".$this->table."` WHERE id = '".$id."' AND section = '".$this->section."'");
+		}
+		
+		public function get_full($id) {
+			if(!is_numeric($id)) { return false; }
+			$ar = $this->mysql->select("SELECT * FROM `".$this->table."` WHERE id = '".$id."' AND section = '".$this->section."'", false);
+			if(is_array($ar)) {
+				return $ar;
+			} else { 
+				return false;
 			}			
 		}
 	} 
