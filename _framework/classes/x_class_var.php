@@ -231,7 +231,20 @@
 						<!-- Select -->
 						<?php if($type == "select") { ?>
 							<select class="<?php echo $itemclass; ?>"  name="<?php echo $varnamenews; ?>">
-							<option value="<?php echo htmlentities($current[$this->db_r_c_value]); ?>">No Change: <?php echo @htmlentities($current[$this->db_r_c_value]); ?></option>
+							<option value="<?php echo htmlentities($current[$this->db_r_c_value]); ?>"><?php 
+								$nochange = @htmlentities($current[$this->db_r_c_value]);
+								if(is_array($selectarray)) {
+									foreach($selectarray AS $kk => $vv) {
+										if(is_array($vv)) {
+											if($vv[1] == $current[$this->db_r_c_value]) {
+												$nochange = @htmlentities($vv[0]);
+											}
+										}
+									}
+								}
+								echo $nochange; 
+							
+							?></option>
 								<?php
 									 foreach($selectarray AS $key => $value) { if(is_array($value)) {
 										echo '<option value="'.$value[1].'">'.$value[0]."</option>";

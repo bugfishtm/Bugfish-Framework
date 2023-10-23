@@ -63,7 +63,7 @@ class x_class_user {
 	## Public Function References and User Info // References out of Major Functions for further Processing
 	public $ref=false; public $mail_ref_user=false; public $mail_ref_token=false; public $mail_ref_receiver=false;	// References set by Functions
 		private function internal_ref_reset(){$this->ref=array();$this->mail_ref_user=false;$this->mail_ref_token=false; $this->mail_ref_receiver=false;}
-		private function internal_ref_set($array){$this->ref=$array;$this->mail_ref_user=$array["id"];$this->mail_ref_token=@$array["token"];$this->mail_ref_receiver=$array["user_mail"];  }
+		private function internal_ref_set($array){$this->ref=$array;$this->mail_ref_user=@$array["id"];$this->mail_ref_token=@$array["token"];$this->mail_ref_receiver=@$array["user_mail"];  }
 	## General Setup
 	private $multi_login=false; // Multi Login Allowed?
 		public function multi_login($bool = false){$this->multi_login=$bool;} 
@@ -782,6 +782,8 @@ class x_class_user {
 			// Log Activation Token
 			if($this->log_activation) {$this->mysql->query("UPDATE `".$this->dt_keys."` SET is_active = 0 WHERE fk_user = ".$f["fk_user"]." AND key_type = '".$this->key_activation."'");	
 			} else { $this->mysql->query("DELETE FROM `".$this->dt_keys."` WHERE fk_user = ".$f["fk_user"]." AND key_type = '".$this->key_activation."'");}
+			// Get User Data
+			$x  = $this->get($userid);
 			// Set Ref Info
 			$f["token"] 	= $token;
 			$this->internal_ref_set($f);
@@ -790,7 +792,7 @@ class x_class_user {
 			// Confirm the User
 			$this->mysql->query("UPDATE `".$this->dt_users."` SET user_confirmed = 1 WHERE id = '".$userid."'");
 			// Delete the Shadow Mail from users which may have tried to Register that Mail
-			if($this->mail_unique) { $this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = NULL WHERE LOWER(user_shadow) = '".strtolower(trim($f["user_mail"]))."'"); }
+			if($this->mail_unique) { $this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = NULL WHERE LOWER(user_shadow) = '".@strtolower(@trim($x["user_mail"]))."'"); }
 			// Change User Password
 			if($newpass) { $this->changeUserPass($f["fk_user"], $newpass); }
 			// All Okay and Return
@@ -867,8 +869,10 @@ class x_class_user {
 			// Log Activation Token
 			if($this->log_activation) {$this->mysql->query("UPDATE `".$this->dt_keys."` SET is_active = 0 WHERE fk_user = ".$f["fk_user"]." AND key_type = '".$this->key_activation."'");	
 			} else { $this->mysql->query("DELETE FROM `".$this->dt_keys."` WHERE fk_user = ".$f["fk_user"]." AND key_type = '".$this->key_activation."'");}
+			// Get User Data
+			$x  = $this->get($userid);
 			// Delete the Shadow Mail from users which may have tried to Register that Mail
-			if($this->mail_unique) { $this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = NULL WHERE LOWER(user_shadow) = '".strtolower(trim($f["user_mail"]))."'"); }
+			if($this->mail_unique) { $this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = NULL WHERE LOWER(user_shadow) = '".strtolower(trim($x["user_mail"]))."'"); }
 			// Change User Password
 			$this->changeUserPass($f["fk_user"], $newpass);
 			// All Okay

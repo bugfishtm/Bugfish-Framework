@@ -86,6 +86,8 @@
 		public function lastinsert() { return $this->insert_id; }
 		public function insert_id() { return $this->insert_id; }			
 		public function insertid() { return $this->insert_id; }
+		/********************** Inject ****/
+		public function inject($mysqli) { if(is_object($mysqli)) { $this->mysqlcon = $mysqli; return true; } return false; }
 		/*	___.                        .__                          __    
 			\_ |__   ____   ____   ____ |  |__   _____ _____ _______|  | __
 			 | __ \_/ __ \ /    \_/ ___\|  |  \ /     \\__  \\_  __ \  |/ /
@@ -97,7 +99,7 @@
 			if( $this->bm) { return $_SESSION[$this->bmcookie."x_class_mysql"]; } 
 			return false;}		
 		private function benchmark_raise($raise = 1) {if( $this->bm) {  
-			$_SESSION[$this->bmcookie."x_class_mysql"] = $_SESSION[$this->bmcookie."x_class_mysql"] + 1; 
+			$_SESSION[$this->bmcookie."x_class_mysql"] = @$_SESSION[$this->bmcookie."x_class_mysql"] + 1; 
 		} } 
 		public function benchmark_config($bool = false, $preecookie = "") {
 			if (session_status() !== PHP_SESSION_ACTIVE) {@session_start();}
