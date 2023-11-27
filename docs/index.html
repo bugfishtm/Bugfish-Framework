@@ -20,11 +20,34 @@
     <script src="assets/js/jq.3.6.min.js"></script>	
     <script src="assets/js/jquery.highlight.js"></script>
     <script src="assets/js/jquery.scrollto.js"></script>
-    <script src="assets/js/jquery.finder.js"></script>
+    <script src="assets/js/jquery.finder.js"></script><style>.scrolldivy{max-width: 100%;overflow-y:scroll;} .table-bordered a {color: rgb(255, 87, 7) !important;} .table-bordered a:hover {color: white !important;}</style><style>.scrolldivy{max-width: 100%;overflow-y:scroll;}</style>
 	<!-- Descriptions -->
     <title>Bugfish Framework - Bugfish Documentations</title>
 	<meta property="og:title" content="Bugfish Framework - Bugfish Documentations"/>
-	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! Here you can fing the github url to the project and different explanation about the classes and functions! We wish you the best!">
+	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "TechArticle",
+  "headline": "Bugfish Framework",
+  "description": "Welcome to the Github Documentation Page of the Bugfish Framework! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!",
+  "articleSection": "Introduction",
+  "datePublished": "2023-11-03",
+  "dateModified": "2023-11-03",
+  "author": {
+    "@type": "Person",
+    "name": "Jan-Maurice Dahlmanns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bugfish",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.bugfish-github.de/assets/bugfish.png"
+    }
+  }
+}
+</script>
 </head> 
 <body class="docs-page" data-finder-wrapper>    
     <header class="header fixed-top">	    
@@ -77,395 +100,49 @@
 						<a href="https://github.com/bugfishtm/bugfish-framework/archive/refs/heads/master.zip" class="btn btn-primary"  target="_blank"><i class="fas fa-download me-2"></i> Download</a>
 						<a href="https://github.com/bugfishtm/bugfish-framework" class="btn btn-info" target="_blank"><i class="fas fa-link me-2" ></i> Github</a>
 						</section><!--//docs-intro-->
-				    </header>
-				    <section class="docs-section" id="item-1-1">
+				    </header><br /><hr>
+				    <section class="docs-section" id="item-1-1" style="border-bottom: none;">
 					<h2>Informations</h2>
- With Bugfish, you'll have the tools you need to create web applications that not only deliver wide-ranging functionality but also prioritize the highest standards of security, all while maintaining the flexibility to adapt to your unique project requirements. Join the Bugfish PHP Framework community and unlock the full potential of your web development endeavors.<br /><br />Introducing the Bugfish PHP Framework: a powerful toolkit of classes and functions that not only offers extensive functionality, flexibility, and security but also provides a significant speed advantage, ensuring your web applications perform at their best.<br /><br />  I wish you the best.<br /><font size="-1">Bugfish (Jan-Maurice Dahlmanns)</font> 
-	</section> <section class="docs-section" id="item-1-2">
-<h2 id="x_library-mastered-">PHP Functions</h2>
-<p style="text-align: left;">Embark on a journey through an indispensable collection of PHP functions meticulously crafted for seamless integration across a multitude of projects. Witness firsthand how these functions expedite and refine coding processes within web development. Comprehensive documentation for each function is presented in the following list. To seamlessly incorporate these functions, the PHP files can be effortlessly included within the designated _functions subfolder nestled within the overarching _framework folder. This strategic approach not only optimizes coding efficiency but also transforms the landscape of web project performance.</p>
-<p>Presenting our professional PHP Function Library, a valuable resource brimming with functions tailored for swift website deployment and efficiency. Explore the comprehensive collection within our framework's /framework/functions/x_* directory to streamline your development process and enhance your website's performance.</p>
-<h3>Thumbnail Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Thumbnail Function Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_thumbnail</code></td>
-<td>This function creates a thumbnail image from a URL and saves it to a file. It takes the following parameters:</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$url</code>: The URL of the image to create a thumbnail from.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$filename</code>: The filename for the saved thumbnail.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$width</code>: The width of the thumbnail.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$height</code>: The height of the thumbnail (or <code>true</code> to maintain aspect ratio).</td>
-</tr>
-<tr>
-<td><code>x_thumbnail_save</code></td>
-<td>This function creates a thumbnail image from a URL and optionally saves it to a file. It takes the following parameters:</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$url</code>: The URL of the image to create a thumbnail from.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$save_path</code>: An optional path to save the thumbnail file.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$width</code>: The width of the thumbnail.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$height</code>: The height of the thumbnail (or <code>true</code> to maintain aspect ratio).</td>
-</tr>
-</tbody>
-</table>
-<h3>Library Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Library Function Name</th>
-<th>Description</th>
-<th>Parameter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_firstimagetext</code></td>
-<td>Get First image out of "a" tag from Text String</td>
-<td>- <code>$text</code>: Input text containing HTML.<br> - <code>$all</code>: Whether to return all image tags or just the first one. Parses HTML text to extract image tags and returns either the first image tag or all of them, depending on the <code>$all</code> parameter.</td>
-</tr>
-<tr>
-<td><code>x_connection_check</code></td>
-<td>Check a connection with fsockopen</td>
-<td>- <code>$host</code>: Hostname or IP address to check the connection to.<br> - <code>$port</code>: Port number to check.<br> - <code>$timeout</code>: Timeout duration in seconds. Checks if a connection can be established to the specified host and port within the given timeout. Returns <code>true</code> if successful, <code>false</code> otherwise.</td>
-</tr>
-<tr>
-<td><code>x_inCLI</code></td>
-<td>Check if current script execution is handled via CGI and not in Web Browser</td>
-<td>Checks if the script is running in a Command Line Interface (CLI) environment and returns <code>true</code> if it is, <code>false</code> otherwise.</td>
-</tr>
-<tr>
-<td><code>x_rmdir</code></td>
-<td>Recursively delete a folder</td>
-<td>- <code>$dir</code>: Directory path to be deleted recursively. Recursively deletes all files and subdirectories within the specified directory.</td>
-</tr>
-<tr>
-<td><code>x_html_redirect</code></td>
-<td>Spawn HTML Redirect Meta Tag for simple HTML Redirects</td>
-<td>- <code>$url</code>: URL to redirect to.<br> - <code>$seconds</code>: Number of seconds before the redirection occurs. Generates an HTML meta tag for redirection to the specified URL after the specified number of seconds.</td>
-</tr>
-</tbody>
-</table>
-<h3>Validation Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Validation Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_isset</code></td>
-<td>This function checks if a value is not null and has a length greater than 1.</td>
-</tr>
-<tr>
-<td><code>x_imgValid</code></td>
-<td>This function checks if a given string represents a valid image URL.</td>
-</tr>
-<tr>
-<td><code>x_contains_cyrillic</code></td>
-<td>This function checks if a string contains Cyrillic characters.</td>
-</tr>
-<tr>
-<td><code>x_contains_bad_word</code></td>
-<td>This function checks if a string contains bad words based on a filter.</td>
-</tr>
-<tr>
-<td><code>x_contains_url</code></td>
-<td>This function checks if a string contains a URL.</td>
-</tr>
-<tr>
-<td><code>x_hsc</code></td>
-<td>This function is a simple replacement for <code>htmlspecialchars</code>.</td>
-</tr>
-<tr>
-<td><code>x_getint</code></td>
-<td>This function retrieves a GET value as an integer if it is numeric.</td>
-</tr>
-<tr>
-<td><code>x_postint</code></td>
-<td>This function retrieves a POST value as an integer if it is numeric.</td>
-</tr>
-<tr>
-<td><code>x_get</code></td>
-<td>This function retrieves a GET value.</td>
-</tr>
-<tr>
-<td><code>x_post</code></td>
-<td>This function retrieves a POST value.</td>
-</tr>
-<tr>
-<td><code>x_datediff_before</code></td>
-<td>This function checks if one date is a certain length of time before another date.</td>
-</tr>
-</tbody>
-</table>
-<h3>Button Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Button Functions</th>
-<th>Description</th>
-<th>Parameter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_executionButton</code></td>
-<td>Spawn a button able to make SQL Query on Execution</td>
-<td>- <code>$db</code>: Database connection object.<br> - <code>$name</code>: Button name.<br> - <code>$url</code>: URL to execute the action.<br> - <code>$query</code>: SQL query to execute.<br> - <code>$get</code>: GET parameter to trigger the action.<br> - <code>$msgerr</code>: Error message.<br> - <code>$msgok</code>: Success message.<br> - <code>$break</code>: Whether to add a line break after the button.<br> - <code>$style</code>: CSS style for the button.</td>
-</tr>
-<tr>
-<td><code>x_button</code></td>
-<td>Spawn a simple Button</td>
-<td>- <code>$name</code>: Button name.<br> - <code>$url</code>: URL to navigate to.<br> - <code>$break</code>: Whether to add a line break after the button.<br> - <code>$style</code>: CSS style for the button.<br> - <code>$reacttourl</code>: Whether to style the button differently if it matches the current URL.</td>
-</tr>
-</tbody>
-</table>
-<h3>Eventbox Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>EventBox Functions</th>
-<th>Description</th>
-<th>Parameter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_eventBoxPrep</code></td>
-<td>Save text in session to be displayed in eventboxshow function!</td>
-<td>- <code>$text</code>: Text to display in the event box.<br> - <code>$type</code>: Type of event box (ok, warning, error, etc.).<br> - <code>$precookie</code>: Session variable name for storing event box content.<br> - <code>$morecss</code>: Additional CSS styles for the event box.<br> - <code>$buttontext</code>: Text for the close button.<br> - <code>$imgok</code>, <code>$imgfail</code>, <code>$imgwarn</code>, <code>$imgelse</code>: Optional images to display in the event box.</td>
-</tr>
-<tr>
-<td><code>x_eventBoxShow</code></td>
-<td>Show the Eventbox at the end of an HTML Page</td>
-<td>- <code>$precookie</code>: Session variable name for event box content. Displays the event box content and clears the session variable.</td>
-</tr>
-<tr>
-<td><code>x_eventBoxSet</code></td>
-<td>Check if eventBoxPrep function has been triggered in code before...</td>
-<td>- <code>$precookie</code>: Session variable name for event box content. Checks if the event box content is set in the session.</td>
-</tr>
-<tr>
-<td><code>x_eventBoxSkip</code></td>
-<td>Skip next eventboxShow execution. (usefull to show eventbox after redirects with html)</td>
-<td>- <code>$precookie</code>: Session variable name for event box content. Sets a flag to skip displaying the event box.</td>
-</tr>
-</tbody>
-</table>
-<h3>Cookie Banner Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>CookieBanner Functions</th>
-<th>Description</th>
-<th>Parameter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_cookieBanner_Pre</code></td>
-<td>Put this before header to make Cookie Banner submitable via Post</td>
-<td>- <code>$precookie</code>: Session variable name for tracking if the cookie banner has been accepted.<br> - <code>$redirect</code>: Whether to redirect after accepting the cookie banner.</td>
-</tr>
-<tr>
-<td><code>x_cookieBanner</code></td>
-<td>Spawn a simple Cookie Banner!</td>
-<td>- <code>$precookie</code>: Session variable name for tracking if the cookie banner has been accepted.<br> - <code>$use_post</code>: Whether to use POST method for accepting the banner.<br> - <code>$text</code>: Text to display in the cookie banner.<br> - <code>$url_cookies</code>: URL to the cookies policy.</td>
-</tr>
-</tbody>
-</table>
-<h3>RSS Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>RSS Functions</th>
-<th>Description</th>
-<th>Parameter</th>
-<tr>
-<td><code>x_rss_list</code></td>
-<td>Spawn an RSS Feed with URL in a HTML List which can be CSS Desgined, It outputs the RSS Feed entries of given URL in parameters.</td>
-<td>- <code>$urltemp</code>: URL of the RSS feed to parse.<br> - <code>$defaultcover</code>: Default cover image URL for RSS items without images.<br> - <code>$limit</code>: Maximum number of RSS items to display. Parses an RSS feed and displays a list of items with their titles, links, dates, and images.</td>
-</tr>
-<tr>
-<td><code>x_rss_array</code></td>
-<td>Convert URL RSS Feed into PHP useable Array</td>
-<td>- <code>$urltemp</code>: URL of the RSS feed to parse. Parses an RSS feed and returns an array of items with their titles, links, dates, and images.</td>
-</tr>
-</tbody>
-</table>
-<h3>Captcha Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Captcha Functions</th>
-<th>Description</th>
-<th>Parameter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_captcha</code></td>
-<td>Spawn a Captcha Image</td>
-<td>- <code>$preecookie</code>: Session variable name for storing the captcha code.<br> - <code>$width</code>: Width of the captcha image.<br> - <code>$height</code>: Height of the captcha image.<br> - <code>$square_count</code>: Number of squares in the captcha.<br> - <code>$eclipse_count</code>: Number of ellipses in the captcha.<br> - <code>$color_ar</code>: An array of colors for various elements.<br> - <code>$font</code>: Font file for text in the captcha.<br> - <code>$code</code>: The captcha code to display.</td>
-</tr>
-<tr>
-<td><code>x_captcha_key</code></td>
-<td>Gives back the current generated Captcha Code to verify with Form Input of User</td>
-<td>- <code>$preecookie</code>: Session variable name for the captcha code. Returns the captcha code stored in the session.</td>
-</tr>
-</tbody>
-</table>
-<h3>Search Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Search Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_search</code></td>
-<td>This function performs a database search using MySQL. It takes the following parameters:</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$mysql</code>: The MySQL database connection.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$table</code>: The name of the table to search in.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$search_fields</code>: An array of fields to search in.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$get_fields</code>: An array of fields to retrieve in the results.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$search_string</code>: The search string.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$uniqueref</code>: The unique reference field (default is &quot;id&quot;).</td>
-</tr>
-</tbody>
-</table><h3>Table Functions</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Table Functions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x_table_div</code></td>
-<td>This function generates an HTML table from an array of data. It takes the following parameters:</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$array</code>: The array of data to display in the table.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$titlelist</code>: An array of column titles.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$percentarray</code>: An optional array specifying the width of each column as a percentage.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$title</code>: An optional title for the table.</td>
-</tr>
-<tr>
-<td><code>x_table_complex</code></td>
-<td>This function generates a complex HTML table with a search filter form. It takes the following parameters:</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$array</code>: The array of data to display in the table.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$titlelist</code>: An array of column titles.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$formid</code>: An optional form ID for the search filter form.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
-</tr>
-<tr>
-<td><code>x_table_simple</code></td>
-<td>This function generates a simple HTML table from an array of data. It takes the following parameters:</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$array</code>: The array of data to display in the table.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$titlelist</code>: An array of column titles.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$tableid</code>: An optional table ID.</td>
-</tr>
-<tr>
-<td></td>
-<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
-</tr>
-</tbody>
-</table>
-				   	</section> <section class="docs-section" id="item-1-3">
+ With Bugfish, you'll have the tools you need to create web applications that not only deliver wide-ranging functionality but also prioritize the highest standards of security, all while maintaining the flexibility to adapt to your unique project requirements. Join the Bugfish PHP Framework community and unlock the full potential of your web development endeavors.<br /><br /><img src="./bugfish-framework-logo.jpg" style="max-width: 200px;"><br /><br />Introducing the Bugfish PHP Framework: a powerful toolkit of classes and functions that not only offers extensive functionality, flexibility, and security but also provides a significant speed advantage, ensuring your web applications perform at their best.<br /><br /><br />
+	<p>Feel free to support this project, by adding this banner in the project where you are using our framework! </p>
+	<img src="./bugfish-framework-banner.jpg" style="max-width: 200px;"><br /><br />  I wish you the best.<br /><font size="-1">Bugfish (Jan-Maurice Dahlmanns)</font> 
+	</section><hr> <section class="docs-section" id="item-1-2" style="border-bottom: none;">
+			<h2>PHP Functions</h2>
+			<p>Embark on a journey through an indispensable collection of PHP functions meticulously crafted for seamless integration across a multitude of projects. Witness firsthand how these functions expedite and refine coding processes within web development. Comprehensive documentation for each function is presented in the following list. To seamlessly incorporate these functions, the PHP files can be effortlessly included within the designated _functions subfolder nestled within the overarching _framework folder. This strategic approach not only optimizes coding efficiency but also transforms the landscape of web project performance.</p>
+	
+
+		  <table class="table table-bordered table-dark">
+				<tr>
+					<th>Name</th>
+					<th>License</th>
+				</tr>
+				<tr>
+					<td>&#x2705;<a href="./functions/index.html"  rel="noopener">PHP Function Library</a></td>
+					<td>MIT</td>
+				</tr>
+			  </table>
+				   	</section><hr> <section class="docs-section" id="item-1-3" style="border-bottom: none;">
 					<h2>PHP Classes</h2>
-					<p>Discover essential PHP classes that should not be overlooked for their exceptional functionality, time-saving capabilities, and rigorous testing across various websites. These invaluable resources can be found within the /_framework/classes/x_* directory, ensuring a seamless and efficient development experience.<br/><br />Some of the classes need database connection to work. The needed tables will be installed automatically by the classes, if you provide the needed parameters in the configuration functions. Not all these classes do need Mysql, check the different documentations to see requirements and more! If MySQL is needed, please provide a valid x_class_mysql object to the class.</p>
+					<p>Discover essential PHP classes that should not be overlooked for their exceptional functionality, time-saving capabilities, and rigorous testing across various websites. These invaluable resources can be found within the /_framework/classes/x_* directory, ensuring a seamless and efficient development experience.<br/><br />Some of the classes need database connection to work. The needed tables will be installed automatically by the classes, if you provide the needed parameters in the configuration functions. Not all these classes do need Mysql, check the different documentations to see requirements and more! If MySQL is needed, please provide a valid x_class_mysql object to the class.</p><div class="scrolldivy">
 		  <table class="table table-bordered table-dark">
 				<tr>
 					<th>Name</th>
 					<th>Description</th>
 					<th>License</th>
+				</tr><tr>
+					<td>&#x2705;<a href="./classes/x_class_api.html"  rel="noopener">x_class_api</a></td>
+					<td>Facilitates the creation of simple and secure API requests. This class needs PHP Module CURL to work properly. It supports token-authentication on API Requests and more.</td>
+					<td>MIT</td>
+				</tr>
+				<tr>
+					<td>&#x2705;<a href="./classes/x_class_benchmark.html"  rel="noopener">x_class_benchmark</a></td>
+					<td>The x_class_benchmark file lets you benchmark the consumption of ressources for sites on your website. PHP Values which refer to benchmarking related values will be saved in a database per url and overwritten if the url is refreshed to monitor consumption even after changes!</td>
+					<td>MIT</td>
+				</tr>
+				<tr>
+					<td>&#x2705;<a href="./classes/x_class_block.html"  rel="noopener">x_class_block</a></td>
+					<td>Facilitates session-based user counting and block operations. This makes it easy for you to block users our of various areas, in case they are making bad decisions and raising theire counter!</td>
+					<td>MIT</td>
 				</tr>
 				<tr>
 					<td>&#x2705;<a href="./classes/x_class_table.html"  rel="noopener">x_class_table</a></td>
@@ -475,11 +152,6 @@
 				<tr>
 					<td>&#x2705;<a href="./classes/x_class_eventbox.html"  rel="noopener">x_class_eventbox</a></td>
 					<td>The x_class_eventbox PHP class simplifies the display of user notifications and messages on a web page.</td>
-					<td>MIT</td>
-				</tr>
-				<tr>
-					<td>&#x2705;<a href="./classes/x_class_block.html"  rel="noopener">x_class_block</a></td>
-					<td>Facilitates session-based user counting and block operations. This makes it easy for you to block users our of various areas, in case they are making bad decisions and raising theire counter!</td>
 					<td>MIT</td>
 				</tr><tr>
 					<td>&#x2705;<a href="./classes/x_class_comment.html"  rel="noopener">x_class_comment</a></td>
@@ -519,7 +191,7 @@
 					<td>MIT</td>
 				</tr><tr>
 					<td>&#x2705;<a href="./classes/x_class_mail.html"  rel="noopener">x_class_mail</a>
-					<br />&#x2705;<a href="./classes/x_class_mail.html"  rel="noopener">x_class_mail_item</a></td>
+					<br />&#x2705;<a href="./classes/x_class_mail.html#x_class_mail_item_anchor"  rel="noopener">x_class_mail_item</a></td>
 					<td>Handles mail sending operations, with a subclass for sending operation items. This class depends on x_class_phpmailer.</td>
 					<td>LGNU</td>
 				</tr><tr>
@@ -528,7 +200,7 @@
 					<td>MIT</td>
 				</tr><tr>
 					<td>&#x2705;<a href="./classes/x_class_perm.html"  rel="noopener">x_class_perm</a>
-					<br />&#x2705;<a href="./classes/x_class_perm.html"  rel="noopener">x_class_perm_item</a></td>
+					<br />&#x2705;<a href="./classes/x_class_perm.html#x_class_perm_item_anchor"  rel="noopener">x_class_perm_item</a></td>
 					<td>Controls permissions for users, including single-item permission objects. You can control permissions with this and it is storage-saving. 1-n Relation. If you are in search of a permission system and you wont build one on your own, than you have found what you have searched for!</td>
 					<td>MIT</td>
 				</tr><tr>
@@ -557,645 +229,49 @@
 					<td>MIT</td>
 				</tr><tr>
 					<td>&#x2705;<a href="./classes/x_class_mysql.html"  rel="noopener">x_class_mysql</a>
-					<br />&#x2705;<a href="./classes/x_class_mysql.html"  rel="noopener">x_class_mysql_item</a></td>
+					<br />&#x2705;<a href="./classes/x_class_mysql.html#x_class_mysql_item_anchor"  rel="noopener">x_class_mysql_item</a></td>
 					<td>Provides MySQL database handling capabilities, along with additional features. This is another flagship of this framework. Most classes here need an x_class_mysql object to run properly. This class serves a lot in security and Error-Readability. It can make work much easier and has a Database logging system to store error in Statement which may occur and much, much more!</td>
 					<td>MIT</td>
-				</tr><tr>
-					<td>&#x2705;<a href="./classes/x_class_api.html"  rel="noopener">x_class_api</a></td>
-					<td>Facilitates the creation of simple and secure API requests. This class needs PHP Module CURL to work properly. It supports token-authentication on API Requests and more.</td>
+				</tr>
+			  </table></div>
+					
+					
+					
+				   	</section> <hr><section class="docs-section" id="item-1-31" style="border-bottom: none;">
+			<h2>CSS Classes</h2>
+			<p>Introducing the "Bugfish CSS Framework" – your solution for efficient web design. Simplify your development process with our comprehensive collection of pre-built classes, designed to expedite the creation of stunning, responsive web layouts. Say goodbye to coding complexities and hello to a more streamlined design experience. Explore the Bugfish CSS Framework for a faster, professional web design journey.</p>
+	
+
+		  <table class="table table-bordered table-dark">
+				<tr>
+					<th>Name</th>
+					<th>License</th>
+				</tr>
+				<tr>
+					<td>&#x2705;<a href="./css/index.html"  rel="noopener">CSS Classes Library</a></td>
 					<td>MIT</td>
 				</tr>
 			  </table>
-					
-					
-					
-				   	</section> <section class="docs-section" id="item-1-31">
-					<h2>CSS Classes</h2>Introducing the "Bugfish CSS Framework" – your solution for efficient web design. Simplify your development process with our comprehensive collection of pre-built classes, designed to expedite the creation of stunning, responsive web layouts. Say goodbye to coding complexities and hello to a more streamlined design experience. Explore the Bugfish CSS Framework for a faster, professional web design journey.<br /><br />
-<p style="text-align: left;">Introducing a CSS Classes File tailored for swift design implementation. Appending <b>"_f"</b> to a class enhances its importance. This resource encompasses style definitions for XML and HTML classes, expediting and refining styling with precision. To begin, include the required file in the "_css" directory within the framework's folder. Streamline your design process with efficiency and accuracy.</p>
-<div class="alert alert-info" style="color: white;"><b>Add _f to end of a class to make it important!</b></div>
-
-
-<h3 id="installation">Margin Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Padding / Margin Class</th>
-<th>Description</th>
-<th>Possible Values</th>
-<th>Max Value of N</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_nopadding</code></td>
-<td>Removes padding from all sides (sets to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nopaddingtop</code></td>
-<td>Removes padding from the top (sets padding-top to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nopaddingbottom</code></td>
-<td>Removes padding from the bottom (sets padding-bottom to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nopaddingleft</code></td>
-<td>Removes padding from the left (sets padding-left to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nopaddingright</code></td>
-<td>Removes padding from the right (sets padding-right to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_paddingleft{N}px</code></td>
-<td>Sets the left padding of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_paddingright{N}px</code></td>
-<td>Sets the right padding of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_paddingleftm{N}px</code></td>
-<td>Sets a negative left padding of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_paddingrightm{N}px</code></td>
-<td>Sets a negative right padding of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_paddingbottom{N}px</code></td>
-<td>Sets padding-bottom to a specific value in pixels (Xpx)</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_paddingbottomm{N}px</code></td>
-<td>Sets negative padding-bottom to a specific value in pixels (-Xpx)</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_paddingtop{N}px</code></td>
-<td>Sets padding-top to a specific value in pixels (Xpx)</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_paddingtopm{N}px</code></td>
-<td>Sets negative padding-top to a specific value in pixels (-Xpx)</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_marginauto</code></td>
-<td>Sets margin to &quot;auto&quot; for all sides</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nomargin</code></td>
-<td>Removes margin from all sides (sets to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nomargintop</code></td>
-<td>Removes margin from the top (sets margin-top to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nomarginbottom</code></td>
-<td>Removes margin from the bottom (sets margin-bottom to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nomarginleft</code></td>
-<td>Removes margin from the left (sets margin-left to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_nomarginright</code></td>
-<td>Removes margin from the right (sets margin-right to 0px)</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_marginleft{N}px</code></td>
-<td>Sets the left margin of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_marginright{N}px</code></td>
-<td>Sets the right margin of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_marginleftm{N}px</code></td>
-<td>Sets a negative left margin of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_marginrightm{N}px</code></td>
-<td>Sets a negative right margin of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_margintop{N}px</code></td>
-<td>Sets the top margin of the element to N pixels.</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_margintopm{N}px</code></td>
-<td>Sets negative margin-top to a specific value in pixels (-Xpx)</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-
-<tr>
-<td><code>.xfpe_marginbottom{N}px</code></td>
-<td>Sets margin-bottom to a specific value in pixels (Xpx)</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-<tr>
-<td><code>.xfpe_marginbottomm{N}px</code></td>
-<td>Sets negative margin-bottom to a specific value in pixels (-Xpx)</td>
-<td>N: 5, 10, 15, ...</td>
-<td>150</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Width/Height Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Width / Height Class</th>
-<th>Description</th>
-<th>Possible Values</th>
-<th>Max Value of N</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_width{N}px</code></td>
-<td>Sets the element&#39;s width to N pixels.</td>
-<td>N: 25, 50, 75, 100, ...</td>
-<td>1000</td>
-</tr>
-<tr>
-<td><code>.xfpe_height{N}px</code></td>
-<td>Sets the element&#39;s height to N pixels.</td>
-<td>N: 25, 50, 75, 100, ...</td>
-<td>1000</td>
-</tr>
-<tr>
-<td><code>.xfpe_width{N}pct</code></td>
-<td>Sets the element&#39;s width to N pixels.</td>
-<td>N: 25, 50, 75, 100, ...</td>
-<td>100</td>
-</tr>
-<tr>
-<td><code>.xfpe_height{N}pct</code></td>
-<td>Sets the element&#39;s height to N pixels.</td>
-<td>N: 25, 50, 75, 100, ...</td>
-<td>100</td>
-</tr>
-<tr>
-<td><code>.xfpe_maxwidth{N}pct</code></td>
-<td>Sets the element&#39;s width to N percentage of parent.</td>
-<td>N: 25, 50, 100</td>
-<td>100</td>
-</tr>
-<tr>
-<td><code>.xfpe_maxwidth{N}px</code></td>
-<td>Sets the maximum width of the element to N pixels.</td>
-<td>N: 50, 100, 150, ...</td>
-<td>1000</td>
-</tr>
-<tr>
-<td><code>.xfpe_minwidth{N}px</code></td>
-<td>Sets the minimum width of the element to N pixels.</td>
-<td>N: 50, 100, 150, ...</td>
-<td>1000</td>
-</tr>
-<tr>
-<td><code>.xfpe_minwidth{N}pct</code></td>
-<td>Sets the element&#39;s width to N percentage of parent.</td>
-<td>N: 25, 50, 100</td>
-<td>100</td>
-</tr>
-<tr>
-<td><code>.xfpe_maxheight{N}px</code></td>
-<td>Sets the maximum height of the element to N pixels.</td>
-<td>N: 50, 100, 150, ...</td>
-<td>1000</td>
-</tr>
-<tr>
-<td><code>.xfpe_minheight{N}px</code></td>
-<td>Sets the minimum height of the element to N pixels.</td>
-<td>N: 50, 100, 150, ...</td>
-<td>1000</td>
-</tr>
-<tr>
-<td><code>.xfpe_maxheight{N}pct</code></td>
-<td>Sets the maximum height of the element to N pixels.</td>
-<td>N: 25, 50, 100, ...</td>
-<td>100</td>
-</tr>
-<tr>
-<td><code>.xfpe_minheight{N}pct</code></td>
-<td>Sets the minimum height of the element to N pixels.</td>
-<td>N: 25, 50, 100, ...</td>
-<td>100</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Display Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Display Class</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_dispinlineblock</code></td>
-<td>Sets the element&#39;s display property to inline-block.</td>
-</tr>
-<tr>
-<td><code>.xfpe_dispinline</code></td>
-<td>Sets the element&#39;s display property to inline.</td>
-</tr>
-<tr>
-<td><code>.xfpe_dispblock</code></td>
-<td>Sets the element&#39;s display property to block.</td>
-</tr>
-<tr>
-<td><code>.xfpe_dispnone</code></td>
-<td>Sets the element&#39;s display property to none (hides the element).</td>
-</tr>
-<tr>
-<td><code>.xfpe_dispflex</code></td>
-<td>Sets the element&#39;s display property to flex (enables flexbox layout).</td>
-</tr>
-<tr>
-<td><code>.xfpe_dispgrid</code></td>
-<td>Sets the element&#39;s display property to grid (enables grid layout).</td>
-</tr>
-<tr>
-<td><code>.xfpe_dispinlineflex</code></td>
-<td>Sets the element&#39;s display property to inline-flex (enables inline flexbox layout).</td>
-</tr>
-<tr>
-<td><code>.xfpe_dispinlinegrid</code></td>
-<td>Sets the element&#39;s display property to inline-grid (enables inline grid layout).</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Float Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Float Class</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_floatleft</code></td>
-<td>Sets the element&#39;s float property to left.</td>
-</tr>
-<tr>
-<td><code>.xfpe_floatright</code></td>
-<td>Sets the element&#39;s float property to right.</td>
-</tr>
-<tr>
-<td><code>.xfpe_floatnone</code></td>
-<td>Clears any previous float property.</td>
-</tr>
-<tr>
-<td><code>.xfpe_floatinherit</code></td>
-<td>Inherits the float property from the parent element.</td>
-</tr>
-<tr>
-<td><code>.xfpe_floatinitial</code></td>
-<td>Sets the float property to its default value.</td>
-</tr>
-<tr>
-<td><code>.xfpe_floatunset</code></td>
-<td>Resets the float property to its inherited value.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Overflow Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Overflow Class</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_overflowhidden</code></td>
-<td>Sets the element&#39;s overflow property to hidden.</td>
-</tr>
-<tr>
-<td><code>.xfpe_overflowscroll</code></td>
-<td>Sets the element&#39;s overflow property to scroll.</td>
-</tr>
-<tr>
-<td><code>.xfpe_overflowvisible</code></td>
-<td>Sets the element&#39;s overflow property to visible.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Text Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Text Class Name</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_textbreakall</code></td>
-<td>Breaks text at any character, preserving space</td>
-</tr>
-<tr>
-<td><code>.xfpe_textnowrap</code></td>
-<td>Prevents text from wrapping to the next line</td>
-</tr>
-<tr>
-<td><code>.xfpe_textuppercase</code></td>
-<td>Converts text to uppercase</td>
-</tr>
-<tr>
-<td><code>.xfpe_textlowercase</code></td>
-<td>Converts text to lowercase</td>
-</tr>
-<tr>
-<td><code>.xfpe_textcapitalize</code></td>
-<td>Capitalizes the first letter of each word</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Align Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Align Classes Name</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_aligncenter</code></td>
-<td>Centers text horizontally</td>
-</tr>
-<tr>
-<td><code>.xfpe_alignleft</code></td>
-<td>Aligns text to the left</td>
-</tr>
-<tr>
-<td><code>.xfpe_alignright</code></td>
-<td>Aligns text to the right</td>
-</tr>
-<tr>
-<td><code>.xfpe_alignjustify</code></td>
-<td>Justifies text</td>
-</tr>
-<tr>
-<td><code>.xfpe_verticalalignmiddle</code></td>
-<td>Vertically aligns text to the middle</td>
-</tr>
-<tr>
-<td><code>.xfpe_verticalaligntop</code></td>
-<td>Vertically aligns text to the top</td>
-</tr>
-<tr>
-<td><code>.xfpe_verticalalignbottom</code></td>
-<td>Vertically aligns text to the bottom</td>
-</tr>
-<tr>
-<td><code>.xfpe_alignbaseline</code></td>
-<td>Vertically aligns text to the baseline</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Cursor Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Cursor Class Name</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_cursorpointer</code></td>
-<td>Changes the cursor to a pointer hand</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursordefault</code></td>
-<td>Sets the default cursor (usually an arrow)</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorauto</code></td>
-<td>Automatically sets the cursor based on the element</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorcrosshair</code></td>
-<td>Sets the cursor to a crosshair</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorhelp</code></td>
-<td>Sets the cursor to a help cursor (question mark)</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursormove</code></td>
-<td>Sets the cursor to a move cursor</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursornotallowed</code></td>
-<td>Sets the cursor to a not-allowed cursor</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorprogress</code></td>
-<td>Sets the cursor to a progress cursor</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursortext</code></td>
-<td>Sets the cursor to a text cursor (I-beam)</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorwait</code></td>
-<td>Sets the cursor to a wait cursor (hourglass)</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursoralias</code></td>
-<td>Sets the cursor to an alias cursor</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorcopy</code></td>
-<td>Sets the cursor to a copy cursor</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorzoomin</code></td>
-<td>Sets the cursor to a zoom-in cursor</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorzoomout</code></td>
-<td>Sets the cursor to a zoom-out cursor</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorgrab</code></td>
-<td>Sets the cursor to a grab cursor</td>
-</tr>
-<tr>
-<td><code>.xfpe_cursorgrabbing</code></td>
-<td>Sets the cursor to a grabbing cursor</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Border Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Border Class Name</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_bordernone</code></td>
-<td>Removes the border from an element</td>
-</tr>
-<tr>
-<td><code>.xfpe_outlinenone</code></td>
-<td>Removes the outline from an element</td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Various Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Misc Classes</th>
-<th>Description</th>
-<th>Steps</th>
-<th>Max Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_font{N}px</code></td>
-<td>Set Font Size in PX</td>
-<td>N: 1, 2, 3, 4</td>
-<td>100</td>
-</tr>
-<tr>
-<td><code>.xfpe_t3d</code></td>
-<td>Applies a 3D transform to the element.</td><td></td><td></td>
-</tr>
-<tr>
-<td><code>.xfpe_borderbox</code></td>
-<td>Applies the CSS border-box box-sizing to the element.</td><td></td><td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="installation">Positioning Classes</h3>
-<table class="table table-bordered table-dark">
-<thead>
-<tr>
-<th>Position Class Name</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.xfpe_absolute</code></td>
-<td>Sets the element&#39;s position to absolute</td>
-</tr>
-<tr>
-<td><code>.xfpe_fixed</code></td>
-<td>Sets the element&#39;s position to fixed</td>
-</tr>
-<tr>
-<td><code>.xfpe_relative</code></td>
-<td>Sets the element&#39;s position to relative</td>
-</tr>
-<tr>
-<td><code>.xfpe_static</code></td>
-<td>Sets the element&#39;s position to static</td>
-</tr>
-<tr>
-<td><code>.xfpe_sticky</code></td>
-<td>Sets the element&#39;s position to sticky</td>
-</tr>
-</tbody>
-</table>
-				   	</section>
+				   	</section><hr>
 <section class="docs-section" id="item-1-6">
-<table class="table table-bordered table-dark">
-<h2>Javascript Functions</h2>
-<p>Explore a comprehensive array of JavaScript functions designed for universal integration across diverse projects, enhancing coding speed and efficiency within web development. Detailed documentation for each function is provided in the list below. To seamlessly incorporate these functions, simply include the JavaScript file within your project's designated _javascript subfolder, located within the central _framework folder. This strategic implementation promises to optimize your coding process and elevate your web project's performance. Simplify your coding process with our comprehensive library of pre-built functions and modules, carefully crafted to expedite the creation of dynamic, interactive web applications. Say farewell to development complexities and embrace a more streamlined programming experience. You can find the Javascript Function file in: <b>/_framework/javascript/*.js</b>!</p>
-<thead>
-<tr>
-<th>Function</th>
-<th>Explanation</th>
-<th>Parameters</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>xjs_get(parameterName)</code></td>
-<td>Extracts the value of a specific GET parameter from the URL.</td>
-<td><code>parameterName</code> (String): The name of the GET parameter to retrieve.</td>
-</tr>
-<tr>
-<td><code>xjs_in_url(parameterName)</code></td>
-<td>Checks if a given string exists within the current URL.</td>
-<td><code>parameterName</code> (String): The string to search for within the URL.</td>
-</tr>
-<tr>
-<td><code>xjs_hide_id(id)</code></td>
-<td>Hides an HTML element with a specified ID by modifying its CSS property.</td>
-<td><code>id</code> (Object or String): The ID of the HTML element to hide.</td>
-</tr>
-<tr>
-<td><code>xjs_show_id(id)</code></td>
-<td>Shows a hidden HTML element with a specified ID by altering its CSS property.</td>
-<td><code>id</code> (Object or String): The ID of the HTML element to show.</td>
-</tr>
-<tr>
-<td><code>xjs_toggle_id(id)</code></td>
-<td>Toggles the visibility of an HTML element with a specified ID.</td>
-<td><code>id</code> (Object or String): The ID of the HTML element to toggle.</td>
-</tr>
-<tr>
-<td><code>xjs_is_email(email)</code></td>
-<td>Checks if a given string represents a valid email address using a regular expression pattern.</td>
-<td><code>email</code> (String): The email address to validate.</td>
-</tr>
-<tr>
-<td><code>xjs_popup(var_text, var_entrie)</code></td>
-<td>Dynamically creates a customizable popup element with an optional close button.</td>
-<td><code>var_text</code> (String): The content to display in the popup.<br><code>var_entrie</code> (String, optional): The text for the close button (default is &quot;Close&quot;).</td>
-</tr>
-<tr>
-<td><code>xjs_genkey(length, charset)</code></td>
-<td>Generates random passwords of a specified length using characters from a character set.</td>
-<td><code>length</code> (Number, optional): The length of the generated password (default is 12).<br><code>charset</code> (String, optional): The character set for password generation (default includes letters and digits).</td>
-</tr>
-</tbody>
-</table></section>
+
+
+			<h2>Javascript Functions</h2>
+			<p>Explore a comprehensive array of JavaScript functions designed for universal integration across diverse projects, enhancing coding speed and efficiency within web development. Detailed documentation for each function is provided in the list below. To seamlessly incorporate these functions, simply include the JavaScript file within your project's designated _javascript subfolder, located within the central _framework folder. This strategic implementation promises to optimize your coding process and elevate your web project's performance. Simplify your coding process with our comprehensive library of pre-built functions and modules, carefully crafted to expedite the creation of dynamic, interactive web applications. Say farewell to development complexities and embrace a more streamlined programming experience. You can find the Javascript Function file in: /_framework/javascript/*.js!</p>
+	
+
+		  <table class="table table-bordered table-dark">
+				<tr>
+					<th>Name</th>
+					<th>License</th>
+				</tr>
+				<tr>
+					<td>&#x2705;<a href="./javascript/index.html"  rel="noopener">Javascript Function Library</a></td>
+					<td>MIT</td>
+				</tr>
+			  </table>
+
+</section>
 			    
 					
 				</article>
@@ -1203,21 +279,20 @@
 					<header class="docs-header">
 					    <h2 class="docs-heading">Additional Informations</h2>
 					    <section class="docs-intro">
-						    <p>Here you can see various pages with licensing and support informations!</p>
+						    <p>Here you can see various pages with licensing and support informations! There is a link to my community forum where you can ask questions, if you have any!</p>
 						</section><!--//docs-intro-->
-				    </header>
-					<section class="docs-section" id="item-9-1" style="padding-top: 0px;">
+				    </header><br /><hr><br />
+					<section class="docs-section" id="item-9-1" style="padding-top: 0px;border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
 						<a href="https://bugfish.eu/forum" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
-					</section><!--//section-->	
-					<section class="docs-section" id="item-9-2">
+					</section><!--//section-->	<hr>
+					<section class="docs-section" id="item-9-2" style="border-bottom: none;">
 						<h2 class="section-heading">License Informations</h2><br />
 						<h4>License Informations of this Framework </h4>
 						Following License applies to Files in "_framework" repository folder. There is one exception. The class x_class_phpmailer is using the GNU Lesser GPL License and is the only class, which is not a direct part of this framework. It is needed for Mail sending operations. Check the Github Page of the project "phpmailer" in <a rel="noopener" href="https://github.com/PHPMailer/PHPMailer">https://github.com/PHPMailer/PHPMailer</a>. All other files of this framework are MIT Licensed. This does not include the "_misc" folder inside that framework repository, as this folder is not part of the framework itself and acts more as a development support, which is totally seperated for the framework. Inside the "_misc" folder, there are may be libraries included which use another license model as MIT, but still open source. There is no paid software included in this project and it has been created out of self created class, except mentioned exceptions. I hope you can get use of this framework and i wish you the best! <br /><br />
-		<code class="hljs">Copyright 2022 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)<br />
-		This Product is running with MIT LICENSE<br /><br />
+		<code class="hljs">Copyright 2022 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)<br /><br />
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br /><br />
 

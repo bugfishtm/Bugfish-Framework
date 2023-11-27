@@ -20,11 +20,34 @@
     <script src="../assets/js/jq.3.6.min.js"></script>	
     <script src="../assets/js/jquery.highlight.js"></script>
     <script src="../assets/js/jquery.scrollto.js"></script>
-    <script src="../assets/js/jquery.finder.js"></script>
+    <script src="../assets/js/jquery.finder.js"></script><style>.scrolldivy{max-width: 100%;overflow-y:scroll;}</style>
 	<!-- Descriptions -->
     <title>PHP Blacklist Class - Bugfish Documentations</title>
 	<meta property="og:title" content="PHP Blacklist Class - Bugfish Documentations"/>
-	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_ipbl! Here you can fing the github url to the project and different explanation about the classes and functions! We wish you the best!">
+	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_ipbl! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "TechArticle",
+  "headline": "PHP Blacklist Class",
+  "description": "Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_ipbl! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!",
+  "articleSection": "Introduction",
+  "datePublished": "2023-11-03",
+  "dateModified": "2023-11-03",
+  "author": {
+    "@type": "Person",
+    "name": "Jan-Maurice Dahlmanns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bugfish",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.bugfish-github.de/assets/bugfish.png"
+    }
+  }
+}
+</script>
 </head> 
 <body class="docs-page" data-finder-wrapper>    
     <header class="header fixed-top">	    
@@ -70,7 +93,7 @@
 					    <section class="docs-intro">
 						    <p>This is the Documentation for the Bugfish Framework!</p>
 						</section><!--//docs-intro-->
-				    </header>	
+				    </header>		<br /><hr><br>
 	
 			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
 				<h2>Documentation</h2>
@@ -80,9 +103,49 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 <div style="max-width: 500px;text-align: left; background: 161616;">
 ⚠️ Does use MySQL (x_class_mysqli object)<br />
 ⚠️ Tables will be automatically installed<br />
-<br /></div>
+<br /></div><br>
 
-<h2 id="x_class_ipbl-mastered-">Class Functions</h2>
+<h2 id="x_class_ipbl-mastered-">Table Structure</h2><p>Below informations of the table which will be created by this class. This table will store IP Warnings and act as Blacklist which can be used for your purposes!</p>
+<div class="scrolldivy">
+
+<table class="table table-bordered table-dark">
+  <tr>
+    <th>Column Name</th>
+    <th>Data Type</th>
+    <th>Constraints</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>int(10)</td>
+    <td>NOT NULL, AUTO_INCREMENT</td>
+    <td>Identificator</td>
+  </tr>
+  <tr>
+    <td>fail</td>
+    <td>int(10)</td>
+    <td>DEFAULT '1'</td>
+    <td>Address Failures</td>
+  </tr>
+  <tr>
+    <td>ip_adr</td>
+    <td>varchar(256)</td>
+    <td>NOT NULL</td>
+    <td>Related IP Address</td>
+  </tr>
+  <tr>
+    <td>creation</td>
+    <td>datetime</td>
+    <td>DEFAULT CURRENT_TIMESTAMP</td>
+    <td>Creation Date (Auto-Set on Insert)</td>
+  </tr>
+</table>
+
+
+
+</div>
+
+<h2 id="x_class_ipbl-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
 <table  class="table table-bordered table-dark"> 
 <thead>
 <tr>
@@ -174,7 +237,7 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 </tr>
 </tbody>
 </table><br />
-<h2 id="x_class_mastered-">Example Implementation</h2>
+<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 
 // First, you need to have a MySQL database connection. You can create one like this:<br />
@@ -218,17 +281,17 @@ if ($ipbl->ip_counter($ip_to_check) > $maxvalue) {<br />
 }<br />
 </code>
 
-					</section><section class="docs-section" id="item-1-2">
+					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
 						<a href="https://bugfish.eu/forum" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
 					</section><!--//section-->	
-					<section class="docs-section" id="item-1-3">
+					<hr><section class="docs-section" id="item-1-3" style="border-bottom: none;">
 						<h2 class="section-heading">License Informations</h2>
 						<h4>License Informations of this Class</h4>
 		<code class="hljs">Copyright 2022 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)<br />
-		This Product is running with MIT LICENSE<br /><br />
+		<br />
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br /><br />
 

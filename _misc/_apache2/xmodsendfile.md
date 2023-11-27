@@ -1,2 +1,0 @@
-XSendFile on  
-XSendFilePath /PATH

@@ -20,11 +20,34 @@
     <script src="../assets/js/jq.3.6.min.js"></script>	
     <script src="../assets/js/jquery.highlight.js"></script>
     <script src="../assets/js/jquery.scrollto.js"></script>
-    <script src="../assets/js/jquery.finder.js"></script>
+    <script src="../assets/js/jquery.finder.js"></script><style>.scrolldivy{max-width: 100%;overflow-y:scroll;}</style>
 	<!-- Descriptions -->
     <title>PHP API Class - Bugfish Documentations</title>
 	<meta property="og:title" content="PHP API Class - Bugfish Documentations"/>
-	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_api! Here you can fing the github url to the project and different explanation about the classes and functions! We wish you the best!">
+	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_api! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "TechArticle",
+  "headline": "PHP API Class",
+  "description": "Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_api! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!",
+  "articleSection": "Introduction",
+  "datePublished": "2023-11-03",
+  "dateModified": "2023-11-03",
+  "author": {
+    "@type": "Person",
+    "name": "Jan-Maurice Dahlmanns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bugfish",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.bugfish-github.de/assets/bugfish.png"
+    }
+  }
+}
+</script>
 </head> 
 <body class="docs-page" data-finder-wrapper>    
     <header class="header fixed-top">	    
@@ -70,7 +93,7 @@
 					    <section class="docs-intro">
 						    <p>This is the Documentation for the Bugfish Framework!</p>
 						</section><!--//docs-intro-->
-				    </header>	
+				    </header>		<br /><hr><br /><br />
 	
 			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
 				<h2>Documentation</h2>
@@ -80,8 +103,64 @@
 ⚠️ Does use MySQL (x_class_mysqli object) (for Tokens)<br />
 ⚠️ Tables will be automatically installed<br />
 ⚠️ PHP Module CURL Needed<br />
-<br /></div>
-<h2 id="x_class_api">Class Functions</h2>
+<br /></div><br />
+<h2 id="x_class_api">Table Structure</h2>
+<p>Below some informations about the Table created by this class! This class will be automatically created by providing the x_class_mysql object. Tokens for API Functionalities will be stored in here.</p>
+<div class="scrolldivy">
+<table class="table table-bordered table-dark">
+  <tr>
+    <th>Column Name</th>
+    <th>Data Type</th>
+    <th>Constraints</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>int(9)</td>
+    <td>NOT NULL, AUTO_INCREMENT</td>
+    <td>Unique ID of the entry</td>
+  </tr>
+  <tr>
+    <td>direction</td>
+    <td>varchar(12)</td>
+    <td>NOT NULL</td>
+    <td>Token Type, a string with max length of 12</td>
+  </tr>
+  <tr>
+    <td>api_token</td>
+    <td>varchar(512)</td>
+    <td>NOT NULL</td>
+    <td>Token for API Requests, max length of 512</td>
+  </tr>
+  <tr>
+    <td>section</td>
+    <td>varchar(16)</td>
+    <td>NOT NULL</td>
+    <td>Value for Constant, max length of 16</td>
+  </tr>
+  <tr>
+    <td>last_use</td>
+    <td>datetime</td>
+    <td>NULL</td>
+    <td>Last Use Date in Check</td>
+  </tr>
+  <tr>
+    <td>creation</td>
+    <td>datetime</td>
+    <td>DEFAULT CURRENT_TIMESTAMP</td>
+    <td>Creation Date of Entry (Auto-Set on Insert)</td>
+  </tr>
+  <tr>
+    <td>modification</td>
+    <td>datetime</td>
+    <td>DEFAULT CURRENT_TIMESTAMP ON UPDATE</td>
+    <td>Modification Date of Entry (Auto-Update on Change)</td>
+  </tr>
+</table>
+</div>
+
+<h2 id="x_class_api">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<div class="scrolldivy">
 <table class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -123,10 +202,10 @@
 <td>Check Incoming Transmission Token for Secure Validation, If section is false than constructor section will be used!</td>
 </tr>
 </tbody>
-</table>				
+</table>	</diV>			
 				
 				
-<h2 id="x_class_mastered-">Example Implementation</h2>
+<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="php hljs">
 // Include your MySQL database connection code here.<br />
 
@@ -169,17 +248,17 @@ $mysqli->close();<br />
 </code>				
 				
 				
-					</section><section class="docs-section" id="item-1-2">
+					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
 						<a href="https://bugfish.eu/forum" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
 					</section><!--//section-->	
-					<section class="docs-section" id="item-1-3">
+					<hr><section class="docs-section" id="item-1-3" style="border-bottom: none;">
 						<h2 class="section-heading">License Informations</h2>
 						<h4>License Informations of this Class</h4>
 		<code class="hljs">Copyright 2022 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)<br />
-		This Product is running with MIT LICENSE<br /><br />
+		<br />
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br /><br />
 

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <!-- META RELATED -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+	<meta property="og:image" content="https://bugfishtm.github.io/assets/meta.png" />
+	<meta name="subject" content="documentation">
+	<meta name="copyright" content="bugfish">
+	<meta name='language' content='en'>
+	<meta name='robots' content='index,follow'>
+	<meta name='author' content='bugfish, ynvnzmlzaa@gmail.com'>
+	<!-- LINK RELATED -->
+	<script defer src="../assets/fontawesome/js/all.min.js"></script>    
+	<link rel="stylesheet" href="../assets/css/atom-one-dark.min.css">
+	<link rel="stylesheet" href="../assets/plugins/simplelightbox/simple-lightbox.min.css">
+	<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">	
+	<link id="theme-style" rel="stylesheet" href="../assets/css/stylesheet.css">
+    <script src="../assets/js/jq.3.6.min.js"></script>	
+    <script src="../assets/js/jquery.highlight.js"></script>
+    <script src="../assets/js/jquery.scrollto.js"></script>
+    <script src="../assets/js/jquery.finder.js"></script>
+	<!-- Descriptions -->
+    <title>PHP Functions - Bugfish Documentations</title>
+	<meta property="og:title" content="PHP Functions - Bugfish Documentations"/>
+	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for PHP Functions! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!">
+	<script>.table-bordered {word-break: break-all; max-width: 100%;}</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "TechArticle",
+  "headline": "PHP Functions",
+  "description": "Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for PHP Functions! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!",
+  "articleSection": "Introduction",
+  "datePublished": "2023-11-03",
+  "dateModified": "2023-11-03",
+  "author": {
+    "@type": "Person",
+    "name": "Jan-Maurice Dahlmanns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bugfish",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.bugfish-github.de/assets/bugfish.png"
+    }
+  }
+}
+</script>
+</head> 
+<body class="docs-page" data-finder-wrapper>    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="https://bugfishtm.github.io"><img class="logo-icon me-2" src="../assets/logo.png" alt="logo" width="25"><span class="logo-text">Bugfish <span class="text-alt">Documentations</span></span></a></div>    
+                </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	            </div><!--//docs-top-utilities-->
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header><!--//header-->
+    <div class="docs-wrapper" >
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+				    <li class="nav-item section-title"><a class="nav-link" href="../index.html"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-left"></i></span>Back</a></li>
+				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>PHP Functions</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Documentation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2" target="_blank">Support</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3" target="_blank">License</a></li>
+					<!-- Impressum and Bugfish Link -->
+				    <li class="nav-item section-title mt-3"><a class="nav-link"><span class="theme-icon-holder me-2"><i class="fas fa-link"></i></span>Links</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://www.bugfish.eu" target="_blank">My Website</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.github.io" target="_blank">Documentations</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.blogspot.com/2023/05/impressum.html" target="_blank">Impressum</a></li>
+				    <li class="nav-item"><a class="nav-link" href="https://bugfishtm.blogspot.com/2023/05/privacy.html" target="_blank">Privacy</a></li>
+			    </ul>
+
+		    </nav><!--//docs-nav-->
+	    </div><!--//docs-sidebar-->
+	    <div class="docs-content" data-finder-content>
+		    <div class="container">
+			    <article class="docs-article" id="section-1">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">PHP Functions<span class="docs-time">Documentations</span></h1>
+					    <section class="docs-intro">
+						    <p>This is the Documentation for the Bugfish Framework!</p>
+						</section><!--//docs-intro-->
+				    </header>	<br /><hr><br />
+	
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+<h2 id="x_library-mastered-">PHP Functions</h2>
+<p style="text-align: left;">Embark on a journey through an indispensable collection of PHP functions meticulously crafted for seamless integration across a multitude of projects. Witness firsthand how these functions expedite and refine coding processes within web development. Comprehensive documentation for each function is presented in the following list. To seamlessly incorporate these functions, the PHP files can be effortlessly included within the designated _functions subfolder nestled within the overarching _framework folder. This strategic approach not only optimizes coding efficiency but also transforms the landscape of web project performance.</p>
+<p>Presenting our professional PHP Function Library, a valuable resource brimming with functions tailored for swift website deployment and efficiency. Explore the comprehensive collection within our framework's /framework/functions/x_* directory to streamline your development process and enhance your website's performance.</p><br />
+<h3>Thumbnail Functions</h3><p>Functions to generate/work with Thumbnails!</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>Thumbnail Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_thumbnail</code></td>
+<td>This function creates a thumbnail image from a URL and saves it to a file. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$url</code>: The URL of the image to create a thumbnail from.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$filename</code>: The filename for the saved thumbnail.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$width</code>: The width of the thumbnail.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$height</code>: The height of the thumbnail (or <code>true</code> to maintain aspect ratio).</td>
+</tr>
+<tr>
+<td><code>x_thumbnail_save</code></td>
+<td>This function creates a thumbnail image from a URL and optionally saves it to a file. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$url</code>: The URL of the image to create a thumbnail from.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$save_path</code>: An optional path to save the thumbnail file.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$width</code>: The width of the thumbnail.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$height</code>: The height of the thumbnail (or <code>true</code> to maintain aspect ratio).</td>
+</tr>
+</tbody>
+</table>
+<h3>Library Functions</h3><p>Some functions, which does not fit into other sections!</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>Library Function Name</th>
+<th>Description</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_htaccess...<br />_secure($path)</code></td>
+<td>Secure a Folder by placing an .htaccess with Deny Folder Content in it!</td>
+<td>- <code>$path</code>: Path where the HTAccess should be placed. (Folder Name)</td>
+</tr>
+<tr>
+<td><code>x_getRelative...<br />FolderFromURL($url)</code></td>
+<td>Extract Relative Path from Full URL String</td>
+<td>- <code>$url</code>: The URL the Relative Folder should be extracted from!</td>
+</tr>
+<tr>
+<td><code>x_firstimagetext</code></td>
+<td>Get First image out of "a" tag from Text String</td>
+<td>- <code>$text</code>: Input text containing HTML.<br> - <code>$all</code>: Whether to return all image tags or just the first one. Parses HTML text to extract image tags and returns either the first image tag or all of them, depending on the <code>$all</code> parameter.</td>
+</tr>
+<tr>
+<td><code>x_connection_check</code></td>
+<td>Check a connection with fsockopen</td>
+<td>- <code>$host</code>: Hostname or IP address to check the connection to.<br> - <code>$port</code>: Port number to check.<br> - <code>$timeout</code>: Timeout duration in seconds. Checks if a connection can be established to the specified host and port within the given timeout. Returns <code>true</code> if successful, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>x_inCLI</code></td>
+<td>Check if current script execution is handled via CGI and not in Web Browser</td>
+<td>Checks if the script is running in a Command Line Interface (CLI) environment and returns <code>true</code> if it is, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>x_rmdir</code></td>
+<td>Recursively delete a folder</td>
+<td>- <code>$dir</code>: Directory path to be deleted recursively. Recursively deletes all files and subdirectories within the specified directory.</td>
+</tr>
+<tr>
+<td><code>x_html_redirect</code></td>
+<td>Spawn HTML Redirect Meta Tag for simple HTML Redirects</td>
+<td>- <code>$url</code>: URL to redirect to.<br> - <code>$seconds</code>: Number of seconds before the redirection occurs. Generates an HTML meta tag for redirection to the specified URL after the specified number of seconds.</td>
+</tr>
+</tbody>
+</table>
+<h3>Validation Functions</h3><p>Functions to work or validate parameters!</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>Validation Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_isset</code></td>
+<td>This function checks if a value is not null and has a length greater than 1.</td>
+</tr>
+<tr>
+<td><code>x_imgValid</code></td>
+<td>This function checks if a given string represents a valid image URL.</td>
+</tr>
+<tr>
+<td><code>x_contains_cyrillic</code></td>
+<td>This function checks if a string contains Cyrillic characters.</td>
+</tr>
+<tr>
+<td><code>x_contains_bad_word</code></td>
+<td>This function checks if a string contains bad words based on a filter.</td>
+</tr>
+<tr>
+<td><code>x_contains_url</code></td>
+<td>This function checks if a string contains a URL.</td>
+</tr>
+<tr>
+<td><code>x_hsc</code></td>
+<td>This function is a simple replacement for <code>htmlspecialchars</code>.</td>
+</tr>
+<tr>
+<td><code>x_getint</code></td>
+<td>This function retrieves a GET value as an integer if it is numeric.</td>
+</tr>
+<tr>
+<td><code>x_postint</code></td>
+<td>This function retrieves a POST value as an integer if it is numeric.</td>
+</tr>
+<tr>
+<td><code>x_get</code></td>
+<td>This function retrieves a GET value.</td>
+</tr>
+<tr>
+<td><code>x_post</code></td>
+<td>This function retrieves a POST value.</td>
+</tr>
+<tr>
+<td><code>x_datediff_before</code></td>
+<td>This function checks if one date is a certain length of time before another date.</td>
+</tr>
+</tbody>
+</table>
+<h3>Button Functions</h3><p>Functions to work with some buttons, which can execude code and more!</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>Button Functions</th>
+<th>Description</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_executionButton</code></td>
+<td>Spawn a button able to make SQL Query on Execution</td>
+<td>- <code>$db</code>: Database connection object.<br> - <code>$name</code>: Button name.<br> - <code>$url</code>: URL to execute the action.<br> - <code>$query</code>: SQL query to execute.<br> - <code>$get</code>: GET parameter to trigger the action.<br> - <code>$msgerr</code>: Error message.<br> - <code>$msgok</code>: Success message.<br> - <code>$break</code>: Whether to add a line break after the button.<br> - <code>$style</code>: CSS style for the button.</td>
+</tr>
+<tr>
+<td><code>x_button</code></td>
+<td>Spawn a simple Button</td>
+<td>- <code>$name</code>: Button name.<br> - <code>$url</code>: URL to navigate to.<br> - <code>$break</code>: Whether to add a line break after the button.<br> - <code>$style</code>: CSS style for the button.<br> - <code>$reacttourl</code>: Whether to style the button differently if it matches the current URL.</td>
+</tr>
+</tbody>
+</table>
+<h3>Eventbox Functions</h3><p>Functions to spawn notification boxes for users.</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>EventBox Functions</th>
+<th>Description</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_eventBoxPrep</code></td>
+<td>Save text in session to be displayed in eventboxshow function!</td>
+<td>- <code>$text</code>: Text to display in the event box.<br> - <code>$type</code>: Type of event box (ok, warning, error, etc.).<br> - <code>$precookie</code>: Session variable name for storing event box content.<br> - <code>$morecss</code>: Additional CSS styles for the event box.<br> - <code>$buttontext</code>: Text for the close button.<br> - <code>$imgok</code>, <code>$imgfail</code>, <code>$imgwarn</code>, <code>$imgelse</code>: Optional images to display in the event box.</td>
+</tr>
+<tr>
+<td><code>x_eventBoxShow</code></td>
+<td>Show the Eventbox at the end of an HTML Page</td>
+<td>- <code>$precookie</code>: Session variable name for event box content. Displays the event box content and clears the session variable.</td>
+</tr>
+<tr>
+<td><code>x_eventBoxSet</code></td>
+<td>Check if eventBoxPrep function has been triggered in code before...</td>
+<td>- <code>$precookie</code>: Session variable name for event box content. Checks if the event box content is set in the session.</td>
+</tr>
+<tr>
+<td><code>x_eventBoxSkip</code></td>
+<td>Skip next eventboxShow execution. (usefull to show eventbox after redirects with html)</td>
+<td>- <code>$precookie</code>: Session variable name for event box content. Sets a flag to skip displaying the event box.</td>
+</tr>
+</tbody>
+</table>
+<h3>Cookie Banner Functions</h3><p>Function to spawn a simple cookie-banner for users!</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>CookieBanner Functions</th>
+<th>Description</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_cookieBanner_Pre</code></td>
+<td>Put this before header to make Cookie Banner submitable via Post</td>
+<td>- <code>$precookie</code>: Session variable name for tracking if the cookie banner has been accepted.<br> - <code>$redirect</code>: Whether to redirect after accepting the cookie banner.</td>
+</tr>
+<tr>
+<td><code>x_cookieBanner</code></td>
+<td>Spawn a simple Cookie Banner!</td>
+<td>- <code>$precookie</code>: Session variable name for tracking if the cookie banner has been accepted.<br> - <code>$use_post</code>: Whether to use POST method for accepting the banner.<br> - <code>$text</code>: Text to display in the cookie banner.<br> - <code>$url_cookies</code>: URL to the cookies policy.</td>
+</tr>
+</tbody>
+</table>
+<h3>RSS Functions</h3><p>Functions related to RSS-Feeds.</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>RSS Functions</th>
+<th>Description</th>
+<th>Parameter</th>
+<tr>
+<td><code>x_rss_list</code></td>
+<td>Spawn an RSS Feed with URL in a HTML List which can be CSS Desgined, It outputs the RSS Feed entries of given URL in parameters.</td>
+<td>- <code>$urltemp</code>: URL of the RSS feed to parse.<br> - <code>$defaultcover</code>: Default cover image URL for RSS items without images.<br> - <code>$limit</code>: Maximum number of RSS items to display. Parses an RSS feed and displays a list of items with their titles, links, dates, and images.</td>
+</tr>
+<tr>
+<td><code>x_rss_array</code></td>
+<td>Convert URL RSS Feed into PHP useable Array</td>
+<td>- <code>$urltemp</code>: URL of the RSS feed to parse. Parses an RSS feed and returns an array of items with their titles, links, dates, and images.</td>
+</tr>
+</tbody>
+</table>
+<h3>Captcha Functions</h3><p>Functions related to generation of captchas and code retrieval!</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>Captcha Functions</th>
+<th>Description</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_captcha</code></td>
+<td>Spawn a Captcha Image</td>
+<td>- <code>$preecookie</code>: Session variable name for storing the captcha code.<br> - <code>$width</code>: Width of the captcha image.<br> - <code>$height</code>: Height of the captcha image.<br> - <code>$square_count</code>: Number of squares in the captcha.<br> - <code>$eclipse_count</code>: Number of ellipses in the captcha.<br> - <code>$color_ar</code>: An array of colors for various elements.<br> - <code>$font</code>: Font file for text in the captcha.<br> - <code>$code</code>: The captcha code to display.</td>
+</tr>
+<tr>
+<td><code>x_captcha_key</code></td>
+<td>Gives back the current generated Captcha Code to verify with Form Input of User</td>
+<td>- <code>$preecookie</code>: Session variable name for the captcha code. Returns the captcha code stored in the session.</td>
+</tr>
+</tbody>
+</table>
+<h3>Search Functions</h3><p>Functions related to dynamic searches in database tables.</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>Search Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_search</code></td>
+<td>This function performs a database search using MySQL. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$mysql</code>: The MySQL database connection.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$table</code>: The name of the table to search in.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$search_fields</code>: An array of fields to search in.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$get_fields</code>: An array of fields to retrieve in the results.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$search_string</code>: The search string.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$uniqueref</code>: The unique reference field (default is &quot;id&quot;).</td>
+</tr>
+</tbody>
+</table><h3>Table Functions</h3><p>Functions to easily spawn tables with PHP!</p>
+<table class="table table-bordered table-dark">
+<thead>
+<tr>
+<th>Table Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_table_div</code></td>
+<td>This function generates an HTML table from an array of data. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$array</code>: The array of data to display in the table.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$titlelist</code>: An array of column titles.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$percentarray</code>: An optional array specifying the width of each column as a percentage.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$title</code>: An optional title for the table.</td>
+</tr>
+<tr>
+<td><code>x_table_complex</code></td>
+<td>This function generates a complex HTML table with a search filter form. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$array</code>: The array of data to display in the table.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$titlelist</code>: An array of column titles.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$formid</code>: An optional form ID for the search filter form.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
+</tr>
+<tr>
+<td><code>x_table_simple</code></td>
+<td>This function generates a simple HTML table from an array of data. It takes the following parameters:</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$array</code>: The array of data to display in the table.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$titlelist</code>: An array of column titles.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$tableid</code>: An optional table ID.</td>
+</tr>
+<tr>
+<td></td>
+<td>- <code>$alignarray</code>: An optional array specifying the alignment of each column.</td>
+</tr>
+</tbody>
+</table>
+
+					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+						<h2 class="section-heading">How to get support?</h2>
+						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
+						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
+						<a href="https://bugfish.eu/forum" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
+					</section><!--//section-->	<hr>
+					<section class="docs-section" id="item-1-3" style="border-bottom: none;">
+						<h2 class="section-heading">License Informations</h2>
+						<h4>License Informations of this Class</h4>
+		<code class="hljs">Copyright 2022 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)<br /><br />
+
+		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br /><br />
+
+		The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br /><br />
+
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code>
+
+						
+						<br /><br /><h4>License Informations of this Github Page</h4>
+				       <p> <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+			            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank" rel="noopener">Xiaoying Riley</a> for developers <br/>(And modified by <a href="https://www.bugfish.eu" target="_blank" rel="noopener">bugfish</a>)<br />You are only allowed to use this template if you include this attribution!</small></p>					
+					</section><!--//section-->		
+			    </article><!--//docs-article-->
+			</div> <!--//docs-container--> 
+		</div><!--//docs-content-->   
+    </div><!--//docs-wrapper-->       
+    <!-- Javascript -->          
+    <script src="../assets/plugins/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    <!-- Page Specific JS -->
+    <script src="../assets/plugins/smoothscroll.min.js"></script>
+    <script src="../assets/js/highlight.min.js"></script>
+    <script src="../assets/js/highlight-custom.js"></script> 
+    <script src="../assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="../assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="../assets/js/docs.js"></script> 
+</body>
+</html> 

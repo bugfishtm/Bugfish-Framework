@@ -20,11 +20,34 @@
     <script src="../assets/js/jq.3.6.min.js"></script>	
     <script src="../assets/js/jquery.highlight.js"></script>
     <script src="../assets/js/jquery.scrollto.js"></script>
-    <script src="../assets/js/jquery.finder.js"></script>
+    <script src="../assets/js/jquery.finder.js"></script><style>.scrolldivy{max-width: 100%;overflow-y:scroll;}</style>
 	<!-- Descriptions -->
     <title>PHP CSRF Class - Bugfish Documentations</title>
 	<meta property="og:title" content="PHP CSRF Class - Bugfish Documentations"/>
-	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_csrf! Here you can fing the github url to the project and different explanation about the classes and functions! We wish you the best!">
+	<meta name="description" content="Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_csrf! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "TechArticle",
+  "headline": "PHP CSRF Class",
+  "description": "Welcome to the Github Documentation Page of the Bugfish Framework! This is the documentation for x_class_csrf! Here you can find the github url to the project and different explanation about the classes and functions! We wish you the best!",
+  "articleSection": "Introduction",
+  "datePublished": "2023-11-03",
+  "dateModified": "2023-11-03",
+  "author": {
+    "@type": "Person",
+    "name": "Jan-Maurice Dahlmanns"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bugfish",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.bugfish-github.de/assets/bugfish.png"
+    }
+  }
+}
+</script>
 </head> 
 <body class="docs-page" data-finder-wrapper>    
     <header class="header fixed-top">	    
@@ -70,16 +93,16 @@
 					    <section class="docs-intro">
 						    <p>This is the Documentation for the Bugfish Framework!</p>
 						</section><!--//docs-intro-->
-				    </header>	
+				    </header>		<br /><hr><br>
 	
 			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
 				<h2>Documentation</h2>
 The x_class_csrf class is designed to manage Cross-Site Request Forgery (CSRF) prevention by generating, validating, and maintaining CSRF tokens within sessions. It provides methods to retrieve tokens, validate submissions, and handle token renewal.<br /><br />
 
 <div style="max-width: 500px;text-align: left; background: 161616;">
-⚠️ Does use Session-Cookies<br />
+⚠️ Does use Session-Cookies<br /><br>
 <br /></div>
-<h2 id="x_class-mastered-">Class Functions</h2>
+<h2 id="x_class-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p><div class="scrolldivy">
 <table class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -89,16 +112,16 @@ The x_class_csrf class is designed to manage Cross-Site Request Forgery (CSRF) p
 </thead>
 <tbody>
 <tr>
-<td><strong>Class Initialization</strong></td>
-<td></td>
+<th><strong style="color: white !important;">Class Initialization</strong></th>
+<th></th>
 </tr>
 <tr>
 <td><code>__construct($cookie_extension = &quot;&quot;, $second_valid = 300, $external_action = false)</code></td>
 <td>Constructor method for initializing the class. It accepts three optional parameters: <code>cookie_extension</code> (string) for adding an extension to session keys, <code>second_valid</code> (integer) for setting the validity time of CSRF keys in seconds, and <code>external_action</code> (boolean) for disabling key renewal.</td>
 </tr>
 <tr>
-<td><strong>Key Generation and Retrieval</strong></td>
-<td></td>
+<th><strong style="color: white !important;">Key Generation and Retrieval</strong></th>
+<th></th>
 </tr>
 <tr>
 <td><code>getField($name, $id = &quot;&quot;)</code></td>
@@ -113,8 +136,8 @@ The x_class_csrf class is designed to manage Cross-Site Request Forgery (CSRF) p
 <td>Returns the timestamp of when the current CSRF key or last session key was generated, depending on whether external actions are enabled.</td>
 </tr>
 <tr>
-<td><strong>Validation</strong></td>
-<td></td>
+<th><strong style="color: white !important;">Validation</strong></th>
+<th></th>
 </tr>
 <tr>
 <td><code>validate($code, $override_valid_time = false)</code></td>
@@ -129,11 +152,11 @@ The x_class_csrf class is designed to manage Cross-Site Request Forgery (CSRF) p
 <td>Checks if the provided CSRF key (<code>$code</code>) is valid for the last session, if external actions are enabled. You can optionally override the validity time (in seconds) by providing <code>$override_valid_time</code>. Returns <code>true</code> if the key is valid, <code>false</code> otherwise.</td>
 </tr>
 <tr>
-<td><strong>Disabling Key Renewal</strong></td>
-<td></td>
+<th><strong style="color: white !important;">Disabling Key Renewal</strong></th>
+<th></th>
 </tr>
 <tr>
-<td><code>disableRenewal($bool = false)</code></td>
+<td><code >disableRenewal($bool = false)</code></td>
 <td>Sets the <code>$norenewal</code> property to <code>true</code> or <code>false</code> to disable or enable key renewal for the current session.</td>
 </tr>
 <tr>
@@ -141,24 +164,24 @@ The x_class_csrf class is designed to manage Cross-Site Request Forgery (CSRF) p
 <td>An alias for <code>disableRenewal()</code>. Sets the <code>$norenewal</code> property to <code>true</code> or <code>false</code>.</td>
 </tr>
 <tr>
-<td><strong>External Action</strong></td>
-<td></td>
+<th><strong style="color: white !important;">External Action</strong></th>
+<th></th>
 </tr>
 <tr>
 <td><code>external_action($bool = false)</code></td>
 <td>Enables or disables external actions mode by setting the <code>$external_action</code> property to <code>true</code> or <code>false</code>. In external actions mode, the class uses the last session key for validation.</td>
 </tr>
 <tr>
-<td><strong>Session Cleanup</strong></td>
-<td></td>
+<th ><strong style="color: white !important;">Session Cleanup</strong></th>
+<th></th>
 </tr>
 <tr>
 <td><code>__destruct()</code></td>
 <td>Deconstructor method that stores the current CSRF key and its timestamp in the session if key renewal is not disabled (<code>$norenewal</code> is <code>false</code>).</td>
 </tr>
 </tbody>
-</table>
-<h2 id="x_class_mastered-">Example Implementation</h2>
+</table></div>
+<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 // Initialize the CSRF class with optional parameters<br />
 $csrf = new x_class_csrf("myapp_", 600, true);<br />
@@ -189,17 +212,17 @@ if ($csrf->validate($_POST['csrf_token'])) {<br />
 </code>
 
 
-					</section><section class="docs-section" id="item-1-2">
+					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
 						<a href="https://bugfish.eu/forum" class="btn btn-warning" target="_blank"><i class="fas fa-bug me-2"></i> My Forum</a>
 					</section><!--//section-->	
-					<section class="docs-section" id="item-1-3">
+					<hr><section class="docs-section" id="item-1-3" style="border-bottom: none;">
 						<h2 class="section-heading">License Informations</h2>
 						<h4>License Informations of this Class</h4>
 		<code class="hljs">Copyright 2022 www.bugfish.eu Jan-Maurice Dahlmanns (Bugfish)<br />
-		This Product is running with MIT LICENSE<br /><br />
+		<br />
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br /><br />
 
