@@ -96,7 +96,7 @@
 						</section><!--//docs-intro-->
 				    </header>		<br /><hr><br>
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;border-bottom: none;">
 				<h2>Documentation</h2>
 <p style="text-align: left;">The x_class_perm class is a simple permission control class that allows you to manage permissions associated with different references (or users) and sections. It interacts with a MySQL database to store permission data. The class provides methods for adding, checking, and removing permissions for specific references.
 <br /><br />
@@ -107,10 +107,9 @@ These classes offer a straightforward way to manage and check permissions in you
 <div style="max-width: 500px;text-align: left; background: 161616;">
 ⚠️ Does use MySQL (x_class_mysqli object)<br />
 ⚠️ Tables will be automatically installed<br />
+<br /></div>
 
-<br /></div><br>
-
-<h2 id="x_class_hitcounter">Table Structure</h2><p>Below explanations about the table which is used to save permission relations!</p><div class="scrolldivy">
+<h3 id="x_class_hitcounter">Table Structure</h3><p>Below explanations about the table which is used to save permission relations!</p><div class="scrolldivy">
 <table class="table table-bordered table-dark">
   <tr>
     <th>Column Name</th>
@@ -159,7 +158,7 @@ These classes offer a straightforward way to manage and check permissions in you
 
 
 </div>
-<h2 id="x_class_perm-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<h3 id="x_class_perm-mastered-">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
 <table  class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -173,8 +172,6 @@ These classes offer a straightforward way to manage and check permissions in you
 <td>Constructor with x_class_mysql object and Tablename, Section for Multisite use if optional!</td>
 </tr>
 </tbody>
-</table>
-<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Config Functions</th>
@@ -187,8 +184,6 @@ These classes offer a straightforward way to manage and check permissions in you
 <td>Optional: Change Current Section in Table for Perms</td>
 </tr>
 </tbody>
-</table>
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Perm Functions</th>
@@ -229,8 +224,8 @@ These classes offer a straightforward way to manage and check permissions in you
 <td>Get Item Permission Object for Red (see Below)</td>
 </tr>
 </tbody>
-</table><br />
-</section><section class="docs-section" id="item-1-1-1" >
+</table>
+</section><hr><section class="docs-section" id="item-1-1-1" style="border-bottom: none;">
 <h2 id="x_class_perm_item_anchor">x_class_perm_item </h2>
 This object can <span class="hljs-keyword">not</span> be created <span class="hljs-keyword">by</span> itself.  
 It needs <span class="hljs-keyword">to</span> be obtained <span class="hljs-keyword">by</span> getting <span class="hljs-keyword">it</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> x_class_perm function:
@@ -240,7 +235,7 @@ It needs <span class="hljs-keyword">to</span> be obtained <span class="hljs-keyw
 <div style="max-width: 500px;text-align: left; background: 161616;">
 ⚠️ Does use MySQL (x_class_mysqli object)<br />
 ⚠️ Tables will be automatically installed<br /><br /></div>
-<h2 id="x_class_perm-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<h3 id="x_class_perm-mastered-">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
 
 <table class="table table-bordered table-dark">
 <thead>
@@ -280,7 +275,7 @@ It needs <span class="hljs-keyword">to</span> be obtained <span class="hljs-keyw
 </tr>
 </tbody>
 </table><br />
-<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
+<h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 // Include your database connection code here<br />
 <br />
@@ -339,7 +334,7 @@ $permItem->remove_perm('delete');<br />
 // Refresh permissions for the reference using the x_class_perm_item instance<br />
 $permItem->refresh();<br />
 </code>
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

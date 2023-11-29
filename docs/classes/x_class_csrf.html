@@ -95,14 +95,14 @@
 						</section><!--//docs-intro-->
 				    </header>		<br /><hr><br>
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;border-bottom: none;">
 				<h2>Documentation</h2>
 The x_class_csrf class is designed to manage Cross-Site Request Forgery (CSRF) prevention by generating, validating, and maintaining CSRF tokens within sessions. It provides methods to retrieve tokens, validate submissions, and handle token renewal.<br /><br />
 
 <div style="max-width: 500px;text-align: left; background: 161616;">
-⚠️ Does use Session-Cookies<br /><br>
+⚠️ Does use Session-Cookies<br />
 <br /></div>
-<h2 id="x_class-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p><div class="scrolldivy">
+<h3 id="x_class-mastered-">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p><div class="scrolldivy">
 <table class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -181,7 +181,7 @@ The x_class_csrf class is designed to manage Cross-Site Request Forgery (CSRF) p
 </tr>
 </tbody>
 </table></div>
-<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
+<h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 // Initialize the CSRF class with optional parameters<br />
 $csrf = new x_class_csrf("myapp_", 600, true);<br />
@@ -212,7 +212,7 @@ if ($csrf->validate($_POST['csrf_token'])) {<br />
 </code>
 
 
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

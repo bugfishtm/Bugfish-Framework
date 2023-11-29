@@ -95,7 +95,7 @@
 						</section><!--//docs-intro-->
 				    </header>		<br /><hr><br>
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;border-bottom: none;">
 				<h2>Documentation</h2>
 <p style="text-align: left;">The x_class_redis class facilitates interactions with a Redis server, offering methods for connecting, adding and retrieving data, and managing keys and lists. It includes functionalities like checking connection validity, pinging the server, fetching keys, adding strings and lists, and retrieving values. This class simplifies Redis operations for caching and fast data storage.</p>
 
@@ -104,7 +104,7 @@
 ⚠️ Needs PHP Redis Module<br />
 <br /></div><br>
 
-<h2 id="x_class_redis-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<h3 id="x_class_redis-mastered-">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
 <table  class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -118,8 +118,6 @@
 <td>Host / Redis Port and Pre for all Keys (optional)</td>
 </tr>
 </tbody>
-</table>
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Functions</th>
@@ -161,8 +159,8 @@
 <td>Get Key list to Array</td>
 </tr>
 </tbody>
-</table><br />
-<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
+</table>
+<h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 // Include the class definition or autoload it if needed<br />
 <br />
@@ -200,7 +198,7 @@ if ($redisClient->valid()) {<br />
     echo "Failed to connect to Redis\n";<br />
 }<br />
 </code>
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

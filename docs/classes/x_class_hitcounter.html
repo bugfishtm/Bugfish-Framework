@@ -93,9 +93,9 @@
 					    <section class="docs-intro">
 						    <p>This is the Documentation for the Bugfish Framework!</p>
 						</section><!--//docs-intro-->
-				    </header>		<br /><hr><br>
+				    </header>		<br /><hr>
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;border-bottom: none;">
 				<br /><h2>Documentation</h2>
 <p style="text-align: left;">The x_class_hitcounter class is designed to manage a hit counter for tracking the number of hits and visits to specific URLs. It interacts with a MySQL database to store and retrieve hit counter data. Key features of the class include the ability to count arrivals and switches, refresh counters, prepare URLs for storage, and execute hit counting. The class also offers options for enabling or disabling hit counting and clearing GET parameters from URLs before storage. It maintains counters for arrivals, switches, and the summarized total of hits and visits for a given URL. The class uses PHP sessions to manage the state of visited URLs and store hit counter data in the MySQL database.</p>
 
@@ -104,10 +104,10 @@
 ⚠️ Does use MySQL (x_class_mysqli object)<br />
 ⚠️ Tables will be automatically installed<br />
 ⚠️ Does use Session-Cookies<br />
-<br /></div><br>
+<br /></div>
 
 
-<h2 id="x_class_hitcounter">Table Structure</h2><p>Table below will be created to save visits if necessary!</p><div class="scrolldivy">
+<h3 id="x_class_hitcounter">Table Structure</h3><p>Table below will be created to save visits if necessary!</p><div class="scrolldivy">
 
 <table class="table table-bordered table-dark">
   <tr>
@@ -168,7 +168,7 @@
 
 
 </div>
-<h2 id="x_class_hitcounter">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<h3 id="x_class_hitcounter">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
 <table class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -182,8 +182,6 @@
 <td>Create the Class and Create Table if not Exists with x_class_mysql object and Precookie String is optional! Optional Section for Multi Site</td>
 </tr>
 </tbody>
-</table>
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Execute Function</th>
@@ -196,8 +194,6 @@
 <td>Executes the Counting Function for a Site if not Disabled by Config Function</td>
 </tr>
 </tbody>
-</table>
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Public Variables and List Function</th>
@@ -222,8 +218,6 @@
 <td>Get current list of websites registered (views) in array</td>
 </tr>
 </tbody>
-</table>
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Config Function</th>
@@ -240,8 +234,8 @@
 <td>Clear Get Varibales in Logged URL</td>
 </tr>
 </tbody>
-</table><br />
-<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
+</table>
+<h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 // Include the necessary files and set up your database connection here.<br />
 <br />
@@ -274,7 +268,7 @@ echo "Summarized: $summarized<br>";<br />
 // Close your database connection if necessary<br />
 
 </code>
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

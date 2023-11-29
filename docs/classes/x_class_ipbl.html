@@ -95,7 +95,7 @@
 						</section><!--//docs-intro-->
 				    </header>		<br /><hr><br>
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px; border-bottom: none;">
 				<h2>Documentation</h2>
 The x_class_ipbl class serves as a tool for IP blacklisting control. It facilitates managing and controlling access from specific IP addresses through interaction with a MySQL database. Key features of the class include the ability to check if an IP address is blocked, retrieve an array of banned IPs, unblock a specific IP, retrieve the failure counter for an IP address, raise the counter for an IP, and manage the state of blocked IPs. The class employs a MySQL database for storing IP blacklisting information and controlling access to the application.<br /><br />
 
@@ -105,7 +105,7 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 ⚠️ Tables will be automatically installed<br />
 <br /></div><br>
 
-<h2 id="x_class_ipbl-mastered-">Table Structure</h2><p>Below informations of the table which will be created by this class. This table will store IP Warnings and act as Blacklist which can be used for your purposes!</p>
+<h3 id="x_class_ipbl-mastered-">Table Structure</h3><p>Below informations of the table which will be created by this class. This table will store IP Warnings and act as Blacklist which can be used for your purposes!</p>
 <div class="scrolldivy">
 
 <table class="table table-bordered table-dark">
@@ -145,7 +145,7 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 
 </div>
 
-<h2 id="x_class_ipbl-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<h3 id="x_class_ipbl-mastered-">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
 <table  class="table table-bordered table-dark"> 
 <thead>
 <tr>
@@ -159,9 +159,6 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 <td>Construct with x_class_mysql object and corrosponding Table Name. Max Value for Blocking is default 50000</td>
 </tr>
 </tbody>
-</table>
-
-<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Check Block Functions</th>
@@ -186,9 +183,6 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 <td>Alias</td>
 </tr>
 </tbody>
-</table>
-
-<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Fail Counter Functions</th>
@@ -217,9 +211,6 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 <td>Get Array with IPs blocked and registered!</td>
 </tr>
 </tbody>
-</table>
-
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Fail Raise Functions</th>
@@ -236,8 +227,8 @@ The x_class_ipbl class serves as a tool for IP blacklisting control. It facilita
 <td>Alias</td>
 </tr>
 </tbody>
-</table><br />
-<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
+</table>
+<h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 
 // First, you need to have a MySQL database connection. You can create one like this:<br />
@@ -281,7 +272,7 @@ if ($ipbl->ip_counter($ip_to_check) > $maxvalue) {<br />
 }<br />
 </code>
 
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

@@ -96,7 +96,7 @@
 						</section><!--//docs-intro-->
 				    </header>		<br /><hr>
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;border-bottom: none;">
 				<br /><h2>Documentation</h2>
 <p style="text-align: left;">The x_class_mail class is a PHP class designed for sending emails using the PHPMailer library. It encapsulates various email-related functionalities and configurations. The class includes features such as setting up SMTP authentication, defining host details, configuring secure connections, managing email recipients (To, CC, BCC), attaching files, and handling HTML content. The class provides methods to send emails using either a simplified approach (method send) or an advanced method (mail) that allows more customization. It also supports logging email activities, allowing developers to track sent emails. The class can be used to create email sending instances (x_class_mail_item) that hold specific settings and attachments, providing a convenient way to send emails with specific configurations.</p>
 
@@ -104,8 +104,7 @@
 ⚠️ Does use MySQL (x_class_mysqli object) (for logging)<br />
 ⚠️ Tables will be automatically installed<br />
 <br /></div>
-<br>
-<h2 id="x_class_hitcounter">Table Structure</h2><p>If logging is activated in this class, following table will be created to log Mails if necessary!</p><div class="scrolldivy">
+<h3 id="x_class_hitcounter">Table Structure</h3><p>If logging is activated in this class, following table will be created to log Mails if necessary!</p><div class="scrolldivy">
 
 
 <table  class="table table-bordered table-dark">
@@ -187,7 +186,8 @@
 
 </div>
 
-<h2 id="x_class_mail-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<h3 id="x_class_mail-mastered-">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
+<div class="scrolldivy">
 <table class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -201,9 +201,6 @@
 <td>Set up Mail Connection Information with Constructor</td>
 </tr>
 </tbody>
-</table>
-
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Config Logging Functions</th>
@@ -224,9 +221,6 @@
 <td>x_class_mysql object, table name for logging, log success mail? - section for multi-site</td>
 </tr>
 </tbody>
-</table>
-
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Config Functions</th>
@@ -279,8 +273,6 @@
 <td>Get Info from last Mail Sending (SMTP Message)</td>
 </tr>
 </tbody>
-</table>
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Send Functions</th>
@@ -297,9 +289,6 @@
 <td>Updated Function to Send Mails <br /> $receiver, $cc, $bcc, $attachment, $settings = array() are arrays with parameters Arrays for Mail Info to Receiver are array(mail, name)</td>
 </tr>
 </tbody>
-</table>
-
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Misc Functions</th>
@@ -312,7 +301,7 @@
 <td>Return x_class_mail_item Object</td>
 </tr>
 </tbody>
-</table></section><section class="docs-section" id="item-1-1-1">
+</table></div></section><hr><section class="docs-section" id="item-1-1-1" style="border-bottom: none;">
 <h2 id="x_class_mail_item_anchor">x_class_mail_item</h2>
 Item <span class="hljs-keyword">to</span> Handle Mail Send Operation.
 x_class_mail <span class="hljs-keyword">object</span> needed <span class="hljs-keyword">for</span> construction!
@@ -325,7 +314,7 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 ⚠️ Tables will be automatically installed<br />
 
 <br /></div>
-<h2 id="x_class_mail_template-mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<h3 id="x_class_mail_template-mastered-">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
 <table class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -339,9 +328,6 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 <td>Construct with x_class_mail_object</td>
 </tr>
 </tbody>
-</table>
-
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Setup Function</th>
@@ -410,9 +396,6 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 <td>Empty Setting Array</td>
 </tr>
 </tbody>
-</table>
-
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Send Function</th>
@@ -427,7 +410,7 @@ All Sender <span class="hljs-keyword">and</span> Receiver information will be <s
 </tbody>
 </table>
 
-<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
+<h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 // Include the PHPMailer library and create an instance of x_class_mail<br />
 require 'path/to/PHPMailer.php';<br />
@@ -480,7 +463,7 @@ if ($email->send($subject, $content)) {<br />
 
 
 
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

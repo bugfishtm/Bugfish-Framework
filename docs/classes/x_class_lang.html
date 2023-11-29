@@ -95,7 +95,7 @@
 						</section><!--//docs-intro-->
 				    </header>		<br /><hr><br>
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px; border-bottom: none;">
 				<h2>Documentation</h2>
 <p style="text-align: left;">The x_class_lang class handles multilingual translation and localization. It provides methods for managing translations both through a MySQL database and a file-based approach. The class can initialize translation arrays, delete translation keys, add new translations, and perform translations using the loaded data. It simplifies the process of translating content for different languages and sections within an application.</p>
 
@@ -103,8 +103,8 @@
 
 ⚠️ Does use MySQL (x_class_mysqli object) (if not using language file)<br />
 ⚠️ Tables will be automatically installed<br />
-<br /></div><br>
-<h2 id="x_class_var">Table Structure</h2><p>Below explanations about the SQL Table which will be created for this class to store translations, if no language files are used!</p><div class="scrolldivy">
+<br /></div>
+<h3 id="x_class_var">Table Structure</h3><p>Below explanations about the SQL Table which will be created for this class to store translations, if no language files are used!</p><div class="scrolldivy">
 <table class="table table-bordered table-dark">
   <tr>
     <th>Column Name</th>
@@ -157,7 +157,7 @@
 </table>
 
 </div>
-<h2 id="x_class_var">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p><div class="scrolldivy">
+<h3 id="x_class_var">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p><div class="scrolldivy">
 <table class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -213,18 +213,16 @@
 </tr>
 </tbody>
 </table></div>
-<br />
-<h2 id="x_class_mastered-">Example Language File</h2>
+
+<h3 id="x_class_mastered-">Example Language File</h3><p>Example Implementation using a file to store translations!</p>
 <code class="json hljs">
 // Language file example<br />
 # Language file example<br />
 example_key=This is an example translation<br />
 another_key=Another translation<br />
-
-
 </code>
 <br />
-<h2 id="x_class_mastered-">Example DB Implementation</h2>
+<h3 id="x_class_mastered-">Example DB Implementation</h3><p>Example Implementation using a database to store translations!</p>
 <code class="json hljs">
 $mysql = new MySQLConnection(); // Replace with your database connection<br />
 $table = 'translations';<br />
@@ -240,7 +238,7 @@ echo $translation; // Output: This is an example translation<br />
 
 </code>
 
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

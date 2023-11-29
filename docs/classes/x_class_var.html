@@ -95,14 +95,14 @@
 						</section><!--//docs-intro-->
 				    </header>		<br /><hr><br />
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;border-bottom: none;">
 				<h2>Documentation</h2>
 <p style="text-align: left;">The x_class_var PHP class is designed to manage variables stored in a MySQL database. It provides methods for initializing, retrieving, and modifying these variables, which can be used as constants or stored in arrays. The class also includes basic security features like CSRF protection and input sanitation.</p>
 
 <div style="max-width: 500px;text-align: left; background: 161616;">
 ⚠️ Does use MySQL (x_class_mysqli object)<br />
-⚠️ Tables will be automatically installed<br /><br />
-<br /></div><h2 id="x_class_hitcounter">Table Structure</h2><p>Below some informations about the table where constants will be stored. Fields can be dynamically set in constructor.</p><div class="scrolldivy">
+⚠️ Tables will be automatically installed<br />
+<br /></div><h3 id="x_class_hitcounter">Table Structure</h3><p>Below some informations about the table where constants will be stored. Fields can be dynamically set in constructor.</p><div class="scrolldivy">
 
 <table  class="table table-bordered table-dark">
   <tr>
@@ -157,7 +157,7 @@
 
 
 </div>
-<h2 id="x_class_var">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+<h3 id="x_class_var">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
 <table  class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -171,8 +171,6 @@
 <td>Construct the Class with x_class_mysql_object</td>
 </tr>
 </tbody>
-</table>
-<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Init Functions</th>
@@ -193,8 +191,6 @@
 <td>Get Full Array with all Constants</td>
 </tr>
 </tbody>
-</table>
-<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Vars Functions</th>
@@ -232,7 +228,7 @@
 </tr>
 </tbody>
 </table>
-<h2>form() </h2><p>Functions to fast generate setting forms for different constants created by this class!</p>
+<h2>form() </h2><p>Functions to fast generate setting forms for different constants created by this class!</p><h4>Form() Function Various</h4>
 <table  class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -250,7 +246,7 @@
 <td>At the end of all Form Generation Functions</td>
 </tr>
 </tbody>
-</table>
+</table><h4>Form() Function Parameters</h4>
 <table  class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -288,7 +284,7 @@
 <td>Label displayed on the submit button.</td>
 </tr>
 </tbody>
-</table>
+</table><h4>Form() Function Explanation</h4>
 <table  class="table table-bordered table-dark">
 <thead>
 <tr>
@@ -300,8 +296,6 @@
 <td>Generates an HTML form for configuring or updating a specified variable within a class context. Handles form submission, CSRF protection, and feedback messages.</td>
 </tr>
 </tbody>
-</table>
-<table class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Possible Results</th>
@@ -315,8 +309,6 @@
 <td>- After form submission, it sets the variable with the submitted value and displays success or error messages.</td>
 </tr>
 </tbody>
-</table>
-<table  class="table table-bordered table-dark">
 <thead>
 <tr>
 <th>Purpose</th>
@@ -328,8 +320,7 @@
 </tr>
 </tbody>
 </table>
-<br />
-<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
+<h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
 // Include your MySQL database connection here<br />
 // For demonstration purposes, we'll use a dummy connection function.<br />
@@ -382,7 +373,7 @@ if ($config->del("my_variable")) {<br />
 $mysql->close();<br />
 
 </code>
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

@@ -95,7 +95,7 @@
 						</section><!--//docs-intro-->
 				    </header>	<br /><hr><br />	
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;border-bottom: none;">
 				<h2>Documentation</h2>
 
 This is a class designed for managing Curl requests. Please ensure that the PHP Curl module is installed and operational to use this class effectively. If you intend to enable logging through the constructor, MySQL is also required for proper functionality.<br /><br />
@@ -104,8 +104,8 @@ This is a class designed for managing Curl requests. Please ensure that the PHP 
 <div style="max-width: 500px;text-align: left; background: 161616;">
 ⚠️ Does use MySQL (If Logging activated)(x_class_mysqli object)<br />
 ⚠️ Tables will be automatically installed<br />
-⚠️ Needs PHP Module: curl<br /><br>
-<br /></div><h2 id="x_class_hitcounter">Table Structure</h2><p>Informations about the table structure, in case logging for this classe is activated!</p><div class="scrolldivy">
+⚠️ Needs PHP Module: curl<br />
+<br /></div><h3 id="x_class_hitcounter">Table Structure</h3><p>Informations about the table structure, in case logging for this classe is activated!</p><div class="scrolldivy">
 
 <table class="table table-bordered table-dark">
   <tr>
@@ -179,7 +179,7 @@ This is a class designed for managing Curl requests. Please ensure that the PHP 
 
 
 </div>
-<h2 id="x_class_mastered-">Class Parameters</h2><p>Below a list of class parameters!</p>
+<h3 id="x_class_mastered-">Class Parameters</h3><p>Below a list of class parameters!</p>
 <table  class="table table-bordered table-dark">
 <tbody>
 <tr>
@@ -198,7 +198,7 @@ This is a class designed for managing Curl requests. Please ensure that the PHP 
 <td><code>$mysql</code> (private): An instance of the MySQL database connection (initialized as <code>false</code>).</td>
 </tr>
 </tbody>
-</table><h2 id="x_class_mastered-">Class Functions</h2><p>Below a list of functions and explanations on how to use them.</p>
+</table><h3 id="x_class_mastered-">Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>
 <table  class="table table-bordered table-dark">
 <tbody>
 <tr>
@@ -248,7 +248,7 @@ This is a class designed for managing Curl requests. Please ensure that the PHP 
 </tbody>
 </table>
 
-<h2 id="x_class_mastered-">Example Implementation</h2><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
+<h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs" readonly>
 // Instantiate the x_class_curl class<br />
 $x_curl = new x_class_curl();<br />
@@ -270,7 +270,7 @@ if ($x_curl->last_info !== false && $x_curl->last_info['http_code'] === 200) {<b
 
 </code>
 
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>

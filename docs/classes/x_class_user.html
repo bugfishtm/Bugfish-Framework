@@ -98,7 +98,7 @@
 						</section><!--//docs-intro-->
 				    </header>		<br /><hr><br />
 	
-			<section class="docs-section" id="item-1-1" style="padding-top: 0px;">
+			<section class="docs-section" id="item-1-1" style="padding-top: 0px;border-bottom: none;" >
 				<h2>Documentation</h2>
 <p style="text-align: left;">The x_class_user PHP class stands as a versatile and comprehensive solution, effortlessly embedding user management into a wide array of web projects. By seamlessly supporting cookies, it ensures smooth and persistent user experiences across visits. This solution boasts user registration and authentication, including secure password hashing. Additionally, it facilitates profile customization with support for user groups and extra fields, providing tailored interactions.
 <br /><br />
@@ -114,8 +114,8 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 <br />
 
 
-<h2 id="x_class_hitcounter">Table Structure</h2><p>Below you can find a list of tables created by this class, group classes will only get created if they are activated with configuration functions!</p><div class="scrolldivy">
-<h3 id="x_class_hitcounter">Session Table</h3><p>Table to store Sessions and User Tokens!</p>
+<h3 id="x_class_hitcounter">Table Structure</h3><p>Below you can find a list of tables created by this class, group classes will only get created if they are activated with configuration functions!</p><div class="scrolldivy">
+<h4 id="x_class_hitcounter">Session Table</h4><p>Table to store Sessions and User Tokens!</p>
 <table class="table table-bordered table-dark">
   <tr>
     <th>Column Name</th>
@@ -205,7 +205,7 @@ To enable the class's functionality, MySQL is required for data storage. Notably
   </tr>
 </table>
 </div>
-<h3 id="x_class_hitcounter">Users Table</h3><p>Table to store Users and user Settings!</p>
+<h4 id="x_class_hitcounter">Users Table</h4><p>Table to store Users and user Settings!</p>
 <div class="scrolldivy">
 <table class="table table-bordered table-dark">
   <tr>
@@ -532,8 +532,7 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 </table>
 
 
-</div><br />
-<h2>Class Parameters</h2><p>Some informations about this classes parameters!</p>
+</div>
 <div class="internal_show" id="show_p">
 	<h3>User Related Parameters</h3>
 	This parameters are only set if a user if logged in!
@@ -638,7 +637,7 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 </div>
 
 
-</section><section class="docs-section" id="item-1-1-1">
+</section><hr><section class="docs-section" id="item-1-1-1" style="border-bottom: none;">
 <div class="internal_show" id="show_c">
 	<h3>Constructing Functions</h3>
 	<table class="table table-bordered table-dark">
@@ -700,8 +699,6 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>user_unique($bool = false)</td>
 	<td>User Names are unique if this is set to true. If you set this to false User Names are not unique. May gets overwritten if User Names is the default login option, than its forced unique!</td>
 	</tr></tbody>
-	</table>
-	<table class="table table-bordered table-dark">
 	<thead>
 	<tr>
 	<th>Config: Log Functions</th>
@@ -729,8 +726,6 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>log_mail_edit($bool=false)</td>
 	<td>Log Mail Edits in Session Table If this is set to false - used keys will be deleted. If this is true, they will be preserved.</td>
 	</tr></tbody>
-	</table>
-	<table class="table table-bordered table-dark">
 	<thead>
 	<tr>
 	<th>Config: Operation Delay Interval Functions</th>
@@ -751,8 +746,6 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>Mail Edit Request Interval Minutes - The time the users need to wait between Mail Change by User with Activation Operations to start another Operation (against flooding)</td>
 	</tr>
 	</tbody>
-	</table>
-	<table class="table table-bordered table-dark">
 	<thead>
 	<tr>
 	<th>Config: Token Expire Functions</th>
@@ -772,8 +765,6 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>min_mail_edit($int = 6)</td>
 	<td>Mail Edit Token Expire Minutes - The time Mail Change Activation Keys doe expire in after. </td>
 	</tr></tbody>
-	</table>
-	<table class="table table-bordered table-dark">
 	<thead>
 	<tr>
 	<th>Config: Autoblock Functions</th>
@@ -786,8 +777,6 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>Activate Auto Block of User after X failed Logins with wrong password, false for deactivation of this function.</td>
 	</tr>
 	</tbody>
-	</table>
-	<table class="table table-bordered table-dark">
 	<thead>
 	<tr>
 	<th>Config: Session Functions</th>
@@ -800,8 +789,6 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>Session Valid for X Days. This defines how long sessions are max valid in days</td>
 	</tr>
 	</tbody>
-	</table>
-	<table class="table table-bordered table-dark">
 	<thead>
 	<tr>
 	<th>Config: Cookie Functions</th>
@@ -818,8 +805,6 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>Cookies valid for X Days. This defines how long sessions are max valid in days if not refreshed.</td>
 	</tr>
 	</tbody>
-	</table>	
-	<table class="table table-bordered table-dark">
 	<thead>
 	<tr>
 	<th>Token Config Functions</th>
@@ -1026,7 +1011,7 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	</tbody>
 	</table>
 </div>
-</section><section class="docs-section" id="item-1-1-2">
+</section><hr><section class="docs-section" id="item-1-1-2" style="border-bottom: none;">
 <div class="internal_show" id="show_u">
 <h3>User Operation Functions</h3>
 		If you do not provide an ID here, the actual logged in executing user will be changed or handled as id. In case the id is optional this will be the handling for that kind of execution or trigger of that  functions listed below.<br /><br />
@@ -1092,7 +1077,7 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>Unblock a User</td>
 	</tr>
 	</tbody>
-	</table>
+	</table><h3>Enable/Disable Functions</h3>
 	<table class="table table-bordered table-dark">
 	<thead>
 	<tr>
@@ -1221,7 +1206,7 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	</tbody>
 	</table>
 </div>
-</section><section class="docs-section" id="item-1-1-3">
+</section><hr ><section class="docs-section" id="item-1-1-3" style="border-bottom: none;">
 	<h3>Primary Functions</h3>
 
 	<table class="table table-bordered table-dark">
@@ -1371,7 +1356,7 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	</tbody>
 	</table></div>
 
-					</section><section class="docs-section" id="item-1-2" style="border-bottom: none;">
+					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>
 						<a href="https://www.bugfish.eu" class="btn btn-primary" target="_blank"><i class="fas fa-link me-2"></i> My Website</a>
