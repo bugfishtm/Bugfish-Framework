@@ -1,19 +1,28 @@
-<?php 
-	/* 	
-		@@@@@@@   @@@  @@@   @@@@@@@@  @@@@@@@@  @@@   @@@@@@   @@@  @@@  
-		@@@@@@@@  @@@  @@@  @@@@@@@@@  @@@@@@@@  @@@  @@@@@@@   @@@  @@@  
-		@@!  @@@  @@!  @@@  !@@        @@!       @@!  !@@       @@!  @@@  
-		!@   @!@  !@!  @!@  !@!        !@!       !@!  !@!       !@!  @!@  
-		@!@!@!@   @!@  !@!  !@! @!@!@  @!!!:!    !!@  !!@@!!    @!@!@!@!  
-		!!!@!!!!  !@!  !!!  !!! !!@!!  !!!!!:    !!!   !!@!!!   !!!@!!!!  
-		!!:  !!!  !!:  !!!  :!!   !!:  !!:       !!:       !:!  !!:  !!!  
-		:!:  !:!  :!:  !:!  :!:   !::  :!:       :!:      !:!   :!:  !:!  
-		 :: ::::  ::::: ::   ::: ::::   ::        ::  :::: ::   ::   :::  
-		:: : ::    : :  :    :: :: :    :        :    :: : :     :   : :  
-			  __                                   _   		Autor: Jan-Maurice Dahlmanns (Bugfish)
-			 / _|_ _ __ _ _ __  _____ __ _____ _ _| |__		Bugfish Framework Codebase
-			|  _| '_/ _` | '  \/ -_) V  V / _ \ '_| / /		https://github.com/bugfishtm
-			|_| |_| \__,_|_|_|_\___|\_/\_/\___/_| |_\_\       */
+<?php
+	/* 	__________ ____ ___  ___________________.___  _________ ___ ___  
+		\______   \    |   \/  _____/\_   _____/|   |/   _____//   |   \ 
+		 |    |  _/    |   /   \  ___ |    __)  |   |\_____  \/    ~    \
+		 |    |   \    |  /\    \_\  \|     \   |   |/        \    Y    /
+		 |______  /______/  \______  /\___  /   |___/_______  /\___|_  / 
+				\/                 \/     \/                \/       \/  	
+							www.bugfish.eu
+							
+	    Bugfish Framework
+		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
+
+		This program is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+
+		This program is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+
+		You should have received a copy of the GNU General Public License
+		along with this program.  If not, see <https://www.gnu.org/licenses/>.
+	*/
 	class x_class_mysql {
 		/*	___________     ___.   .__                 
 			\__    ___/____ \_ |__ |  |   ____   ______
@@ -31,7 +40,7 @@
 								  `output` text NULL COMMENT 'Error MySQL Output',
 								  `success` int(1) NULL COMMENT '1 - Query OK | 2 - Query Error',
 								  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date',
-								  `section` varchar(64) DEFAULT NULL COMMENT 'Related Section',
+								  `section` varchar(128) DEFAULT NULL COMMENT 'Related Section',
 								  PRIMARY KEY (`id`));");}
 		/*	  ____  ____   ____   _______/  |________ __ __   _____/  |_ 
 			_/ ___\/  _ \ /    \ /  ___/\   __\_  __ \  |  \_/ ___\   __\
