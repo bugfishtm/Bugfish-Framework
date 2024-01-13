@@ -93,7 +93,7 @@
 					$query = "SELECT * FROM `".$this->mysqltable."` WHERE full_url = ? AND site_url = ? AND section = ?;";
 					$sresult = @$this->mysql->select($query, false, $b);
 					if (!is_array($sresult)) { 
-						$query = @$this->mysql->query("INSERT INTO `".$this->mysqltable."` (full_url, site_url, section, hits) VALUES (?, ?, 1)", $b);
+						$query = @$this->mysql->query("INSERT INTO `".$this->mysqltable."` (full_url, site_url, section, hits) VALUES (?, ?, ?, 1)", $b);
 					} else {
 						$query = @$this->mysql->update("UPDATE `".$this->mysqltable."` SET hits = hits + 1 WHERE full_url = ? AND site_url = ? AND section = ?;", $b);
 					}				
