@@ -46,7 +46,7 @@
 											  `creation` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation Date - Auto Set',
 											  `modification` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Modification Date | Auto - Set',
 											  PRIMARY KEY (`id`),
-											  UNIQUE KEY `UNIQUE` (`full_url`, `section`, `site_url`) USING BTREE );");		
+											  UNIQUE KEY `x_class_referer` (`full_url`, `section`, `site_url`) USING BTREE );");		
 		}
 		
 		######################################################

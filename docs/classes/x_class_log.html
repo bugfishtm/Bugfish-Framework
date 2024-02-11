@@ -267,29 +267,29 @@
 </table>
 <h3 id="x_class_mastered-">Example Implementation</h3><p>Below you can see one example implementation of this class. It does only show a short introduction on how to initialize it.</p>
 <code class="json hljs">
-// Assuming you have a MySQL database connection already established
-$mysql = new mysqli('localhost', 'username', 'password', 'database_name');
-
-// Include the x_class_log class definition here
-
-// Create an instance of the x_class_log class
-$log = new x_class_log($mysql, 'log_table', 'example_section');
-
-// Log some messages
-$log->error('This is an error message');
-$log->warning('This is a warning message');
-$log->notify('This is a notification');
-
-// Retrieve and display the log entries for the 'example_section'
-$logEntries = $log->list_get(10); // Get the last 10 log entries
-foreach ($logEntries as $entry) {
-    echo 'Type: ' . $entry['type'] . '-';
-    echo 'Message: ' . $entry['message'] . '-';
-    echo 'Creation Date: ' . $entry['creation'] . '-';
-}
-
-// Clear the log entries for the 'example_section'
-$log->list_flush_section();
+// Assuming you have a MySQL database connection already established<br/>
+$mysql = new mysqli('localhost', 'username', 'password', 'database_name');<br/>
+<br/>
+// Include the x_class_log class definition here<br/>
+<br/>
+// Create an instance of the x_class_log class<br/>
+$log = new x_class_log($mysql, 'log_table', 'example_section');<br/>
+<br/>
+// Log some messages<br/>
+$log->error('This is an error message');<br/>
+$log->warning('This is a warning message');<br/>
+$log->notify('This is a notification');<br/>
+<br/>
+// Retrieve and display the log entries for the 'example_section'<br/>
+$logEntries = $log->list_get(10); // Get the last 10 log entries<br/>
+foreach ($logEntries as $entry) {<br/>
+    echo 'Type: ' . $entry['type'] . '-';<br/>
+    echo 'Message: ' . $entry['message'] . '-';<br/>
+    echo 'Creation Date: ' . $entry['creation'] . '-';<br/>
+}<br/>
+<br/>
+// Clear the log entries for the 'example_section'<br/>
+$log->list_flush_section();<br/>
 
 </code>
 

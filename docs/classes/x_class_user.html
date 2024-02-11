@@ -76,6 +76,7 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1-1">Configuration</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1-2">User Operations</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1-3">Major Operations</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1-4">x_class_user_item</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2" target="_blank">Support</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3" target="_blank">License</a></li>
 					<!-- Impressum and Bugfish Link -->
@@ -272,32 +273,11 @@ To enable the class's functionality, MySQL is required for data storage. Notably
     <td>User Activation Status</td>
   </tr>
   <tr>
-    <td>user_blocked</td>
-    <td>tinyint(1)</td>
-    <td>Yes</td>
-    <td>0</td>
-    <td>User Blocked/Disabled Status</td>
-  </tr>
-  <tr>
-    <td>created_date</td>
-    <td>datetime</td>
-    <td>Yes</td>
-    <td>CURRENT_TIMESTAMP</td>
-    <td>Creation Date</td>
-  </tr>
-  <tr>
-    <td>modify_date</td>
-    <td>datetime</td>
-    <td>Yes</td>
-    <td>CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</td>
-    <td>Modification Date</td>
-  </tr>
-  <tr>
-    <td>last_reset</td>
+    <td>req_activation</td>
     <td>datetime</td>
     <td>Yes</td>
     <td>NULL</td>
-    <td>Reset Date Counter for new Requests</td>
+    <td>Activation Date Counter for new Requests</td>
   </tr>
   <tr>
     <td>last_activation</td>
@@ -307,18 +287,11 @@ To enable the class's functionality, MySQL is required for data storage. Notably
     <td>Activation Date Counter for new Requests</td>
   </tr>
   <tr>
-    <td>last_mail_edit</td>
-    <td>datetime</td>
+    <td>user_disabled</td>
+    <td>int(1)</td>
     <td>Yes</td>
-    <td>NULL</td>
-    <td>Last Mail Change Request Date</td>
-  </tr>
-  <tr>
-    <td>last_block</td>
-    <td>datetime</td>
-    <td>Yes</td>
-    <td>NULL</td>
-    <td>Block Date for this user</td>
+    <td>0</td>
+    <td>1 - User is Disabled</td>
   </tr>
   <tr>
     <td>last_login</td>
@@ -328,53 +301,11 @@ To enable the class's functionality, MySQL is required for data storage. Notably
     <td>Last Login Date</td>
   </tr>
   <tr>
-    <td>user_lang</td>
-    <td>varchar(24)</td>
+    <td>user_blocked</td>
+    <td>tinyint(1)</td>
     <td>Yes</td>
-    <td>NULL</td>
-    <td>User Default Language</td>
-  </tr>
-  <tr>
-    <td>user_color</td>
-    <td>varchar(24)</td>
-    <td>Yes</td>
-    <td>NULL</td>
-    <td>User Default Color</td>
-  </tr>
-  <tr>
-    <td>user_theme</td>
-    <td>varchar(24)</td>
-    <td>Yes</td>
-    <td>NULL</td>
-    <td>User Default Theme</td>
-  </tr>
-  <tr>
-    <td>user_theme_sub</td>
-    <td>varchar(24)</td>
-    <td>Yes</td>
-    <td>NULL</td>
-    <td>User Default Sub Theme</td>
-  </tr>
-  <tr>
-    <td>req_reset</td>
-    <td>datetime</td>
-    <td>Yes</td>
-    <td>NULL</td>
-    <td>Reset Date Counter for new Requests</td>
-  </tr>
-  <tr>
-    <td>req_activation</td>
-    <td>datetime</td>
-    <td>Yes</td>
-    <td>NULL</td>
-    <td>Activation Date Counter for new Requests</td>
-  </tr>
-  <tr>
-    <td>req_mail_edit</td>
-    <td>datetime</td>
-    <td>Yes</td>
-    <td>NULL</td>
-    <td>Last Mail Change Request Date</td>
+    <td>0</td>
+    <td>User Blocked Status</td>
   </tr>
   <tr>
     <td>block_reset</td>
@@ -412,11 +343,39 @@ To enable the class's functionality, MySQL is required for data storage. Notably
     <td>Fail Pass Enters without Success Login</td>
   </tr>
   <tr>
-    <td>user_disabled</td>
-    <td>int(1)</td>
+    <td>last_block</td>
+    <td>datetime</td>
     <td>Yes</td>
-    <td>0</td>
-    <td>1 - User is Disabled</td>
+    <td>NULL</td>
+    <td>Block Date for this user</td>
+  </tr>
+  <tr>
+    <td>user_lang</td>
+    <td>varchar(24)</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>User Default Language</td>
+  </tr>
+  <tr>
+    <td>user_color</td>
+    <td>varchar(24)</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>User Default Color</td>
+  </tr>
+  <tr>
+    <td>user_theme</td>
+    <td>varchar(24)</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>User Default Theme</td>
+  </tr>
+  <tr>
+    <td>user_theme_sub</td>
+    <td>varchar(24)</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>User Default Sub Theme</td>
   </tr>
   <tr>
     <td>extradata</td>
@@ -424,6 +383,62 @@ To enable the class's functionality, MySQL is required for data storage. Notably
     <td>Yes</td>
     <td>NULL</td>
     <td>Additional Data</td>
+  </tr>
+  <tr>
+    <td>hive_extradata</td>
+    <td>TEXT</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>Additional Data for HIVE System</td>
+  </tr>
+  <tr>
+    <td>req_reset</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>Reset Date Counter for new Requests</td>
+  </tr>
+  <tr>
+    <td>last_reset</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>Reset Date Counter for new Requests</td>
+  </tr>
+  <tr>
+    <td>req_mail_edit</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>Last Mail Change Request Date</td>
+  </tr>
+  <tr>
+    <td>last_mail_edit</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>Last Mail Change Request Date</td>
+  </tr>
+  <tr>
+    <td>last_activity</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>NULL</td>
+    <td>Last Activity on Site of User</td>
+  </tr>
+  <tr>
+    <td>created_date</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>CURRENT_TIMESTAMP</td>
+    <td>Creation Date</td>
+  </tr>
+  <tr>
+    <td>modify_date</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</td>
+    <td>Modification Date</td>
   </tr>
   <tr>
     <td>Primary Key</td>
@@ -533,6 +548,62 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 
 
 </div>
+
+
+<h3 id="x_class_hitcounter">Extrafield Tables</h3><p>Table Structure for Extrafields!</p>
+
+<div class="scrolldivy">
+<table  class="table table-bordered table-dark">
+  <tr>
+    <th>Column Name</th>
+    <th>Data Type</th>
+    <th>Nullable</th>
+    <th>Default Value</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>int(10)</td>
+    <td>No</td>
+    <td>AUTO_INCREMENT</td>
+    <td>Unique Group ID</td>
+  </tr>
+  <tr>
+    <td>fk_user</td>
+    <td>int(10)</td>
+    <td>No</td>
+    <td></td>
+    <td>Related User ID</td>
+  </tr>
+  <tr>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>Set your own extrafields with functions!</td>
+  </tr>
+  <tr>
+    <td>creation</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>CURRENT_TIMESTAMP</td>
+    <td>Creation Date</td>
+  </tr>
+  <tr>
+    <td>modification</td>
+    <td>datetime</td>
+    <td>Yes</td>
+    <td>CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</td>
+    <td>Modification Date</td>
+  </tr>
+  <tr>
+    <td>Primary Key</td>
+    <td colspan="4">(id)</td>
+  </tr>
+</table>
+
+</div>
+
 <div class="internal_show" id="show_p">
 	<h3>User Related Parameters</h3>
 	This parameters are only set if a user if logged in!
@@ -956,6 +1027,10 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	<td>extrafield_add_field($fieldstring)</td>
 	<td>Add a Field to Extrafield Table (Column with Column Add String after "ADD COLUMN IF NOT EXISTS ***"</td>
 	</tr>
+	<tr>
+	<td>extrafield_get($id)</td>
+	<td>Get Extrafield Array for a user</td>
+	</tr>
 	</tbody>
 	</table>
 </div>
@@ -1355,7 +1430,6 @@ To enable the class's functionality, MySQL is required for data storage. Notably
 	</tr>
 	</tbody>
 	</table></div>
-
 					</section><hr><section class="docs-section" id="item-1-2" style="border-bottom: none;">
 						<h2 class="section-heading">How to get support?</h2>
 						<p>There are different ways to get support for our products. You can write comments in our specific websites section for the related product, but the best way it to write in our forum, as we are getting notifications about that! So if you need any help, sign in at our forum and we will do what we can to serve you. If you do not want to register at our forum, you are invited to write us for support at requests@bugfish.eu.</p>

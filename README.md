@@ -3,7 +3,7 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-Framework-orange)
 ![Status](https://img.shields.io/badge/Status-Finished-green)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-2.6-white)
+![Version](https://img.shields.io/badge/Version-2.75-white)
 
 # Bugfish Framework Documentation
 
@@ -37,6 +37,34 @@ Within the Bugfish Framework, you will discover a professional PHP Function Libr
 ## PHP Classes
 
 The Bugfish Framework features essential PHP classes renowned for their exceptional functionality, time-saving capabilities, and rigorous testing across various websites. These invaluable resources can be found within the /_framework/classes/x_* directory, ensuring a seamless and efficient development experience. Some classes may require a database connection, and the necessary tables will be automatically installed by the classes if you provide the required parameters in the configuration functions. For more details, refer to the comprehensive documentation available on [bugfish-github.de](https://bugfishtm.github.io/bugfish-framework/).
+
+| Name                   | Description                                                                                                                           | License    |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------|------------|
+| ✅x_class_api          | Facilitates the creation of simple and secure API requests. Requires PHP Module CURL. Supports token-authentication and more.          | GPLv3      |
+| ✅x_class_benchmark    | Benchmarks resource consumption for sites on your website. Values saved in a database per URL.                                        | GPLv3      |
+| ✅x_class_block        | Facilitates session-based user counting and block operations. Makes it easy to block users from various areas.                          | GPLv3      |
+| ✅x_class_table        | Simplifies the creation of dynamic HTML tables with quick PHP editing capabilities.                                                  | GPLv3      |
+| ✅x_class_eventbox     | Simplifies the display of user notifications and messages on a web page.                                                              | GPLv3      |
+| ✅x_class_comment      | Enables commenting functionality, suitable for guestbooks or website comment sections.                                                | GPLv3      |
+| ✅x_class_csrf         | Provides robust CSRF protection for web forms, supporting external actions.                                                           | GPLv3      |
+| ✅x_class_curl         | Efficiently handles Curl requests and logs them for web operations. Requires PHP Module CURL.                                          | GPLv3      |
+| ✅x_class_debug        | Aids in debugging and offers development notifications and functions.                                                                | GPLv3      |
+| ✅x_class_phpmailer    | Manages email sending operations within the framework using the PHPMailer Class.                                                      | LGPL-2.1   |
+| ✅x_class_hitcounter   | Counts website visitors per page URL with configurable functions.                                                                     | GPLv3      |
+| ✅x_class_referer      | Logs visitor referrers with configurable functions.                                                                                   | GPLv3      |
+| ✅x_class_ipbl         | Implements IP blacklisting for enhanced website security.                                                                             | GPLv3      |
+| ✅x_class_log          | Provides a class for logging operations with easy and smart log entries for various possibilities.                                   | GPLv3      |
+| ✅x_class_mail         | Handles mail sending operations, with a subclass for sending operation items. Depends on x_class_phpmailer.                           | GPLv3      |
+| ✅x_class_mail_template | Creates mail templates with substitutions and footer/header options, compatible with x_class_mail.                                   | GPLv3      |
+| ✅x_class_perm         | Controls permissions for users, including single-item permission objects. 1-n Relation.                                               | GPLv3      |
+| ✅x_class_lang         | Manages language translation for multi-language websites with various functions and parameters.                                     | GPLv3      |
+| ✅x_class_redis        | Offers control over Redis functionality for caching content on a Redis server. Requires PHP Module REDIS.                              | GPLv3      |
+| ✅x_class_crypt        | Provides file and string encryption capabilities using a simple encryption method.                                                   | GPLv3      |
+| ✅x_class_zip          | Enables file compression and decompression, compatible with x_class_crypt for direct encryption and decryption. Requires PHP Module ZIP.| GPLv3      |
+| ✅x_class_user         | Creates various types of user logins with full functionality for password recovery, mail editing with token operations, and more.   | GPLv3      |
+| ✅x_class_var          | Controls setup variables for use on websites and includes a function to create forms for changing these values.                       | GPLv3      |
+| ✅x_class_mysql        | Provides MySQL database handling capabilities, along with additional features. Requires an x_class_mysql object for proper functioning.| GPLv3      |
+| ✅x_class_mysql_item   | Companion class to x_class_mysql, offering MySQL database handling capabilities with additional features.                             | GPLv3      |
 
 ## CSS Classes
 

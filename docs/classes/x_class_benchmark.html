@@ -167,12 +167,15 @@ To enable the class's functionality, MySQL is required for data storage. Notably
     <td>datetime</td>
     <td>DEFAULT CURRENT_TIMESTAMP</td>
     <td>Creation</td>
-  </tr>
+  </tr> 
   <tr>
     <td>modification</td>
     <td>datetime</td>
     <td>DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</td>
     <td>Modification</td>
+  </tr>
+  <tr>
+    <td colspan="4">UNIQUE KEY `x_class_benchmark` (`full_url`) USING BTREE</td>
   </tr>
 </table></div>
 <h3>Class Functions</h3><p>Below a list of functions and explanations on how to use them.</p>

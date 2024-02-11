@@ -128,6 +128,12 @@
     <td>Related Referer</td>
   </tr>
   <tr>
+    <td>site_url</td>
+    <td>varchar(512)</td>
+    <td>NOT NULL, DEFAULT '0'</td>
+    <td>Site URL Referer came on</td>
+  </tr>
+  <tr>
     <td>hits</td>
     <td>int(10)</td>
     <td>NOT NULL, DEFAULT '0'</td>
@@ -150,6 +156,9 @@
     <td>datetime</td>
     <td>DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</td>
     <td>Modification Date (Auto-Set on Change)</td>
+  </tr>
+  <tr>
+    <td colspan="4">UNIQUE KEY `x_class_referer` (`full_url`, `section`, `site_url`) USING BTREE</td>
   </tr>
 </table>
 
