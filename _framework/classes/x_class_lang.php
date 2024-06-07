@@ -29,7 +29,7 @@
 		private $table   = false; 
 		private $section = "none"; 	
 		private $lang = false; 	
-		private $array = array(); 	
+		public $array = array(); 	
 		
 		// Table Initialization
 		private function create_table() {

@@ -3,7 +3,7 @@
 ![Bugfish](https://img.shields.io/badge/Bugfish-Framework-orange)
 ![Status](https://img.shields.io/badge/Status-Released-blue)
 ![License](https://img.shields.io/badge/License-GPLv3-black)
-![Version](https://img.shields.io/badge/Version-3.20-white)
+![Version](https://img.shields.io/badge/Version-3.21-white)
 
 # Bugfish Framework Documentation
 
