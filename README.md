@@ -1,7 +1,3 @@
-![License](https://img.shields.io/badge/License-GPLv3-black)
-![Status](https://img.shields.io/badge/Status-Finished-green)
-![Version](https://img.shields.io/badge/Version-3.31-white)
-
 # Bugfish Framework
 
 ## Introduction
@@ -15,7 +11,6 @@ The Bugfish Framework, meticulously designed for web developers, prioritizes sec
 |------------|------------------------------------------------------|
 | _github    | Internal GitHub template files.                                    |
 | _release   | Release packages.                                    |
-| _changelog | Release packages changelog files.                                    |
 | _framework | Framework files to be included in your project.                                  |
 | _licenses  | Third-party licenses included in this software.           |
 | _images    | Images related to this framework, mostly for this readme or product images.            |
