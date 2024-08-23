@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.32] - 2024-08-23
+### Changes
+- Additional method in `x_class_user` for confirmation of Users.
+- Great Documentation overhaul
+
 ## [3.31] - 2024-08-22
 ### Changes
 - Fixed `x_class_user` for `login_as` functionality.

@@ -804,6 +804,10 @@ class x_class_user {
 		if(is_numeric($id)){$r = $this->mysql->query("SELECT * FROM `".$this->dt_users."` WHERE id = '".$id."'");
 		if($x = $this->mysql->fetch_array($r)){if($x["user_confirmed"] == 1){return true;}}}
 		return false;}		
+	public function confirm_user($id = "undefined_framework_var"){ 
+		if(!$this->int_opid($id)){ return false; } else { $id = $this->int_opid($id);} 
+		if(is_numeric($id) AND is_numeric($new)){return $this->mysql->query("UPDATE `".$this->dt_users."` SET user_confirmed = 1 WHERE id = '".$id."'");}
+		return false;}
 	## Add a User
 	public function add_user($nameref, $mail, $password = false, $rank = false, $activated = false){ return $this->addUser($nameref, $mail, $password, $rank, $activated);}
 	public function addUser($nameref, $mail, $password = false, $rank = false, $activated = false) { 

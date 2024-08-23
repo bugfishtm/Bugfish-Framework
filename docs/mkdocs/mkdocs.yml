@@ -1,0 +1,82 @@
+site_name: Bugfish Framework
+repo_url: https://github.com/bugfishtm/bugfish-framework
+repo_name: bugfishtm/bugfish-framework
+
+nav:
+    - Home: index.md
+    - CSS Library: css/index.md
+    - Javascript Library: javascript/index.md
+    - PHP Library: functions/index.md
+    - PHP Class 2FA: classes/x_class_2fa.md
+    - PHP Class API: classes/x_class_api.md
+    - PHP Class Benchmark: classes/x_class_benchmark.md
+    - PHP Class Comment: classes/x_class_comment.md
+    - PHP Class Crypt: classes/x_class_crypt.md
+    - PHP Class CSRF: classes/x_class_csrf.md
+    - PHP Class Curl: classes/x_class_curl.md
+    - PHP Class Debug: classes/x_class_debug.md
+    - PHP Class Eventbox: classes/x_class_eventbox.md
+    - PHP Class Hitcounter: classes/x_class_hitcounter.md
+    - PHP Class IP Blacklist: classes/x_class_ipbl.md
+    - PHP Class Logging: classes/x_class_log.md
+    - PHP Class Mail: classes/x_class_mail.md
+    - PHP Class Mail Item: classes/x_class_mail_item.md
+    - PHP Class Mail Template: classes/x_class_mail_template.md
+    - PHP Class MySQL: classes/x_class_mysql.md
+    - PHP Class MySQL Item: classes/x_class_mysql_item.md
+    - PHP Class Permission: classes/x_class_perm.md
+    - PHP Class Permission Item: classes/x_class_perm_item.md
+    - PHP Class Redis: classes/x_class_redis.md
+    - PHP Class Referer: classes/x_class_referer.md
+    - PHP Class Session Blocking: classes/x_class_block.md
+    - PHP Class Table: classes/x_class_table.md
+    - PHP Class Translations: classes/x_class_lang.md
+    - PHP Class User: classes/x_class_user.md
+    - PHP Class Variables: classes/x_class_var.md
+    - PHP Class Version: classes/x_class_version.md
+    - PHP Class Zip: classes/x_class_zip.md
+    - Support: support.md
+    - License: license.md
+    - Impressum: https://bugfishtm.blogspot.com/2023/05/impressum.html
+    - Privacy: https://bugfishtm.blogspot.com/2023/05/privacy.html
+    - More by Bugfish: https://bugfishtm.github.io
+ 
+theme:
+  name: material
+  logo: ./logo.png
+  favicon: ./favicon.ico
+  primary: deep orange
+  language: 'en'
+  accent: deep orange
+  font: false
+  palette:
+    - scheme: slate
+      primary: deep orange
+      accent: deep orange
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+plugins:
+    - mkdocstrings
+    - search
+    - mkdocs-video
+    - meta-descriptions:
+       export_csv: false
+       quiet: false
+       enable_checks: false
+       min_length: 50
+       max_length: 160
+       trim: false
+    
+markdown_extensions:
+  - attr_list
+  
+use_directory_urls: false
+
+extra:
+  meta:
+    author: "Jan-Maurice Dahlmanns"
