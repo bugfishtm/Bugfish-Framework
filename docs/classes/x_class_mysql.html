@@ -20,7 +20,7 @@
     
     
       
-        <title>PHP Class MySQL - Bugfish Framework</title>
+        <title>MySQL - Bugfish Framework</title>
       
     
     
@@ -28,6 +28,7 @@
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
       
       
     <script type="application/ld+json">
@@ -72,6 +73,7 @@
 	<meta name="description" content="Manage MySQL databases with the x_class_mysql class. Includes advanced database handling and logging features, crucial for many other classes.">  
 	<meta name="og:description" content="Manage MySQL databases with the x_class_mysql class. Includes advanced database handling and logging features, crucial for many other classes.">  
 	<meta property="og:image" content="../meta.png" />
+
 
     
     
@@ -965,9 +967,63 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#miscellaneous" class="md-nav__link">
+  <a href="#table-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Miscellaneous
+      Table Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transactions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alias-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alias Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi Query
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Row Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Methods
     </span>
   </a>
   
@@ -1530,9 +1586,63 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#miscellaneous" class="md-nav__link">
+  <a href="#table-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Miscellaneous
+      Table Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transactions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alias-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alias Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi Query
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Row Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Methods
     </span>
   </a>
   
@@ -1875,7 +1985,277 @@
 </tr>
 </tbody>
 </table>
-<h3 id="miscellaneous">Miscellaneous</h3>
+<h3 id="table-functions">Table Functions</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Method Name</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Parameters</strong></th>
+<th><strong>Return Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table_exists</code></td>
+<td>Checks if a table exists in the database by trying to select from it.</td>
+<td>- <code>$tablename</code>: Name of the table to check.</td>
+<td>Returns the result of the query. <code>true</code> if the table exists, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>table_delete</code></td>
+<td>Deletes (drops) a specified table from the database.</td>
+<td>- <code>$tablename</code>: Name of the table to delete.</td>
+<td>Executes the <code>DROP TABLE</code> query and returns the result of the operation.</td>
+</tr>
+<tr>
+<td><code>table_create</code></td>
+<td>Creates a table with the given name.</td>
+<td>- <code>$tablename</code>: Name of the table to create.</td>
+<td>Executes the <code>CREATE TABLE</code> query and returns the result of the operation.</td>
+</tr>
+<tr>
+<td><code>auto_increment</code></td>
+<td>Sets the auto-increment value for a specified table.</td>
+<td>- <code>$table</code>: Name of the table. <br> - <code>$value</code>: The new auto-increment value.</td>
+<td>Executes the <code>ALTER TABLE</code> query to set auto-increment and returns the result of the operation.</td>
+</tr>
+<tr>
+<td><code>table_backup</code></td>
+<td>Backs up the structure and optionally the data of a specified table, saving it to a file if provided.</td>
+<td>- <code>$table</code>: Name of the table to back up. <br> - <code>$filepath</code> (optional): Path to save the backup file. <br> - <code>$withdata</code> (optional): Boolean to include table data (default: <code>true</code>). <br> - <code>$dropstate</code> (optional): Boolean to include <code>DROP TABLE IF EXISTS</code> in backup (default: <code>false</code>).</td>
+<td>Returns the table structure and data as a string. Optionally writes the backup to a file if <code>$filepath</code> is provided.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="database-functions">Database Functions</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Method Name</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Parameters</strong></th>
+<th><strong>Return Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>database_delete</code></td>
+<td>Deletes (drops) a specified database.</td>
+<td>- <code>$database</code>: The name of the database to delete.</td>
+<td>Executes the <code>DROP DATABASE</code> query and returns the result of the operation.</td>
+</tr>
+<tr>
+<td><code>database_create</code></td>
+<td>Creates a new database with the given name.</td>
+<td>- <code>$database</code>: The name of the database to create.</td>
+<td>Executes the <code>CREATE DATABASE</code> query and returns the result of the operation.</td>
+</tr>
+<tr>
+<td><code>database_select</code></td>
+<td>Selects a specific database for subsequent queries.</td>
+<td>- <code>$database</code>: The name of the database to select.</td>
+<td>Returns <code>true</code> if the database is selected successfully, or handles errors and returns <code>false</code> on failure.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transactions">Transactions</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Method Name</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Parameters</strong></th>
+<th><strong>Return Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transaction</code></td>
+<td>Starts a database transaction if none is already running. Optionally disables auto-commit.</td>
+<td>- <code>$autocommit</code>: Boolean flag to set whether auto-commit is enabled (default: <code>false</code>).</td>
+<td>Returns <code>true</code> if the transaction starts successfully, <code>false</code> if already running, or handles exceptions gracefully.</td>
+</tr>
+<tr>
+<td><code>rollback</code></td>
+<td>Rolls back the current transaction if one is running.</td>
+<td>N/A</td>
+<td>Returns <code>true</code> if rollback is successful, <code>false</code> if no transaction is running, or handles exceptions.</td>
+</tr>
+<tr>
+<td><code>transactionStatus</code></td>
+<td>Checks whether a transaction is currently active.</td>
+<td>N/A</td>
+<td>Returns <code>true</code> if a transaction is running, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>commit</code></td>
+<td>Commits the current transaction if one is running.</td>
+<td>N/A</td>
+<td>Returns <code>true</code> if commit is successful, <code>false</code> if no transaction is running, or handles exceptions.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alias-functions">Alias Functions</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Method Name</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Parameters</strong></th>
+<th><strong>Return Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__destruct</code></td>
+<td>Destructor method that closes the connection or performs cleanup when the object is destroyed.</td>
+<td>N/A</td>
+<td>No return value. The function doesn't perform any operations but is defined to properly destroy the object.</td>
+</tr>
+<tr>
+<td><code>escape</code></td>
+<td>Escapes a variable to make it safe for use in an SQL query. Handles both simple values and arrays/objects.</td>
+<td>- <code>$val</code>: The value to escape. Can be a string, object, or array.</td>
+<td>Returns the escaped string using <code>mysqli_real_escape_string()</code> or serialized object/array (escaped).</td>
+</tr>
+<tr>
+<td><code>next_result</code></td>
+<td>Advances the result pointer to the next result in a multi-query execution.</td>
+<td>N/A</td>
+<td>Returns the result of <code>mysqli_next_result()</code>, or <code>false</code> if an error occurs.</td>
+</tr>
+<tr>
+<td><code>store_result</code></td>
+<td>Stores the result set from the last query in the multi-query execution.</td>
+<td>N/A</td>
+<td>Returns the result set from <code>mysqli_store_result()</code>, or <code>false</code> on failure.</td>
+</tr>
+<tr>
+<td><code>more_results</code></td>
+<td>Checks if there are more results available in the multi-query execution.</td>
+<td>N/A</td>
+<td>Returns the result of <code>mysqli_more_results()</code>, or <code>false</code> on failure.</td>
+</tr>
+<tr>
+<td><code>fetch_array</code></td>
+<td>Fetches a result row as an associative array, numeric array, or both.</td>
+<td>- <code>$result</code>: The result set resource returned from a query.</td>
+<td>Returns the result row as an array, or <code>false</code> if an error occurs.</td>
+</tr>
+<tr>
+<td><code>fetch_object</code></td>
+<td>Fetches a result row as an object.</td>
+<td>- <code>$result</code>: The result set resource returned from a query.</td>
+<td>Returns the result row as an object, or <code>false</code> on failure.</td>
+</tr>
+<tr>
+<td><code>free_result</code></td>
+<td>Frees the memory associated with a result set.</td>
+<td>- <code>$result</code>: The result set resource to free.</td>
+<td>Returns <code>true</code> on success, or <code>false</code> on failure.</td>
+</tr>
+<tr>
+<td><code>use_result</code></td>
+<td>Initiates retrieval of a result set from a query that is to be retrieved row by row.</td>
+<td>N/A</td>
+<td>Returns the result of <code>mysqli_use_result()</code>, or <code>false</code> on failure.</td>
+</tr>
+<tr>
+<td><code>free_all</code></td>
+<td>Frees all result sets and fetches the remaining results in a multi-query execution.</td>
+<td>N/A</td>
+<td>Returns an array of all results fetched from the multi-query execution.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multi-query">Multi Query</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Method Name</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Parameters</strong></th>
+<th><strong>Return Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>multi_query</code></td>
+<td>Executes a multi-query SQL string. Allows executing multiple SQL statements in a single query.</td>
+<td>- <code>$query</code>: The SQL query string containing multiple statements.</td>
+<td>Returns the result of <code>multi_query()</code> or, if an exception occurs, handles it and returns <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>multi_query_file</code></td>
+<td>Executes a multi-query SQL from a file. Reads an SQL file and runs the queries contained within it.</td>
+<td>- <code>$file</code>: The path to the file containing the SQL queries.</td>
+<td>Returns the result of the <code>multi_query()</code> operation on the SQL file's content or <code>false</code> if the file doesn't exist.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="row-functions">Row Functions</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Method Name</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Parameters</strong></th>
+<th><strong>Return Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>row_element_increase</code></td>
+<td>Increases a numeric field in a specified table by a given value (defaults to 1).</td>
+<td>- <code>$table</code>: The table name. <br> - <code>$nameidfield</code>: The column name used for identifying the row. <br> - <code>$id</code>: The identifier value for the row. <br> - <code>$increasefield</code>: The field to increase. <br> - <code>$increasevalue</code>: Amount to add.</td>
+<td>Returns <code>false</code> if <code>$id</code> or <code>$increasevalue</code> is not numeric; otherwise, it returns the result of the SQL <code>UPDATE</code> query.</td>
+</tr>
+<tr>
+<td><code>row_element_decrease</code></td>
+<td>Decreases a numeric field in a specified table by a given value (defaults to 1).</td>
+<td>- <code>$table</code>: The table name. <br> - <code>$nameidfield</code>: The column name used for identifying the row. <br> - <code>$id</code>: The identifier value for the row. <br> - <code>$decreasefield</code>: The field to decrease. <br> - <code>$decreasevalue</code>: Amount to subtract.</td>
+<td>Returns <code>false</code> if <code>$id</code> or <code>$decreasevalue</code> is not numeric; otherwise, it returns the result of the SQL <code>UPDATE</code> query.</td>
+</tr>
+<tr>
+<td><code>row_get</code></td>
+<td>Retrieves an entire row from a specified table based on the row ID.</td>
+<td>- <code>$table</code>: The table name. <br> - <code>$id</code>: The identifier value for the row. <br> - <code>$row</code>: The column name used to locate the row (default is <code>"id"</code>).</td>
+<td>Returns the row data as an array.</td>
+</tr>
+<tr>
+<td><code>row_element_get</code></td>
+<td>Retrieves a specific element from a row in the table. If the element is not found, it returns a fallback value.</td>
+<td>- <code>$table</code>: The table name. <br> - <code>$id</code>: The identifier value for the row. <br> - <code>$elementrow</code>: The column from which to fetch the value. <br> - <code>$fallback</code>: The value to return if the element isn't found. <br> - <code>$row</code>: Identifier column (default: <code>"id"</code>).</td>
+<td>Returns the value of the specified column or <code>$fallback</code> if not found.</td>
+</tr>
+<tr>
+<td><code>row_element_change</code></td>
+<td>Changes the value of a specific column in a row.</td>
+<td>- <code>$table</code>: The table name. <br> - <code>$id</code>: The identifier value for the row. <br> - <code>$element</code>: The new value to set. <br> - <code>$elementrow</code>: The column to change. <br> - <code>$row</code>: Identifier column (default: <code>"id"</code>).</td>
+<td>Returns the result of the SQL <code>UPDATE</code> query.</td>
+</tr>
+<tr>
+<td><code>row_exist</code></td>
+<td>Checks if a row with a specific ID exists in the table.</td>
+<td>- <code>$table</code>: The table name. <br> - <code>$id</code>: The identifier value for the row. <br> - <code>$row</code>: The column to match for existence (default: <code>"id"</code>).</td>
+<td>Returns <code>true</code> if the row exists, otherwise <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>rows_get</code></td>
+<td>Retrieves multiple rows from the table where the column matches the specified value.</td>
+<td>- <code>$table</code>: The table name. <br> - <code>$id</code>: The identifier value for the rows. <br> - <code>$row</code>: The column name used for filtering rows (default: <code>"id"</code>).</td>
+<td>Returns an array of rows that match the condition.</td>
+</tr>
+<tr>
+<td><code>row_del</code></td>
+<td>Deletes a row in the specified table based on the row's ID.</td>
+<td>- <code>$table</code>: The table name. <br> - <code>$id</code>: The identifier value for the row. <br> - <code>$row</code>: The column to identify the row (default: <code>"id"</code>).</td>
+<td>Returns the result of the SQL <code>DELETE</code> query.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="private-methods">Private Methods</h3>
 <table>
 <thead>
 <tr>
