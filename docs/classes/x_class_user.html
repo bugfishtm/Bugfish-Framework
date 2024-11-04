@@ -31,6 +31,10 @@
       
       
 
+
+    
+    
+      
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -75,9 +79,6 @@
 	<meta property="og:image" content="../meta.png" />
     
 
-    
-    
-      
     
     
       
@@ -1146,15 +1147,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#importance-of-confirmation-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      Importance of Confirmation States
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       Requirements
@@ -2194,15 +2186,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#importance-of-confirmation-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      Importance of Confirmation States
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       Requirements
@@ -3001,15 +2984,6 @@
 <ul>
 <li><strong>Internal Reference Handling</strong>: Manages and resets internal references to ensure clean user management operations.</li>
 </ul>
-<h2 id="importance-of-confirmation-states">Importance of Confirmation States</h2>
-<p>Maintaining user accounts in a confirmed state is crucial for data integrity and preventing conflicts (user_confirm validation):</p>
-<ul>
-<li><strong>Data Integrity</strong>: Unconfirmed accounts are provisional and may be subject to deletion or archival, which can lead to data loss if not managed properly.</li>
-<li><strong>Unique Email Management</strong>: Unconfirmed accounts with unique email addresses risk being overwritten or deleted if another user registers with the same email, potentially causing data conflicts.</li>
-<li><strong>Avoiding Data Duplication</strong>: Multiple unconfirmed accounts with the same email can lead to duplication and confusion, undermining system reliability.</li>
-<li><strong>Best Practices</strong>: Prompt account confirmation, clear policies for handling unconfirmed accounts, and regular reminders to users help maintain a reliable and consistent user database.</li>
-</ul>
-<p>Ensuring that user accounts are confirmed promptly is essential to preserving data integrity, avoiding conflicts, and maintaining a secure and consistent user management system.</p>
 <h2 id="requirements">Requirements</h2>
 <h3 id="php-modules">PHP Modules</h3>
 <ul>
@@ -4102,7 +4076,7 @@
 <tbody>
 <tr>
 <td><code>addUser($nameref, $mail, $password = false, $rank = false, $activated = false)</code></td>
-<td>Add a new user to the database. If <code>$mail</code> is unique, this deletes never-used, registered accounts with that mail. If <code>$activated</code> is true, the user will not need additional activation. You can define the user's rank, password, mail, and user reference.</td>
+<td>Add a new user to the database. If <code>$activated</code> is true, the user will not need additional activation. You can define the user's rank, password, mail, and user reference.</td>
 </tr>
 <tr>
 <td>add_user(<code>nameref</code>, <code>mail</code>, <code>password = false</code>, <code>rank = false</code>, <code>activated = false</code>)</td>
@@ -4126,7 +4100,6 @@
 <p><strong>Set Activation Status:</strong> The <code>$activated</code> parameter is converted to either <code>1</code> (activated) or <code>0</code> (not activated).</p>
 <p><strong>Set User Rank:</strong> If a <code>$rank</code> is not provided, it defaults to <code>0</code>.</p>
 <p><strong>Prepare Password:</strong> If a password is not provided or is empty, the function sets the password to <code>"NULL"</code>. Otherwise, the password is encrypted using the <code>password_crypt</code> method.</p>
-<p><strong>Handle Unconfirmed Email Changes:</strong> The function deletes any unconfirmed users (i.e., <code>user_confirmed = 0</code>) with the same reference to ensure that only one user with a specific reference exists.  Additionally, it updates any accounts where <code>user_shadow</code> (unconfirmed new email) matches the reference by clearing the <code>user_shadow</code> field. This ensures that the new email change is no longer pending and prevents conflicts.</p>
 <p><strong>Insert the New User:</strong> The function inserts the new user into the database with the provided <code>nameref</code>, <code>mail</code>, encrypted <code>password</code>, rank, and activation status.</p>
 <p><strong>Return Success:</strong><br>
 If the user is successfully added, the function returns <code>true</code>.</p>

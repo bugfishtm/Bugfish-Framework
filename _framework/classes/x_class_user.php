@@ -206,7 +206,7 @@ class x_class_user {
 		|___|___|  /__|  \___  >__|  |___|  (____  /____/
 				 \/          \/           \/     \/      Private Functions only used internaly in this class*/
 	## Cookies Functions
-	private function cookie_set($id, $key){if($this->cookies_use){setcookie($this->cookies."session_userid", $id, time() + $this->cookies_days * 24 * 60 * 60);setcookie($this->cookies."session_key", $key, time() + $this->cookies_days * 24 * 60 * 60);} return true;}
+	private function cookie_set($id, $key){if($this->cookies_use){ setcookie($this->cookies."session_userid", $id, time() + $this->cookies_days * 24 * 60 * 60);setcookie($this->cookies."session_key", $key, time() + $this->cookies_days * 24 * 60 * 60);} return true;}
 	private function cookie_unset(){if($this->cookies_use){unset($_COOKIE[$this->cookies.'session_key']);@setcookie($this->cookies.'session_key', '', time() - 3600, '/');unset($_COOKIE[$this->cookies.'session_userid']);@setcookie($this->cookies.'session_userid', '', time() - 3600, '/');} return true;}	
 	private function cookie_restore(){if($this->cookies_use){if(@is_numeric($_COOKIE[$this->cookies."session_userid"]) OR @isset($_COOKIE[$this->cookies."session_key"])){if(@$this->session_token_valid(@$_COOKIE[$this->sessions."session_userid"], @$_COOKIE[$this->sessions."session_key"])){@$_SESSION[$this->sessions."x_users_stay"] = true;@$_SESSION[$this->sessions."x_users_key"] = @$_COOKIE[$this->sessions."session_key"];@$_SESSION[$this->sessions."x_users_id"] = @$_COOKIE[$this->sessions."session_userid"];@$_SESSION[$this->sessions."x_users_ip"] = @$_SERVER["REMOTE_ADDR"];$this->session_restore();return true;}else{$this->cookie_unset();return false;}}return false;}return true;}			
 	## Check Time Interval Function	
@@ -784,7 +784,7 @@ class x_class_user {
 			$this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = ? WHERE id = '".$id."'", $bind);
 			return true;
 		}else{ 
-			if($this->mailExistsActive($new)){return false;}else{$this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = ? WHERE id = '".$id."'", $bind); return true;}}
+			if($this->mailExists($new)){return false;}else{$this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = ? WHERE id = '".$id."'", $bind); return true;}}
 		return false;}	
 	# Extradata User Array Field Modifications
 	public function get_extra($id = "undefined_framework_var") {
@@ -816,7 +816,8 @@ class x_class_user {
 			if($this->login_field == "user_mail") { $ref = $mail; } else { $ref = $nameref;  }
 			$bind[0]["value"] = strtolower(trim($ref ?? '')); $bind[0]["type"] = "s";
 			// Find Ref
-			$r = $this->mysql->select("SELECT * FROM `".$this->dt_users."` WHERE LOWER(".$this->login_field.") = ? AND user_confirmed = 1", false, $bind);
+			//$r = $this->mysql->select("SELECT * FROM `".$this->dt_users."` WHERE LOWER(".$this->login_field.") = ? AND user_confirmed = 1", false, $bind);
+			$r = $this->mysql->select("SELECT * FROM `".$this->dt_users."` WHERE LOWER(".$this->login_field.") = ?", false, $bind);
 			// User Exists Active with Ref
 			if(is_array($r)){ return false;   }  		
 		// Prepare Activated
@@ -826,7 +827,7 @@ class x_class_user {
 		// Prepare Password
 		if(!$password OR trim($password ?? '') == "") {$password = "NULL";} else {$password = $this->password_crypt($password);}		
 		//Delete Other Unconfirmed
-		$this->mysql->query("DELETE FROM `".$this->dt_users."` WHERE user_confirmed = 0  AND LOWER(".$this->login_field.") = ?", $bind);
+		//$this->mysql->query("DELETE FROM `".$this->dt_users."` WHERE user_confirmed = 0  AND LOWER(".$this->login_field.") = ?", $bind);
 		$this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = NULL WHERE LOWER(user_shadow) = ?", $bind);
 		//Query
 		$bind[0]["value"] = trim($nameref ?? ''); $bind[0]["type"] = "s";
@@ -845,8 +846,8 @@ class x_class_user {
 		} else { 
 			$r = $this->mysql->query("SELECT * FROM `".$this->dt_users."` WHERE id = '".$id."'");
 			if($rrx = $this->mysql->fetch_array($r)){ if(trim(strtolower($rrx["user_mail"]) ?? '') == trim(strtolower($new) ?? '')) {return true;}}
-			if($this->mailExistsActive($new)) {return false;} else {
-				$this->mysql->query("DELETE FROM `".$this->dt_users."` WHERE user_confirmed = 0 AND LOWER(user_mail) = ?", $bind);
+			if($this->mailExists($new)) {return false;} else {
+				//$this->mysql->query("DELETE FROM `".$this->dt_users."` WHERE user_confirmed = 0 AND LOWER(user_mail) = ?", $bind);
 				$this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = NULL WHERE LOWER(user_shadow) = ?", $bind);
 				$this->mysql->query("UPDATE `".$this->dt_users."` SET user_mail = ? WHERE id = '".$id."'", $bind);
 				return  true;}
@@ -1104,10 +1105,10 @@ class x_class_user {
 						// Set Shadow Mail to Null
 						$this->mysql->query("UPDATE `".$this->dt_users."` SET user_shadow = NULL WHERE id = '".$userid."'");
 					} else {
-			// Prepare Mail Bind
+						// Prepare Mail Bind
 						$bindm[0]["type"] = "s"; $bindm[0]["value"] =strtolower(trim($xf["user_shadow"] ?? '' ));
 						// Delete Unconfirmed Account if Exists
-						$this->mysql->query("DELETE FROM `".$this->dt_users."` WHERE LOWER(user_mail) = ? AND user_confirmed = 0", $bindm);
+						// $this->mysql->query("DELETE FROM `".$this->dt_users."` WHERE LOWER(user_mail) = ? AND user_confirmed = 0", $bindm);
 						// Mail already Existant otherwhise change
 						if(!$this->changeUserMail($f["fk_user"], $xf["user_shadow"])) { $this->mc_request_code = 6; return 6; }		
 						// Update Edit Counter

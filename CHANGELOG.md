@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.33] - 2024-08-23
+### Changes
+- Disabled User Class un-confirmed Account Deletion on Adduser and Mail Edit Functionalities to prevent data lass. Now Error Messages.
+
 ## [3.32] - 2024-08-23
 ### Changes
 - Additional method in `x_class_user` for confirmation of Users.

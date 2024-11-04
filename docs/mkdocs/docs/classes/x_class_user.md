@@ -29,18 +29,6 @@ The `x_class_user` PHP class is a versatile and robust solution designed for sea
 ### Reference Management
 - **Internal Reference Handling**: Manages and resets internal references to ensure clean user management operations.
 
-## Importance of Confirmation States
-
-Maintaining user accounts in a confirmed state is crucial for data integrity and preventing conflicts (user_confirm validation):
-
-- **Data Integrity**: Unconfirmed accounts are provisional and may be subject to deletion or archival, which can lead to data loss if not managed properly.
-- **Unique Email Management**: Unconfirmed accounts with unique email addresses risk being overwritten or deleted if another user registers with the same email, potentially causing data conflicts.
-- **Avoiding Data Duplication**: Multiple unconfirmed accounts with the same email can lead to duplication and confusion, undermining system reliability.
-- **Best Practices**: Prompt account confirmation, clear policies for handling unconfirmed accounts, and regular reminders to users help maintain a reliable and consistent user database.
-
-Ensuring that user accounts are confirmed promptly is essential to preserving data integrity, avoiding conflicts, and maintaining a secure and consistent user management system.
-
-
 ## Requirements
 
 ### PHP Modules
@@ -358,7 +346,7 @@ If you do not provide an ID here, the actual logged-in executing user will be ha
 
 | User Operation Functions               | Description                                                                                      |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|
-| `addUser($nameref, $mail, $password = false, $rank = false, $activated = false)` | Add a new user to the database. If `$mail` is unique, this deletes never-used, registered accounts with that mail. If `$activated` is true, the user will not need additional activation. You can define the user's rank, password, mail, and user reference. |
+| `addUser($nameref, $mail, $password = false, $rank = false, $activated = false)` | Add a new user to the database. If `$activated` is true, the user will not need additional activation. You can define the user's rank, password, mail, and user reference. |
 | add_user(`nameref`, `mail`, `password = false`, `rank = false`, `activated = false`) | Adds a new user to the system. **Parameters**: `nameref` - The username reference. `mail` - The user's email. `password` - The user's password (optional). `rank` - The user's rank (optional). `activated` - Whether the user is activated (optional). |
 
 
@@ -383,8 +371,6 @@ The `addUser` function in the `x_class_user` class is designed to add a new user
 **Set User Rank:** If a `$rank` is not provided, it defaults to `0`.
 
 **Prepare Password:** If a password is not provided or is empty, the function sets the password to `"NULL"`. Otherwise, the password is encrypted using the `password_crypt` method.
-
-**Handle Unconfirmed Email Changes:** The function deletes any unconfirmed users (i.e., `user_confirmed = 0`) with the same reference to ensure that only one user with a specific reference exists.  Additionally, it updates any accounts where `user_shadow` (unconfirmed new email) matches the reference by clearing the `user_shadow` field. This ensures that the new email change is no longer pending and prevents conflicts.
 
 **Insert the New User:** The function inserts the new user into the database with the provided `nameref`, `mail`, encrypted `password`, rank, and activation status.
 
