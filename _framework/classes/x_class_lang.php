@@ -92,8 +92,7 @@
 			if(is_array($rres)) {
 				foreach($rres as $key => $value) {
 					$newar = array();
-					$newar[$value["identificator"]] = $value;
-					array_push($this->array, $newar);
+					$this->array[$value["identificator"]] = $value["translation"];
 				}
 			} 
 		}

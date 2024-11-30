@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.34] - 2024-11-29
+### Changes
+- Language Class x_class_lang array from Database now same structure as from file retrieval.
+
 ## [3.33] - 2024-08-23
 ### Changes
 - Disabled User Class un-confirmed Account Deletion on Adduser and Mail Edit Functionalities to prevent data lass. New Error Messages.
