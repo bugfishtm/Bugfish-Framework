@@ -4,6 +4,11 @@
 
 The Bugfish Framework, meticulously designed for web developers, prioritizes security, flexibility, and performance. Its architecture streamlines development processes, enhancing efficiency and scalability, while a dedicated community provides support and resources for developers to maximize their projects' potential. Comprehensive documentation accompanies the framework, offering detailed insights into every function and class, accessible [here](https://bugfishtm.github.io/bugfish-framework/), serving as an invaluable resource to deepen understanding and facilitate smoother development workflows.
 
+## Documentation
+This framework is documented inside the files you can find in the "docs" folder. Just open the index.html with your web browser and you can navigate through the documentation of every class and function.
+
+You can also find the documentation at: 
+https://bugfishtm.github.io/bugfish-framework/
 
 ## Repository Folders
 
@@ -62,7 +67,7 @@ Access a comprehensive array of JavaScript functions designed for integration ac
 
 If you want to support us, include this image somewhere in your project, that people can see this project has been created with help of this framework:
 
-![a](./_images/bugfish-framework-banner.jpg)
+![a](./_images/banner.jpg)
 
 ## Get Support
 
@@ -71,3 +76,5 @@ Should you encounter any issues or have questions while using this software, ple
 ## Licensing Information
 
 The Bugfish Framework is released under the GPLv3 License, affording you the freedom to use, modify, and distribute the project as you see fit. It is imperative to note that the "_vendor" folder contains various libraries, each with its own unique licenses. To ensure full compliance and understanding of the licensing terms associated with these included libraries, we encourage you to consult our comprehensive documentation on our GitHub page. This documentation provides exhaustive information regarding the specific licenses and any additional requirements tied to individual libraries. Your responsible adherence to these licenses is pivotal when utilizing this project. Your interest and collaboration are greatly appreciated. See Documentation of this Project in the _docs folder to get more insights about licenses of libraries used in this framework. All of them are LGPL or GPL Licenses.
+
+🐟 Bugfish <3

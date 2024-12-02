@@ -1,17 +1,15 @@
 <?php
 	/* 
-			bb                       fff iii       hh      
-			bb      uu   uu  gggggg ff        sss  hh      
-			bbbbbb  uu   uu gg   gg ffff iii s     hhhhhh  
-			bb   bb uu   uu ggggggg ff   iii  sss  hh   hh 
-			bbbbbb   uuuu u      gg ff   iii     s hh   hh 
-							 ggggg            sss          
-
-			 ____  ____    __    __  __  ____  _    _  _____  ____  _  _ 
-			( ___)(  _ \  /__\  (  \/  )( ___)( \/\/ )(  _  )(  _ \( )/ )
-			 )__)  )   / /(__)\  )    (  )__)  )    (  )(_)(  )   / )  ( 
-			(__)  (_)\_)(__)(__)(_/\/\_)(____)(__/\__)(_____)(_)\_)(_)\_)
-							
+		 ____  __  __  ___  ____  ____  ___  _   _ 
+		(  _ \(  )(  )/ __)( ___)(_  _)/ __)( )_( )
+		 ) _ < )(__)(( (_-. )__)  _)(_ \__ \ ) _ ( 
+		(____/(______)\___/(__)  (____)(___/(_) (_) www.bugfish.eu
+			  ___                                         _     
+			 / __)                                       | |    
+			| |__ ____ ____ ____   ____ _ _ _  ___   ____| |  _ 
+			|  __) ___) _  |    \ / _  ) | | |/ _ \ / ___) | / )
+			| | | |  ( ( | | | | ( (/ /| | | | |_| | |   | |< ( 
+			|_| |_|   \_||_|_|_|_|\____)\____|\___/|_|   |_| \_)
 		Copyright (C) 2024 Jan Maurice Dahlmanns [Bugfish]
 
 		This program is free software: you can redistribute it and/or modify

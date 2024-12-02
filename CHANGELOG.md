@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.35] - 2024-11-29
+### Changes
+- Changes on the Documentation
+- Change on General GLP Notice
+ 
 ## [3.34] - 2024-11-29
 ### Changes
 - Language Class x_class_lang array from Database now same structure as from file retrieval.
