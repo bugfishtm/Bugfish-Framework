@@ -1,5 +1,14 @@
 # Changelog
 
+
+## [3.36] - 2025-01-13
+### Changes
+- x_class_mail_template: Now contains Database Key for Language (Reinstallation Required of Table)
+- x_class_mail_template: name_exists($name) function now gives back ID instead of true.
+- x_class_mail_template: Changes in different functions to use languages keys for templates. (Multi Language)
+- x_class_user: Added Additional Table fields for SuitefishCMS (No Reinstallation required, fields are just optional for use with suitefish-cms)
+- x_class_user: New User Table Fields: user_firstname, user_lastname, user_street, user_company, user_postcode, user_country, user_city, user_region, user_tel
+
 ## [3.35] - 2024-11-29
 ### Changes
 - Changes on the Documentation
